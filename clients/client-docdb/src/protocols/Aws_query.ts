@@ -193,6 +193,10 @@ import {
 } from "../commands/RestoreDBClusterToPointInTimeCommand";
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "../commands/StartDBClusterCommand";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "../commands/StopDBClusterCommand";
+import {
+  SwitchoverGlobalClusterCommandInput,
+  SwitchoverGlobalClusterCommandOutput,
+} from "../commands/SwitchoverGlobalClusterCommand";
 import { DocDBServiceException as __BaseException } from "../models/DocDBServiceException";
 import {
   AddSourceIdentifierToSubscriptionMessage,
@@ -382,6 +386,8 @@ import {
   SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault,
+  SwitchoverGlobalClusterMessage,
+  SwitchoverGlobalClusterResult,
   Tag,
   TagListMessage,
   UpgradeTarget,
@@ -1284,6 +1290,23 @@ export const se_StopDBClusterCommand = async (
   body = buildFormUrlencodedString({
     ...se_StopDBClusterMessage(input, context),
     [_A]: _SDBCt,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_querySwitchoverGlobalClusterCommand
+ */
+export const se_SwitchoverGlobalClusterCommand = async (
+  input: SwitchoverGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_SwitchoverGlobalClusterMessage(input, context),
+    [_A]: _SGC,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2337,6 +2360,26 @@ export const de_StopDBClusterCommand = async (
   let contents: any = {};
   contents = de_StopDBClusterResult(data.StopDBClusterResult, context);
   const response: StopDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySwitchoverGlobalClusterCommand
+ */
+export const de_SwitchoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SwitchoverGlobalClusterResult(data.SwitchoverGlobalClusterResult, context);
+  const response: SwitchoverGlobalClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -5258,6 +5301,20 @@ const se_SubnetIdentifierList = (input: string[], context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_querySwitchoverGlobalClusterMessage
+ */
+const se_SwitchoverGlobalClusterMessage = (input: SwitchoverGlobalClusterMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
+  }
+  if (input[_TDCI] != null) {
+    entries[_TDCI] = input[_TDCI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryTag
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
@@ -7831,6 +7888,17 @@ const de_SubscriptionNotFoundFault = (output: any, context: __SerdeContext): Sub
 };
 
 /**
+ * deserializeAws_querySwitchoverGlobalClusterResult
+ */
+const de_SwitchoverGlobalClusterResult = (output: any, context: __SerdeContext): SwitchoverGlobalClusterResult => {
+  const contents: any = {};
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryTag
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
@@ -8214,6 +8282,7 @@ const _SDBCSI = "SourceDBClusterSnapshotIdentifier";
 const _SDBCt = "StopDBCluster";
 const _SE = "StorageEncrypted";
 const _SFS = "SkipFinalSnapshot";
+const _SGC = "SwitchoverGlobalCluster";
 const _SGS = "SubnetGroupStatus";
 const _SI = "SourceIdentifier";
 const _SIL = "SourceIdsList";
@@ -8240,6 +8309,7 @@ const _TDBCPGD = "TargetDBClusterParameterGroupDescription";
 const _TDBCPGI = "TargetDBClusterParameterGroupIdentifier";
 const _TDBCSI = "TargetDBClusterSnapshotIdentifier";
 const _TDBII = "TargetDBInstanceIdentifier";
+const _TDCI = "TargetDbClusterIdentifier";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _Ta = "Tag";

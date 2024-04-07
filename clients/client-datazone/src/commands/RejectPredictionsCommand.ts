@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectPredictionsInput } from "../models/models_0";
-import { RejectPredictionsOutput } from "../models/models_1";
+import { RejectPredictionsInput, RejectPredictionsOutput } from "../models/models_1";
 import { de_RejectPredictionsCommand, se_RejectPredictionsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -46,7 +45,7 @@ export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput,
  *   },
  *   rejectChoices: [ // RejectChoices
  *     { // RejectChoice
- *       predictionTarget: "STRING_VALUE",
+ *       predictionTarget: "STRING_VALUE", // required
  *       predictionChoices: [ // PredictionChoices
  *         Number("int"),
  *       ],
@@ -72,6 +71,9 @@ export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput,
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>

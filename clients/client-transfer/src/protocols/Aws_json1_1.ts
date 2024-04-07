@@ -2854,6 +2854,8 @@ const de_ListHostKeysResponse = (output: any, context: __SerdeContext): ListHost
 
 // de_SecurityPolicyOptions omitted.
 
+// de_SecurityPolicyProtocols omitted.
+
 // de_SendWorkflowStepStateResponse omitted.
 
 // de_ServiceManagedEgressIpAddresses omitted.

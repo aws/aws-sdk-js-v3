@@ -13,6 +13,11 @@ import {
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
 import {
+  CancelMetadataGenerationRunCommand,
+  CancelMetadataGenerationRunCommandInput,
+  CancelMetadataGenerationRunCommandOutput,
+} from "./commands/CancelMetadataGenerationRunCommand";
+import {
   CancelSubscriptionCommand,
   CancelSubscriptionCommandInput,
   CancelSubscriptionCommandOutput,
@@ -179,6 +184,11 @@ import {
   DeleteSubscriptionTargetCommandInput,
   DeleteSubscriptionTargetCommandOutput,
 } from "./commands/DeleteSubscriptionTargetCommand";
+import {
+  DeleteTimeSeriesDataPointsCommand,
+  DeleteTimeSeriesDataPointsCommandInput,
+  DeleteTimeSeriesDataPointsCommandOutput,
+} from "./commands/DeleteTimeSeriesDataPointsCommand";
 import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import {
   GetAssetTypeCommand,
@@ -234,6 +244,11 @@ import {
   GetIamPortalLoginUrlCommandOutput,
 } from "./commands/GetIamPortalLoginUrlCommand";
 import { GetListingCommand, GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
+import {
+  GetMetadataGenerationRunCommand,
+  GetMetadataGenerationRunCommandInput,
+  GetMetadataGenerationRunCommandOutput,
+} from "./commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommand, GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import {
   GetSubscriptionCommand,
@@ -255,6 +270,11 @@ import {
   GetSubscriptionTargetCommandInput,
   GetSubscriptionTargetCommandOutput,
 } from "./commands/GetSubscriptionTargetCommand";
+import {
+  GetTimeSeriesDataPointCommand,
+  GetTimeSeriesDataPointCommandInput,
+  GetTimeSeriesDataPointCommandOutput,
+} from "./commands/GetTimeSeriesDataPointCommand";
 import {
   GetUserProfileCommand,
   GetUserProfileCommandInput,
@@ -302,6 +322,11 @@ import {
   ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  ListMetadataGenerationRunsCommand,
+  ListMetadataGenerationRunsCommandInput,
+  ListMetadataGenerationRunsCommandOutput,
+} from "./commands/ListMetadataGenerationRunsCommand";
+import {
   ListNotificationsCommand,
   ListNotificationsCommandInput,
   ListNotificationsCommandOutput,
@@ -341,6 +366,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTimeSeriesDataPointsCommand,
+  ListTimeSeriesDataPointsCommandInput,
+  ListTimeSeriesDataPointsCommandOutput,
+} from "./commands/ListTimeSeriesDataPointsCommand";
+import {
+  PostTimeSeriesDataPointsCommand,
+  PostTimeSeriesDataPointsCommandInput,
+  PostTimeSeriesDataPointsCommandOutput,
+} from "./commands/PostTimeSeriesDataPointsCommand";
 import {
   PutEnvironmentBlueprintConfigurationCommand,
   PutEnvironmentBlueprintConfigurationCommandInput,
@@ -383,6 +418,11 @@ import {
   StartDataSourceRunCommandInput,
   StartDataSourceRunCommandOutput,
 } from "./commands/StartDataSourceRunCommand";
+import {
+  StartMetadataGenerationRunCommand,
+  StartMetadataGenerationRunCommandInput,
+  StartMetadataGenerationRunCommandOutput,
+} from "./commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -454,6 +494,7 @@ import { DataZoneClient, DataZoneClientConfig } from "./DataZoneClient";
 const commands = {
   AcceptPredictionsCommand,
   AcceptSubscriptionRequestCommand,
+  CancelMetadataGenerationRunCommand,
   CancelSubscriptionCommand,
   CreateAssetCommand,
   CreateAssetRevisionCommand,
@@ -489,6 +530,7 @@ const commands = {
   DeleteSubscriptionGrantCommand,
   DeleteSubscriptionRequestCommand,
   DeleteSubscriptionTargetCommand,
+  DeleteTimeSeriesDataPointsCommand,
   GetAssetCommand,
   GetAssetTypeCommand,
   GetDataSourceCommand,
@@ -504,11 +546,13 @@ const commands = {
   GetGroupProfileCommand,
   GetIamPortalLoginUrlCommand,
   GetListingCommand,
+  GetMetadataGenerationRunCommand,
   GetProjectCommand,
   GetSubscriptionCommand,
   GetSubscriptionGrantCommand,
   GetSubscriptionRequestDetailsCommand,
   GetSubscriptionTargetCommand,
+  GetTimeSeriesDataPointCommand,
   GetUserProfileCommand,
   ListAssetRevisionsCommand,
   ListDataSourceRunActivitiesCommand,
@@ -519,6 +563,7 @@ const commands = {
   ListEnvironmentBlueprintsCommand,
   ListEnvironmentProfilesCommand,
   ListEnvironmentsCommand,
+  ListMetadataGenerationRunsCommand,
   ListNotificationsCommand,
   ListProjectMembershipsCommand,
   ListProjectsCommand,
@@ -527,6 +572,8 @@ const commands = {
   ListSubscriptionsCommand,
   ListSubscriptionTargetsCommand,
   ListTagsForResourceCommand,
+  ListTimeSeriesDataPointsCommand,
+  PostTimeSeriesDataPointsCommand,
   PutEnvironmentBlueprintConfigurationCommand,
   RejectPredictionsCommand,
   RejectSubscriptionRequestCommand,
@@ -537,6 +584,7 @@ const commands = {
   SearchTypesCommand,
   SearchUserProfilesCommand,
   StartDataSourceRunCommand,
+  StartMetadataGenerationRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDataSourceCommand,
@@ -586,6 +634,23 @@ export interface DataZone {
     args: AcceptSubscriptionRequestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptSubscriptionRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelMetadataGenerationRunCommand}
+   */
+  cancelMetadataGenerationRun(
+    args: CancelMetadataGenerationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelMetadataGenerationRunCommandOutput>;
+  cancelMetadataGenerationRun(
+    args: CancelMetadataGenerationRunCommandInput,
+    cb: (err: any, data?: CancelMetadataGenerationRunCommandOutput) => void
+  ): void;
+  cancelMetadataGenerationRun(
+    args: CancelMetadataGenerationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelMetadataGenerationRunCommandOutput) => void
   ): void;
 
   /**
@@ -1124,6 +1189,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link DeleteTimeSeriesDataPointsCommand}
+   */
+  deleteTimeSeriesDataPoints(
+    args: DeleteTimeSeriesDataPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTimeSeriesDataPointsCommandOutput>;
+  deleteTimeSeriesDataPoints(
+    args: DeleteTimeSeriesDataPointsCommandInput,
+    cb: (err: any, data?: DeleteTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+  deleteTimeSeriesDataPoints(
+    args: DeleteTimeSeriesDataPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAssetCommand}
    */
   getAsset(args: GetAssetCommandInput, options?: __HttpHandlerOptions): Promise<GetAssetCommandOutput>;
@@ -1328,6 +1410,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link GetMetadataGenerationRunCommand}
+   */
+  getMetadataGenerationRun(
+    args: GetMetadataGenerationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetadataGenerationRunCommandOutput>;
+  getMetadataGenerationRun(
+    args: GetMetadataGenerationRunCommandInput,
+    cb: (err: any, data?: GetMetadataGenerationRunCommandOutput) => void
+  ): void;
+  getMetadataGenerationRun(
+    args: GetMetadataGenerationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetadataGenerationRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetProjectCommand}
    */
   getProject(args: GetProjectCommandInput, options?: __HttpHandlerOptions): Promise<GetProjectCommandOutput>;
@@ -1401,6 +1500,23 @@ export interface DataZone {
     args: GetSubscriptionTargetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSubscriptionTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTimeSeriesDataPointCommand}
+   */
+  getTimeSeriesDataPoint(
+    args: GetTimeSeriesDataPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTimeSeriesDataPointCommandOutput>;
+  getTimeSeriesDataPoint(
+    args: GetTimeSeriesDataPointCommandInput,
+    cb: (err: any, data?: GetTimeSeriesDataPointCommandOutput) => void
+  ): void;
+  getTimeSeriesDataPoint(
+    args: GetTimeSeriesDataPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTimeSeriesDataPointCommandOutput) => void
   ): void;
 
   /**
@@ -1563,6 +1679,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link ListMetadataGenerationRunsCommand}
+   */
+  listMetadataGenerationRuns(
+    args: ListMetadataGenerationRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetadataGenerationRunsCommandOutput>;
+  listMetadataGenerationRuns(
+    args: ListMetadataGenerationRunsCommandInput,
+    cb: (err: any, data?: ListMetadataGenerationRunsCommandOutput) => void
+  ): void;
+  listMetadataGenerationRuns(
+    args: ListMetadataGenerationRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetadataGenerationRunsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNotificationsCommand}
    */
   listNotifications(
@@ -1690,6 +1823,40 @@ export interface DataZone {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTimeSeriesDataPointsCommand}
+   */
+  listTimeSeriesDataPoints(
+    args: ListTimeSeriesDataPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTimeSeriesDataPointsCommandOutput>;
+  listTimeSeriesDataPoints(
+    args: ListTimeSeriesDataPointsCommandInput,
+    cb: (err: any, data?: ListTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+  listTimeSeriesDataPoints(
+    args: ListTimeSeriesDataPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PostTimeSeriesDataPointsCommand}
+   */
+  postTimeSeriesDataPoints(
+    args: PostTimeSeriesDataPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostTimeSeriesDataPointsCommandOutput>;
+  postTimeSeriesDataPoints(
+    args: PostTimeSeriesDataPointsCommandInput,
+    cb: (err: any, data?: PostTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+  postTimeSeriesDataPoints(
+    args: PostTimeSeriesDataPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PostTimeSeriesDataPointsCommandOutput) => void
   ): void;
 
   /**
@@ -1845,6 +2012,23 @@ export interface DataZone {
     args: StartDataSourceRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartDataSourceRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetadataGenerationRunCommand}
+   */
+  startMetadataGenerationRun(
+    args: StartMetadataGenerationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetadataGenerationRunCommandOutput>;
+  startMetadataGenerationRun(
+    args: StartMetadataGenerationRunCommandInput,
+    cb: (err: any, data?: StartMetadataGenerationRunCommandOutput) => void
+  ): void;
+  startMetadataGenerationRun(
+    args: StartMetadataGenerationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetadataGenerationRunCommandOutput) => void
   ): void;
 
   /**

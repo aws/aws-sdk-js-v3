@@ -41,6 +41,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *     name: "STRING_VALUE",
  *     regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
  *     protocolPolicy: "http-only" || "https-only",
+ *     responseTimeout: Number("int"),
  *   },
  *   defaultCacheBehavior: { // CacheBehavior
  *     behavior: "dont-cache" || "cache",
@@ -77,6 +78,9 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *     },
  *   ],
  *   isEnabled: true || false,
+ *   viewerMinimumTlsProtocolVersion: "TLSv1.1_2016" || "TLSv1.2_2018" || "TLSv1.2_2019" || "TLSv1.2_2021",
+ *   certificateName: "STRING_VALUE",
+ *   useDefaultCertificate: true || false,
  * };
  * const command = new UpdateDistributionCommand(input);
  * const response = await client.send(command);

@@ -5337,7 +5337,31 @@ export interface InputOrigin {
    * @public
    */
   protocolPolicy?: OriginProtocolPolicyEnum;
+
+  /**
+   * <p>The amount of time, in seconds, that the distribution waits for a response after forwarding a request to the origin.
+   *     The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.</p>
+   * @public
+   */
+  responseTimeout?: number;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ViewerMinimumTlsProtocolVersionEnum = {
+  TLSv11_2016: "TLSv1.1_2016",
+  TLSv12_2018: "TLSv1.2_2018",
+  TLSv12_2019: "TLSv1.2_2019",
+  TLSv12_2021: "TLSv1.2_2021",
+} as const;
+
+/**
+ * @public
+ */
+export type ViewerMinimumTlsProtocolVersionEnum =
+  (typeof ViewerMinimumTlsProtocolVersionEnum)[keyof typeof ViewerMinimumTlsProtocolVersionEnum];
 
 /**
  * @public
@@ -5400,6 +5424,19 @@ export interface CreateDistributionRequest {
    * @public
    */
   tags?: Tag[];
+
+  /**
+   * <p>The name of the SSL/TLS certificate that you want to attach to the distribution.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html">GetCertificates</a> action to get a list of certificate names that you can specify.</p>
+   * @public
+   */
+  certificateName?: string;
+
+  /**
+   * <p>The minimum TLS protocol version for the SSL/TLS certificate.</p>
+   * @public
+   */
+  viewerMinimumTlsProtocolVersion?: ViewerMinimumTlsProtocolVersionEnum;
 }
 
 /**
@@ -5435,6 +5472,13 @@ export interface Origin {
    * @public
    */
   protocolPolicy?: OriginProtocolPolicyEnum;
+
+  /**
+   * <p>The amount of time, in seconds, that the distribution waits for a response after forwarding a request to the origin.
+   *     The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.</p>
+   * @public
+   */
+  responseTimeout?: number;
 }
 
 /**
@@ -5577,6 +5621,12 @@ export interface LightsailDistribution {
    * @public
    */
   tags?: Tag[];
+
+  /**
+   * <p>The minimum TLS protocol version that the distribution can use to communicate with viewers.</p>
+   * @public
+   */
+  viewerMinimumTlsProtocolVersion?: string;
 }
 
 /**
@@ -9286,18 +9336,6 @@ export interface GetContainerServiceMetricDataResult {
  * @public
  */
 export interface GetContainerServicePowersRequest {}
-
-/**
- * @public
- */
-export interface GetContainerServicePowersResult {
-  /**
-   * <p>An array of objects that describe the powers that can be specified for a container
-   *       service.</p>
-   * @public
-   */
-  powers?: ContainerServicePower[];
-}
 
 /**
  * @internal

@@ -183,6 +183,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //       errorMessage: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   visibilityStartTime: new Date("TIMESTAMP"),
+ * //   visibilityEndTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```

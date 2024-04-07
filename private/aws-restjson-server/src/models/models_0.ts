@@ -2030,7 +2030,6 @@ export namespace StructureListMember {
  */
 export interface JsonListsInputOutput {
   stringList?: string[];
-  sparseStringList?: string[];
   stringSet?: string[];
   integerList?: number[];
   booleanList?: boolean[];
@@ -2049,7 +2048,6 @@ export interface JsonListsInputOutput {
 export namespace JsonListsInputOutput {
   const memberValidators: {
     stringList?: __MultiConstraintValidator<Iterable<string>>;
-    sparseStringList?: __MultiConstraintValidator<Iterable<string>>;
     stringSet?: __MultiConstraintValidator<Iterable<string>>;
     integerList?: __MultiConstraintValidator<Iterable<number>>;
     booleanList?: __MultiConstraintValidator<Iterable<boolean>>;
@@ -2070,13 +2068,6 @@ export namespace JsonListsInputOutput {
         switch (member) {
           case "stringList": {
             memberValidators["stringList"] = new __CompositeCollectionValidator<string>(
-              new __NoOpValidator(),
-              new __NoOpValidator()
-            );
-            break;
-          }
-          case "sparseStringList": {
-            memberValidators["sparseStringList"] = new __CompositeCollectionValidator<string>(
               new __NoOpValidator(),
               new __NoOpValidator()
             );
@@ -2149,7 +2140,6 @@ export namespace JsonListsInputOutput {
     }
     return [
       ...getMemberValidator("stringList").validate(obj.stringList, `${path}/stringList`),
-      ...getMemberValidator("sparseStringList").validate(obj.sparseStringList, `${path}/sparseStringList`),
       ...getMemberValidator("stringSet").validate(obj.stringSet, `${path}/stringSet`),
       ...getMemberValidator("integerList").validate(obj.integerList, `${path}/integerList`),
       ...getMemberValidator("booleanList").validate(obj.booleanList, `${path}/booleanList`),
@@ -2167,29 +2157,19 @@ export namespace JsonListsInputOutput {
  */
 export interface JsonMapsInputOutput {
   denseStructMap?: Record<string, GreetingStruct>;
-  sparseStructMap?: Record<string, GreetingStruct>;
   denseNumberMap?: Record<string, number>;
   denseBooleanMap?: Record<string, boolean>;
   denseStringMap?: Record<string, string>;
-  sparseNumberMap?: Record<string, number>;
-  sparseBooleanMap?: Record<string, boolean>;
-  sparseStringMap?: Record<string, string>;
   denseSetMap?: Record<string, string[]>;
-  sparseSetMap?: Record<string, string[]>;
 }
 
 export namespace JsonMapsInputOutput {
   const memberValidators: {
     denseStructMap?: __MultiConstraintValidator<Record<string, GreetingStruct>>;
-    sparseStructMap?: __MultiConstraintValidator<Record<string, GreetingStruct>>;
     denseNumberMap?: __MultiConstraintValidator<Record<string, number>>;
     denseBooleanMap?: __MultiConstraintValidator<Record<string, boolean>>;
     denseStringMap?: __MultiConstraintValidator<Record<string, string>>;
-    sparseNumberMap?: __MultiConstraintValidator<Record<string, number>>;
-    sparseBooleanMap?: __MultiConstraintValidator<Record<string, boolean>>;
-    sparseStringMap?: __MultiConstraintValidator<Record<string, string>>;
     denseSetMap?: __MultiConstraintValidator<Record<string, string[]>>;
-    sparseSetMap?: __MultiConstraintValidator<Record<string, string[]>>;
   } = {};
   /**
    * @internal
@@ -2202,14 +2182,6 @@ export namespace JsonMapsInputOutput {
         switch (member) {
           case "denseStructMap": {
             memberValidators["denseStructMap"] = new __CompositeMapValidator<GreetingStruct>(
-              new __NoOpValidator(),
-              new __NoOpValidator(),
-              new __CompositeStructureValidator<GreetingStruct>(new __NoOpValidator(), GreetingStruct.validate)
-            );
-            break;
-          }
-          case "sparseStructMap": {
-            memberValidators["sparseStructMap"] = new __CompositeMapValidator<GreetingStruct>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __CompositeStructureValidator<GreetingStruct>(new __NoOpValidator(), GreetingStruct.validate)
@@ -2240,43 +2212,8 @@ export namespace JsonMapsInputOutput {
             );
             break;
           }
-          case "sparseNumberMap": {
-            memberValidators["sparseNumberMap"] = new __CompositeMapValidator<number>(
-              new __NoOpValidator(),
-              new __NoOpValidator(),
-              new __NoOpValidator()
-            );
-            break;
-          }
-          case "sparseBooleanMap": {
-            memberValidators["sparseBooleanMap"] = new __CompositeMapValidator<boolean>(
-              new __NoOpValidator(),
-              new __NoOpValidator(),
-              new __NoOpValidator()
-            );
-            break;
-          }
-          case "sparseStringMap": {
-            memberValidators["sparseStringMap"] = new __CompositeMapValidator<string>(
-              new __NoOpValidator(),
-              new __NoOpValidator(),
-              new __NoOpValidator()
-            );
-            break;
-          }
           case "denseSetMap": {
             memberValidators["denseSetMap"] = new __CompositeMapValidator<string[]>(
-              new __NoOpValidator(),
-              new __NoOpValidator(),
-              new __CompositeCollectionValidator<string>(
-                new __CompositeValidator<string[]>([new __UniqueItemsValidator()]),
-                new __NoOpValidator()
-              )
-            );
-            break;
-          }
-          case "sparseSetMap": {
-            memberValidators["sparseSetMap"] = new __CompositeMapValidator<string[]>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __CompositeCollectionValidator<string>(
@@ -2292,15 +2229,10 @@ export namespace JsonMapsInputOutput {
     }
     return [
       ...getMemberValidator("denseStructMap").validate(obj.denseStructMap, `${path}/denseStructMap`),
-      ...getMemberValidator("sparseStructMap").validate(obj.sparseStructMap, `${path}/sparseStructMap`),
       ...getMemberValidator("denseNumberMap").validate(obj.denseNumberMap, `${path}/denseNumberMap`),
       ...getMemberValidator("denseBooleanMap").validate(obj.denseBooleanMap, `${path}/denseBooleanMap`),
       ...getMemberValidator("denseStringMap").validate(obj.denseStringMap, `${path}/denseStringMap`),
-      ...getMemberValidator("sparseNumberMap").validate(obj.sparseNumberMap, `${path}/sparseNumberMap`),
-      ...getMemberValidator("sparseBooleanMap").validate(obj.sparseBooleanMap, `${path}/sparseBooleanMap`),
-      ...getMemberValidator("sparseStringMap").validate(obj.sparseStringMap, `${path}/sparseStringMap`),
       ...getMemberValidator("denseSetMap").validate(obj.denseSetMap, `${path}/denseSetMap`),
-      ...getMemberValidator("sparseSetMap").validate(obj.sparseSetMap, `${path}/sparseSetMap`),
     ];
   };
 }
@@ -4826,6 +4758,126 @@ export namespace SimpleScalarPropertiesInputOutput {
       ...getMemberValidator("longValue").validate(obj.longValue, `${path}/longValue`),
       ...getMemberValidator("floatValue").validate(obj.floatValue, `${path}/floatValue`),
       ...getMemberValidator("doubleValue").validate(obj.doubleValue, `${path}/doubleValue`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface SparseJsonListsInputOutput {
+  sparseStringList?: string[];
+}
+
+export namespace SparseJsonListsInputOutput {
+  const memberValidators: {
+    sparseStringList?: __MultiConstraintValidator<Iterable<string>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: SparseJsonListsInputOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "sparseStringList": {
+            memberValidators["sparseStringList"] = new __CompositeCollectionValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("sparseStringList").validate(obj.sparseStringList, `${path}/sparseStringList`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface SparseJsonMapsInputOutput {
+  sparseStructMap?: Record<string, GreetingStruct>;
+  sparseNumberMap?: Record<string, number>;
+  sparseBooleanMap?: Record<string, boolean>;
+  sparseStringMap?: Record<string, string>;
+  sparseSetMap?: Record<string, string[]>;
+}
+
+export namespace SparseJsonMapsInputOutput {
+  const memberValidators: {
+    sparseStructMap?: __MultiConstraintValidator<Record<string, GreetingStruct>>;
+    sparseNumberMap?: __MultiConstraintValidator<Record<string, number>>;
+    sparseBooleanMap?: __MultiConstraintValidator<Record<string, boolean>>;
+    sparseStringMap?: __MultiConstraintValidator<Record<string, string>>;
+    sparseSetMap?: __MultiConstraintValidator<Record<string, string[]>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: SparseJsonMapsInputOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "sparseStructMap": {
+            memberValidators["sparseStructMap"] = new __CompositeMapValidator<GreetingStruct>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __CompositeStructureValidator<GreetingStruct>(new __NoOpValidator(), GreetingStruct.validate)
+            );
+            break;
+          }
+          case "sparseNumberMap": {
+            memberValidators["sparseNumberMap"] = new __CompositeMapValidator<number>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "sparseBooleanMap": {
+            memberValidators["sparseBooleanMap"] = new __CompositeMapValidator<boolean>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "sparseStringMap": {
+            memberValidators["sparseStringMap"] = new __CompositeMapValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "sparseSetMap": {
+            memberValidators["sparseSetMap"] = new __CompositeMapValidator<string[]>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __CompositeCollectionValidator<string>(
+                new __CompositeValidator<string[]>([new __UniqueItemsValidator()]),
+                new __NoOpValidator()
+              )
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("sparseStructMap").validate(obj.sparseStructMap, `${path}/sparseStructMap`),
+      ...getMemberValidator("sparseNumberMap").validate(obj.sparseNumberMap, `${path}/sparseNumberMap`),
+      ...getMemberValidator("sparseBooleanMap").validate(obj.sparseBooleanMap, `${path}/sparseBooleanMap`),
+      ...getMemberValidator("sparseStringMap").validate(obj.sparseStringMap, `${path}/sparseStringMap`),
+      ...getMemberValidator("sparseSetMap").validate(obj.sparseSetMap, `${path}/sparseSetMap`),
     ];
   };
 }

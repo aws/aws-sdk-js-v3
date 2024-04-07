@@ -58,6 +58,10 @@ import {
   AcceptSubscriptionRequestCommandInput,
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
+import {
+  CancelMetadataGenerationRunCommandInput,
+  CancelMetadataGenerationRunCommandOutput,
+} from "./commands/CancelMetadataGenerationRunCommand";
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "./commands/CancelSubscriptionCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
@@ -132,6 +136,10 @@ import {
   DeleteSubscriptionTargetCommandInput,
   DeleteSubscriptionTargetCommandOutput,
 } from "./commands/DeleteSubscriptionTargetCommand";
+import {
+  DeleteTimeSeriesDataPointsCommandInput,
+  DeleteTimeSeriesDataPointsCommandOutput,
+} from "./commands/DeleteTimeSeriesDataPointsCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
@@ -159,6 +167,10 @@ import {
   GetIamPortalLoginUrlCommandOutput,
 } from "./commands/GetIamPortalLoginUrlCommand";
 import { GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
+import {
+  GetMetadataGenerationRunCommandInput,
+  GetMetadataGenerationRunCommandOutput,
+} from "./commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
 import {
@@ -173,6 +185,10 @@ import {
   GetSubscriptionTargetCommandInput,
   GetSubscriptionTargetCommandOutput,
 } from "./commands/GetSubscriptionTargetCommand";
+import {
+  GetTimeSeriesDataPointCommandInput,
+  GetTimeSeriesDataPointCommandOutput,
+} from "./commands/GetTimeSeriesDataPointCommand";
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "./commands/GetUserProfileCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "./commands/ListAssetRevisionsCommand";
 import {
@@ -195,6 +211,10 @@ import {
   ListEnvironmentProfilesCommandOutput,
 } from "./commands/ListEnvironmentProfilesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import {
+  ListMetadataGenerationRunsCommandInput,
+  ListMetadataGenerationRunsCommandOutput,
+} from "./commands/ListMetadataGenerationRunsCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "./commands/ListNotificationsCommand";
 import {
   ListProjectMembershipsCommandInput,
@@ -219,6 +239,14 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTimeSeriesDataPointsCommandInput,
+  ListTimeSeriesDataPointsCommandOutput,
+} from "./commands/ListTimeSeriesDataPointsCommand";
+import {
+  PostTimeSeriesDataPointsCommandInput,
+  PostTimeSeriesDataPointsCommandOutput,
+} from "./commands/PostTimeSeriesDataPointsCommand";
+import {
   PutEnvironmentBlueprintConfigurationCommandInput,
   PutEnvironmentBlueprintConfigurationCommandOutput,
 } from "./commands/PutEnvironmentBlueprintConfigurationCommand";
@@ -237,6 +265,10 @@ import { SearchListingsCommandInput, SearchListingsCommandOutput } from "./comma
 import { SearchTypesCommandInput, SearchTypesCommandOutput } from "./commands/SearchTypesCommand";
 import { SearchUserProfilesCommandInput, SearchUserProfilesCommandOutput } from "./commands/SearchUserProfilesCommand";
 import { StartDataSourceRunCommandInput, StartDataSourceRunCommandOutput } from "./commands/StartDataSourceRunCommand";
+import {
+  StartMetadataGenerationRunCommandInput,
+  StartMetadataGenerationRunCommandOutput,
+} from "./commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
@@ -280,6 +312,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptPredictionsCommandInput
   | AcceptSubscriptionRequestCommandInput
+  | CancelMetadataGenerationRunCommandInput
   | CancelSubscriptionCommandInput
   | CreateAssetCommandInput
   | CreateAssetRevisionCommandInput
@@ -315,6 +348,7 @@ export type ServiceInputTypes =
   | DeleteSubscriptionGrantCommandInput
   | DeleteSubscriptionRequestCommandInput
   | DeleteSubscriptionTargetCommandInput
+  | DeleteTimeSeriesDataPointsCommandInput
   | GetAssetCommandInput
   | GetAssetTypeCommandInput
   | GetDataSourceCommandInput
@@ -330,11 +364,13 @@ export type ServiceInputTypes =
   | GetGroupProfileCommandInput
   | GetIamPortalLoginUrlCommandInput
   | GetListingCommandInput
+  | GetMetadataGenerationRunCommandInput
   | GetProjectCommandInput
   | GetSubscriptionCommandInput
   | GetSubscriptionGrantCommandInput
   | GetSubscriptionRequestDetailsCommandInput
   | GetSubscriptionTargetCommandInput
+  | GetTimeSeriesDataPointCommandInput
   | GetUserProfileCommandInput
   | ListAssetRevisionsCommandInput
   | ListDataSourceRunActivitiesCommandInput
@@ -345,6 +381,7 @@ export type ServiceInputTypes =
   | ListEnvironmentBlueprintsCommandInput
   | ListEnvironmentProfilesCommandInput
   | ListEnvironmentsCommandInput
+  | ListMetadataGenerationRunsCommandInput
   | ListNotificationsCommandInput
   | ListProjectMembershipsCommandInput
   | ListProjectsCommandInput
@@ -353,6 +390,8 @@ export type ServiceInputTypes =
   | ListSubscriptionTargetsCommandInput
   | ListSubscriptionsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTimeSeriesDataPointsCommandInput
+  | PostTimeSeriesDataPointsCommandInput
   | PutEnvironmentBlueprintConfigurationCommandInput
   | RejectPredictionsCommandInput
   | RejectSubscriptionRequestCommandInput
@@ -363,6 +402,7 @@ export type ServiceInputTypes =
   | SearchTypesCommandInput
   | SearchUserProfilesCommandInput
   | StartDataSourceRunCommandInput
+  | StartMetadataGenerationRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
@@ -384,6 +424,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptPredictionsCommandOutput
   | AcceptSubscriptionRequestCommandOutput
+  | CancelMetadataGenerationRunCommandOutput
   | CancelSubscriptionCommandOutput
   | CreateAssetCommandOutput
   | CreateAssetRevisionCommandOutput
@@ -419,6 +460,7 @@ export type ServiceOutputTypes =
   | DeleteSubscriptionGrantCommandOutput
   | DeleteSubscriptionRequestCommandOutput
   | DeleteSubscriptionTargetCommandOutput
+  | DeleteTimeSeriesDataPointsCommandOutput
   | GetAssetCommandOutput
   | GetAssetTypeCommandOutput
   | GetDataSourceCommandOutput
@@ -434,11 +476,13 @@ export type ServiceOutputTypes =
   | GetGroupProfileCommandOutput
   | GetIamPortalLoginUrlCommandOutput
   | GetListingCommandOutput
+  | GetMetadataGenerationRunCommandOutput
   | GetProjectCommandOutput
   | GetSubscriptionCommandOutput
   | GetSubscriptionGrantCommandOutput
   | GetSubscriptionRequestDetailsCommandOutput
   | GetSubscriptionTargetCommandOutput
+  | GetTimeSeriesDataPointCommandOutput
   | GetUserProfileCommandOutput
   | ListAssetRevisionsCommandOutput
   | ListDataSourceRunActivitiesCommandOutput
@@ -449,6 +493,7 @@ export type ServiceOutputTypes =
   | ListEnvironmentBlueprintsCommandOutput
   | ListEnvironmentProfilesCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListMetadataGenerationRunsCommandOutput
   | ListNotificationsCommandOutput
   | ListProjectMembershipsCommandOutput
   | ListProjectsCommandOutput
@@ -457,6 +502,8 @@ export type ServiceOutputTypes =
   | ListSubscriptionTargetsCommandOutput
   | ListSubscriptionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTimeSeriesDataPointsCommandOutput
+  | PostTimeSeriesDataPointsCommandOutput
   | PutEnvironmentBlueprintConfigurationCommandOutput
   | RejectPredictionsCommandOutput
   | RejectSubscriptionRequestCommandOutput
@@ -467,6 +514,7 @@ export type ServiceOutputTypes =
   | SearchTypesCommandOutput
   | SearchUserProfilesCommandOutput
   | StartDataSourceRunCommandOutput
+  | StartMetadataGenerationRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput

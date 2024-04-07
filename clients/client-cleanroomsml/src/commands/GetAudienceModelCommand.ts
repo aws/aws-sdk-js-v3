@@ -52,13 +52,6 @@ export interface GetAudienceModelCommandOutput extends GetAudienceModelResponse,
  * //     statusCode: "STRING_VALUE",
  * //     message: "STRING_VALUE",
  * //   },
- * //   metrics: [ // AudienceModelMetrics
- * //     { // AudienceModelMetric
- * //       type: "NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN" || "MEAN_RECIPROCAL_RANK" || "PRECISION" || "RECALL", // required
- * //       forTopKItemPredictions: Number("int"), // required
- * //       value: Number("double"), // required
- * //     },
- * //   ],
  * //   kmsKeyArn: "STRING_VALUE",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

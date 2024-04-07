@@ -29,19 +29,16 @@ Amazon IVS Chat Messaging API. We refer to these as <i>clients</i>. </p>
 </li>
 </ul>
 <p>
-<b>Resources</b>
+<b>Key Concepts</b>
 </p>
-<p>The following resources are part of Amazon IVS Chat:</p>
 <ul>
 <li>
 <p>
-<b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room. See the Logging Configuration endpoints for more information.</p>
+<b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room.</p>
 </li>
 <li>
 <p>
-<b>Room</b> — The central Amazon IVS Chat resource through
-which clients connect to and exchange chat messages. See the Room endpoints for more
-information.</p>
+<b>Room</b> — The central Amazon IVS Chat resource through which clients connect to and exchange chat messages.</p>
 </li>
 </ul>
 <p>

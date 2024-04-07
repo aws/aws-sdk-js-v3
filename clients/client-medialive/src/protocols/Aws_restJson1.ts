@@ -208,7 +208,11 @@ import {
   ChannelEgressEndpoint,
   ChannelPipelineIdToRestart,
   ChannelSummary,
+  CmafIngestGroupSettings,
+  CmafIngestOutputSettings,
   ColorCorrection,
+  DashRoleAudio,
+  DashRoleCaption,
   DvbNitSettings,
   DvbSdtSettings,
   DvbSubDestinationSettings,
@@ -231,12 +235,8 @@ import {
   FrameCaptureS3Settings,
   Hdr10Settings,
   HlsAdMarkers,
-  HlsAkamaiSettings,
-  HlsBasicPutSettings,
   HlsInputSettings,
-  HlsMediaStoreSettings,
   HlsOutputSettings,
-  HlsS3Settings,
   HlsSettings,
   Input,
   InputAttachment,
@@ -349,9 +349,13 @@ import {
   H265ColorSpaceSettings,
   H265FilterSettings,
   H265Settings,
+  HlsAkamaiSettings,
+  HlsBasicPutSettings,
   HlsCdnSettings,
   HlsGroupSettings,
   HlsId3SegmentTaggingScheduleActionSettings,
+  HlsMediaStoreSettings,
+  HlsS3Settings,
   HlsTimedMetadataScheduleActionSettings,
   HlsWebdavSettings,
   HtmlMotionGraphicsSettings,
@@ -3633,6 +3637,10 @@ const se___listOfColorCorrection = (input: ColorCorrection[], context: __SerdeCo
     });
 };
 
+// se___listOfDashRoleAudio omitted.
+
+// se___listOfDashRoleCaption omitted.
+
 /**
  * serializeAws_restJson1__listOfFailoverCondition
  */
@@ -3987,12 +3995,14 @@ const se_AudioCodecSettings = (input: AudioCodecSettings, context: __SerdeContex
  */
 const se_AudioDescription = (input: AudioDescription, context: __SerdeContext): any => {
   return take(input, {
+    audioDashRoles: [, _json, `AudioDashRoles`],
     audioNormalizationSettings: [, (_) => se_AudioNormalizationSettings(_, context), `AudioNormalizationSettings`],
     audioSelectorName: [, , `AudioSelectorName`],
     audioType: [, , `AudioType`],
     audioTypeControl: [, , `AudioTypeControl`],
     audioWatermarkingSettings: [, (_) => se_AudioWatermarkSettings(_, context), `AudioWatermarkingSettings`],
     codecSettings: [, (_) => se_AudioCodecSettings(_, context), `CodecSettings`],
+    dvbDashAccessibility: [, , `DvbDashAccessibility`],
     languageCode: [, , `LanguageCode`],
     languageCodeControl: [, , `LanguageCodeControl`],
     name: [, , `Name`],
@@ -4226,8 +4236,10 @@ const se_BurnInDestinationSettings = (input: BurnInDestinationSettings, context:
 const se_CaptionDescription = (input: CaptionDescription, context: __SerdeContext): any => {
   return take(input, {
     accessibility: [, , `Accessibility`],
+    captionDashRoles: [, _json, `CaptionDashRoles`],
     captionSelectorName: [, , `CaptionSelectorName`],
     destinationSettings: [, (_) => se_CaptionDestinationSettings(_, context), `DestinationSettings`],
+    dvbDashAccessibility: [, , `DvbDashAccessibility`],
     languageCode: [, , `LanguageCode`],
     languageDescription: [, , `LanguageDescription`],
     name: [, , `Name`],
@@ -4310,6 +4322,29 @@ const se_CaptionSelectorSettings = (input: CaptionSelectorSettings, context: __S
 const se_CdiInputSpecification = (input: CdiInputSpecification, context: __SerdeContext): any => {
   return take(input, {
     resolution: [, , `Resolution`],
+  });
+};
+
+/**
+ * serializeAws_restJson1CmafIngestGroupSettings
+ */
+const se_CmafIngestGroupSettings = (input: CmafIngestGroupSettings, context: __SerdeContext): any => {
+  return take(input, {
+    destination: [, (_) => se_OutputLocationRef(_, context), `Destination`],
+    nielsenId3Behavior: [, , `NielsenId3Behavior`],
+    scte35Type: [, , `Scte35Type`],
+    segmentLength: [, , `SegmentLength`],
+    segmentLengthUnits: [, , `SegmentLengthUnits`],
+    sendDelayMs: [, , `SendDelayMs`],
+  });
+};
+
+/**
+ * serializeAws_restJson1CmafIngestOutputSettings
+ */
+const se_CmafIngestOutputSettings = (input: CmafIngestOutputSettings, context: __SerdeContext): any => {
+  return take(input, {
+    nameModifier: [, , `NameModifier`],
   });
 };
 
@@ -5688,6 +5723,7 @@ const se_OutputGroup = (input: OutputGroup, context: __SerdeContext): any => {
 const se_OutputGroupSettings = (input: OutputGroupSettings, context: __SerdeContext): any => {
   return take(input, {
     archiveGroupSettings: [, (_) => se_ArchiveGroupSettings(_, context), `ArchiveGroupSettings`],
+    cmafIngestGroupSettings: [, (_) => se_CmafIngestGroupSettings(_, context), `CmafIngestGroupSettings`],
     frameCaptureGroupSettings: [, (_) => se_FrameCaptureGroupSettings(_, context), `FrameCaptureGroupSettings`],
     hlsGroupSettings: [, (_) => se_HlsGroupSettings(_, context), `HlsGroupSettings`],
     mediaPackageGroupSettings: [, (_) => se_MediaPackageGroupSettings(_, context), `MediaPackageGroupSettings`],
@@ -5723,6 +5759,7 @@ const se_OutputLockingSettings = (input: OutputLockingSettings, context: __Serde
 const se_OutputSettings = (input: OutputSettings, context: __SerdeContext): any => {
   return take(input, {
     archiveOutputSettings: [, (_) => se_ArchiveOutputSettings(_, context), `ArchiveOutputSettings`],
+    cmafIngestOutputSettings: [, (_) => se_CmafIngestOutputSettings(_, context), `CmafIngestOutputSettings`],
     frameCaptureOutputSettings: [, (_) => se_FrameCaptureOutputSettings(_, context), `FrameCaptureOutputSettings`],
     hlsOutputSettings: [, (_) => se_HlsOutputSettings(_, context), `HlsOutputSettings`],
     mediaPackageOutputSettings: [, _json, `MediaPackageOutputSettings`],
@@ -6525,6 +6562,10 @@ const de___listOfColorCorrection = (output: any, context: __SerdeContext): Color
   return retVal;
 };
 
+// de___listOfDashRoleAudio omitted.
+
+// de___listOfDashRoleCaption omitted.
+
 /**
  * deserializeAws_restJson1__listOfFailoverCondition
  */
@@ -7060,12 +7101,14 @@ const de_AudioCodecSettings = (output: any, context: __SerdeContext): AudioCodec
  */
 const de_AudioDescription = (output: any, context: __SerdeContext): AudioDescription => {
   return take(output, {
+    AudioDashRoles: [, _json, `audioDashRoles`],
     AudioNormalizationSettings: [, (_: any) => de_AudioNormalizationSettings(_, context), `audioNormalizationSettings`],
     AudioSelectorName: [, __expectString, `audioSelectorName`],
     AudioType: [, __expectString, `audioType`],
     AudioTypeControl: [, __expectString, `audioTypeControl`],
     AudioWatermarkingSettings: [, (_: any) => de_AudioWatermarkSettings(_, context), `audioWatermarkingSettings`],
     CodecSettings: [, (_: any) => de_AudioCodecSettings(_, context), `codecSettings`],
+    DvbDashAccessibility: [, __expectString, `dvbDashAccessibility`],
     LanguageCode: [, __expectString, `languageCode`],
     LanguageCodeControl: [, __expectString, `languageCodeControl`],
     Name: [, __expectString, `name`],
@@ -7322,8 +7365,10 @@ const de_BurnInDestinationSettings = (output: any, context: __SerdeContext): Bur
 const de_CaptionDescription = (output: any, context: __SerdeContext): CaptionDescription => {
   return take(output, {
     Accessibility: [, __expectString, `accessibility`],
+    CaptionDashRoles: [, _json, `captionDashRoles`],
     CaptionSelectorName: [, __expectString, `captionSelectorName`],
     DestinationSettings: [, (_: any) => de_CaptionDestinationSettings(_, context), `destinationSettings`],
+    DvbDashAccessibility: [, __expectString, `dvbDashAccessibility`],
     LanguageCode: [, __expectString, `languageCode`],
     LanguageDescription: [, __expectString, `languageDescription`],
     Name: [, __expectString, `name`],
@@ -7465,6 +7510,29 @@ const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
     Vpc: [, (_: any) => de_VpcOutputSettingsDescription(_, context), `vpc`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CmafIngestGroupSettings
+ */
+const de_CmafIngestGroupSettings = (output: any, context: __SerdeContext): CmafIngestGroupSettings => {
+  return take(output, {
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+    NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
+    Scte35Type: [, __expectString, `scte35Type`],
+    SegmentLength: [, __expectInt32, `segmentLength`],
+    SegmentLengthUnits: [, __expectString, `segmentLengthUnits`],
+    SendDelayMs: [, __expectInt32, `sendDelayMs`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CmafIngestOutputSettings
+ */
+const de_CmafIngestOutputSettings = (output: any, context: __SerdeContext): CmafIngestOutputSettings => {
+  return take(output, {
+    NameModifier: [, __expectString, `nameModifier`],
   }) as any;
 };
 
@@ -9068,6 +9136,7 @@ const de_OutputGroup = (output: any, context: __SerdeContext): OutputGroup => {
 const de_OutputGroupSettings = (output: any, context: __SerdeContext): OutputGroupSettings => {
   return take(output, {
     ArchiveGroupSettings: [, (_: any) => de_ArchiveGroupSettings(_, context), `archiveGroupSettings`],
+    CmafIngestGroupSettings: [, (_: any) => de_CmafIngestGroupSettings(_, context), `cmafIngestGroupSettings`],
     FrameCaptureGroupSettings: [, (_: any) => de_FrameCaptureGroupSettings(_, context), `frameCaptureGroupSettings`],
     HlsGroupSettings: [, (_: any) => de_HlsGroupSettings(_, context), `hlsGroupSettings`],
     MediaPackageGroupSettings: [, (_: any) => de_MediaPackageGroupSettings(_, context), `mediaPackageGroupSettings`],
@@ -9103,6 +9172,7 @@ const de_OutputLockingSettings = (output: any, context: __SerdeContext): OutputL
 const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings => {
   return take(output, {
     ArchiveOutputSettings: [, (_: any) => de_ArchiveOutputSettings(_, context), `archiveOutputSettings`],
+    CmafIngestOutputSettings: [, (_: any) => de_CmafIngestOutputSettings(_, context), `cmafIngestOutputSettings`],
     FrameCaptureOutputSettings: [, (_: any) => de_FrameCaptureOutputSettings(_, context), `frameCaptureOutputSettings`],
     HlsOutputSettings: [, (_: any) => de_HlsOutputSettings(_, context), `hlsOutputSettings`],
     MediaPackageOutputSettings: [, _json, `mediaPackageOutputSettings`],

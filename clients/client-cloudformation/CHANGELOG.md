@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.548.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.547.0...v3.548.0) (2024-04-03)
+
+
+### Features
+
+* **client-cloudformation:** This release would return a new field - PolicyAction in cloudformation's existed DescribeChangeSetResponse, showing actions we are going to apply on the physical resource (e.g., Delete, Retain) according to the user's template ([98e1d9f](https://github.com/aws/aws-sdk-js-v3/commit/98e1d9fbaafa6d7f930073a0e4fac988dd9355ee))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

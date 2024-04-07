@@ -421,7 +421,6 @@ import {
   SetStackPolicyInput,
   SetTypeConfigurationInput,
   SetTypeConfigurationOutput,
-  SetTypeDefaultVersionInput,
   Stack,
   StackDriftInformation,
   StackDriftInformationSummary,
@@ -474,6 +473,7 @@ import {
 } from "../models/models_0";
 import {
   ResourceScanLimitExceededException,
+  SetTypeDefaultVersionInput,
   SetTypeDefaultVersionOutput,
   SignalResourceInput,
   StartResourceScanInput,
@@ -9018,6 +9018,9 @@ const de_RequiredActivatedTypes = (output: any, context: __SerdeContext): Requir
  */
 const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
   const contents: any = {};
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
+  }
   if (output[_A] != null) {
     contents[_A] = __expectString(output[_A]);
   }
@@ -11258,6 +11261,7 @@ const _OUI = "OrganizationalUnitIds";
 const _OUIr = "OrganizationalUnitId";
 const _OV = "OutputValue";
 const _P = "Parameters";
+const _PA = "PolicyAction";
 const _PC = "PercentageCompleted";
 const _PCSI = "ParentChangeSetId";
 const _PCa = "ParameterConstraints";

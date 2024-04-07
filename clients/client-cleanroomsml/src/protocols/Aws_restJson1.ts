@@ -117,7 +117,6 @@ import {
   AudienceExportJobSummary,
   AudienceGenerationJobDataSource,
   AudienceGenerationJobSummary,
-  AudienceModelMetric,
   AudienceModelSummary,
   AudienceQualityMetrics,
   AudienceSize,
@@ -850,7 +849,6 @@ export const de_GetAudienceModelCommand = async (
     createTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     kmsKeyArn: __expectString,
-    metrics: (_) => de_AudienceModelMetrics(_, context),
     name: __expectString,
     status: __expectString,
     statusDetails: _json,
@@ -1434,29 +1432,6 @@ const de_AudienceModelList = (output: any, context: __SerdeContext): AudienceMod
 };
 
 /**
- * deserializeAws_restJson1AudienceModelMetric
- */
-const de_AudienceModelMetric = (output: any, context: __SerdeContext): AudienceModelMetric => {
-  return take(output, {
-    forTopKItemPredictions: __expectInt32,
-    type: __expectString,
-    value: __limitedParseDouble,
-  }) as any;
-};
-
-/**
- * deserializeAws_restJson1AudienceModelMetrics
- */
-const de_AudienceModelMetrics = (output: any, context: __SerdeContext): AudienceModelMetric[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return de_AudienceModelMetric(entry, context);
-    });
-  return retVal;
-};
-
-/**
  * deserializeAws_restJson1AudienceModelSummary
  */
 const de_AudienceModelSummary = (output: any, context: __SerdeContext): AudienceModelSummary => {
@@ -1476,6 +1451,7 @@ const de_AudienceModelSummary = (output: any, context: __SerdeContext): Audience
  */
 const de_AudienceQualityMetrics = (output: any, context: __SerdeContext): AudienceQualityMetrics => {
   return take(output, {
+    recallMetric: __limitedParseDouble,
     relevanceMetrics: (_: any) => de_RelevanceMetrics(_, context),
   }) as any;
 };

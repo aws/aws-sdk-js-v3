@@ -76,6 +76,10 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
+import {
+  SparseNullsOperationCommandInput,
+  SparseNullsOperationCommandOutput,
+} from "../commands/SparseNullsOperationCommand";
 import { JsonProtocolServiceException as __BaseException } from "../models/JsonProtocolServiceException";
 import {
   ComplexError,
@@ -99,6 +103,7 @@ import {
   PutWithContentEncodingInput,
   SimpleScalarPropertiesInputOutput,
   SimpleStruct,
+  SparseNullsOperationInputOutput,
   StructWithJsonName,
   UnionInputOutput,
 } from "../models/models_0";
@@ -254,7 +259,7 @@ export const se_NullOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("NullOperation");
   let body: any;
-  body = JSON.stringify(se_NullOperationInputOutput(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -307,6 +312,19 @@ export const se_SimpleScalarPropertiesCommand = async (
   const headers: __HeaderBag = sharedHeaders("SimpleScalarProperties");
   let body: any;
   body = JSON.stringify(se_SimpleScalarPropertiesInputOutput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1SparseNullsOperationCommand
+ */
+export const se_SparseNullsOperationCommand = async (
+  input: SparseNullsOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SparseNullsOperation");
+  let body: any;
+  body = JSON.stringify(se_SparseNullsOperationInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -510,7 +528,7 @@ export const de_NullOperationCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = de_NullOperationInputOutput(data, context);
+  contents = _json(data);
   const response: NullOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -589,6 +607,26 @@ export const de_SimpleScalarPropertiesCommand = async (
   let contents: any = {};
   contents = de_SimpleScalarPropertiesInputOutput(data, context);
   const response: SimpleScalarPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SparseNullsOperationCommand
+ */
+export const de_SparseNullsOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SparseNullsOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SparseNullsOperationInputOutput(data, context);
+  const response: SparseNullsOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -800,16 +838,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
   });
 };
 
-/**
- * serializeAws_json1_1NullOperationInputOutput
- */
-const se_NullOperationInputOutput = (input: NullOperationInputOutput, context: __SerdeContext): any => {
-  return take(input, {
-    sparseStringList: (_) => se_SparseStringList(_, context),
-    sparseStringMap: (_) => se_SparseStringMap(_, context),
-    string: [],
-  });
-};
+// se_NullOperationInputOutput omitted.
 
 // se_OperationWithOptionalInputOutputInput omitted.
 
@@ -841,6 +870,16 @@ const se_SimpleScalarPropertiesInputOutput = (
 };
 
 // se_SimpleStruct omitted.
+
+/**
+ * serializeAws_json1_1SparseNullsOperationInputOutput
+ */
+const se_SparseNullsOperationInputOutput = (input: SparseNullsOperationInputOutput, context: __SerdeContext): any => {
+  return take(input, {
+    sparseStringList: (_) => se_SparseStringList(_, context),
+    sparseStringMap: (_) => se_SparseStringMap(_, context),
+  });
+};
 
 /**
  * serializeAws_json1_1StructWithJsonName
@@ -1083,16 +1122,7 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
   return { $unknown: Object.entries(output)[0] };
 };
 
-/**
- * deserializeAws_json1_1NullOperationInputOutput
- */
-const de_NullOperationInputOutput = (output: any, context: __SerdeContext): NullOperationInputOutput => {
-  return take(output, {
-    sparseStringList: (_: any) => de_SparseStringList(_, context),
-    sparseStringMap: (_: any) => de_SparseStringMap(_, context),
-    string: __expectString,
-  }) as any;
-};
+// de_NullOperationInputOutput omitted.
 
 // de_OperationWithOptionalInputOutputOutput omitted.
 
@@ -1122,6 +1152,16 @@ const de_SimpleScalarPropertiesInputOutput = (
 };
 
 // de_SimpleStruct omitted.
+
+/**
+ * deserializeAws_json1_1SparseNullsOperationInputOutput
+ */
+const de_SparseNullsOperationInputOutput = (output: any, context: __SerdeContext): SparseNullsOperationInputOutput => {
+  return take(output, {
+    sparseStringList: (_: any) => de_SparseStringList(_, context),
+    sparseStringMap: (_: any) => de_SparseStringMap(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1StructWithJsonName

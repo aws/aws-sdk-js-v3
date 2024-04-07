@@ -66,6 +66,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   SecurityPolicyName: "STRING_VALUE",
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);

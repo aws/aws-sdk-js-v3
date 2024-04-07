@@ -14,3 +14,4 @@ export * from "./OperationWithOptionalInputOutputCommand";
 export * from "./PutAndGetInlineDocumentsCommand";
 export * from "./PutWithContentEncodingCommand";
 export * from "./SimpleScalarPropertiesCommand";
+export * from "./SparseNullsOperationCommand";

@@ -19,6 +19,7 @@ import { OperationWithOptionalInputOutputCommand } from "../../src/commands/Oper
 import { PutAndGetInlineDocumentsCommand } from "../../src/commands/PutAndGetInlineDocumentsCommand";
 import { PutWithContentEncodingCommand } from "../../src/commands/PutWithContentEncodingCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
+import { SparseNullsOperationCommand } from "../../src/commands/SparseNullsOperationCommand";
 import { JsonProtocolClient } from "../../src/JsonProtocolClient";
 
 /**
@@ -4196,92 +4197,6 @@ it("AwsJson11StructuresDontSerializeNullValues:Request", async () => {
 });
 
 /**
- * Serializes null values in maps
- */
-it("AwsJson11MapsSerializeNullValues:Request", async () => {
-  const client = new JsonProtocolClient({
-    ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(),
-  });
-
-  const command = new NullOperationCommand({
-    sparseStringMap: {
-      foo: null,
-    } as any,
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["x-amz-target"]).toBeDefined();
-    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.NullOperation");
-
-    expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `{
-        \"sparseStringMap\": {
-            \"foo\": null
-        }
-    }`;
-    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
- * Serializes null values in lists
- */
-it("AwsJson11ListsSerializeNull:Request", async () => {
-  const client = new JsonProtocolClient({
-    ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(),
-  });
-
-  const command = new NullOperationCommand({
-    sparseStringList: [null],
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["x-amz-target"]).toBeDefined();
-    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.NullOperation");
-
-    expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `{
-        \"sparseStringList\": [
-            null
-        ]
-    }`;
-    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
  * Null structure values are dropped
  */
 it("AwsJson11StructuresDontDeserializeNullValues:Response", async () => {
@@ -4310,92 +4225,6 @@ it("AwsJson11StructuresDontDeserializeNullValues:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
-});
-
-/**
- * Deserializes null values in maps
- */
-it("AwsJson11MapsDeserializeNullValues:Response", async () => {
-  const client = new JsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/x-amz-json-1.1",
-      },
-      `{
-          "sparseStringMap": {
-              "foo": null
-          }
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new NullOperationCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      sparseStringMap: {
-        foo: null,
-      },
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
- * Deserializes null values in lists
- */
-it("AwsJson11ListsDeserializeNull:Response", async () => {
-  const client = new JsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/x-amz-json-1.1",
-      },
-      `{
-          "sparseStringList": [
-              null
-          ]
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new NullOperationCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      sparseStringList: [null],
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
 });
 
 /**
@@ -4872,6 +4701,178 @@ it("AwsJson11SupportsNegativeInfinityFloatInputs:Response", async () => {
       floatValue: -Infinity,
 
       doubleValue: -Infinity,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes null values in maps
+ */
+it("AwsJson11SparseMapsSerializeNullValues:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SparseNullsOperationCommand({
+    sparseStringMap: {
+      foo: null,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.SparseNullsOperation");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"sparseStringMap\": {
+            \"foo\": null
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes null values in lists
+ */
+it("AwsJson11SparseListsSerializeNull:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SparseNullsOperationCommand({
+    sparseStringList: [null],
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.SparseNullsOperation");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"sparseStringList\": [
+            null
+        ]
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Deserializes null values in maps
+ */
+it("AwsJson11SparseMapsDeserializeNullValues:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "sparseStringMap": {
+              "foo": null
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SparseNullsOperationCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseStringMap: {
+        foo: null,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes null values in lists
+ */
+it("AwsJson11SparseListsDeserializeNull:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "sparseStringList": [
+              null
+          ]
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SparseNullsOperationCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseStringList: [null],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

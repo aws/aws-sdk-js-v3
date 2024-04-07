@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.548.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.547.0...v3.548.0) (2024-04-03)
+
+
+### Features
+
+* **client-lambda:** Add Ruby 3.3 (ruby3.3) support to AWS Lambda ([66721f6](https://github.com/aws/aws-sdk-js-v3/commit/66721f662861065e00cd6390b2d525de2b0a6a08))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

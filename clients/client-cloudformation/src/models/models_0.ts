@@ -510,7 +510,7 @@ export interface BatchDescribeTypeConfigurationsError {
 /**
  * <p>Detailed information concerning the specification of a CloudFormation extension in a given account and
  *    Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring extensions at
  *    the account level</a> in the <i>CloudFormation User Guide</i>.</p>
  * @public
  */
@@ -936,6 +936,24 @@ export interface ModuleInfo {
  * @public
  * @enum
  */
+export const PolicyAction = {
+  Delete: "Delete",
+  ReplaceAndDelete: "ReplaceAndDelete",
+  ReplaceAndRetain: "ReplaceAndRetain",
+  ReplaceAndSnapshot: "ReplaceAndSnapshot",
+  Retain: "Retain",
+  Snapshot: "Snapshot",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyAction = (typeof PolicyAction)[keyof typeof PolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const Replacement = {
   Conditional: "Conditional",
   False: "False",
@@ -953,6 +971,38 @@ export type Replacement = (typeof Replacement)[keyof typeof Replacement];
  * @public
  */
 export interface ResourceChange {
+  /**
+   * <p>The action that will be taken on the physical resource when the change set is executed.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Delete</code> The resource will be deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Retain</code> The resource will be retained.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Snapshot</code> The resource will have a snapshot taken.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReplaceAndDelete</code> The resource will be replaced and then deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReplaceAndRetain</code> The resource will be replaced and then retained.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReplaceAndSnapshot</code> The resource will be replaced and then have a snapshot taken.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyAction?: PolicyAction;
+
   /**
    * <p>The action that CloudFormation takes on the resource, such as <code>Add</code> (adds a new resource), <code>Modify</code>
    *    (changes a resource), <code>Remove</code> (deletes a resource), <code>Import</code> (imports a resource), or
@@ -7051,7 +7101,7 @@ export interface DescribeTypeOutput {
   /**
    * <p>A JSON string that represent the current configuration data for the extension in this account and Region.</p>
    *          <p>To set the configuration data for an extension, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>. For more
-   *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
+   *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring extensions at
    *     the account level</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
@@ -10877,37 +10927,4 @@ export interface SetTypeConfigurationOutput {
    * @public
    */
   ConfigurationArn?: string;
-}
-
-/**
- * @public
- */
-export interface SetTypeDefaultVersionInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the extension for which you want version summary information.</p>
-   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The kind of extension.</p>
-   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
-   * @public
-   */
-  Type?: RegistryType;
-
-  /**
-   * <p>The name of the extension.</p>
-   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
-   * @public
-   */
-  TypeName?: string;
-
-  /**
-   * <p>The ID of a specific version of the extension. The version ID is the value at the end of the Amazon Resource
-   *    Name (ARN) assigned to the extension version when it is registered.</p>
-   * @public
-   */
-  VersionId?: string;
 }

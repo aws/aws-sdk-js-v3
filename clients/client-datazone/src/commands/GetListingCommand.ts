@@ -27,7 +27,7 @@ export interface GetListingCommandInput extends GetListingInput {}
 export interface GetListingCommandOutput extends GetListingOutput, __MetadataBearer {}
 
 /**
- * <p/>
+ * <p>Gets a listing (a record of an asset at a given time).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,16 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * //       assetType: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       forms: "STRING_VALUE",
+ * //       latestTimeSeriesDataPointForms: [ // TimeSeriesDataPointSummaryFormOutputList
+ * //         { // TimeSeriesDataPointSummaryFormOutput
+ * //           formName: "STRING_VALUE", // required
+ * //           typeIdentifier: "STRING_VALUE", // required
+ * //           typeRevision: "STRING_VALUE",
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //           contentSummary: "STRING_VALUE",
+ * //           id: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       glossaryTerms: [ // DetailedGlossaryTerms
  * //         { // DetailedGlossaryTerm
  * //           name: "STRING_VALUE",

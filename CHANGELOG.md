@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.548.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.547.0...v3.548.0) (2024-04-03)
+
+
+### Features
+
+* **client-cleanroomsml:** The release includes a public SDK for AWS Clean Rooms ML APIs, making them globally available to developers worldwide. ([46ea196](https://github.com/aws/aws-sdk-js-v3/commit/46ea1965ef1fa56458cdb324f62db4aa824d7ee0))
+* **client-cloudformation:** This release would return a new field - PolicyAction in cloudformation's existed DescribeChangeSetResponse, showing actions we are going to apply on the physical resource (e.g., Delete, Retain) according to the user's template ([98e1d9f](https://github.com/aws/aws-sdk-js-v3/commit/98e1d9fbaafa6d7f930073a0e4fac988dd9355ee))
+* **client-datazone:** This release supports the feature of dataQuality to enrich asset with dataQualityResult in Amazon DataZone. ([21c6b46](https://github.com/aws/aws-sdk-js-v3/commit/21c6b46258189bbb52eabe43b4eea49de36fd269))
+* **client-docdb:** This release adds Global Cluster Switchover capability which enables you to change your global cluster's primary AWS Region, the region that serves writes, while preserving the replication between all regions in the global cluster. ([b7817fd](https://github.com/aws/aws-sdk-js-v3/commit/b7817fd7f6319cbf25bd0747dbbc6eff9c1e2caf))
+* **client-groundstation:** This release adds visibilityStartTime and visibilityEndTime to DescribeContact and ListContacts responses. ([10f0af2](https://github.com/aws/aws-sdk-js-v3/commit/10f0af275035a41cfea2e5c2f5e7ace11a16977d))
+* **client-lambda:** Add Ruby 3.3 (ruby3.3) support to AWS Lambda ([66721f6](https://github.com/aws/aws-sdk-js-v3/commit/66721f662861065e00cd6390b2d525de2b0a6a08))
+* **client-medialive:** Cmaf Ingest outputs are now supported in Media Live ([e6543fe](https://github.com/aws/aws-sdk-js-v3/commit/e6543febeebec5a16022ffa806947fd4014dcc98))
+* **client-medical-imaging:** SearchImageSets API now supports following enhancements - Additional support for searching on UpdatedAt and SeriesInstanceUID - Support for searching existing filters between dates/times - Support for sorting the search result by Ascending/Descending - Additional parameters returned in the response ([e1bcde9](https://github.com/aws/aws-sdk-js-v3/commit/e1bcde967f196e9069442734b7957b438f0144f5))
+* **client-transfer:** Add ability to specify Security Policies for SFTP Connectors ([a12cf06](https://github.com/aws/aws-sdk-js-v3/commit/a12cf065d7f9ec2d474b52cc299009690d7ccfed))
+* **clients:** update client endpoints as of 2024-04-03 ([be9eadb](https://github.com/aws/aws-sdk-js-v3/commit/be9eadbdc4dc16f7e3e3c0da5af1c2b587da05fd))
+
+
+
+
+
+# [3.547.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.546.0...v3.547.0) (2024-04-02)
+
+
+### Features
+
+* **client-glue:** Adding View related fields to responses of read-only Table APIs. ([813eb4d](https://github.com/aws/aws-sdk-js-v3/commit/813eb4d90045ec16681439017a22bf43f53c118e))
+* **client-rolesanywhere:** This release increases the limit on the roleArns request parameter for the *Profile APIs that support it. This parameter can now take up to 250 role ARNs. ([7f5e108](https://github.com/aws/aws-sdk-js-v3/commit/7f5e108047ec886e98701048bfffa729482ed04c))
+* **client-sqs:** add option to prevent md5 computation ([#5953](https://github.com/aws/aws-sdk-js-v3/issues/5953)) ([43f401b](https://github.com/aws/aws-sdk-js-v3/commit/43f401b5a473449c0aa892e7cf7df9e86befffee))
+* **clients:** update client endpoints as of 2024-04-02 ([1ca0877](https://github.com/aws/aws-sdk-js-v3/commit/1ca087746a6d2f66095179d97ddc9fcfde114d98))
+
+
+
+
+
+# [3.546.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.545.0...v3.546.0) (2024-04-01)
+
+
+### Features
+
+* **client-cloudwatch:** This release adds support for CloudWatch Anomaly Detection on cross-account metrics. SingleMetricAnomalyDetector and MetricDataQuery inputs to Anomaly Detection APIs now take an optional AccountId field. ([8b556b0](https://github.com/aws/aws-sdk-js-v3/commit/8b556b09e52f5e2163765166ed79e58bae34cd1f))
+* **client-datazone:** This release supports the feature of AI recommendations for descriptions to enrich the business data catalog in Amazon DataZone. ([1508e72](https://github.com/aws/aws-sdk-js-v3/commit/1508e72a83ea92175315ac3216289191c1932de6))
+* **client-deadline:** AWS Deadline Cloud is a new fully managed service that helps customers set up, deploy, and scale rendering projects in minutes, so they can improve the efficiency of their rendering pipelines and take on more projects. ([faee925](https://github.com/aws/aws-sdk-js-v3/commit/faee9251c25d854aa130cbbbe266a46ace7dd7b0))
+* **client-lightsail:** This release adds support to upgrade the TLS version of the distribution. ([502a221](https://github.com/aws/aws-sdk-js-v3/commit/502a2215bcae371c644b990b1a5b0a3d36c29fa6))
+* **clients:** update client endpoints as of 2024-04-01 ([fc4ce77](https://github.com/aws/aws-sdk-js-v3/commit/fc4ce77e9a6470a248b4c6b075443b7069667458))
+
+
+
+
+
 # [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
 
 

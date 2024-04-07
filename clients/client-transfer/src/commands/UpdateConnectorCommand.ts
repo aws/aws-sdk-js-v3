@@ -58,6 +58,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   SecurityPolicyName: "STRING_VALUE",
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);

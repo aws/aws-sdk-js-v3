@@ -1100,9 +1100,31 @@ export interface ContainerDetails {
 
   /**
    * <p>Indicates when the container started.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LaunchedAt?: string;
@@ -2073,9 +2095,31 @@ export interface ThreatIntelIndicator {
   /**
    * <p>Indicates when the most recent instance of a threat intelligence indicator was
    *          observed.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LastObservedAt?: string;
@@ -2327,18 +2371,62 @@ export interface VulnerabilityVendor {
 
   /**
    * <p>Indicates when the vulnerability advisory was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   VendorCreatedAt?: string;
 
   /**
    * <p>Indicates when the vulnerability advisory was last updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   VendorUpdatedAt?: string;
@@ -2663,9 +2751,31 @@ export interface AwsSecurityFinding {
   /**
    * <p>Indicates when the security findings provider first observed the potential security
    *          issue that a finding captured.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   FirstObservedAt?: string;
@@ -2673,9 +2783,31 @@ export interface AwsSecurityFinding {
   /**
    * <p>Indicates when the security findings provider most recently observed the potential
    *          security issue that a finding captured.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LastObservedAt?: string;
@@ -2683,18 +2815,62 @@ export interface AwsSecurityFinding {
   /**
    * <p>Indicates when the security findings provider created the potential security issue that
    *          a finding captured.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreatedAt: string | undefined;
 
   /**
    * <p>Indicates when the security findings provider last updated the finding record.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   UpdatedAt: string | undefined;
@@ -2901,8 +3077,32 @@ export interface AwsSecurityFinding {
   GeneratorDetails?: GeneratorDetails;
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when Security Hub received a finding and begins to process it.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   * <p>A imestamp that indicates when Security Hub received a finding and begins to process it.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ProcessedAt?: string;
@@ -3000,33 +3200,129 @@ export interface AwsSecurityFindingFilters {
   Type?: StringFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security findings provider first
+   * <p>A timestamp that indicates when the security findings provider first
    *          observed the potential security issue that a finding captured.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   FirstObservedAt?: DateFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security findings provider most
+   * <p>A timestamp that indicates when the security findings provider most
    *          recently observed the potential security issue that a finding captured.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LastObservedAt?: DateFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security findings provider
-   *          captured the potential security issue that a finding captured.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   * <p>A timestamp that indicates when the security findings provider
+   *          created the potential security issue that a finding reflects.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreatedAt?: DateFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security findings provider last
-   *          updated the finding record. </p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   * <p>A timestamp that indicates when the security findings provider last
+   *          updated the finding record.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   UpdatedAt?: DateFilter[];
@@ -3240,14 +3536,62 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>A timestamp that identifies when the process was launched.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ProcessLaunchedAt?: DateFilter[];
 
   /**
    * <p>A timestamp that identifies when the process was terminated.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ProcessTerminatedAt?: DateFilter[];
@@ -3437,7 +3781,31 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>A timestamp that identifies when the container was started.</p>
-   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceContainerLaunchedAt?: DateFilter[];
@@ -7479,12 +7847,33 @@ export interface FindingHistoryRecord {
   FindingIdentifier?: AwsSecurityFindingIdentifier;
 
   /**
-   * <p> An ISO 8601-formatted timestamp that indicates when Security Hub
+   * <p> A timestamp that indicates when Security Hub
    *             processed the updated finding record.</p>
-   *          <p>A correctly formatted example is
-   *                 <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and
-   *             time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6,
-   *                 Internet Date/Time Format</a>. </p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   UpdateTime?: Date;
@@ -7828,30 +8217,7 @@ export interface GetFindingHistoryRequest {
   FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
 
   /**
-   * <p>
-   *          An ISO 8601-formatted timestamp that indicates the start time of the requested finding history. A correctly formatted
-   *          example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated
-   *          by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339
-   *             section 5.6, Internet Date/Time Format</a>.</p>
-   *          <p>If you provide values for both <code>StartTime</code> and <code>EndTime</code>,
-   *                 Security Hub returns finding history for the specified time period. If you
-   *             provide a value for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub returns finding history from the <code>StartTime</code> to the time at
-   *             which the API is called. If you provide a value for <code>EndTime</code> but not for
-   *                 <code>StartTime</code>, Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you
-   *             provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub
-   *             returns finding history from the CreatedAt timestamp of the finding to the time at which
-   *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
-   *             limited to 90 days. </p>
-   * @public
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>
-   *          An ISO 8601-formatted timestamp that indicates the end time of the requested finding history. A correctly formatted
-   *          example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated
-   *          by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339
-   *             section 5.6, Internet Date/Time Format</a>.</p>
+   * <p>A timestamp that indicates the start time of the requested finding history.</p>
    *          <p>If you provide values for both <code>StartTime</code> and <code>EndTime</code>,
    *                 Security Hub returns finding history for the specified time period. If you
    *             provide a value for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub returns finding history from the <code>StartTime</code> to the time at
@@ -7861,6 +8227,72 @@ export interface GetFindingHistoryRequest {
    *             returns finding history from the CreatedAt timestamp of the finding to the time at which
    *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
    *             limited to 90 days.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>
+   *          An ISO 8601-formatted timestamp that indicates the end time of the requested finding history.</p>
+   *          <p>If you provide values for both <code>StartTime</code> and <code>EndTime</code>,
+   *                 Security Hub returns finding history for the specified time period. If you
+   *             provide a value for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub returns finding history from the <code>StartTime</code> to the time at
+   *             which the API is called. If you provide a value for <code>EndTime</code> but not for
+   *                 <code>StartTime</code>, Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you
+   *             provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub
+   *             returns finding history from the CreatedAt timestamp of the finding to the time at which
+   *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
+   *             limited to 90 days.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   EndTime?: Date;
@@ -8109,8 +8541,8 @@ export interface Insight {
   Name: string | undefined;
 
   /**
-   * <p>One or more attributes used to filter the findings included in the insight. The insight
-   *          only includes findings that match the criteria defined in the filters.</p>
+   * <p>One or more attributes used to filter the findings included in the insight. You can filter by up to ten finding attributes. For each attribute, you can provide up to 20 filter values.
+   *             The insight only includes findings that match the criteria defined in the filters.</p>
    * @public
    */
   Filters: AwsSecurityFindingFilters | undefined;

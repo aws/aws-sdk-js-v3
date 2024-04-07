@@ -80,6 +80,7 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * //       },
  * //       StateValue: "PENDING_TRAINING" || "TRAINED_INSUFFICIENT_DATA" || "TRAINED",
  * //       SingleMetricAnomalyDetector: { // SingleMetricAnomalyDetector
+ * //         AccountId: "STRING_VALUE",
  * //         Namespace: "STRING_VALUE",
  * //         MetricName: "STRING_VALUE",
  * //         Dimensions: [

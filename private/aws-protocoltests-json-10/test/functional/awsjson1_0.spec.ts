@@ -1724,6 +1724,63 @@ it("AwsJson10DeserializeIgnoreType:Response", async () => {
 });
 
 /**
+ * Allows for `: null` to be set for all unset fields
+ */
+it("AwsJson10DeserializeAllowNulls:Response", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.0",
+      },
+      `{
+          "contents": {
+            "stringValue": null,
+            "booleanValue": null,
+            "numberValue": null,
+            "blobValue": null,
+            "timestampValue": null,
+            "enumValue": null,
+            "intEnumValue": null,
+            "listValue": null,
+            "mapValue": null,
+            "structureValue": {
+                "hi": "hello"
+            }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        structureValue: {
+          hi: "hello",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Clients must always send an empty JSON object payload for
  * operations with no input (that is, `{}`). While AWS service
  * implementations support requests with no payload or requests

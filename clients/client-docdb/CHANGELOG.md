@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.548.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.547.0...v3.548.0) (2024-04-03)
+
+
+### Features
+
+* **client-docdb:** This release adds Global Cluster Switchover capability which enables you to change your global cluster's primary AWS Region, the region that serves writes, while preserving the replication between all regions in the global cluster. ([b7817fd](https://github.com/aws/aws-sdk-js-v3/commit/b7817fd7f6319cbf25bd0747dbbc6eff9c1e2caf))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

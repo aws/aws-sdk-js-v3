@@ -53,7 +53,7 @@ export interface DeleteTrainingDatasetCommandOutput extends __MetadataBearer {}
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with that name already exists in this region.</p>
+ *  <p>You can't complete this action because another resource depends on this resource.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource you are requesting does not exist.</p>

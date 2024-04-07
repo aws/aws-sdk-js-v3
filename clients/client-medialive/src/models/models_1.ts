@@ -16,23 +16,18 @@ import {
   ChannelClass,
   ChannelEgressEndpoint,
   ChannelState,
+  CmafIngestGroupSettings,
   ColorCorrection,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
   FrameCaptureGroupSettings,
   Hdr10Settings,
   HlsAdMarkers,
-  HlsAkamaiSettings,
-  HlsBasicPutSettings,
   HlsCaptionLanguageSetting,
   HlsClientCache,
   HlsCodecSpecification,
   HlsDirectoryStructure,
   HlsDiscontinuityTags,
-  HlsEncryptionType,
-  HlsMediaStoreSettings,
-  HlsS3Settings,
-  HlsWebdavHttpTransferMode,
   Input,
   InputAttachment,
   InputClass,
@@ -70,8 +65,190 @@ import {
   OutputDestination,
   OutputLocationRef,
   ReservationResourceSpecification,
+  S3CannedAcl,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsEncryptionType = {
+  AES128: "AES128",
+  SAMPLE_AES: "SAMPLE_AES",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsEncryptionType = (typeof HlsEncryptionType)[keyof typeof HlsEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsAkamaiHttpTransferMode = {
+  CHUNKED: "CHUNKED",
+  NON_CHUNKED: "NON_CHUNKED",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsAkamaiHttpTransferMode = (typeof HlsAkamaiHttpTransferMode)[keyof typeof HlsAkamaiHttpTransferMode];
+
+/**
+ * Hls Akamai Settings
+ * @public
+ */
+export interface HlsAkamaiSettings {
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   * @public
+   */
+  FilecacheDuration?: number;
+
+  /**
+   * Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
+   * @public
+   */
+  HttpTransferMode?: HlsAkamaiHttpTransferMode;
+
+  /**
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
+   * @public
+   */
+  NumRetries?: number;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * @public
+   */
+  RestartDelay?: number;
+
+  /**
+   * Salt for authenticated Akamai.
+   * @public
+   */
+  Salt?: string;
+
+  /**
+   * Token parameter for authenticated akamai. If not specified, _gda_ is used.
+   * @public
+   */
+  Token?: string;
+}
+
+/**
+ * Hls Basic Put Settings
+ * @public
+ */
+export interface HlsBasicPutSettings {
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   * @public
+   */
+  FilecacheDuration?: number;
+
+  /**
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
+   * @public
+   */
+  NumRetries?: number;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * @public
+   */
+  RestartDelay?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsMediaStoreStorageClass = {
+  TEMPORAL: "TEMPORAL",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsMediaStoreStorageClass = (typeof HlsMediaStoreStorageClass)[keyof typeof HlsMediaStoreStorageClass];
+
+/**
+ * Hls Media Store Settings
+ * @public
+ */
+export interface HlsMediaStoreSettings {
+  /**
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   * @public
+   */
+  ConnectionRetryInterval?: number;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   * @public
+   */
+  FilecacheDuration?: number;
+
+  /**
+   * When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
+   * @public
+   */
+  MediaStoreStorageClass?: HlsMediaStoreStorageClass;
+
+  /**
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
+   * @public
+   */
+  NumRetries?: number;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   * @public
+   */
+  RestartDelay?: number;
+}
+
+/**
+ * Hls S3 Settings
+ * @public
+ */
+export interface HlsS3Settings {
+  /**
+   * Specify the canned ACL to apply to each S3 request. Defaults to none.
+   * @public
+   */
+  CannedAcl?: S3CannedAcl;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsWebdavHttpTransferMode = {
+  CHUNKED: "CHUNKED",
+  NON_CHUNKED: "NON_CHUNKED",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsWebdavHttpTransferMode = (typeof HlsWebdavHttpTransferMode)[keyof typeof HlsWebdavHttpTransferMode];
 
 /**
  * Hls Webdav Settings
@@ -1247,6 +1424,12 @@ export interface OutputGroupSettings {
    * @public
    */
   UdpGroupSettings?: UdpGroupSettings;
+
+  /**
+   * Cmaf Ingest Group Settings
+   * @public
+   */
+  CmafIngestGroupSettings?: CmafIngestGroupSettings;
 }
 
 /**
@@ -7507,318 +7690,6 @@ export interface DescribeMultiplexResponse {
    * @public
    */
   Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for DescribeMultiplexProgramRequest
- * @public
- */
-export interface DescribeMultiplexProgramRequest {
-  /**
-   * The ID of the multiplex that the program belongs to.
-   * @public
-   */
-  MultiplexId: string | undefined;
-
-  /**
-   * The name of the program.
-   * @public
-   */
-  ProgramName: string | undefined;
-}
-
-/**
- * Placeholder documentation for DescribeMultiplexProgramResponse
- * @public
- */
-export interface DescribeMultiplexProgramResponse {
-  /**
-   * The MediaLive channel associated with the program.
-   * @public
-   */
-  ChannelId?: string;
-
-  /**
-   * The settings for this multiplex program.
-   * @public
-   */
-  MultiplexProgramSettings?: MultiplexProgramSettings;
-
-  /**
-   * The packet identifier map for this multiplex program.
-   * @public
-   */
-  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
-
-  /**
-   * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
-   * @public
-   */
-  PipelineDetails?: MultiplexProgramPipelineDetail[];
-
-  /**
-   * The name of the multiplex program.
-   * @public
-   */
-  ProgramName?: string;
-}
-
-/**
- * Placeholder documentation for DescribeOfferingRequest
- * @public
- */
-export interface DescribeOfferingRequest {
-  /**
-   * Unique offering ID, e.g. '87654321'
-   * @public
-   */
-  OfferingId: string | undefined;
-}
-
-/**
- * Placeholder documentation for DescribeOfferingResponse
- * @public
- */
-export interface DescribeOfferingResponse {
-  /**
-   * Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-   * @public
-   */
-  CurrencyCode?: string;
-
-  /**
-   * Lease duration, e.g. '12'
-   * @public
-   */
-  Duration?: number;
-
-  /**
-   * Units for duration, e.g. 'MONTHS'
-   * @public
-   */
-  DurationUnits?: OfferingDurationUnits;
-
-  /**
-   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
-   * @public
-   */
-  FixedPrice?: number;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   * @public
-   */
-  OfferingDescription?: string;
-
-  /**
-   * Unique offering ID, e.g. '87654321'
-   * @public
-   */
-  OfferingId?: string;
-
-  /**
-   * Offering type, e.g. 'NO_UPFRONT'
-   * @public
-   */
-  OfferingType?: OfferingType;
-
-  /**
-   * AWS region, e.g. 'us-west-2'
-   * @public
-   */
-  Region?: string;
-
-  /**
-   * Resource configuration details
-   * @public
-   */
-  ResourceSpecification?: ReservationResourceSpecification;
-
-  /**
-   * Recurring usage charge for each reserved resource, e.g. '157.0'
-   * @public
-   */
-  UsagePrice?: number;
-}
-
-/**
- * Placeholder documentation for DescribeReservationRequest
- * @public
- */
-export interface DescribeReservationRequest {
-  /**
-   * Unique reservation ID, e.g. '1234567'
-   * @public
-   */
-  ReservationId: string | undefined;
-}
-
-/**
- * Placeholder documentation for DescribeReservationResponse
- * @public
- */
-export interface DescribeReservationResponse {
-  /**
-   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * Number of reserved resources
-   * @public
-   */
-  Count?: number;
-
-  /**
-   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-   * @public
-   */
-  CurrencyCode?: string;
-
-  /**
-   * Lease duration, e.g. '12'
-   * @public
-   */
-  Duration?: number;
-
-  /**
-   * Units for duration, e.g. 'MONTHS'
-   * @public
-   */
-  DurationUnits?: OfferingDurationUnits;
-
-  /**
-   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
-   * @public
-   */
-  End?: string;
-
-  /**
-   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
-   * @public
-   */
-  FixedPrice?: number;
-
-  /**
-   * User specified reservation name
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   * @public
-   */
-  OfferingDescription?: string;
-
-  /**
-   * Unique offering ID, e.g. '87654321'
-   * @public
-   */
-  OfferingId?: string;
-
-  /**
-   * Offering type, e.g. 'NO_UPFRONT'
-   * @public
-   */
-  OfferingType?: OfferingType;
-
-  /**
-   * AWS region, e.g. 'us-west-2'
-   * @public
-   */
-  Region?: string;
-
-  /**
-   * Renewal settings for the reservation
-   * @public
-   */
-  RenewalSettings?: RenewalSettings;
-
-  /**
-   * Unique reservation ID, e.g. '1234567'
-   * @public
-   */
-  ReservationId?: string;
-
-  /**
-   * Resource configuration details
-   * @public
-   */
-  ResourceSpecification?: ReservationResourceSpecification;
-
-  /**
-   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
-   * @public
-   */
-  Start?: string;
-
-  /**
-   * Current state of reservation, e.g. 'ACTIVE'
-   * @public
-   */
-  State?: ReservationState;
-
-  /**
-   * A collection of key-value pairs
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * Recurring usage charge for each reserved resource, e.g. '157.0'
-   * @public
-   */
-  UsagePrice?: number;
-}
-
-/**
- * Placeholder documentation for DescribeScheduleRequest
- * @public
- */
-export interface DescribeScheduleRequest {
-  /**
-   * Id of the channel whose schedule is being updated.
-   * @public
-   */
-  ChannelId: string | undefined;
-
-  /**
-   * Placeholder documentation for MaxResults
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * Placeholder documentation for DescribeScheduleResponse
- * @public
- */
-export interface DescribeScheduleResponse {
-  /**
-   * The next token; for use in pagination.
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * The list of actions in the schedule.
-   * @public
-   */
-  ScheduleActions?: ScheduleAction[];
 }
 
 /**

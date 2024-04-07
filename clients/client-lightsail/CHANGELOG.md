@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.546.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.545.0...v3.546.0) (2024-04-01)
+
+
+### Features
+
+* **client-lightsail:** This release adds support to upgrade the TLS version of the distribution. ([502a221](https://github.com/aws/aws-sdk-js-v3/commit/502a2215bcae371c644b990b1a5b0a3d36c29fa6))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

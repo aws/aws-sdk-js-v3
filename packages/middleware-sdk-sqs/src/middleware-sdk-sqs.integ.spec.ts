@@ -1,5 +1,6 @@
 import { SQS } from "@aws-sdk/client-sqs";
 import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
+import type { AwsCredentialIdentity } from "@smithy/types";
 import crypto from "crypto";
 import { Readable } from "stream";
 
@@ -103,8 +104,12 @@ const handlerResponse = (body: string) => {
 };
 
 describe("middleware-sdk-sqs", () => {
-  // TODO: check in CI
-  xdescribe(SQS.name + ` w/ useAwsQuery: ${useAwsQuery}`, () => {
+  const mockCredentials: AwsCredentialIdentity = {
+    accessKeyId: "integration_test",
+    secretAccessKey: "integration_test",
+  };
+
+  describe(SQS.name + ` w/ useAwsQuery: ${useAwsQuery}`, () => {
     describe("correct md5 hashes", () => {
       beforeEach(() => {
         hashError = "";
@@ -113,6 +118,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on received messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials: mockCredentials,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -135,6 +141,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials: mockCredentials,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -158,6 +165,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on batch sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials: mockCredentials,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -200,6 +208,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on received messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials: mockCredentials,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -225,6 +234,8 @@ describe("middleware-sdk-sqs", () => {
 
       it("runs md5 checksums on sent messages", async () => {
         const client = new SQS({
+          region: "us-west-2",
+          credentials: mockCredentials,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -252,6 +263,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on batch sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials: mockCredentials,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -295,6 +307,7 @@ describe("middleware-sdk-sqs", () => {
     it("should override resolved endpoint by default", async () => {
       const client = new SQS({
         region: "us-west-2",
+        credentials: mockCredentials,
       });
 
       requireRequestsFrom(client).toMatch({
@@ -312,6 +325,7 @@ describe("middleware-sdk-sqs", () => {
     it("does not override endpoint if shut off with useQueueUrlAsEndpoint=false", async () => {
       const client = new SQS({
         region: "us-west-2",
+        credentials: mockCredentials,
         useQueueUrlAsEndpoint: false,
       });
 
@@ -330,6 +344,7 @@ describe("middleware-sdk-sqs", () => {
     it("does not override endpoint if custom endpoint given to client", async () => {
       const client = new SQS({
         region: "us-west-2",
+        credentials: mockCredentials,
         endpoint: "https://custom-endpoint.com/",
       });
 

@@ -1761,6 +1761,7 @@ export const Runtime = {
   ruby25: "ruby2.5",
   ruby27: "ruby2.7",
   ruby32: "ruby3.2",
+  ruby33: "ruby3.3",
 } as const;
 
 /**
@@ -1997,7 +1998,7 @@ export interface CreateFunctionRequest {
   FileSystemConfigs?: FileSystemConfig[];
 
   /**
-   * <p>Container image <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings">configuration
+   * <p>Container image <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">configuration
    *       values</a> that override the values in the container image Dockerfile.</p>
    * @public
    */
@@ -7098,7 +7099,7 @@ export interface UpdateFunctionConfigurationRequest {
 
   /**
    * <p>
-   *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration
+   *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image configuration
    *         values</a> that override the values in the container image Docker file.</p>
    * @public
    */

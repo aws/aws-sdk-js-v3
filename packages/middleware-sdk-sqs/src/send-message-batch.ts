@@ -27,6 +27,9 @@ export const sendMessageBatchMiddleware =
   <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
   async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
     const resp = await next({ ...args });
+    if (options.md5 === false) {
+      return resp;
+    }
     const output = resp.output as unknown as SendMessageBatchResult;
     const messageIds = [];
     const entries: Record<string, SendMessageBatchResultEntry> = {};

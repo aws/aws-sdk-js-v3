@@ -38,6 +38,10 @@ import {
   AcceptSubscriptionRequestCommandInput,
   AcceptSubscriptionRequestCommandOutput,
 } from "../commands/AcceptSubscriptionRequestCommand";
+import {
+  CancelMetadataGenerationRunCommandInput,
+  CancelMetadataGenerationRunCommandOutput,
+} from "../commands/CancelMetadataGenerationRunCommand";
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "../commands/CancelSubscriptionCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "../commands/CreateAssetCommand";
 import {
@@ -112,6 +116,10 @@ import {
   DeleteSubscriptionTargetCommandInput,
   DeleteSubscriptionTargetCommandOutput,
 } from "../commands/DeleteSubscriptionTargetCommand";
+import {
+  DeleteTimeSeriesDataPointsCommandInput,
+  DeleteTimeSeriesDataPointsCommandOutput,
+} from "../commands/DeleteTimeSeriesDataPointsCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "../commands/GetAssetTypeCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
@@ -139,6 +147,10 @@ import {
   GetIamPortalLoginUrlCommandOutput,
 } from "../commands/GetIamPortalLoginUrlCommand";
 import { GetListingCommandInput, GetListingCommandOutput } from "../commands/GetListingCommand";
+import {
+  GetMetadataGenerationRunCommandInput,
+  GetMetadataGenerationRunCommandOutput,
+} from "../commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "../commands/GetProjectCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "../commands/GetSubscriptionCommand";
 import {
@@ -153,6 +165,10 @@ import {
   GetSubscriptionTargetCommandInput,
   GetSubscriptionTargetCommandOutput,
 } from "../commands/GetSubscriptionTargetCommand";
+import {
+  GetTimeSeriesDataPointCommandInput,
+  GetTimeSeriesDataPointCommandOutput,
+} from "../commands/GetTimeSeriesDataPointCommand";
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "../commands/GetUserProfileCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "../commands/ListAssetRevisionsCommand";
 import {
@@ -175,6 +191,10 @@ import {
   ListEnvironmentProfilesCommandOutput,
 } from "../commands/ListEnvironmentProfilesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
+import {
+  ListMetadataGenerationRunsCommandInput,
+  ListMetadataGenerationRunsCommandOutput,
+} from "../commands/ListMetadataGenerationRunsCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "../commands/ListNotificationsCommand";
 import {
   ListProjectMembershipsCommandInput,
@@ -199,6 +219,14 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  ListTimeSeriesDataPointsCommandInput,
+  ListTimeSeriesDataPointsCommandOutput,
+} from "../commands/ListTimeSeriesDataPointsCommand";
+import {
+  PostTimeSeriesDataPointsCommandInput,
+  PostTimeSeriesDataPointsCommandOutput,
+} from "../commands/PostTimeSeriesDataPointsCommand";
+import {
   PutEnvironmentBlueprintConfigurationCommandInput,
   PutEnvironmentBlueprintConfigurationCommandOutput,
 } from "../commands/PutEnvironmentBlueprintConfigurationCommand";
@@ -217,6 +245,10 @@ import { SearchListingsCommandInput, SearchListingsCommandOutput } from "../comm
 import { SearchTypesCommandInput, SearchTypesCommandOutput } from "../commands/SearchTypesCommand";
 import { SearchUserProfilesCommandInput, SearchUserProfilesCommandOutput } from "../commands/SearchUserProfilesCommand";
 import { StartDataSourceRunCommandInput, StartDataSourceRunCommandOutput } from "../commands/StartDataSourceRunCommand";
+import {
+  StartMetadataGenerationRunCommandInput,
+  StartMetadataGenerationRunCommandOutput,
+} from "../commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
@@ -249,8 +281,10 @@ import {
   AcceptRule,
   AccessDeniedException,
   AssetItem,
+  AssetItemAdditionalAttributes,
   AssetListing,
   AssetListingItem,
+  AssetListingItemAdditionalAttributes,
   AssetRevision,
   AssetTargetNameMap,
   AssetTypeItem,
@@ -287,8 +321,6 @@ import {
   RedshiftRunConfigurationInput,
   RedshiftServerlessStorage,
   RedshiftStorage,
-  RejectChoice,
-  RejectRule,
   RelationalFilterConfiguration,
   ResourceNotFoundException,
   ScheduleConfiguration,
@@ -302,9 +334,10 @@ import {
   SubscriptionRequestSummary,
   SubscriptionSummary,
   SubscriptionTargetForm,
-  SubscriptionTargetSummary,
   TermRelations,
   ThrottlingException,
+  TimeSeriesDataPointFormOutput,
+  TimeSeriesDataPointSummaryFormOutput,
   UnauthorizedException,
   ValidationException,
 } from "../models/models_0";
@@ -314,12 +347,18 @@ import {
   FormTypeData,
   GlossaryItem,
   GlossaryTermItem,
+  MetadataGenerationRunItem,
+  MetadataGenerationRunTarget,
+  RejectChoice,
+  RejectRule,
   SearchInItem,
   SearchInventoryResultItem,
   SearchOutputAdditionalAttribute,
   SearchResultItem,
   SearchSort,
   SearchTypesResultItem,
+  SubscriptionTargetSummary,
+  TimeSeriesDataPointFormInput,
 } from "../models/models_1";
 
 /**
@@ -372,6 +411,23 @@ export const se_AcceptSubscriptionRequestCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelMetadataGenerationRunCommand
+ */
+export const se_CancelMetadataGenerationRunCommand = async (
+  input: CancelMetadataGenerationRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}/cancel");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1187,6 +1243,28 @@ export const se_DeleteSubscriptionTargetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteTimeSeriesDataPointsCommand
+ */
+export const se_DeleteTimeSeriesDataPointsCommand = async (
+  input: DeleteTimeSeriesDataPointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/time-series-data-points");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  const query: any = map({
+    [_fN]: [, __expectNonNull(input[_fN]!, `formName`)],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAssetCommand
  */
 export const se_GetAssetCommand = async (
@@ -1457,6 +1535,23 @@ export const se_GetListingCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMetadataGenerationRunCommand
+ */
+export const se_GetMetadataGenerationRunCommand = async (
+  input: GetMetadataGenerationRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetProjectCommand
  */
 export const se_GetProjectCommand = async (
@@ -1539,6 +1634,28 @@ export const se_GetSubscriptionTargetCommand = async (
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTimeSeriesDataPointCommand
+ */
+export const se_GetTimeSeriesDataPointCommand = async (
+  input: GetTimeSeriesDataPointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/time-series-data-points/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_fN]: [, __expectNonNull(input[_fN]!, `formName`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1768,6 +1885,28 @@ export const se_ListEnvironmentsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListMetadataGenerationRunsCommand
+ */
+export const se_ListMetadataGenerationRunsCommand = async (
+  input: ListMetadataGenerationRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/metadata-generation-runs");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  const query: any = map({
+    [_s]: [, input[_s]!],
+    [_t]: [, input[_t]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListNotificationsCommand
  */
 export const se_ListNotificationsCommand = async (
@@ -1953,6 +2092,57 @@ export const se_ListTagsForResourceCommand = async (
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTimeSeriesDataPointsCommand
+ */
+export const se_ListTimeSeriesDataPointsCommand = async (
+  input: ListTimeSeriesDataPointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/time-series-data-points");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  const query: any = map({
+    [_fN]: [, __expectNonNull(input[_fN]!, `formName`)],
+    [_sA]: [() => input.startedAt !== void 0, () => (input[_sA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_eA]: [() => input.endedAt !== void 0, () => (input[_eA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PostTimeSeriesDataPointsCommand
+ */
+export const se_PostTimeSeriesDataPointsCommand = async (
+  input: PostTimeSeriesDataPointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/time-series-data-points");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("entityIdentifier", () => input.entityIdentifier!, "{entityIdentifier}", false);
+  b.p("entityType", () => input.entityType!, "{entityType}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      forms: (_) => se_TimeSeriesDataPointFormInputList(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2222,6 +2412,32 @@ export const se_StartDataSourceRunCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartMetadataGenerationRunCommand
+ */
+export const se_StartMetadataGenerationRunCommand = async (
+  input: StartMetadataGenerationRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/metadata-generation-runs");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      owningProjectIdentifier: [],
+      target: (_) => _json(_),
+      type: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2655,6 +2871,23 @@ export const de_AcceptSubscriptionRequestCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CancelMetadataGenerationRunCommand
+ */
+export const de_CancelMetadataGenerationRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMetadataGenerationRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CancelSubscriptionCommand
  */
 export const de_CancelSubscriptionCommand = async (
@@ -2710,6 +2943,7 @@ export const de_CreateAssetCommand = async (
     formsOutput: _json,
     glossaryTerms: _json,
     id: __expectString,
+    latestTimeSeriesDataPointFormsOutput: (_) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
     listing: _json,
     name: __expectString,
     owningProjectId: __expectString,
@@ -2748,6 +2982,7 @@ export const de_CreateAssetRevisionCommand = async (
     formsOutput: _json,
     glossaryTerms: _json,
     id: __expectString,
+    latestTimeSeriesDataPointFormsOutput: (_) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
     listing: _json,
     name: __expectString,
     owningProjectId: __expectString,
@@ -3547,6 +3782,23 @@ export const de_DeleteSubscriptionTargetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteTimeSeriesDataPointsCommand
+ */
+export const de_DeleteTimeSeriesDataPointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTimeSeriesDataPointsCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAssetCommand
  */
 export const de_GetAssetCommand = async (
@@ -3571,6 +3823,7 @@ export const de_GetAssetCommand = async (
     formsOutput: _json,
     glossaryTerms: _json,
     id: __expectString,
+    latestTimeSeriesDataPointFormsOutput: (_) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
     listing: _json,
     name: __expectString,
     owningProjectId: __expectString,
@@ -4024,6 +4277,34 @@ export const de_GetListingCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMetadataGenerationRunCommand
+ */
+export const de_GetMetadataGenerationRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetadataGenerationRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    owningProjectId: __expectString,
+    status: __expectString,
+    target: _json,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetProjectCommand
  */
 export const de_GetProjectCommand = async (
@@ -4177,6 +4458,31 @@ export const de_GetSubscriptionTargetCommand = async (
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     updatedBy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTimeSeriesDataPointCommand
+ */
+export const de_GetTimeSeriesDataPointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTimeSeriesDataPointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    domainId: __expectString,
+    entityId: __expectString,
+    entityType: __expectString,
+    form: (_) => de_TimeSeriesDataPointFormOutput(_, context),
+    formName: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4406,6 +4712,28 @@ export const de_ListEnvironmentsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListMetadataGenerationRunsCommand
+ */
+export const de_ListMetadataGenerationRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetadataGenerationRunsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_MetadataGenerationRuns(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListNotificationsCommand
  */
 export const de_ListNotificationsCommand = async (
@@ -4575,6 +4903,52 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTimeSeriesDataPointsCommand
+ */
+export const de_ListTimeSeriesDataPointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTimeSeriesDataPointsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PostTimeSeriesDataPointsCommand
+ */
+export const de_PostTimeSeriesDataPointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PostTimeSeriesDataPointsCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    domainId: __expectString,
+    entityId: __expectString,
+    entityType: __expectString,
+    forms: (_) => de_TimeSeriesDataPointFormOutputList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -4835,6 +5209,33 @@ export const de_StartDataSourceRunCommand = async (
     stoppedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartMetadataGenerationRunCommand
+ */
+export const de_StartMetadataGenerationRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataGenerationRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    owningProjectId: __expectString,
+    status: __expectString,
+    type: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5521,6 +5922,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_Member omitted.
 
+// se_MetadataGenerationRunTarget omitted.
+
 // se_Model omitted.
 
 // se_PredictionChoices omitted.
@@ -5591,6 +5994,30 @@ const se_RejectRule = (input: RejectRule, context: __SerdeContext): any => {
 
 // se_TermRelations omitted.
 
+/**
+ * serializeAws_restJson1TimeSeriesDataPointFormInput
+ */
+const se_TimeSeriesDataPointFormInput = (input: TimeSeriesDataPointFormInput, context: __SerdeContext): any => {
+  return take(input, {
+    content: [],
+    formName: [],
+    timestamp: (_) => Math.round(_.getTime() / 1000),
+    typeIdentifier: [],
+    typeRevision: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1TimeSeriesDataPointFormInputList
+ */
+const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_TimeSeriesDataPointFormInput(entry, context);
+    });
+};
+
 // de_ApplicableAssetTypes omitted.
 
 /**
@@ -5598,7 +6025,7 @@ const se_RejectRule = (input: RejectRule, context: __SerdeContext): any => {
  */
 const de_AssetItem = (output: any, context: __SerdeContext): AssetItem => {
   return take(output, {
-    additionalAttributes: _json,
+    additionalAttributes: (_: any) => de_AssetItemAdditionalAttributes(_, context),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
     description: __expectString,
@@ -5615,7 +6042,16 @@ const de_AssetItem = (output: any, context: __SerdeContext): AssetItem => {
   }) as any;
 };
 
-// de_AssetItemAdditionalAttributes omitted.
+/**
+ * deserializeAws_restJson1AssetItemAdditionalAttributes
+ */
+const de_AssetItemAdditionalAttributes = (output: any, context: __SerdeContext): AssetItemAdditionalAttributes => {
+  return take(output, {
+    formsOutput: _json,
+    latestTimeSeriesDataPointFormsOutput: (_: any) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
+    readOnlyFormsOutput: _json,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AssetListing
@@ -5628,6 +6064,7 @@ const de_AssetListing = (output: any, context: __SerdeContext): AssetListing => 
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     forms: __expectString,
     glossaryTerms: _json,
+    latestTimeSeriesDataPointForms: (_: any) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
     owningProjectId: __expectString,
   }) as any;
 };
@@ -5639,7 +6076,7 @@ const de_AssetListing = (output: any, context: __SerdeContext): AssetListing => 
  */
 const de_AssetListingItem = (output: any, context: __SerdeContext): AssetListingItem => {
   return take(output, {
-    additionalAttributes: _json,
+    additionalAttributes: (_: any) => de_AssetListingItemAdditionalAttributes(_, context),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     entityId: __expectString,
@@ -5655,7 +6092,18 @@ const de_AssetListingItem = (output: any, context: __SerdeContext): AssetListing
   }) as any;
 };
 
-// de_AssetListingItemAdditionalAttributes omitted.
+/**
+ * deserializeAws_restJson1AssetListingItemAdditionalAttributes
+ */
+const de_AssetListingItemAdditionalAttributes = (
+  output: any,
+  context: __SerdeContext
+): AssetListingItemAdditionalAttributes => {
+  return take(output, {
+    forms: __expectString,
+    latestTimeSeriesDataPointForms: (_: any) => de_TimeSeriesDataPointSummaryFormOutputList(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AssetRevision
@@ -6118,6 +6566,36 @@ const de_ListingItem = (output: any, context: __SerdeContext): ListingItem => {
 
 // de_MemberDetails omitted.
 
+/**
+ * deserializeAws_restJson1MetadataGenerationRunItem
+ */
+const de_MetadataGenerationRunItem = (output: any, context: __SerdeContext): MetadataGenerationRunItem => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    owningProjectId: __expectString,
+    status: __expectString,
+    target: _json,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MetadataGenerationRuns
+ */
+const de_MetadataGenerationRuns = (output: any, context: __SerdeContext): MetadataGenerationRunItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetadataGenerationRunItem(entry, context);
+    });
+  return retVal;
+};
+
+// de_MetadataGenerationRunTarget omitted.
+
 // de_MetadataMap omitted.
 
 // de_Model omitted.
@@ -6496,6 +6974,67 @@ const de_SubscriptionTargetSummary = (output: any, context: __SerdeContext): Sub
 
 // de_TermRelations omitted.
 
+/**
+ * deserializeAws_restJson1TimeSeriesDataPointFormOutput
+ */
+const de_TimeSeriesDataPointFormOutput = (output: any, context: __SerdeContext): TimeSeriesDataPointFormOutput => {
+  return take(output, {
+    content: __expectString,
+    formName: __expectString,
+    id: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    typeIdentifier: __expectString,
+    typeRevision: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TimeSeriesDataPointFormOutputList
+ */
+const de_TimeSeriesDataPointFormOutputList = (
+  output: any,
+  context: __SerdeContext
+): TimeSeriesDataPointFormOutput[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TimeSeriesDataPointFormOutput(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1TimeSeriesDataPointSummaryFormOutput
+ */
+const de_TimeSeriesDataPointSummaryFormOutput = (
+  output: any,
+  context: __SerdeContext
+): TimeSeriesDataPointSummaryFormOutput => {
+  return take(output, {
+    contentSummary: __expectString,
+    formName: __expectString,
+    id: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    typeIdentifier: __expectString,
+    typeRevision: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TimeSeriesDataPointSummaryFormOutputList
+ */
+const de_TimeSeriesDataPointSummaryFormOutputList = (
+  output: any,
+  context: __SerdeContext
+): TimeSeriesDataPointSummaryFormOutput[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TimeSeriesDataPointSummaryFormOutput(entry, context);
+    });
+  return retVal;
+};
+
 // de_Topic omitted.
 
 // de_UserDetails omitted.
@@ -6531,10 +7070,12 @@ const _aPI = "approverProjectId";
 const _aT = "afterTimestamp";
 const _bT = "beforeTimestamp";
 const _cT = "clientToken";
+const _eA = "endedAt";
 const _eBI = "environmentBlueprintIdentifier";
 const _eI = "environmentIdentifier";
 const _eIn = "environmentId";
 const _ePI = "environmentProfileIdentifier";
+const _fN = "formName";
 const _gI = "groupIdentifier";
 const _lR = "listingRevision";
 const _m = "managed";
@@ -6546,6 +7087,7 @@ const _p = "provider";
 const _pI = "projectIdentifier";
 const _r = "revision";
 const _s = "status";
+const _sA = "startedAt";
 const _sB = "sortBy";
 const _sDC = "skipDeletionCheck";
 const _sI = "subscriptionId";

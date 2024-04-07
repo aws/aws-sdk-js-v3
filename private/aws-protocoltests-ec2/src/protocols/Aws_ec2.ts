@@ -1251,13 +1251,13 @@ const se_SimpleInputParamsInput = (input: SimpleInputParamsInput, context: __Ser
     entries[_FE] = input[_FE];
   }
   if (input[_HQN] != null) {
-    entries[_A_] = input[_HQN];
+    entries[_HQN] = input[_HQN];
   }
   if (input[_HQAXN] != null) {
-    entries[_B_] = input[_HQAXN];
+    entries[_HQAXN] = input[_HQAXN];
   }
   if (input[_UXN] != null) {
-    entries[_C] = input[_UXN];
+    entries[_UXN] = input[_UXN];
   }
   return entries;
 };
@@ -1959,13 +1959,10 @@ const SHARED_HEADERS: __HeaderBag = {
 
 const _ = "2020-01-08";
 const _A = "Action";
-const _A_ = "A";
 const _B = "Bar";
-const _B_ = "B";
 const _Ba = "Baz";
 const _Bam = "Bam";
 const _Bo = "Boo";
-const _C = "C";
 const _CLA = "ComplexListArg";
 const _D = "Data";
 const _DD = "DoubleDribble";

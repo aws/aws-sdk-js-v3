@@ -27,7 +27,7 @@ export interface DeleteListingCommandInput extends DeleteListingInput {}
 export interface DeleteListingCommandOutput extends DeleteListingOutput, __MetadataBearer {}
 
 /**
- * <p/>
+ * <p>Deletes a listing (a record of an asset at a given time).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

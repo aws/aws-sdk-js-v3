@@ -35,23 +35,11 @@ export interface NullOperationCommandOutput extends NullOperationInputOutput, __
  * const client = new JsonProtocolClient(config);
  * const input = { // NullOperationInputOutput
  *   string: "STRING_VALUE",
- *   sparseStringList: [ // SparseStringList
- *     "STRING_VALUE",
- *   ],
- *   sparseStringMap: { // SparseStringMap
- *     "<keys>": "STRING_VALUE",
- *   },
  * };
  * const command = new NullOperationCommand(input);
  * const response = await client.send(command);
  * // { // NullOperationInputOutput
  * //   string: "STRING_VALUE",
- * //   sparseStringList: [ // SparseStringList
- * //     "STRING_VALUE",
- * //   ],
- * //   sparseStringMap: { // SparseStringMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
  * // };
  *
  * ```

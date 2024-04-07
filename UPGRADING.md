@@ -573,10 +573,10 @@ In v3, the similar utility function is available in [`@aws-sdk/polly-request-pre
 
 ### Amazon S3
 
-Streaming vs. buffered responses: the JSv3 SDK prefers not to buffer potentially large responses. This is commonly encountered in S3's GetObject operation, which returned a `Buffer` in JSv2, but 
+Streaming vs. buffered responses: the JSv3 SDK prefers not to buffer potentially large responses. This is commonly encountered in S3's GetObject operation, which returned a `Buffer` in JSv2, but
 returns a `Stream` in JSv3.
 
-For Node.js, you must consume the stream or garbage collect the client or its request handler to keep the connections open to new traffic by freeing sockets. 
+For Node.js, you must consume the stream or garbage collect the client or its request handler to keep the connections open to new traffic by freeing sockets.
 
 ```ts
 // v2
@@ -642,7 +642,22 @@ const region = "...";
 
 ### Amazon SQS
 
-When using a custom `QueueUrl` in SQS operations that have this as an input parameter, in JSv2 
+#### MD5 Checksum
+
+To skip computation of MD5 checksums of message bodies, set `md5=false` on the configuration object.
+Otherwise, by default the SDK will calculate the checksum for sending messages, as well as validating the checksum
+for retrieved messages.
+
+```ts
+// Example: skip md5 checksum in SQS.
+import { SQS } from "@aws-sdk/client-sqs";
+
+new SQS({
+  md5: false, // Note: only available in v3.547.0 and higher.
+});
+```
+
+When using a custom `QueueUrl` in SQS operations that have this as an input parameter, in JSv2
 it was possible to supply a custom `QueueUrl` which would override the SQS Client's default endpoint.
 
 #### Mutli-region messages
@@ -669,11 +684,11 @@ for (const { region, url } of queues) {
   };
   await sqsClients[region].sendMessage(params);
 }
-```  
+```
 
 #### Custom endpoint
 
-In JSv3, when using a custom endpoint, i.e. one that differs from the default public SQS endpoints, you 
+In JSv3, when using a custom endpoint, i.e. one that differs from the default public SQS endpoints, you
 should always set the endpoint on the SQS Client as well as the `QueueUrl` field.
 
 ```ts
@@ -703,6 +718,6 @@ const sqs = new SQS({
 
 await sqs.sendMessage({
   QueueUrl: "https://sqs.us-west-2.amazonaws.com/1234567/MyQueue",
-  Message: "hello"
+  Message: "hello",
 });
 ```
