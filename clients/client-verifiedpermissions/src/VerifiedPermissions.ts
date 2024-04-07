@@ -8,6 +8,11 @@ import {
   BatchIsAuthorizedCommandOutput,
 } from "./commands/BatchIsAuthorizedCommand";
 import {
+  BatchIsAuthorizedWithTokenCommand,
+  BatchIsAuthorizedWithTokenCommandInput,
+  BatchIsAuthorizedWithTokenCommandOutput,
+} from "./commands/BatchIsAuthorizedWithTokenCommand";
+import {
   CreateIdentitySourceCommand,
   CreateIdentitySourceCommandInput,
   CreateIdentitySourceCommandOutput,
@@ -119,6 +124,7 @@ import { VerifiedPermissionsClient, VerifiedPermissionsClientConfig } from "./Ve
 
 const commands = {
   BatchIsAuthorizedCommand,
+  BatchIsAuthorizedWithTokenCommand,
   CreateIdentitySourceCommand,
   CreatePolicyCommand,
   CreatePolicyStoreCommand,
@@ -161,6 +167,23 @@ export interface VerifiedPermissions {
     args: BatchIsAuthorizedCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchIsAuthorizedCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchIsAuthorizedWithTokenCommand}
+   */
+  batchIsAuthorizedWithToken(
+    args: BatchIsAuthorizedWithTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchIsAuthorizedWithTokenCommandOutput>;
+  batchIsAuthorizedWithToken(
+    args: BatchIsAuthorizedWithTokenCommandInput,
+    cb: (err: any, data?: BatchIsAuthorizedWithTokenCommandOutput) => void
+  ): void;
+  batchIsAuthorizedWithToken(
+    args: BatchIsAuthorizedWithTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchIsAuthorizedWithTokenCommandOutput) => void
   ): void;
 
   /**

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
+
+
+### Features
+
+* **client-emr-containers:** This release adds support for integration with EKS AccessEntry APIs to enable automatic Cluster Access for EMR on EKS. ([36c6750](https://github.com/aws/aws-sdk-js-v3/commit/36c6750825ab702cf2de15bf17bfcdfdcabfcb43))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

@@ -229,6 +229,14 @@ BatchGetSchema
 </details>
 <details>
 <summary>
+BatchGetSchemaAnalysisRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/BatchGetSchemaAnalysisRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/BatchGetSchemaAnalysisRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/BatchGetSchemaAnalysisRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateAnalysisTemplate
 </summary>
 

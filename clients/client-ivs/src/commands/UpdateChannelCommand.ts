@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_0";
+import {
+  UpdateChannelRequest,
+  UpdateChannelResponse,
+  UpdateChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -64,6 +68,10 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //     },
  * //     insecureIngest: true || false,
  * //     preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //     srt: { // Srt
+ * //       endpoint: "STRING_VALUE",
+ * //       passphrase: "STRING_VALUE",
+ * //     },
  * //     playbackRestrictionPolicyArn: "STRING_VALUE",
  * //   },
  * // };
@@ -115,7 +123,7 @@ export class UpdateChannelCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "UpdateChannel", {})
   .n("IvsClient", "UpdateChannelCommand")
-  .f(void 0, void 0)
+  .f(void 0, UpdateChannelResponseFilterSensitiveLog)
   .ser(se_UpdateChannelCommand)
   .de(de_UpdateChannelCommand)
   .build() {}

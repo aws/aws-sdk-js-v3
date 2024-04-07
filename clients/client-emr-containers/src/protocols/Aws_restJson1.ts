@@ -90,6 +90,7 @@ import {
   ContainerLogRotationConfiguration,
   ContainerProvider,
   EksInfo,
+  EKSRequestThrottledException,
   Endpoint,
   InternalServerException,
   JobDriver,
@@ -456,6 +457,7 @@ export const se_ListVirtualClustersCommand = async (
     [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_eAEI]: [() => input.eksAccessEntryIntegrated !== void 0, () => input[_eAEI]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -989,6 +991,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "EKSRequestThrottledException":
+    case "com.amazonaws.emrcontainers#EKSRequestThrottledException":
+      throw await de_EKSRequestThrottledExceptionRes(parsedOutput, context);
     case "RequestThrottledException":
     case "com.amazonaws.emrcontainers#RequestThrottledException":
       throw await de_RequestThrottledExceptionRes(parsedOutput, context);
@@ -1003,6 +1008,26 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
 };
 
 const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1EKSRequestThrottledExceptionRes
+ */
+const de_EKSRequestThrottledExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EKSRequestThrottledException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new EKSRequestThrottledException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 /**
  * deserializeAws_restJson1InternalServerExceptionRes
  */
@@ -1437,6 +1462,7 @@ const _cA = "createdAfter";
 const _cB = "createdBefore";
 const _cPI = "containerProviderId";
 const _cPT = "containerProviderType";
+const _eAEI = "eksAccessEntryIntegrated";
 const _mR = "maxResults";
 const _n = "name";
 const _nT = "nextToken";

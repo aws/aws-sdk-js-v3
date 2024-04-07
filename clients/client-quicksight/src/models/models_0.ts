@@ -514,7 +514,7 @@ export interface AggregationSortConfiguration {
 }
 
 /**
- * <p>The configuration for applying a filter to all sheets. You can apply this filter to all visuals on every sheet.</p>
+ * <p>An empty object that represents that the <code>AllSheets</code> option is the chosen value for the <code>FilterScopeConfiguration</code> parameter. This structure applies the filter to all visuals on all sheets of an Analysis, Dashboard, or Template.</p>
  *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
  * @public
  */
@@ -2576,7 +2576,7 @@ export interface FilterScopeConfiguration {
   SelectedSheets?: SelectedSheetsFilterScopeConfiguration;
 
   /**
-   * <p>The configuration for applying a filter to all sheets.</p>
+   * <p>The configuration that applies a filter to all sheets. When you choose <code>AllSheets</code> as the value for a <code>FilterScopeConfiguration</code>, this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The <code>AllSheetsFilterScopeConfiguration</code> is chosen.</p>
    * @public
    */
   AllSheets?: AllSheetsFilterScopeConfiguration;

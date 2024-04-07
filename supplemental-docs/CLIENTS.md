@@ -135,10 +135,17 @@ import { fromCognitoIdentity } from "@aws-sdk/credential-providers";
 const client = new S3Client({
   credentials: async () => {
     // get credentials from any source.
+    const credentials = {
+      /* ... */
+    };
     return {
-      accessKeyId: "...",
-      secretAccessKey: "...",
-      sessionToken: "...",
+      accessKeyId: credentials.accessKeyId,
+      secretAccessKey: "etc.",
+      sessionToken: "etc.",
+      // 1. You can set an expiration near which this function will be called again.
+      // 2. You can use the expiration given by your upstream credentials provider, if it exists.
+      // 3. Omitting an expiration will result in this function not being called more than once.
+      expiration: new Date(),
     };
   },
 });
@@ -340,11 +347,12 @@ const client = new DynamoDBClient({
   requestHandler: new NodeHttpHandler({
     requestTimeout: 3_000,
     httpsAgent: new https.Agent({
-      maxSockets: 25
+      maxSockets: 25,
     }),
   }),
 });
 ```
+
 ```ts
 // Example: short form requestHandler configuration.
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -356,8 +364,9 @@ const client = new DynamoDBClient({
   },
 });
 ```
+
 You can instead pass the constructor parameters directly. The default requestHandler for the platform and service will be used.
-For Node.js, most services use `NodeHttpHandler`. For browsers, most services use `FetchHttpHandler`. 
+For Node.js, most services use `NodeHttpHandler`. For browsers, most services use `FetchHttpHandler`.
 
 Kinesis, Lex Runtime v2, QBusiness, TranscribeStreaming use `NodeHttp2Handler` by default instead in Node.js.
 RekognitionStreaming and TranscribeStreaming use the `WebSocketFetchHandler` by default instead in browsers.

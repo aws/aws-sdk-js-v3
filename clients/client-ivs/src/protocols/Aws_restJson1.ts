@@ -1964,6 +1964,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_S3DestinationConfiguration omitted.
 
+// de_Srt omitted.
+
 /**
  * deserializeAws_restJson1_Stream
  */

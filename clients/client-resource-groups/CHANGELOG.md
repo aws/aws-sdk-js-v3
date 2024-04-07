@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.550.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.549.0...v3.550.0) (2024-04-05)
+
+
+### Features
+
+* **client-resource-groups:** Added a new QueryErrorCode RESOURCE_TYPE_NOT_SUPPORTED that is returned by the ListGroupResources operation if the group query contains unsupported resource types. ([73a6573](https://github.com/aws/aws-sdk-js-v3/commit/73a6573a50e8184567a16b1b5709fea82322ce06))
+
+
+
+
+
+# [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
+
+**Note:** Version bump only for package @aws-sdk/client-resource-groups
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

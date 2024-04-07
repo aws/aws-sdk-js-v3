@@ -69,6 +69,9 @@ export interface GetIdentitySourceCommandOutput extends GetIdentitySourceOutput,
  * //         "STRING_VALUE",
  * //       ],
  * //       issuer: "STRING_VALUE", // required
+ * //       groupConfiguration: { // CognitoGroupConfigurationDetail
+ * //         groupEntityType: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };

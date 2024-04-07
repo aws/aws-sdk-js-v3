@@ -358,6 +358,53 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>A list of user groups and entities from an Amazon Cognito user pool identity
+ *             source.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html">CognitoUserPoolConfiguration</a> structure and is a request parameter in <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
+ * @public
+ */
+export interface CognitoGroupConfiguration {
+  /**
+   * <p>The name of the schema entity type that's mapped to the user pool group. Defaults
+   *             to <code>AWS::CognitoGroup</code>.</p>
+   * @public
+   */
+  groupEntityType: string | undefined;
+}
+
+/**
+ * <p>A list of user groups and entities from an Amazon Cognito user pool identity
+ *             source.</p>
+ *          <p>This data type is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfigurationItem.html">CognitoUserPoolConfigurationDetail</a> structure and is a response parameter to
+ *             <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ * @public
+ */
+export interface CognitoGroupConfigurationDetail {
+  /**
+   * <p>The name of the schema entity type that's mapped to the user pool group. Defaults
+   *             to <code>AWS::CognitoGroup</code>.</p>
+   * @public
+   */
+  groupEntityType?: string;
+}
+
+/**
+ * <p>A list of user groups and entities from an Amazon Cognito user pool identity
+ *             source.</p>
+ *          <p>This data type is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfigurationDetail.html">CognitoUserPoolConfigurationItem</a> structure and is a response parameter to
+ *             <a href="http://forums.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ * @public
+ */
+export interface CognitoGroupConfigurationItem {
+  /**
+   * <p>The name of the schema entity type that's mapped to the user pool group. Defaults
+   *             to <code>AWS::CognitoGroup</code>.</p>
+   * @public
+   */
+  groupEntityType?: string;
+}
+
+/**
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
@@ -386,6 +433,13 @@ export interface CognitoUserPoolConfiguration {
    * @public
    */
   clientIds?: string[];
+
+  /**
+   * <p>The configuration of the user groups from an Amazon Cognito user pool identity
+   *             source.</p>
+   * @public
+   */
+  groupConfiguration?: CognitoGroupConfiguration;
 }
 
 /**
@@ -427,6 +481,13 @@ export interface CognitoUserPoolConfigurationDetail {
    * @public
    */
   issuer: string | undefined;
+
+  /**
+   * <p>The configuration of the user groups from an Amazon Cognito user pool identity
+   *             source.</p>
+   * @public
+   */
+  groupConfiguration?: CognitoGroupConfigurationDetail;
 }
 
 /**
@@ -468,6 +529,13 @@ export interface CognitoUserPoolConfigurationItem {
    * @public
    */
   issuer: string | undefined;
+
+  /**
+   * <p>The configuration of the user groups from an Amazon Cognito user pool identity
+   *             source.</p>
+   * @public
+   */
+  groupConfiguration?: CognitoGroupConfigurationItem;
 }
 
 /**
@@ -494,7 +562,7 @@ export namespace Configuration {
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *                     ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -543,7 +611,7 @@ export namespace ConfigurationDetail {
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -590,7 +658,7 @@ export namespace ConfigurationItem {
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -1998,6 +2066,20 @@ export interface ListIdentitySourcesOutput {
 }
 
 /**
+ * <p>A list of user groups and entities from an Amazon Cognito user pool identity
+ *             source.</p>
+ * @public
+ */
+export interface UpdateCognitoGroupConfiguration {
+  /**
+   * <p>The name of the schema entity type that's mapped to the user pool group. Defaults
+   *             to <code>AWS::CognitoGroup</code>.</p>
+   * @public
+   */
+  groupEntityType: string | undefined;
+}
+
+/**
  * <p>Contains configuration details of a Amazon Cognito user pool for use with an identity source.</p>
  * @public
  */
@@ -2014,6 +2096,13 @@ export interface UpdateCognitoUserPoolConfiguration {
    * @public
    */
   clientIds?: string[];
+
+  /**
+   * <p>The configuration of the user groups from an Amazon Cognito user pool identity
+   *             source.</p>
+   * @public
+   */
+  groupConfiguration?: UpdateCognitoGroupConfiguration;
 }
 
 /**
@@ -2188,6 +2277,12 @@ export interface IsAuthorizedWithTokenOutput {
    * @public
    */
   errors: EvaluationErrorItem[] | undefined;
+
+  /**
+   * <p>The identifier of the principal in the ID or access token.</p>
+   * @public
+   */
+  principal?: EntityIdentifier;
 }
 
 /**
@@ -3305,14 +3400,43 @@ export interface BatchIsAuthorizedInputItem {
   principal?: EntityIdentifier;
 
   /**
-   * <p>Specifies the requested action to be authorized. For example, is the principal
-   *             authorized to perform this action on the resource?</p>
+   * <p>Specifies the requested action to be authorized. For example,
+   *                 <code>PhotoFlash::ReadPhoto</code>.</p>
    * @public
    */
   action?: ActionIdentifier;
 
   /**
-   * <p>Specifies the resource for which the authorization decision is to be made.</p>
+   * <p>Specifies the resource that you want an authorization decision for. For example,
+   *                 <code>PhotoFlash::Photo</code>.</p>
+   * @public
+   */
+  resource?: EntityIdentifier;
+
+  /**
+   * <p>Specifies additional context that can be used to make more granular authorization
+   *             decisions.</p>
+   * @public
+   */
+  context?: ContextDefinition;
+}
+
+/**
+ * <p>An authorization request that you include in a <code>BatchIsAuthorizedWithToken</code>
+ *             API request.</p>
+ * @public
+ */
+export interface BatchIsAuthorizedWithTokenInputItem {
+  /**
+   * <p>Specifies the requested action to be authorized. For example,
+   *             <code>PhotoFlash::ReadPhoto</code>.</p>
+   * @public
+   */
+  action?: ActionIdentifier;
+
+  /**
+   * <p>Specifies the resource that you want an authorization decision for. For example,
+   *             <code>PhotoFlash::Photo</code>.</p>
    * @public
    */
   resource?: EntityIdentifier;
@@ -3356,8 +3480,45 @@ export interface BatchIsAuthorizedOutputItem {
   determiningPolicies: DeterminingPolicyItem[] | undefined;
 
   /**
-   * <p>Errors that occurred while making an authorization decision, for example, a policy
-   *             references an Entity or entity Attribute that does not exist in the slice.</p>
+   * <p>Errors that occurred while making an authorization decision. For example, a policy
+   *             might reference an entity or attribute that doesn't exist in the request.</p>
+   * @public
+   */
+  errors: EvaluationErrorItem[] | undefined;
+}
+
+/**
+ * <p>The decision, based on policy evaluation, from an individual authorization request in a
+ *             <code>BatchIsAuthorizedWithToken</code> API request.</p>
+ * @public
+ */
+export interface BatchIsAuthorizedWithTokenOutputItem {
+  /**
+   * <p>The authorization request that initiated the decision.</p>
+   * @public
+   */
+  request: BatchIsAuthorizedWithTokenInputItem | undefined;
+
+  /**
+   * <p>An authorization decision that indicates if the authorization request should be allowed
+   *             or denied.</p>
+   * @public
+   */
+  decision: Decision | undefined;
+
+  /**
+   * <p>The list of determining policies used to make the authorization decision. For example,
+   *             if there are two matching policies, where one is a forbid and the other is a permit, then
+   *             the forbid policy will be the determining policy. In the case of multiple matching permit
+   *             policies then there would be multiple determining policies. In the case that no policies
+   *             match, and hence the response is DENY, there would be no determining policies.</p>
+   * @public
+   */
+  determiningPolicies: DeterminingPolicyItem[] | undefined;
+
+  /**
+   * <p>Errors that occurred while making an authorization decision. For example, a policy might
+   *             reference an entity or attribute that doesn't exist in the request.</p>
    * @public
    */
   errors: EvaluationErrorItem[] | undefined;
@@ -3417,6 +3578,24 @@ export interface BatchIsAuthorizedOutput {
    * @public
    */
   results: BatchIsAuthorizedOutputItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchIsAuthorizedWithTokenOutput {
+  /**
+   * <p>The identifier of the principal in the ID or access token.</p>
+   * @public
+   */
+  principal?: EntityIdentifier;
+
+  /**
+   * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and
+   *             the policies that produced them.</p>
+   * @public
+   */
+  results: BatchIsAuthorizedWithTokenOutputItem[] | undefined;
 }
 
 /**
@@ -3525,9 +3704,10 @@ export interface IsAuthorizedWithTokenInput {
   /**
    * <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine
    *             when evaluating the policies. </p>
-   *          <note>
-   *             <p>You can include only resource and action entities in this parameter; you can't
-   *                 include principals.</p>
+   *          <important>
+   *             <p>You can't include principals in this parameter, only resource and action entities.
+   *                 This parameter can't include any entities of a type that matches the user or group
+   *                 entity types that you defined in your identity source.</p>
    *             <ul>
    *                <li>
    *                   <p>The <code>IsAuthorizedWithToken</code> operation takes principal
@@ -3542,7 +3722,7 @@ export interface IsAuthorizedWithTokenInput {
    *                         and <code>EntityType</code>. </p>
    *                </li>
    *             </ul>
-   *          </note>
+   *          </important>
    * @public
    */
   entities?: EntitiesDefinition;
@@ -3578,6 +3758,72 @@ export interface BatchIsAuthorizedInput {
 }
 
 /**
+ * @public
+ */
+export interface BatchIsAuthorizedWithTokenInput {
+  /**
+   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an
+   *             authorization decision for the input.</p>
+   * @public
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * <p>Specifies an identity (ID) token for the principal that you want to authorize in each
+   *             request. This token is provided to you by the identity provider (IdP) associated with
+   *             the specified identity source. You must specify either an <code>accessToken</code>, an
+   *                 <code>identityToken</code>, or both.</p>
+   *          <p>Must be an ID token. Verified Permissions returns an error if the <code>token_use</code> claim in the
+   *             submitted token isn't <code>id</code>.</p>
+   * @public
+   */
+  identityToken?: string;
+
+  /**
+   * <p>Specifies an access token for the principal that you want to authorize in each
+   *             request. This token is provided to you by the identity provider (IdP) associated with
+   *             the specified identity source. You must specify either an <code>accessToken</code>, an
+   *                 <code>identityToken</code>, or both.</p>
+   *          <p>Must be an access token. Verified Permissions returns an error if the <code>token_use</code> claim in
+   *             the submitted token isn't <code>access</code>.</p>
+   * @public
+   */
+  accessToken?: string;
+
+  /**
+   * <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine
+   *             when evaluating the policies. </p>
+   *          <important>
+   *             <p>You can't include principals in this parameter, only resource and action entities.
+   *                 This parameter can't include any entities of a type that matches the user or group
+   *                 entity types that you defined in your identity source.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>BatchIsAuthorizedWithToken</code> operation takes principal
+   *                         attributes from <b>
+   *                         <i>only</i>
+   *                      </b>
+   *                         the <code>identityToken</code> or <code>accessToken</code> passed to the
+   *                         operation.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For action entities, you can include only their <code>Identifier</code>
+   *                         and <code>EntityType</code>. </p>
+   *                </li>
+   *             </ul>
+   *          </important>
+   * @public
+   */
+  entities?: EntitiesDefinition;
+
+  /**
+   * <p>An array of up to 30 requests that you want Verified Permissions to evaluate.</p>
+   * @public
+   */
+  requests: BatchIsAuthorizedWithTokenInputItem[] | undefined;
+}
+
+/**
  * @internal
  */
 export const ActionIdentifierFilterSensitiveLog = (obj: ActionIdentifier): any => ({
@@ -3605,9 +3851,36 @@ export const EvaluationErrorItemFilterSensitiveLog = (obj: EvaluationErrorItem):
 /**
  * @internal
  */
+export const CognitoGroupConfigurationFilterSensitiveLog = (obj: CognitoGroupConfiguration): any => ({
+  ...obj,
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CognitoGroupConfigurationDetailFilterSensitiveLog = (obj: CognitoGroupConfigurationDetail): any => ({
+  ...obj,
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CognitoGroupConfigurationItemFilterSensitiveLog = (obj: CognitoGroupConfigurationItem): any => ({
+  ...obj,
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CognitoUserPoolConfigurationFilterSensitiveLog = (obj: CognitoUserPoolConfiguration): any => ({
   ...obj,
   ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: CognitoGroupConfigurationFilterSensitiveLog(obj.groupConfiguration),
+  }),
 });
 
 /**
@@ -3616,6 +3889,9 @@ export const CognitoUserPoolConfigurationFilterSensitiveLog = (obj: CognitoUserP
 export const CognitoUserPoolConfigurationDetailFilterSensitiveLog = (obj: CognitoUserPoolConfigurationDetail): any => ({
   ...obj,
   ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: CognitoGroupConfigurationDetailFilterSensitiveLog(obj.groupConfiguration),
+  }),
 });
 
 /**
@@ -3624,6 +3900,9 @@ export const CognitoUserPoolConfigurationDetailFilterSensitiveLog = (obj: Cognit
 export const CognitoUserPoolConfigurationItemFilterSensitiveLog = (obj: CognitoUserPoolConfigurationItem): any => ({
   ...obj,
   ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: CognitoGroupConfigurationItemFilterSensitiveLog(obj.groupConfiguration),
+  }),
 });
 
 /**
@@ -3874,9 +4153,20 @@ export const ListIdentitySourcesOutputFilterSensitiveLog = (obj: ListIdentitySou
 /**
  * @internal
  */
+export const UpdateCognitoGroupConfigurationFilterSensitiveLog = (obj: UpdateCognitoGroupConfiguration): any => ({
+  ...obj,
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateCognitoUserPoolConfigurationFilterSensitiveLog = (obj: UpdateCognitoUserPoolConfiguration): any => ({
   ...obj,
   ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: UpdateCognitoGroupConfigurationFilterSensitiveLog(obj.groupConfiguration),
+  }),
 });
 
 /**
@@ -3917,6 +4207,7 @@ export const IsAuthorizedOutputFilterSensitiveLog = (obj: IsAuthorizedOutput): a
 export const IsAuthorizedWithTokenOutputFilterSensitiveLog = (obj: IsAuthorizedWithTokenOutput): any => ({
   ...obj,
   ...(obj.errors && { errors: SENSITIVE_STRING }),
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
 });
 
 /**
@@ -4157,9 +4448,32 @@ export const BatchIsAuthorizedInputItemFilterSensitiveLog = (obj: BatchIsAuthori
 /**
  * @internal
  */
+export const BatchIsAuthorizedWithTokenInputItemFilterSensitiveLog = (
+  obj: BatchIsAuthorizedWithTokenInputItem
+): any => ({
+  ...obj,
+  ...(obj.action && { action: ActionIdentifierFilterSensitiveLog(obj.action) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.context && { context: ContextDefinitionFilterSensitiveLog(obj.context) }),
+});
+
+/**
+ * @internal
+ */
 export const BatchIsAuthorizedOutputItemFilterSensitiveLog = (obj: BatchIsAuthorizedOutputItem): any => ({
   ...obj,
   ...(obj.request && { request: BatchIsAuthorizedInputItemFilterSensitiveLog(obj.request) }),
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedWithTokenOutputItemFilterSensitiveLog = (
+  obj: BatchIsAuthorizedWithTokenOutputItem
+): any => ({
+  ...obj,
+  ...(obj.request && { request: BatchIsAuthorizedWithTokenInputItemFilterSensitiveLog(obj.request) }),
   ...(obj.errors && { errors: SENSITIVE_STRING }),
 });
 
@@ -4178,6 +4492,17 @@ export const EntitiesDefinitionFilterSensitiveLog = (obj: EntitiesDefinition): a
 export const BatchIsAuthorizedOutputFilterSensitiveLog = (obj: BatchIsAuthorizedOutput): any => ({
   ...obj,
   ...(obj.results && { results: obj.results.map((item) => BatchIsAuthorizedOutputItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedWithTokenOutputFilterSensitiveLog = (obj: BatchIsAuthorizedWithTokenOutput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.results && {
+    results: obj.results.map((item) => BatchIsAuthorizedWithTokenOutputItemFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -4212,4 +4537,17 @@ export const BatchIsAuthorizedInputFilterSensitiveLog = (obj: BatchIsAuthorizedI
   ...obj,
   ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
   ...(obj.requests && { requests: obj.requests.map((item) => BatchIsAuthorizedInputItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedWithTokenInputFilterSensitiveLog = (obj: BatchIsAuthorizedWithTokenInput): any => ({
+  ...obj,
+  ...(obj.identityToken && { identityToken: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
+  ...(obj.requests && {
+    requests: obj.requests.map((item) => BatchIsAuthorizedWithTokenInputItemFilterSensitiveLog(item)),
+  }),
 });

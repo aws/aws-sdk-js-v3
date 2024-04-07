@@ -36,6 +36,10 @@ import {
   BatchGetCollaborationAnalysisTemplateCommandInput,
   BatchGetCollaborationAnalysisTemplateCommandOutput,
 } from "../commands/BatchGetCollaborationAnalysisTemplateCommand";
+import {
+  BatchGetSchemaAnalysisRuleCommandInput,
+  BatchGetSchemaAnalysisRuleCommandOutput,
+} from "../commands/BatchGetSchemaAnalysisRuleCommand";
 import { BatchGetSchemaCommandInput, BatchGetSchemaCommandOutput } from "../commands/BatchGetSchemaCommand";
 import {
   CreateAnalysisTemplateCommandInput,
@@ -298,6 +302,7 @@ import {
   ResourceNotFoundException,
   ScalarFunctions,
   Schema,
+  SchemaAnalysisRuleRequest,
   SchemaSummary,
   ServiceQuotaExceededException,
   TableReference,
@@ -345,6 +350,29 @@ export const se_BatchGetSchemaCommand = async (
   body = JSON.stringify(
     take(input, {
       names: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchGetSchemaAnalysisRuleCommand
+ */
+export const se_BatchGetSchemaAnalysisRuleCommand = async (
+  input: BatchGetSchemaAnalysisRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/collaborations/{collaborationIdentifier}/batch-schema-analysis-rule");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      schemaAnalysisRuleRequests: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1685,6 +1713,28 @@ export const de_BatchGetSchemaCommand = async (
   const doc = take(data, {
     errors: _json,
     schemas: (_) => de_SchemaList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetSchemaAnalysisRuleCommand
+ */
+export const de_BatchGetSchemaAnalysisRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetSchemaAnalysisRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analysisRules: (_) => de_SchemaAnalysisRuleList(_, context),
+    errors: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3196,6 +3246,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ScalarFunctionsList omitted.
 
+// se_SchemaAnalysisRuleRequest omitted.
+
+// se_SchemaAnalysisRuleRequestList omitted.
+
 // se_TableAliasList omitted.
 
 // se_TableReference omitted.
@@ -3309,6 +3363,10 @@ const de_AnalysisTemplateSummaryList = (output: any, context: __SerdeContext): A
 // de_BatchGetCollaborationAnalysisTemplateError omitted.
 
 // de_BatchGetCollaborationAnalysisTemplateErrorList omitted.
+
+// de_BatchGetSchemaAnalysisRuleError omitted.
+
+// de_BatchGetSchemaAnalysisRuleErrorList omitted.
 
 // de_BatchGetSchemaError omitted.
 
@@ -4100,10 +4158,25 @@ const de_Schema = (output: any, context: __SerdeContext): Schema => {
     description: __expectString,
     name: __expectString,
     partitionKeys: _json,
+    schemaStatusDetails: _json,
     type: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+/**
+ * deserializeAws_restJson1SchemaAnalysisRuleList
+ */
+const de_SchemaAnalysisRuleList = (output: any, context: __SerdeContext): AnalysisRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnalysisRule(entry, context);
+    });
+  return retVal;
+};
+
+// de_SchemaConfigurationList omitted.
 
 /**
  * deserializeAws_restJson1SchemaList
@@ -4116,6 +4189,14 @@ const de_SchemaList = (output: any, context: __SerdeContext): Schema[] => {
     });
   return retVal;
 };
+
+// de_SchemaStatusDetail omitted.
+
+// de_SchemaStatusDetailList omitted.
+
+// de_SchemaStatusReason omitted.
+
+// de_SchemaStatusReasonList omitted.
 
 /**
  * deserializeAws_restJson1SchemaSummary

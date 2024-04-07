@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./BatchIsAuthorizedCommand";
+export * from "./BatchIsAuthorizedWithTokenCommand";
 export * from "./CreateIdentitySourceCommand";
 export * from "./CreatePolicyCommand";
 export * from "./CreatePolicyStoreCommand";

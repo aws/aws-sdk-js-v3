@@ -34,3 +34,5 @@ const metadata = await metadataService.request("/latest/meta-data/", {}); // req
 Note that by default, requests to IMDS are in accordance with [IMDSv2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html).
 
 Read more about Instance Metadata here: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
+
+The @aws-sdk/ec2-metadata-service package is a standalone utility and not part of the default credential provider chain. If you want to use IMDS for credentials, you can use the [fromInstanceMetadata()](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-credential-providers/Variable/fromInstanceMetadata/) method.

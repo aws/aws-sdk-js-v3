@@ -79,6 +79,9 @@ export interface ListIdentitySourcesCommandOutput extends ListIdentitySourcesOut
  * //             "STRING_VALUE",
  * //           ],
  * //           issuer: "STRING_VALUE", // required
+ * //           groupConfiguration: { // CognitoGroupConfigurationItem
+ * //             groupEntityType: "STRING_VALUE",
+ * //           },
  * //         },
  * //       },
  * //     },

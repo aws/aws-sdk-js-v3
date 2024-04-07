@@ -57,6 +57,10 @@ import {
   BatchGetCollaborationAnalysisTemplateCommandInput,
   BatchGetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/BatchGetCollaborationAnalysisTemplateCommand";
+import {
+  BatchGetSchemaAnalysisRuleCommandInput,
+  BatchGetSchemaAnalysisRuleCommandOutput,
+} from "./commands/BatchGetSchemaAnalysisRuleCommand";
 import { BatchGetSchemaCommandInput, BatchGetSchemaCommandOutput } from "./commands/BatchGetSchemaCommand";
 import {
   CreateAnalysisTemplateCommandInput,
@@ -266,6 +270,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchGetCollaborationAnalysisTemplateCommandInput
+  | BatchGetSchemaAnalysisRuleCommandInput
   | BatchGetSchemaCommandInput
   | CreateAnalysisTemplateCommandInput
   | CreateCollaborationCommandInput
@@ -333,6 +338,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchGetCollaborationAnalysisTemplateCommandOutput
+  | BatchGetSchemaAnalysisRuleCommandOutput
   | BatchGetSchemaCommandOutput
   | CreateAnalysisTemplateCommandOutput
   | CreateCollaborationCommandOutput

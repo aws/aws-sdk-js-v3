@@ -28,6 +28,10 @@ import { v4 as generateIdempotencyToken } from "uuid";
 
 import { BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput } from "../commands/BatchIsAuthorizedCommand";
 import {
+  BatchIsAuthorizedWithTokenCommandInput,
+  BatchIsAuthorizedWithTokenCommandOutput,
+} from "../commands/BatchIsAuthorizedWithTokenCommand";
+import {
   CreateIdentitySourceCommandInput,
   CreateIdentitySourceCommandOutput,
 } from "../commands/CreateIdentitySourceCommand";
@@ -86,6 +90,11 @@ import {
   BatchIsAuthorizedInputItem,
   BatchIsAuthorizedOutput,
   BatchIsAuthorizedOutputItem,
+  BatchIsAuthorizedWithTokenInput,
+  BatchIsAuthorizedWithTokenInputItem,
+  BatchIsAuthorizedWithTokenOutput,
+  BatchIsAuthorizedWithTokenOutputItem,
+  CognitoGroupConfiguration,
   CognitoUserPoolConfiguration,
   Configuration,
   ConflictException,
@@ -142,6 +151,7 @@ import {
   StaticPolicyDefinition,
   TemplateLinkedPolicyDefinition,
   ThrottlingException,
+  UpdateCognitoGroupConfiguration,
   UpdateCognitoUserPoolConfiguration,
   UpdateConfiguration,
   UpdateIdentitySourceInput,
@@ -169,6 +179,19 @@ export const se_BatchIsAuthorizedCommand = async (
   const headers: __HeaderBag = sharedHeaders("BatchIsAuthorized");
   let body: any;
   body = JSON.stringify(se_BatchIsAuthorizedInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0BatchIsAuthorizedWithTokenCommand
+ */
+export const se_BatchIsAuthorizedWithTokenCommand = async (
+  input: BatchIsAuthorizedWithTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchIsAuthorizedWithToken");
+  let body: any;
+  body = JSON.stringify(se_BatchIsAuthorizedWithTokenInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -498,6 +521,26 @@ export const de_BatchIsAuthorizedCommand = async (
   let contents: any = {};
   contents = de_BatchIsAuthorizedOutput(data, context);
   const response: BatchIsAuthorizedCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedWithTokenCommand
+ */
+export const de_BatchIsAuthorizedWithTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchIsAuthorizedWithTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchIsAuthorizedWithTokenOutput(data, context);
+  const response: BatchIsAuthorizedWithTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1179,7 +1222,50 @@ const se_BatchIsAuthorizedInputList = (input: BatchIsAuthorizedInputItem[], cont
     });
 };
 
+/**
+ * serializeAws_json1_0BatchIsAuthorizedWithTokenInput
+ */
+const se_BatchIsAuthorizedWithTokenInput = (input: BatchIsAuthorizedWithTokenInput, context: __SerdeContext): any => {
+  return take(input, {
+    accessToken: [],
+    entities: (_) => se_EntitiesDefinition(_, context),
+    identityToken: [],
+    policyStoreId: [],
+    requests: (_) => se_BatchIsAuthorizedWithTokenInputList(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_0BatchIsAuthorizedWithTokenInputItem
+ */
+const se_BatchIsAuthorizedWithTokenInputItem = (
+  input: BatchIsAuthorizedWithTokenInputItem,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    action: _json,
+    context: (_) => se_ContextDefinition(_, context),
+    resource: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_0BatchIsAuthorizedWithTokenInputList
+ */
+const se_BatchIsAuthorizedWithTokenInputList = (
+  input: BatchIsAuthorizedWithTokenInputItem[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_BatchIsAuthorizedWithTokenInputItem(entry, context);
+    });
+};
+
 // se_ClientIds omitted.
+
+// se_CognitoGroupConfiguration omitted.
 
 // se_CognitoUserPoolConfiguration omitted.
 
@@ -1400,6 +1486,8 @@ const se_SetAttribute = (input: AttributeValue[], context: __SerdeContext): any 
 
 // se_TemplateLinkedPolicyDefinition omitted.
 
+// se_UpdateCognitoGroupConfiguration omitted.
+
 // se_UpdateCognitoUserPoolConfiguration omitted.
 
 // se_UpdateConfiguration omitted.
@@ -1498,7 +1586,68 @@ const de_BatchIsAuthorizedOutputList = (output: any, context: __SerdeContext): B
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedWithTokenInputItem
+ */
+const de_BatchIsAuthorizedWithTokenInputItem = (
+  output: any,
+  context: __SerdeContext
+): BatchIsAuthorizedWithTokenInputItem => {
+  return take(output, {
+    action: _json,
+    context: (_: any) => de_ContextDefinition(__expectUnion(_), context),
+    resource: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedWithTokenOutput
+ */
+const de_BatchIsAuthorizedWithTokenOutput = (
+  output: any,
+  context: __SerdeContext
+): BatchIsAuthorizedWithTokenOutput => {
+  return take(output, {
+    principal: _json,
+    results: (_: any) => de_BatchIsAuthorizedWithTokenOutputList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedWithTokenOutputItem
+ */
+const de_BatchIsAuthorizedWithTokenOutputItem = (
+  output: any,
+  context: __SerdeContext
+): BatchIsAuthorizedWithTokenOutputItem => {
+  return take(output, {
+    decision: __expectString,
+    determiningPolicies: _json,
+    errors: _json,
+    request: (_: any) => de_BatchIsAuthorizedWithTokenInputItem(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchIsAuthorizedWithTokenOutputList
+ */
+const de_BatchIsAuthorizedWithTokenOutputList = (
+  output: any,
+  context: __SerdeContext
+): BatchIsAuthorizedWithTokenOutputItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BatchIsAuthorizedWithTokenOutputItem(entry, context);
+    });
+  return retVal;
+};
+
 // de_ClientIds omitted.
+
+// de_CognitoGroupConfigurationDetail omitted.
+
+// de_CognitoGroupConfigurationItem omitted.
 
 // de_CognitoUserPoolConfigurationDetail omitted.
 

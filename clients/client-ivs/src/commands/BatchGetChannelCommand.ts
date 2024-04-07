@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { BatchGetChannelRequest, BatchGetChannelResponse } from "../models/models_0";
+import {
+  BatchGetChannelRequest,
+  BatchGetChannelResponse,
+  BatchGetChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_BatchGetChannelCommand, se_BatchGetChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -57,6 +61,10 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * //       },
  * //       insecureIngest: true || false,
  * //       preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //       srt: { // Srt
+ * //         endpoint: "STRING_VALUE",
+ * //         passphrase: "STRING_VALUE",
+ * //       },
  * //       playbackRestrictionPolicyArn: "STRING_VALUE",
  * //     },
  * //   ],
@@ -101,7 +109,7 @@ export class BatchGetChannelCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "BatchGetChannel", {})
   .n("IvsClient", "BatchGetChannelCommand")
-  .f(void 0, void 0)
+  .f(void 0, BatchGetChannelResponseFilterSensitiveLog)
   .ser(se_BatchGetChannelCommand)
   .de(de_BatchGetChannelCommand)
   .build() {}

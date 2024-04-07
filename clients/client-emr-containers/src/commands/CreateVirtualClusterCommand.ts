@@ -69,6 +69,9 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * @see {@link CreateVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
+ * @throws {@link EKSRequestThrottledException} (client fault)
+ *  <p>The request exceeded the Amazon EKS API operation limits.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This is an internal server exception.</p>
  *

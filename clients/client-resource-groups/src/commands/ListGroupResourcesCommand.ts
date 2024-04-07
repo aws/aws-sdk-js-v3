@@ -98,7 +98,7 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  * //   NextToken: "STRING_VALUE",
  * //   QueryErrors: [ // QueryErrorList
  * //     { // QueryError
- * //       ErrorCode: "CLOUDFORMATION_STACK_INACTIVE" || "CLOUDFORMATION_STACK_NOT_EXISTING" || "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
+ * //       ErrorCode: "CLOUDFORMATION_STACK_INACTIVE" || "CLOUDFORMATION_STACK_NOT_EXISTING" || "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE" || "RESOURCE_TYPE_NOT_SUPPORTED",
  * //       Message: "STRING_VALUE",
  * //     },
  * //   ],

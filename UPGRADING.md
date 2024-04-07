@@ -36,7 +36,8 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
   - **v3**: No change.
 - [`credentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#credentials-property)
   - **v2**: The AWS credentials to sign requests with.
-  - **v3**: No change. It can also be an async function that returns credentials.
+  - **v3**: No change. It can also be an async function that returns credentials. If the function returns an `expiration (Date)`, the function will
+    be called again when the expiration datetime nears.
     See [v3 reference for AwsAuthInputConfig credentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_signing.awsauthinputconfig-1.html#credentials).
 - [`endpointCacheSize`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#endpointCacheSize-property)
   - **v2**: The size of the global cache storing endpoints from endpoint discovery operations.
