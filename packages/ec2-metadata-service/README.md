@@ -11,7 +11,7 @@ The basic usage of EC2 IMDS utils in the AWS SDK for JavaScript v3 is as follows
 
 JavaScript example
 
-```
+```JavaScript
 const { MetadataService } = require("@aws-sdk/ec2-metadata-service");
 
 const metadataService = new MetadataService({});
@@ -21,7 +21,7 @@ const metadata = await metadataService.request("/latest/meta-data/", {}); // req
 
 ES6 example
 
-```
+```JavaScript
 import { MetadataService } from "@aws-sdk/ec2-metadata-service";
 
 const metadataService = new MetadataService({});

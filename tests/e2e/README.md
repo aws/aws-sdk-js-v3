@@ -1,7 +1,7 @@
 ## Prerequisites
 
 1.  You have a CloudFormation stack called `SdkReleaseV3IntegTestResourcesStack` in the AWS account you used to run the
-    integration test. If not you can deploy the stack with:
+    integration test. If not, you can deploy the stack with:
 
     ```console
     aws cloudformation deploy --stack-name SdkReleaseV3IntegTestResourcesStack --template-file ./IntegTestResourcesStack.template.json --capabilities CAPABILITY_IAM

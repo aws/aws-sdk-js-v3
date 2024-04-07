@@ -50,7 +50,7 @@ both input and output:
 
 ## Usage
 
-To create document client you need to create DynamoDB client first as follows:
+To create document client, you need to create DynamoDB client first as follows:
 
 ```js
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"; // ES6 import

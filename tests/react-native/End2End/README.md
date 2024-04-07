@@ -42,7 +42,7 @@
 1. Launch the ReactNative test:
 
    - change directory to RN test root: `cd tests/react-native/End2End`
-   - make sure you have configured the SDK with the the credentials from the testing account that contains
+   - make sure you have configured the SDK with the credentials from the testing account that contains
      `SdkReleaseV3IntegTestResourcesStack`
    - set the the AWS region `export AWS_REGION=[region]`
    - `node launch-app.js --local-publish`
@@ -50,7 +50,7 @@
 ## Steps to Re-run the Tests
 
 If the scripts above fail and you need to re-run the test script, you need to make sure the workspace is cleaned and
-ready to run the test script again. Follow the steps bellow to clean the workspace.
+ready to run the test script again. Follow the steps below to clean the workspace.
 
 1. Kill the local NPM registry process. You can get the process PID by running:
 

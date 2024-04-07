@@ -8,7 +8,7 @@ Here are some of the key benefits of bundling:
 - **Code Organization**: Bundling can help organize your codebase by allowing you to split your code into smaller, more manageable modules without sacrificing performance.
 - **Code Optimization**: Bundling can also include optimizations such as minification (removing unnecessary characters like white spaces and comments) and tree shaking (removing unused code) to further reduce the bundle size.
 - **Caching**: Bundling can improve caching efficiency, as the browser only needs to cache less files, reducing the likelihood of cache fragmentation.
-- **Compatibility**: You can optionally use the latest features of JavaScript or TypeScript language in your source code, and target your bundle for older runtimes which do not them. And your bundler will provide polyfills for those features.
+- **Compatibility**: You can optionally use the latest features of JavaScript or TypeScript language in your source code, and target your bundle for older runtimes which do not use them. And your bundler will provide polyfills for those features.
 
 Although bundling was invented to reduce file count and size on the frontend, it is helpful in the backend too. Just like browsers, the initialization time improves in the backend since runtime has to read just one bundle file and does not have to spend time in resolving dependencies. This helps reducing cold start times in Serverless Environment, like AWS Lambda. Bundling can also reduce deployment times, as there are fewer files to deploy.
 
@@ -50,4 +50,4 @@ $ npx esbuild index.js --bundle --minify \
 ⚡ Done in 37ms
 ```
 
-Here we compare the bundle sizes of two different applications containing equivalent code which imports DynamoDB client from AWS SDK for JavaScript and creates a client. The bundle size of application built using v2 is 3.2 MB, while the bundle size of equivalent application built using v3 is 214.2 kB.
+Here, we compare the bundle sizes of two different applications containing equivalent code which imports DynamoDB client from AWS SDK for JavaScript and creates a client. The bundle size of application built using v2 is 3.2 MB, while the bundle size of equivalent application built using v3 is 214.2 kB.

@@ -151,7 +151,7 @@ described by the service model.
 
 - Refer to https://smithy.io/2.0/additional-specs/rules-engine/specification.html
 
-At runtime many sources of data are read to resolve the final endpoint.
+At runtime, many sources of data are read to resolve the final endpoint.
 
 Sources include the region, FIPS/dual-stack options as mentioned further below,
 the operation, and in some cases even request-specific parameters.
@@ -461,7 +461,7 @@ new S3Client({
 ```
 
 The `AdaptiveRetryStrategy` is similar to the `StandardRetryStrategy`, but
-contains an additional `RateLimiter`. For details inspect the source code at
+contains an additional `RateLimiter`. For details, inspect the source code at
 https://github.com/smithy-lang/smithy-typescript/blob/main/packages/util-retry/src/AdaptiveRetryStrategy.ts.
 
 ### Logger `logger`
