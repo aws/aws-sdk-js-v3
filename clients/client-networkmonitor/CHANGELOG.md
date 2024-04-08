@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.551.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.550.0...v3.551.0) (2024-04-08)
+
+
+### Features
+
+* **client-networkmonitor:** Updated the allowed monitorName length for CloudWatch Network Monitor. ([42abf0e](https://github.com/aws/aws-sdk-js-v3/commit/42abf0e5ced22bfedcd5544cd098410f9483ec6b))
+
+
+
+
+
 # [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
 
 **Note:** Version bump only for package @aws-sdk/client-networkmonitor

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.551.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.550.0...v3.551.0) (2024-04-08)
+
+
+### Features
+
+* **client-controlcatalog:** This is the initial SDK release for AWS Control Catalog, a central catalog for AWS managed controls. This release includes 3 new APIs - ListDomains, ListObjectives, and ListCommonControls - that vend high-level data to categorize controls across the AWS platform. ([eca6f2c](https://github.com/aws/aws-sdk-js-v3/commit/eca6f2cf06f9ed835951baa4a3fd0c7f92f04c00))
+* **client-mgn:** Added USE_SOURCE as default option to LaunchConfigurationTemplate bootMode parameter. ([5b18eb2](https://github.com/aws/aws-sdk-js-v3/commit/5b18eb2911c48c08c2f6a8c431bfe062633be5c7))
+* **client-networkmonitor:** Updated the allowed monitorName length for CloudWatch Network Monitor. ([42abf0e](https://github.com/aws/aws-sdk-js-v3/commit/42abf0e5ced22bfedcd5544cd098410f9483ec6b))
+* **clients:** update client endpoints as of 2024-04-08 ([3c0121f](https://github.com/aws/aws-sdk-js-v3/commit/3c0121fdc7554adcb85c55adb399052cd58ce3be))
+
+
+
+
+
 # [3.550.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.549.0...v3.550.0) (2024-04-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.551.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.550.0...v3.551.0) (2024-04-08)
+
+
+### Features
+
+* **client-mgn:** Added USE_SOURCE as default option to LaunchConfigurationTemplate bootMode parameter. ([5b18eb2](https://github.com/aws/aws-sdk-js-v3/commit/5b18eb2911c48c08c2f6a8c431bfe062633be5c7))
+
+
+
+
+
 # [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
 
 **Note:** Version bump only for package @aws-sdk/client-mgn
