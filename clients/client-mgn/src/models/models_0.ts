@@ -38,6 +38,7 @@ export const ActionCategory = {
   OBSERVABILITY: "OBSERVABILITY",
   OPERATING_SYSTEM: "OPERATING_SYSTEM",
   OTHER: "OTHER",
+  REFACTORING: "REFACTORING",
   SECURITY: "SECURITY",
   VALIDATION: "VALIDATION",
 } as const;
@@ -2081,6 +2082,7 @@ export interface DescribeJobsResponse {
 export const BootMode = {
   LEGACY_BIOS: "LEGACY_BIOS",
   UEFI: "UEFI",
+  USE_SOURCE: "USE_SOURCE",
 } as const;
 
 /**
