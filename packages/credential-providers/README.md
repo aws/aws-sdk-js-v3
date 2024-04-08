@@ -501,7 +501,7 @@ role_arn=arn:aws:iam::123456789012:role/example-role
 
 #### profile with sso credentials
 
-See [`fromSSO()`](#fromsso) fro more information
+See [`fromSSO()`](#fromsso) for more information
 
 ## `fromEnv()`
 
@@ -522,7 +522,7 @@ environment variables:
 - `AWS_ACCESS_KEY_ID` - The access key for your AWS account.
 - `AWS_SECRET_ACCESS_KEY` - The secret key for your AWS account.
 - `AWS_SESSION_TOKEN` - The session key for your AWS account. This is only needed when you are using
-  temporarycredentials.
+  temporary credentials.
 - `AWS_CREDENTIAL_EXPIRATION` - The expiration time of the credentials contained in the environment
   variables described above. This value must be in a format compatible with the
   [ISO-8601 standard][iso8601_standard] and is only needed when you are using temporary credentials.
@@ -704,14 +704,14 @@ CLI profile name [123456789011_ReadOnly]: my-sso-profile<ENTER>
 
 ```javascript
 //...
-const client = new FooClient({ credentials: fromSSO({ profile: "my-sso-profile" });
+const client = new FooClient({ credentials: fromSSO({ profile: "my-sso-profile" })});
 ```
 
 Alternatively, the SSO credential provider is supported in shared INI credentials provider
 
 ```javascript
 //...
-const client = new FooClient({ credentials: fromIni({ profile: "my-sso-profile" });
+const client = new FooClient({ credentials: fromIni({ profile: "my-sso-profile" })});
 ```
 
 3. To log out from the current SSO session, use the AWS CLI:

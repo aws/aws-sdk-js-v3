@@ -65,7 +65,7 @@ const request = await createRequest<any, GetObjectCommandInput, GetObjectCommand
 ```
 
 You can omit the generics in this function and rely on the type inference. In this
-way you will lose the type safety for insuring client and command comes from the same
+way, you will lose the type safety for insuring client and command comes from the same
 service.
 
 ```typescript

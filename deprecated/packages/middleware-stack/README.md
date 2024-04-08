@@ -36,7 +36,7 @@ stack.add(middleware, {
 });
 ```
 
-This approach works for most cases. Sometimes you want your middleware to be executed in the front of the `Step`, you can set the `Priority` to `high`. Set the `Priority` to `low` then this middleware will be executed at the end of `Step`:
+This approach works for most cases. Sometimes you want your middleware to be executed in the front of the `Step`, you can set the `Priority` to `high`. Set the `Priority` to `low`, then this middleware will be executed at the end of `Step`:
 
 ```javascript
 stack.add(middleware, {

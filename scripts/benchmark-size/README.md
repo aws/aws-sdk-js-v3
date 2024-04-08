@@ -56,7 +56,7 @@ Options:
 The maintainers only need to test the packages that is public for customer to
 consume publicly like all service clients and some utility packages like
 presigner. The other internal packages are tested as dependencies of those
-public packages. There are 2 config files that maintainers need to update update
+public packages. There are 2 config files that maintainers need to update
 to make sure the tool runs on all packages it suppose to run and validate them
 with reasonable limit:
 
@@ -66,7 +66,7 @@ with reasonable limit:
   `dependencies` list. You can skip running the browser bundlers test if the package
   is Node.js runtime only by setting the `skipBundlerTests` boolean entry.
 - [`limit.json`][limit-json]: Define how to validate the packages' size. For each
-  package you can validate either of the metrics the tool generates: `publishSize`
+  package, you can validate either of the metrics the tool generates: `publishSize`
   and `publishFiles`. For each metrics, you can validate them by `limit` -- the
   absolute value, or `hike` -- the percentage of increase since recent value.
 

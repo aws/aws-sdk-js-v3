@@ -187,7 +187,7 @@ we have them listed in [UPGRADING.md](https://github.com/aws/aws-sdk-js-v3/blob/
 
 ### General Info
 
-The Lambda provided AWS SDK is set to a specific minor version, and **NOT** the latest version. To check the minor version used by Lambda please refer to [Lambda runtimes doc page](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
+The Lambda provided AWS SDK is set to a specific minor version, and **NOT** the latest version. To check the minor version used by Lambda, please refer to [Lambda runtimes doc page](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
 If you wish to use the latest / different version of the SDK from the one provided by lambda, we recommend that you [bundle and minify](https://aws.amazon.com/blogs/compute/optimizing-node-js-dependencies-in-aws-lambda/) your project, or [upload it as a Lambda layer](https://aws.amazon.com/blogs/compute/using-lambda-layers-to-simplify-your-development-process/).
 
 The performance of the AWS SDK for JavaScript v3 on node 18 has improved from v2 as seen in the [performance benchmarking](https://aws.amazon.com/blogs/developer/reduce-lambda-cold-start-times-migrate-to-aws-sdk-for-javascript-v3/)
@@ -344,7 +344,7 @@ The v3 codebase is generated from internal AWS models that AWS services expose. 
 
 Clients depend on common "utility" code in `/packages`. The code in `/packages` is manually written and outside of special cases (like credentials or abort controller) is generally not very useful alone.
 
-Lastly we have higher level libraries in `/lib`. These are javascript specific libraries that wrap client operations to make them easier to work with. Popular examples are `@aws-sdk/lib-dynamodb` which [simplifies working with items in Amazon DynamoDB](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-dynamodb/README.md) or `@aws-sdk/lib-storage` which exposes the `Upload` function and [simplifies parallel uploads in S3's multipartUpload](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-storage/README.md).
+Lastly, we have higher level libraries in `/lib`. These are javascript specific libraries that wrap client operations to make them easier to work with. Popular examples are `@aws-sdk/lib-dynamodb` which [simplifies working with items in Amazon DynamoDB](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-dynamodb/README.md) or `@aws-sdk/lib-storage` which exposes the `Upload` function and [simplifies parallel uploads in S3's multipartUpload](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-storage/README.md).
 
 1. `/packages`. This sub directory is where most manual code updates are done. These are published to NPM under `@aws-sdk/XXXX` and have no special prefix.
 1. `/clients`. This sub directory is code generated and depends on code published from `/packages` . It is 1:1 with AWS services and operations. Manual edits should generally not occur here. These are published to NPM under `@aws-sdk/client-XXXX`.
@@ -394,7 +394,7 @@ on a stream.
 
 Many AWS operations return paginated results when the response object is too large to return in a single response. In AWS SDK for JavaScript v2, the response contains a token you can use to retrieve the next page of results. You then need to write additional functions to process pages of results.
 
-In AWS SDK for JavaScript v3 we’ve improved pagination using async generator functions, which are similar to generator functions, with the following differences:
+In AWS SDK for JavaScript v3, we’ve improved pagination using async generator functions, which are similar to generator functions, with the following differences:
 
 - When called, async generator functions return an object, an async generator whose methods (`next`, `throw`, and `return`) return promises for `{ `value`, `done` }`, instead of directly returning `{ `value`, `done` }`. This automatically makes the returned async generator objects async iterators.
 - await expressions and `for await (x of y)` statements are allowed.
@@ -489,7 +489,7 @@ abortController.abort();
 await requestPromise;
 ```
 
-For a full pagination deep dive please check out our [blog post](https://aws.amazon.com/blogs/developer/pagination-using-async-iterators-in-modular-aws-sdk-for-javascript/).
+For a full pagination deep dive, please check out our [blog post](https://aws.amazon.com/blogs/developer/pagination-using-async-iterators-in-modular-aws-sdk-for-javascript/).
 
 #### AbortController Example
 
@@ -523,7 +523,7 @@ const uploadObject = async (file) => {
 }
 ```
 
-For a full abort controller deep dive please check out our [blog post](https://aws.amazon.com/blogs/developer/abortcontroller-in-modular-aws-sdk-for-javascript/).
+For a full abort controller deep dive, please check out our [blog post](https://aws.amazon.com/blogs/developer/abortcontroller-in-modular-aws-sdk-for-javascript/).
 
 ### Middleware Stack
 
@@ -568,7 +568,7 @@ The example above adds middleware to `build` step of middleware stack. The middl
 - The **build** lifecycle step builds on top of serialized HTTP request. Examples of typical build tasks include injecting HTTP headers that describe a stable aspect of the request, such as `Content-Length` or a body checksum. Any request alterations will be applied to all retries.
 - The **finalizeRequest** lifecycle step prepares the request to be sent over the wire. The request in this stage is semantically complete and should therefore only be altered to match the recipient’s expectations. Examples of typical finalization tasks include request signing, performing retries and injecting hop-by-hop headers.
 - The **deserialize** lifecycle step deserializes the raw response object to a structured response. The upstream middleware have access to deserialized data in next callbacks return value: `result.output`.
-  Each middleware must be added to a specific step. By default each middleware in the same step has undifferentiated order. In some cases, you might want to execute a middleware before or after another middleware in the same step. You can achieve it by specifying its `priority`.
+  Each middleware must be added to a specific step. By default, each middleware in the same step has undifferentiated order. In some cases, you might want to execute a middleware before or after another middleware in the same step. You can achieve it by specifying its `priority`.
 
 ```javascript
 client.middlewareStack.add(middleware, {
@@ -579,7 +579,7 @@ client.middlewareStack.add(middleware, {
 });
 ```
 
-For a full middleware stack deep dive please check out our [blog post](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
+For a full middleware stack deep dive, please check out our [blog post](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
 
 ## Release Cadence
 
@@ -639,7 +639,7 @@ bindings to be included as a dependency with your application. This functionalit
 - [Amazon S3 Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html)
 - [Amazon S3 Object Integrity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
 
-If the required AWS Common Runtime components are not installed you will receive an error like:
+If the required AWS Common Runtime components are not installed, you will receive an error like:
 
 ```console
 Cannot find module '@aws-sdk/signature-v4-crt'
@@ -651,7 +651,7 @@ For more information please go to
 https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt"
 ```
 
-indicating that the required dependency is missing to use the associated functionality. To install this dependency follow
+indicating that the required dependency is missing to use the associated functionality. To install this dependency, follow
 the provided [instructions](#installing-the-aws-common-runtime-crt-dependency).
 
 #### Installing the AWS Common Runtime (CRT) Dependency

@@ -28,7 +28,7 @@ that does not exist), then the chained provider will be rejected with an error
 and will not invoke the next provider in the list.
 
 _IMPORTANT_: if you intend to acquire credentials using EKS 
-[IAM Roles for Service Accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) 
+[IAM Roles for Service Accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html), 
 then you must explicitly specify a value for `roleAssumerWithWebIdentity`. There is a
 default function available in `@aws-sdk/client-sts` package. An example of using
 this:

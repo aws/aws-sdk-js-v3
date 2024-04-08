@@ -3,7 +3,7 @@
 This document captures notable changes from AWS SDK for JavaScript v2 to v3.
 The v3 is also known as modular AWS SDK for JavaScript.
 
-Because v3 is a modular rewrite of v2, some basic conceptions are different between v2 and v3. You can learn about
+Because, v3 is a modular rewrite of v2, some basic conceptions are different between v2 and v3. You can learn about
 these changes in our [blog posts](https://aws.amazon.com/blogs/developer/category/developer-tools/aws-sdk-for-javascript-in-node-js/).
 The following blog posts will get you up to speed:
 
@@ -65,7 +65,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
       httpsAgent: new Agent({
         /*params*/
       }),
-      connectionTimeout: /*number in milliseconds*/
+      connectionTimeout: /*number in milliseconds*/,
       socketTimeout: /*number in milliseconds*/
     }),
   });
@@ -496,7 +496,7 @@ await ddbDocClient.send(
 
 ### `undefined` values in when marshalling
 
-- In v2 `undefined` values in objects were automatically omitted during the marshalling process to DynamoDB.
+- In v2, `undefined` values in objects were automatically omitted during the marshalling process to DynamoDB.
 
 - In v3, the default marshalling behavior in @aws-sdk/lib-dynamodb has changed: objects with `undefined` values are no longer omitted. To align with v2's functionality, developers must explicitly set the `removeUndefinedValues` to `true` in the `marshallOptions` of the DynamoDBDocumentClient.
 

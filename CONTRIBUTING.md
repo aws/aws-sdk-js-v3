@@ -201,7 +201,7 @@ the generated code change to your PR. Here's how to generate clients:
 There are optional CLI helpers.
 The CLI helpers assist in the dispatch of commands to package or subfolder contexts.
 
-To activate the default aliases run:
+To activate the default aliases, run:
 
 ```
 . ./scripts/cli-dispatcher/set-alias.sh
@@ -260,7 +260,7 @@ matches to: yarn **t**est in packages/**m**iddleware-**sign**ing
 The package name query is used to find the package within clients, lib, or packages, and the npm script query is used to
 find a command to execute from within `package.json` `scripts`.
 
-In both queries, you can use space-separated substrings. They must occur in the matching package or command in linear order. Priority is given to whole-word matches, initial word matches, and shorter strings. If your instructions are ambiguous the first priority match will be executed. Use the dry-run or confirm options to check your command before execution.
+In both queries, you can use space-separated substrings. They must occur in the matching package or command in linear order. Priority is given to whole-word matches, initial word matches, and shorter strings. If your instructions are ambiguous, the first priority match will be executed. Use the dry-run or confirm options to check your command before execution.
 
 Additional options:
 --dry (dry run), --c (confirm before execution), --help
