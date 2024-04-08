@@ -83,7 +83,7 @@ export interface CreateMonitorProbeInput {
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination IP address. This will be either <code>IPV4</code> or <code>IPV6</code>.</p>
+   * <p>The destination IP address. This must be either <code>IPV4</code> or <code>IPV6</code>.</p>
    * @public
    */
   destination: string | undefined;
@@ -95,13 +95,13 @@ export interface CreateMonitorProbeInput {
   destinationPort?: number;
 
   /**
-   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This will be either <code>TCP</code> or <code>ICMP</code>.</p>
+   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets sent between the source and destination. This will be a number between <code>56</code> and <code>8500</code>.</p>
+   * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
   packetSize?: number;
@@ -118,7 +118,7 @@ export interface CreateMonitorProbeInput {
  */
 export interface CreateMonitorInput {
   /**
-   * <p>The name identifying the monitor. It can contain only letters, underscores (_), or dashes (-), and can be up to 255 characters.</p>
+   * <p>The name identifying the monitor. It can contain only letters, underscores (_), or dashes (-), and can be up to 200 characters.</p>
    * @public
    */
   monitorName: string | undefined;
@@ -188,7 +188,7 @@ export interface CreateMonitorOutput {
   state: MonitorState | undefined;
 
   /**
-   * <p>The number of seconds that metrics are aggregated by and sent to Amazon CloudWatch. This will be either <code>30</code> or <code>60</code>. </p>
+   * <p>The number of seconds that metrics are aggregated by and sent to Amazon CloudWatch. This must be either <code>30</code> or <code>60</code>. </p>
    * @public
    */
   aggregationPeriod?: number;
@@ -296,7 +296,7 @@ export interface ProbeInput {
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination IP address. This will be either <code>IPV4</code> or <code>IPV6</code>.</p>
+   * <p>The destination IP address. This must be either <code>IPV4</code> or <code>IPV6</code>.</p>
    * @public
    */
   destination: string | undefined;
@@ -308,13 +308,13 @@ export interface ProbeInput {
   destinationPort?: number;
 
   /**
-   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This will be either <code>TCP</code> or <code>ICMP</code>.</p>
+   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets sent between the source and destination. This will be a number between <code>56</code> and <code>8500</code>.</p>
+   * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
   packetSize?: number;
@@ -396,7 +396,7 @@ export interface CreateProbeOutput {
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination IP address for the monitor. This will be either an IPv4 or IPv6 address.</p>
+   * <p>The destination IP address for the monitor. This must be either an IPv4 or IPv6 address.</p>
    * @public
    */
   destination: string | undefined;
@@ -408,13 +408,13 @@ export interface CreateProbeOutput {
   destinationPort?: number;
 
   /**
-   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This will be either <code>TCP</code> or <code>ICMP</code>.</p>
+   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets sent between the source and destination. This will be a number between <code>56</code> and <code>8500</code>.</p>
+   * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
   packetSize?: number;
@@ -702,7 +702,7 @@ export interface GetProbeOutput {
   sourceArn: string | undefined;
 
   /**
-   * <p>The destination IP address for the monitor. This will be either an IPv4 or IPv6 address.</p>
+   * <p>The destination IP address for the monitor. This must be either an IPv4 or IPv6 address.</p>
    * @public
    */
   destination: string | undefined;
@@ -714,13 +714,13 @@ export interface GetProbeOutput {
   destinationPort?: number;
 
   /**
-   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This will be either <code>TCP</code> or <code>ICMP</code>.</p>
+   * <p>The protocol used for the network traffic between the <code>source</code> and <code>destination</code>. This must be either <code>TCP</code> or <code>ICMP</code>.</p>
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The size of the packets sent between the source and destination. This will be a number between <code>56</code> and <code>8500</code>.</p>
+   * <p>The size of the packets sent between the source and destination. This must be a number between <code>56</code> and <code>8500</code>.</p>
    * @public
    */
   packetSize?: number;
@@ -991,7 +991,7 @@ export interface UpdateProbeOutput {
   destination: string | undefined;
 
   /**
-   * <p>The updated destination port. This will be a number between <code>1</code> and <code>65536</code>.</p>
+   * <p>The updated destination port. This must be a number between <code>1</code> and <code>65536</code>.</p>
    * @public
    */
   destinationPort?: number;
@@ -1009,7 +1009,7 @@ export interface UpdateProbeOutput {
   packetSize?: number;
 
   /**
-   * <p>The updated IP address family. This will be either <code>IPV4</code> or <code>IPV6</code>.</p>
+   * <p>The updated IP address family. This must be either <code>IPV4</code> or <code>IPV6</code>.</p>
    * @public
    */
   addressFamily?: AddressFamily;
