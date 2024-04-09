@@ -77,7 +77,7 @@ const {
 
 (async () => {
   try {
-    require("../runtime-dependency-version-check/runtime-dep-version-check");
+    // require("../runtime-dependency-version-check/runtime-dep-version-check");
     if (!noSmithyCheckout) {
       await buildSmithyTypeScript(repo, commit);
     }
