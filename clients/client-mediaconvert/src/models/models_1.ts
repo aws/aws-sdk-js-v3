@@ -466,6 +466,20 @@ export type M2tsPcrControl = (typeof M2tsPcrControl)[keyof typeof M2tsPcrControl
  * @public
  * @enum
  */
+export const M2tsPreventBufferUnderflow = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsPreventBufferUnderflow = (typeof M2tsPreventBufferUnderflow)[keyof typeof M2tsPreventBufferUnderflow];
+
+/**
+ * @public
+ * @enum
+ */
 export const TsPtsOffset = {
   AUTO: "AUTO",
   SECONDS: "SECONDS",
@@ -714,6 +728,12 @@ export interface M2tsSettings {
    * @public
    */
   PmtPid?: number;
+
+  /**
+   * Specify whether MediaConvert automatically attempts to prevent decoder buffer underflows in your transport stream output. Use if you are seeing decoder buffer underflows in your output and are unable to increase your transport stream's bitrate. For most workflows: We recommend that you keep the default value, Disabled. To prevent decoder buffer underflows in your output, when possible: Choose Enabled. Note that if MediaConvert prevents a decoder buffer underflow in your output, output video quality is reduced and your job will take longer to complete.
+   * @public
+   */
+  PreventBufferUnderflow?: M2tsPreventBufferUnderflow;
 
   /**
    * Specify the packet identifier (PID) of the private metadata stream. Default is 503.
@@ -6560,7 +6580,7 @@ export interface JobSettings {
   AvailBlanking?: AvailBlanking;
 
   /**
-   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs.
+   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/3d-luts.html
    * @public
    */
   ColorConversion3DLUTSettings?: ColorConversion3DLUTSetting[];
@@ -6918,7 +6938,7 @@ export interface JobTemplateSettings {
   AvailBlanking?: AvailBlanking;
 
   /**
-   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs.
+   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/3d-luts.html
    * @public
    */
   ColorConversion3DLUTSettings?: ColorConversion3DLUTSetting[];
@@ -7477,28 +7497,6 @@ export class NotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
     this.Message = opts.Message;
   }
 }

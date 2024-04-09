@@ -1,4 +1,8 @@
 // smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { MediaConvertServiceException as __BaseException } from "./MediaConvertServiceException";
+
 import { AccelerationSettings, BillingTagsSource, Endpoint, HopDestination } from "./models_0";
 
 import {
@@ -17,6 +21,28 @@ import {
   SimulateReservedQueue,
   StatusUpdateInterval,
 } from "./models_1";
+
+/**
+ * Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
+ * @public
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -399,9 +425,6 @@ export const DescribeEndpointsMode = {
 export type DescribeEndpointsMode = (typeof DescribeEndpointsMode)[keyof typeof DescribeEndpointsMode];
 
 /**
- * DescribeEndpointsRequest
- *
- * @deprecated DescribeEndpoints and account specific endpoints are no longer required. We recommend that you send your requests directly to the regional endpoint instead.
  * @public
  */
 export interface DescribeEndpointsRequest {

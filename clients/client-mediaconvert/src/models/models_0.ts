@@ -2165,6 +2165,32 @@ export interface BurninDestinationSettings {
   FontColor?: BurninSubtitleFontColor;
 
   /**
+   * Specify a bold TrueType font file to use when rendering your output captions. Enter an S3, HTTP, or HTTPS URL. When you do, you must also separately specify a regular, an italic, and a bold italic font file.
+   * @public
+   */
+  FontFileBold?: string;
+
+  /**
+   * Specify a bold italic TrueType font file to use when rendering your output captions.
+   * Enter an S3, HTTP, or HTTPS URL.
+   * When you do, you must also separately specify a regular, a bold, and an italic font file.
+   * @public
+   */
+  FontFileBoldItalic?: string;
+
+  /**
+   * Specify an italic TrueType font file to use when rendering your output captions. Enter an S3, HTTP, or HTTPS URL. When you do, you must also separately specify a regular, a bold, and a bold italic font file.
+   * @public
+   */
+  FontFileItalic?: string;
+
+  /**
+   * Specify a regular TrueType font file to use when rendering your output captions. Enter an S3, HTTP, or HTTPS URL. When you do, you must also separately specify a bold, an italic, and a bold italic font file.
+   * @public
+   */
+  FontFileRegular?: string;
+
+  /**
    * Specify the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
    * @public
    */
@@ -2231,7 +2257,7 @@ export interface BurninDestinationSettings {
   ShadowYOffset?: number;
 
   /**
-   * Set Style passthrough to ENABLED to use the available style, color, and position information from your input captions. MediaConvert uses default settings for any missing style and position information in your input captions. Set Style passthrough to DISABLED, or leave blank, to ignore the style and position information from your input captions and use default settings: white text with black outlining, bottom-center positioning, and automatic sizing. Whether you set Style passthrough to enabled or not, you can also choose to manually override any of the individual style and position settings.
+   * To use the available style, color, and position information from your input captions: Set Style passthrough to Enabled. Note that MediaConvert uses default settings for any missing style or position information in your input captions To ignore the style and position information from your input captions and use default settings: Leave blank or keep the default value, Disabled. Default settings include white text with black outlining, bottom-center positioning, and automatic sizing. Whether you set Style passthrough to enabled or not, you can also choose to manually override any of the individual style and position settings. You can also override any fonts by manually specifying custom font files.
    * @public
    */
   StylePassthrough?: BurnInSubtitleStylePassthrough;
@@ -2515,6 +2541,32 @@ export interface DvbSubDestinationSettings {
   FontColor?: DvbSubtitleFontColor;
 
   /**
+   * Specify a bold TrueType font file to use when rendering your output captions. Enter an S3, HTTP, or HTTPS URL. When you do, you must also separately specify a regular, an italic, and a bold italic font file.
+   * @public
+   */
+  FontFileBold?: string;
+
+  /**
+   * Specify a bold italic TrueType font file to use when rendering your output captions.
+   * Enter an S3, HTTP, or HTTPS URL.
+   * When you do, you must also separately specify a regular, a bold, and an italic font file.
+   * @public
+   */
+  FontFileBoldItalic?: string;
+
+  /**
+   * Specify an italic TrueType font file to use when rendering your output captions. Enter an S3, HTTP, or HTTPS URL. When you do, you must also separately specify a regular, a bold, and a bold italic font file.
+   * @public
+   */
+  FontFileItalic?: string;
+
+  /**
+   * Specify a regular TrueType font file to use when rendering your output captions. Enter an S3, HTTP, or HTTPS URL. When you do, you must also separately specify a bold, an italic, and a bold italic font file.
+   * @public
+   */
+  FontFileRegular?: string;
+
+  /**
    * Specify the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
    * Within your job settings, all of your DVB-Sub settings must be identical.
    * @public
@@ -2589,7 +2641,7 @@ export interface DvbSubDestinationSettings {
   ShadowYOffset?: number;
 
   /**
-   * Set Style passthrough to ENABLED to use the available style, color, and position information from your input captions. MediaConvert uses default settings for any missing style and position information in your input captions. Set Style passthrough to DISABLED, or leave blank, to ignore the style and position information from your input captions and use default settings: white text with black outlining, bottom-center positioning, and automatic sizing. Whether you set Style passthrough to enabled or not, you can also choose to manually override any of the individual style and position settings.
+   * To use the available style, color, and position information from your input captions: Set Style passthrough to Enabled. Note that MediaConvert uses default settings for any missing style or position information in your input captions To ignore the style and position information from your input captions and use default settings: Leave blank or keep the default value, Disabled. Default settings include white text with black outlining, bottom-center positioning, and automatic sizing. Whether you set Style passthrough to enabled or not, you can also choose to manually override any of the individual style and position settings. You can also override any fonts by manually specifying custom font files.
    * @public
    */
   StylePassthrough?: DvbSubtitleStylePassthrough;
