@@ -4752,7 +4752,8 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</p>
-   *          <p>The <code>serverless</code> engine mode only applies for Aurora Serverless v1 DB clusters.</p>
+   *          <p>The <code>serverless</code> engine mode only applies for Aurora Serverless v1 DB clusters. Aurora Serverless v2 DB clusters use the
+   *         <code>provisioned</code> engine mode.</p>
    *          <p>For information about limitations and requirements for Serverless DB clusters, see the
    *             following sections in the <i>Amazon Aurora User Guide</i>:</p>
    *          <ul>
@@ -10274,6 +10275,18 @@ export interface CreateDBInstanceReadReplicaMessage {
    * @public
    */
   UpgradeStorageConfig?: boolean;
+
+  /**
+   * <p>The CA certificate identifier to use for the read replica's server certificate.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *                 instance</a> in the <i>Amazon RDS User Guide</i> and
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *                     Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *                         User Guide</i>.</p>
+   * @public
+   */
+  CACertificateIdentifier?: string;
 }
 
 /**

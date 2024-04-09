@@ -108,6 +108,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
+ *   CACertificateIdentifier: "STRING_VALUE",
  * };
  * const command = new RestoreDBInstanceFromS3Command(input);
  * const response = await client.send(command);
@@ -352,6 +353,11 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *             behalf.</p>
  *
  * @throws {@link BackupPolicyNotFoundFault} (client fault)
+ *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an
+ *         existing certificate.</p>
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB instance with the given identifier.</p>

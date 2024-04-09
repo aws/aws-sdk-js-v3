@@ -109,6 +109,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   StorageThroughput: Number("int"),
  *   AllocatedStorage: Number("int"),
  *   DedicatedLogVolume: true || false,
+ *   CACertificateIdentifier: "STRING_VALUE",
  * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -353,6 +354,11 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *             behalf.</p>
  *
  * @throws {@link BackupPolicyNotFoundFault} (client fault)
+ *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an
+ *         existing certificate.</p>
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB instance with the given identifier.</p>

@@ -11045,6 +11045,9 @@ const se_CreateDBInstanceReadReplicaMessage = (
   if (input[_USC] != null) {
     entries[_USC] = input[_USC];
   }
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
+  }
   return entries;
 };
 
@@ -15487,6 +15490,9 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
   if (input[_DLV] != null) {
     entries[_DLV] = input[_DLV];
   }
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
+  }
   return entries;
 };
 
@@ -15677,6 +15683,9 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
   if (input[_DLV] != null) {
     entries[_DLV] = input[_DLV];
   }
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
+  }
   return entries;
 };
 
@@ -15854,6 +15863,9 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
   }
   if (input[_DLV] != null) {
     entries[_DLV] = input[_DLV];
+  }
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
   }
   return entries;
 };

@@ -108,6 +108,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   SourceDBClusterIdentifier: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
  *   UpgradeStorageConfig: true || false,
+ *   CACertificateIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
@@ -344,6 +345,11 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @see {@link CreateDBInstanceReadReplicaCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an
+ *         existing certificate.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p>

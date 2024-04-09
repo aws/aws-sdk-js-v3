@@ -12767,6 +12767,18 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    * @public
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * <p>The CA certificate identifier to use for the DB instance's server certificate.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *                 Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *                     User Guide</i>.</p>
+   * @public
+   */
+  CACertificateIdentifier?: string;
 }
 
 /**
@@ -13363,6 +13375,18 @@ export interface RestoreDBInstanceFromS3Message {
    * @public
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * <p>The CA certificate identifier to use for the DB instance's server certificate.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *                 Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *                     User Guide</i>.</p>
+   * @public
+   */
+  CACertificateIdentifier?: string;
 }
 
 /**
@@ -14026,6 +14050,18 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * @public
    */
   DedicatedLogVolume?: boolean;
+
+  /**
+   * <p>The CA certificate identifier to use for the DB instance's server certificate.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *                 instance</a> in the <i>Amazon RDS User Guide</i> and
+   *                 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *                     Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *                         User Guide</i>.</p>
+   * @public
+   */
+  CACertificateIdentifier?: string;
 }
 
 /**
