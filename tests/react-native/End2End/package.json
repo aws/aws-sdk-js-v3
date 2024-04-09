@@ -13,7 +13,7 @@
     "detox": "^17.0.2",
     "jest-junit": "^11.0.1",
     "react": "16.8.6",
-    "react-native": "0.60.3",
+    "react-native": "0.69.12",
     "react-native-get-random-values": "^1.6.0",
     "react-native-url-polyfill": "^1.3.0"
   },
