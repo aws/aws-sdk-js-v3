@@ -171,7 +171,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         filterGroups: [ // FilterGroups
  * //           [ // FilterGroup
  * //             { // WebhookFilter
- * //               type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE", // required
+ * //               type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME", // required
  * //               pattern: "STRING_VALUE", // required
  * //               excludeMatchedPattern: true || false,
  * //             },
