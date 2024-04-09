@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
+
+
+### Features
+
+* **client-mediaconvert:** This release includes support for bringing your own fonts to use for burn-in or DVB-Sub captioning workflows. ([b1fb0ed](https://github.com/aws/aws-sdk-js-v3/commit/b1fb0ed45e2d9ae04359b46976327d07bbb137f2))
+
+
+
+
+
 # [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

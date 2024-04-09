@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
+
+
+### Features
+
+* **client-pinpoint:** The OrchestrationSendingRoleArn has been added to the email channel and is used to send emails from campaigns or journeys. ([18bbe71](https://github.com/aws/aws-sdk-js-v3/commit/18bbe71a52632aa3a2e5d3ee06f531edcd80e90f))
+
+
+
+
+
 # [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint

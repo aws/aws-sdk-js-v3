@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
+
+
+### Features
+
+* **client-codebuild:** Add new webhook filter types for GitHub webhooks ([e78df26](https://github.com/aws/aws-sdk-js-v3/commit/e78df26ccb50b3d5f86bbef9c69ecde89e53e7ce))
+* **client-mediaconvert:** This release includes support for bringing your own fonts to use for burn-in or DVB-Sub captioning workflows. ([b1fb0ed](https://github.com/aws/aws-sdk-js-v3/commit/b1fb0ed45e2d9ae04359b46976327d07bbb137f2))
+* **client-pinpoint:** The OrchestrationSendingRoleArn has been added to the email channel and is used to send emails from campaigns or journeys. ([18bbe71](https://github.com/aws/aws-sdk-js-v3/commit/18bbe71a52632aa3a2e5d3ee06f531edcd80e90f))
+* **client-rds:** This release adds support for specifying the CA certificate to use for the new db instance when restoring from db snapshot, restoring from s3, restoring to point in time, and creating a db instance read replica. ([59e2f13](https://github.com/aws/aws-sdk-js-v3/commit/59e2f13f52deacb6f7fdb2bf56f1e32ff9fdf35f))
+* **clients:** update client endpoints as of 2024-04-09 ([30faa2c](https://github.com/aws/aws-sdk-js-v3/commit/30faa2cfcd8a568020d5b5a5c32ee393c708ca01))
+
+
+
+
+
 # [3.551.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.550.0...v3.551.0) (2024-04-08)
 
 
