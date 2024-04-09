@@ -55,6 +55,7 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
  * //     MessagesPerSecond: Number("int"),
  * //     Platform: "STRING_VALUE", // required
  * //     RoleArn: "STRING_VALUE",
+ * //     OrchestrationSendingRoleArn: "STRING_VALUE",
  * //     Version: Number("int"),
  * //   },
  * // };

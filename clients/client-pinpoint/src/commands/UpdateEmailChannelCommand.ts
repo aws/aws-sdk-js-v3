@@ -42,6 +42,7 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  *     FromAddress: "STRING_VALUE", // required
  *     Identity: "STRING_VALUE", // required
  *     RoleArn: "STRING_VALUE",
+ *     OrchestrationSendingRoleArn: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateEmailChannelCommand(input);
@@ -62,6 +63,7 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  * //     MessagesPerSecond: Number("int"),
  * //     Platform: "STRING_VALUE", // required
  * //     RoleArn: "STRING_VALUE",
+ * //     OrchestrationSendingRoleArn: "STRING_VALUE",
  * //     Version: Number("int"),
  * //   },
  * // };
