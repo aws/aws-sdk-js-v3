@@ -93,6 +93,12 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * //       StartTimestampMillis: Number("long"),
  * //       EndTimestampMillis: Number("long"),
  * //       DurationMillis: Number("long"),
+ * //       ContentTypes: [ // ContentTypes
+ * //         { // ContentType
+ * //           Confidence: Number("float"),
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

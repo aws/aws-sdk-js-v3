@@ -4416,6 +4416,7 @@ const de_ConnectedHomeSettings = (output: any, context: __SerdeContext): Connect
  */
 const de_ContentModerationDetection = (output: any, context: __SerdeContext): ContentModerationDetection => {
   return take(output, {
+    ContentTypes: (_: any) => de_ContentTypes(_, context),
     DurationMillis: __expectLong,
     EndTimestampMillis: __expectLong,
     ModerationLabel: (_: any) => de_ModerationLabel(_, context),

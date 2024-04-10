@@ -1946,6 +1946,24 @@ export type ContentModerationAggregateBy =
   (typeof ContentModerationAggregateBy)[keyof typeof ContentModerationAggregateBy];
 
 /**
+ * <p>Contains information regarding the confidence and name of a detected content type.</p>
+ * @public
+ */
+export interface ContentType {
+  /**
+   * <p>The confidence level of the label given</p>
+   * @public
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The name of the label</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
  * <p>Provides information about a single type of inappropriate, unwanted, or
  *       offensive content found in an image or video. Each type of moderated content has a label
  *       within a hierarchical taxonomy. For more information, see Content moderation in the Amazon Rekognition
@@ -2021,6 +2039,13 @@ export interface ContentModerationDetection {
    * @public
    */
   DurationMillis?: number;
+
+  /**
+   * <p>A list of predicted results for the type of content an image contains. For example,
+   *       the image content might be from animation, sports, or a video game.</p>
+   * @public
+   */
+  ContentTypes?: ContentType[];
 }
 
 /**
@@ -2036,24 +2061,6 @@ export const ContentModerationSortBy = {
  * @public
  */
 export type ContentModerationSortBy = (typeof ContentModerationSortBy)[keyof typeof ContentModerationSortBy];
-
-/**
- * <p>Contains information regarding the confidence and name of a detected content type.</p>
- * @public
- */
-export interface ContentType {
-  /**
-   * <p>The confidence level of the label given</p>
-   * @public
-   */
-  Confidence?: number;
-
-  /**
-   * <p>The name of the label</p>
-   * @public
-   */
-  Name?: string;
-}
 
 /**
  * <p>The S3 bucket and folder location where training output is placed.</p>
@@ -2458,7 +2465,11 @@ export interface CreateFaceLivenessSessionRequest {
  */
 export interface CreateFaceLivenessSessionResponse {
   /**
-   * <p>A unique 128-bit UUID identifying a Face Liveness session.</p>
+   * <p>A unique 128-bit UUID identifying a Face Liveness session.
+   *       A new sessionID must be used for every Face Liveness check. If a given sessionID is used for subsequent
+   *       Face Liveness checks, the checks will fail. Additionally, a SessionId expires 3 minutes after it's sent,
+   *       making all Liveness data associated with the session (e.g., sessionID, reference image, audit images, etc.) unavailable.
+   *     </p>
    * @public
    */
   SessionId: string | undefined;
