@@ -612,6 +612,73 @@ export namespace AnalysisSource {
 }
 
 /**
+ * <p>The reasons for the validation results.</p>
+ * @public
+ */
+export interface AnalysisTemplateValidationStatusReason {
+  /**
+   * <p>The validation message.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisTemplateValidationStatus = {
+  INVALID: "INVALID",
+  UNABLE_TO_VALIDATE: "UNABLE_TO_VALIDATE",
+  VALID: "VALID",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisTemplateValidationStatus =
+  (typeof AnalysisTemplateValidationStatus)[keyof typeof AnalysisTemplateValidationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisTemplateValidationType = {
+  DIFFERENTIAL_PRIVACY: "DIFFERENTIAL_PRIVACY",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisTemplateValidationType =
+  (typeof AnalysisTemplateValidationType)[keyof typeof AnalysisTemplateValidationType];
+
+/**
+ * <p>The status details of the analysis template validation. Clean Rooms Differential Privacy uses a general-purpose query structure to support complex SQL queries and validates whether an analysis template fits that general-purpose query structure. Validation is performed when analysis templates are created and fetched. Because analysis templates are immutable by design, we recommend that you create analysis templates after you associate the configured tables with their analysis rule to your collaboration.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html#custom-diff-privacy">https://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html#custom-diff-privacy</a>.</p>
+ * @public
+ */
+export interface AnalysisTemplateValidationStatusDetail {
+  /**
+   * <p>The type of validation that was performed.</p>
+   * @public
+   */
+  type: AnalysisTemplateValidationType | undefined;
+
+  /**
+   * <p>The status of the validation.</p>
+   * @public
+   */
+  status: AnalysisTemplateValidationStatus | undefined;
+
+  /**
+   * <p>The reasons for the validation results.</p>
+   * @public
+   */
+  reasons?: AnalysisTemplateValidationStatusReason[];
+}
+
+/**
  * <p>The analysis template.</p>
  * @public
  */
@@ -699,6 +766,12 @@ export interface AnalysisTemplate {
    * @public
    */
   analysisParameters?: AnalysisParameter[];
+
+  /**
+   * <p>Information about the validations performed on the analysis template.</p>
+   * @public
+   */
+  validations?: AnalysisTemplateValidationStatusDetail[];
 }
 
 /**
@@ -1307,6 +1380,12 @@ export interface CollaborationAnalysisTemplate {
    * @public
    */
   analysisParameters?: AnalysisParameter[];
+
+  /**
+   * <p>The validations that were performed.</p>
+   * @public
+   */
+  validations?: AnalysisTemplateValidationStatusDetail[];
 }
 
 /**

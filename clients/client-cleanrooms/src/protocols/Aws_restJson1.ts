@@ -3327,6 +3327,7 @@ const de_AnalysisTemplate = (output: any, context: __SerdeContext): AnalysisTemp
     schema: _json,
     source: (_: any) => _json(__expectUnion(_)),
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    validations: _json,
   }) as any;
 };
 
@@ -3359,6 +3360,14 @@ const de_AnalysisTemplateSummaryList = (output: any, context: __SerdeContext): A
     });
   return retVal;
 };
+
+// de_AnalysisTemplateValidationStatusDetail omitted.
+
+// de_AnalysisTemplateValidationStatusDetailList omitted.
+
+// de_AnalysisTemplateValidationStatusReason omitted.
+
+// de_AnalysisTemplateValidationStatusReasonList omitted.
 
 // de_BatchGetCollaborationAnalysisTemplateError omitted.
 
@@ -3411,6 +3420,7 @@ const de_CollaborationAnalysisTemplate = (output: any, context: __SerdeContext):
     schema: _json,
     source: (_: any) => _json(__expectUnion(_)),
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    validations: _json,
   }) as any;
 };
 

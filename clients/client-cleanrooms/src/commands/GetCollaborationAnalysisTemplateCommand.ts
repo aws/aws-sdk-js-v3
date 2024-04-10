@@ -76,6 +76,17 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
  * //         defaultValue: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     validations: [ // AnalysisTemplateValidationStatusDetailList
+ * //       { // AnalysisTemplateValidationStatusDetail
+ * //         type: "DIFFERENTIAL_PRIVACY", // required
+ * //         status: "VALID" || "INVALID" || "UNABLE_TO_VALIDATE", // required
+ * //         reasons: [ // AnalysisTemplateValidationStatusReasonList
+ * //           { // AnalysisTemplateValidationStatusReason
+ * //             message: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
