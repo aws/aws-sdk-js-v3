@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.553.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.552.0...v3.553.0) (2024-04-10)
+
+
+### Features
+
+* **client-cleanrooms:** AWS Clean Rooms Differential Privacy is now fully available. Differential privacy protects against user-identification attempts. ([fe4fa7f](https://github.com/aws/aws-sdk-js-v3/commit/fe4fa7fbec4acb2b96cb7e598f208b4c75077986))
+* **client-connect:** This release adds new Submit Auto Evaluation Action for Amazon Connect Rules. ([c39f5fc](https://github.com/aws/aws-sdk-js-v3/commit/c39f5fc508fcf2be1a71bfeacf8bbd49e1886159))
+* **client-qconnect:** This release adds a new QiC public API updateSession and updates an existing QiC public API createSession ([63be40d](https://github.com/aws/aws-sdk-js-v3/commit/63be40d848ffd8fefc3dd1d061caa978ecab2c7d))
+* **client-rekognition:** Added support for ContentType to content moderation detections. ([88f12a7](https://github.com/aws/aws-sdk-js-v3/commit/88f12a7c1958d684f30f28caacf899974ce530cf))
+* **client-supplychain:** This release includes API SendDataIntegrationEvent for AWS Supply Chain ([8c32c69](https://github.com/aws/aws-sdk-js-v3/commit/8c32c69a73df4f1eaa3aa7bbaa309553ac1ce1e8))
+* **client-workspaces-thin-client:** Adding tags field to SoftwareSet. Removing tags fields from Summary objects. Changing the list of exceptions in tagging APIs. Fixing an issue where the SDK returns empty tags in Get APIs. ([8061bcc](https://github.com/aws/aws-sdk-js-v3/commit/8061bcc000a4297b526f58659146898c3e995edc))
+* **clients:** update client endpoints as of 2024-04-10 ([5ba04d3](https://github.com/aws/aws-sdk-js-v3/commit/5ba04d3b4bca54fafd5de2beeb21b09532e7fb62))
+
+
+
+
+
 # [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
 
 

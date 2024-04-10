@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.553.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.552.0...v3.553.0) (2024-04-10)
+
+
+### Features
+
+* **client-workspaces-thin-client:** Adding tags field to SoftwareSet. Removing tags fields from Summary objects. Changing the list of exceptions in tagging APIs. Fixing an issue where the SDK returns empty tags in Get APIs. ([8061bcc](https://github.com/aws/aws-sdk-js-v3/commit/8061bcc000a4297b526f58659146898c3e995edc))
+
+
+
+
+
 # [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-thin-client
