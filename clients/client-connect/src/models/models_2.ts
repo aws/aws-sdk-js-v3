@@ -60,9 +60,28 @@ import {
   SearchCriteria,
   SearchCriteriaFilterSensitiveLog,
   SignInConfig,
-  Sort,
+  SortableFieldName,
+  SortOrder,
   TelephonyConfig,
 } from "./models_1";
+
+/**
+ * <p>A structure that defineds the field name to sort by and a sort order.</p>
+ * @public
+ */
+export interface Sort {
+  /**
+   * <p>The name of the field on which to sort.</p>
+   * @public
+   */
+  FieldName: SortableFieldName | undefined;
+
+  /**
+   * <p>An ascending or descending sort.</p>
+   * @public
+   */
+  Order: SortOrder | undefined;
+}
 
 /**
  * @public
@@ -4054,8 +4073,7 @@ export interface UpdateSecurityProfileRequest {
   TagRestrictedResources?: string[];
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>A list of the third-party application's metadata.</p>
+   * <p>A list of the third-party application's metadata.</p>
    * @public
    */
   Applications?: Application[];

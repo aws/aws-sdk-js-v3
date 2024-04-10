@@ -52,7 +52,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //     Function: "STRING_VALUE", // required
  * //     Actions: [ // RuleActions // required
  * //       { // RuleAction
- * //         ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS", // required
+ * //         ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
  * //         TaskAction: { // TaskActionDefinition
  * //           Name: "STRING_VALUE", // required
  * //           Description: "STRING_VALUE",
@@ -110,6 +110,9 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //           ],
  * //         },
  * //         EndAssociatedTasksAction: {},
+ * //         SubmitAutoEvaluationAction: { // SubmitAutoEvaluationActionDefinition
+ * //           EvaluationFormId: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //     PublishStatus: "DRAFT" || "PUBLISHED", // required

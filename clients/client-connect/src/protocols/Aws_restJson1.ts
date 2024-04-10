@@ -783,7 +783,6 @@ import {
   OutboundCallerConfig,
   ParticipantCapabilities,
   ParticipantDetailsToAdd,
-  PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
   PredefinedAttributeValues,
   PropertyValidationException,
@@ -805,6 +804,7 @@ import {
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomation,
+  SubmitAutoEvaluationActionDefinition,
   TaskActionDefinition,
   TaskTemplateConstraints,
   TaskTemplateDefaultFieldValue,
@@ -853,6 +853,7 @@ import {
   MetricResultV2,
   MetricV2,
   OutputTypeNotFoundException,
+  PhoneNumberCountryCode,
   PhoneNumberType,
   PredefinedAttribute,
   PredefinedAttributeSummary,
@@ -880,7 +881,6 @@ import {
   SecurityProfileSummary,
   SignInConfig,
   SignInDistribution,
-  Sort,
   TaskTemplateMetadata,
   TelephonyConfig,
   Threshold,
@@ -941,6 +941,7 @@ import {
   SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
   SegmentAttributeValue,
+  Sort,
   StringCondition,
   TagCondition,
   TagSearchCondition,
@@ -12511,6 +12512,7 @@ const se_RuleAction = (input: RuleAction, context: __SerdeContext): any => {
     EndAssociatedTasksAction: _json,
     EventBridgeAction: _json,
     SendNotificationAction: _json,
+    SubmitAutoEvaluationAction: _json,
     TaskAction: _json,
     UpdateCaseAction: (_) => se_UpdateCaseActionDefinition(_, context),
   });
@@ -12602,6 +12604,8 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 // se_Sort omitted.
 
 // se_StringCondition omitted.
+
+// se_SubmitAutoEvaluationActionDefinition omitted.
 
 // se_SupportedMessagingContentTypes omitted.
 
@@ -14320,6 +14324,7 @@ const de_RuleAction = (output: any, context: __SerdeContext): RuleAction => {
     EndAssociatedTasksAction: _json,
     EventBridgeAction: _json,
     SendNotificationAction: _json,
+    SubmitAutoEvaluationAction: _json,
     TaskAction: _json,
     UpdateCaseAction: (_: any) => de_UpdateCaseActionDefinition(_, context),
   }) as any;
@@ -14456,6 +14461,8 @@ const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): Se
 // de_SingleSelectQuestionRuleCategoryAutomation omitted.
 
 // de_StringReference omitted.
+
+// de_SubmitAutoEvaluationActionDefinition omitted.
 
 // de_SuccessfulRequest omitted.
 

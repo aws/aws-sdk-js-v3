@@ -53,7 +53,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * //       PublishStatus: "DRAFT" || "PUBLISHED", // required
  * //       ActionSummaries: [ // ActionSummaries // required
  * //         { // ActionSummary
- * //           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS", // required
+ * //           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
  * //         },
  * //       ],
  * //       CreatedTime: new Date("TIMESTAMP"), // required
