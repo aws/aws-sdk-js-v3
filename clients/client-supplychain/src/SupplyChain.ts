@@ -12,11 +12,17 @@ import {
   GetBillOfMaterialsImportJobCommandInput,
   GetBillOfMaterialsImportJobCommandOutput,
 } from "./commands/GetBillOfMaterialsImportJobCommand";
+import {
+  SendDataIntegrationEventCommand,
+  SendDataIntegrationEventCommandInput,
+  SendDataIntegrationEventCommandOutput,
+} from "./commands/SendDataIntegrationEventCommand";
 import { SupplyChainClient, SupplyChainClientConfig } from "./SupplyChainClient";
 
 const commands = {
   CreateBillOfMaterialsImportJobCommand,
   GetBillOfMaterialsImportJobCommand,
+  SendDataIntegrationEventCommand,
 };
 
 export interface SupplyChain {
@@ -52,6 +58,23 @@ export interface SupplyChain {
     args: GetBillOfMaterialsImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBillOfMaterialsImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendDataIntegrationEventCommand}
+   */
+  sendDataIntegrationEvent(
+    args: SendDataIntegrationEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDataIntegrationEventCommandOutput>;
+  sendDataIntegrationEvent(
+    args: SendDataIntegrationEventCommandInput,
+    cb: (err: any, data?: SendDataIntegrationEventCommandOutput) => void
+  ): void;
+  sendDataIntegrationEvent(
+    args: SendDataIntegrationEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDataIntegrationEventCommandOutput) => void
   ): void;
 }
 

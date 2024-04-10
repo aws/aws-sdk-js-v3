@@ -62,6 +62,10 @@ import {
   GetBillOfMaterialsImportJobCommandOutput,
 } from "./commands/GetBillOfMaterialsImportJobCommand";
 import {
+  SendDataIntegrationEventCommandInput,
+  SendDataIntegrationEventCommandOutput,
+} from "./commands/SendDataIntegrationEventCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -75,12 +79,18 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = CreateBillOfMaterialsImportJobCommandInput | GetBillOfMaterialsImportJobCommandInput;
+export type ServiceInputTypes =
+  | CreateBillOfMaterialsImportJobCommandInput
+  | GetBillOfMaterialsImportJobCommandInput
+  | SendDataIntegrationEventCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = CreateBillOfMaterialsImportJobCommandOutput | GetBillOfMaterialsImportJobCommandOutput;
+export type ServiceOutputTypes =
+  | CreateBillOfMaterialsImportJobCommandOutput
+  | GetBillOfMaterialsImportJobCommandOutput
+  | SendDataIntegrationEventCommandOutput;
 
 /**
  * @public

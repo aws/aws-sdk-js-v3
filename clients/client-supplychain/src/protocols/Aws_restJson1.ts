@@ -30,6 +30,10 @@ import {
   GetBillOfMaterialsImportJobCommandOutput,
 } from "../commands/GetBillOfMaterialsImportJobCommand";
 import {
+  SendDataIntegrationEventCommandInput,
+  SendDataIntegrationEventCommandOutput,
+} from "../commands/SendDataIntegrationEventCommand";
+import {
   AccessDeniedException,
   ConflictException,
   InternalServerException,
@@ -82,6 +86,33 @@ export const se_GetBillOfMaterialsImportJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SendDataIntegrationEventCommand
+ */
+export const se_SendDataIntegrationEventCommand = async (
+  input: SendDataIntegrationEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/api-data/data-integration/instance/{instanceId}/data-integration-events");
+  b.p("instanceId", () => input.instanceId!, "{instanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      data: [],
+      eventGroupId: [],
+      eventTimestamp: (_) => Math.round(_.getTime() / 1000),
+      eventType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * deserializeAws_restJson1CreateBillOfMaterialsImportJobCommand
  */
 export const de_CreateBillOfMaterialsImportJobCommand = async (
@@ -118,6 +149,27 @@ export const de_GetBillOfMaterialsImportJobCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     job: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SendDataIntegrationEventCommand
+ */
+export const de_SendDataIntegrationEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendDataIntegrationEventCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    eventId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

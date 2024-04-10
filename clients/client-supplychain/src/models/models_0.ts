@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { SupplyChainServiceException as __BaseException } from "./SupplyChainServiceException";
 
@@ -265,3 +265,92 @@ export interface GetBillOfMaterialsImportJobResponse {
    */
   job: BillOfMaterialsImportJob | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const DataIntegrationEventType = {
+  FORECAST: "scn.data.forecast",
+  INBOUND_ORDER: "scn.data.inboundorder",
+  INBOUND_ORDER_LINE: "scn.data.inboundorderline",
+  INBOUND_ORDER_LINE_SCHEDULE: "scn.data.inboundorderlineschedule",
+  INVENTORY_LEVEL: "scn.data.inventorylevel",
+  OUTBOUND_ORDER_LINE: "scn.data.outboundorderline",
+  OUTBOUND_SHIPMENT: "scn.data.outboundshipment",
+  PROCESS_HEADER: "scn.data.processheader",
+  PROCESS_OPERATION: "scn.data.processoperation",
+  PROCESS_PRODUCT: "scn.data.processproduct",
+  RESERVATION: "scn.data.reservation",
+  SHIPMENT: "scn.data.shipment",
+  SHIPMENT_STOP: "scn.data.shipmentstop",
+  SHIPMENT_STOP_ORDER: "scn.data.shipmentstoporder",
+  SUPPLY_PLAN: "scn.data.supplyplan",
+} as const;
+
+/**
+ * @public
+ */
+export type DataIntegrationEventType = (typeof DataIntegrationEventType)[keyof typeof DataIntegrationEventType];
+
+/**
+ * <p>The request parameters for SendDataIntegrationEvent.</p>
+ * @public
+ */
+export interface SendDataIntegrationEventRequest {
+  /**
+   * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The data event type.</p>
+   * @public
+   */
+  eventType: DataIntegrationEventType | undefined;
+
+  /**
+   * <p>The data payload of the event.</p>
+   * @public
+   */
+  data: string | undefined;
+
+  /**
+   * <p>Event identifier (for example, orderId for InboundOrder) used for data sharing or partitioning.</p>
+   * @public
+   */
+  eventGroupId: string | undefined;
+
+  /**
+   * <p>The event timestamp (in epoch seconds).</p>
+   * @public
+   */
+  eventTimestamp?: Date;
+
+  /**
+   * <p>The idempotent client token.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * <p>The response parameters for SendDataIntegrationEvent.</p>
+ * @public
+ */
+export interface SendDataIntegrationEventResponse {
+  /**
+   * <p>The unique event identifier.</p>
+   * @public
+   */
+  eventId: string | undefined;
+}
+
+/**
+ * @internal
+ */
+export const SendDataIntegrationEventRequestFilterSensitiveLog = (obj: SendDataIntegrationEventRequest): any => ({
+  ...obj,
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
