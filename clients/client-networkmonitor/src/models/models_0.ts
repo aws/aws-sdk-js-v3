@@ -130,7 +130,9 @@ export interface CreateMonitorInput {
   probes?: CreateMonitorProbeInput[];
 
   /**
-   * <p>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either <code>30</code> or <code>60</code>. </p>
+   * <p>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid
+   *             values are either <code>30</code> or <code>60</code>.  <code>60</code> is the default if
+   *             no period is chosen.</p>
    * @public
    */
   aggregationPeriod?: number;
@@ -188,7 +190,8 @@ export interface CreateMonitorOutput {
   state: MonitorState | undefined;
 
   /**
-   * <p>The number of seconds that metrics are aggregated by and sent to Amazon CloudWatch. This must be either <code>30</code> or <code>60</code>. </p>
+   * <p>The number of seconds that metrics are aggregated by and sent to Amazon CloudWatch.
+   *             This will be either <code>30</code> or <code>60</code>. </p>
    * @public
    */
   aggregationPeriod?: number;
@@ -331,7 +334,7 @@ export interface ProbeInput {
  */
 export interface CreateProbeInput {
   /**
-   * <p>The name of the monitor to associated with the probe. To get a list of available monitors, use <code>ListMonitors</code>.</p>
+   * <p>The name of the monitor to associated with the probe. </p>
    * @public
    */
   monitorName: string | undefined;
@@ -481,7 +484,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteMonitorInput {
   /**
-   * <p>The name of the monitor to delete. Use the <code>ListMonitors</code> action to get a list of your current monitors. </p>
+   * <p>The name of the monitor to delete.  </p>
    * @public
    */
   monitorName: string | undefined;
@@ -497,13 +500,13 @@ export interface DeleteMonitorOutput {}
  */
 export interface DeleteProbeInput {
   /**
-   * <p>The name of the monitor to delete. For a list of the available monitors, use the <code>ListMonitors</code> action.</p>
+   * <p>The name of the monitor to delete. </p>
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>The ID of the probe to delete. Run <code>GetMonitor</code> to get a lst of all probes and probe IDs associated with the monitor.</p>
+   * <p>The ID of the probe to delete. </p>
    * @public
    */
   probeId: string | undefined;
@@ -526,7 +529,7 @@ export interface GetMonitorInput {
 }
 
 /**
- * <p>Describes information about a monitor probe.</p>
+ * <p>Describes information about a network monitor probe.</p>
  * @public
  */
 export interface Probe {
@@ -620,13 +623,13 @@ export interface GetMonitorOutput {
   monitorArn: string | undefined;
 
   /**
-   * <p>The name of the monitor. To get a list of the current monitors and their names, use the <code>ListMonitors</code> action.</p>
+   * <p>The name of the monitor. </p>
    * @public
    */
   monitorName: string | undefined;
 
   /**
-   * <p>Returns a list of the state of each monitor. </p>
+   * <p>Lists the status of the <code>state</code> of each monitor. </p>
    * @public
    */
   state: MonitorState | undefined;
@@ -868,7 +871,7 @@ export interface ListTagsForResourceOutput {
  */
 export interface UpdateMonitorInput {
   /**
-   * <p>The name of the monitor to update. Run <code>ListMonitors</code> to get a list of monitor names.</p>
+   * <p>The name of the monitor to update. </p>
    * @public
    */
   monitorName: string | undefined;
@@ -926,7 +929,7 @@ export interface UpdateProbeInput {
   monitorName: string | undefined;
 
   /**
-   * <p>Run <code>GetMonitor</code> to get a list of probes and probe IDs.</p>
+   * <p>The ID of the probe to update.</p>
    * @public
    */
   probeId: string | undefined;

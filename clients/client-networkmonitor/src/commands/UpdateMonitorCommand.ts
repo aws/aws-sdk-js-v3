@@ -27,7 +27,10 @@ export interface UpdateMonitorCommandInput extends UpdateMonitorInput {}
 export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the <code>aggregationPeriod</code> for a monitor. Monitors support an <code>aggregationPeriod</code> of either <code>30</code> or <code>60</code> seconds.</p>
+ * <p>Updates the <code>aggregationPeriod</code> for a monitor. Monitors support an
+ *                 <code>aggregationPeriod</code> of either <code>30</code> or <code>60</code> seconds.
+ *             This action requires  the <code>monitorName</code> and <code>probeId</code> parameter.
+ *             Run <code>ListMonitors</code> to get a list of monitor names.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

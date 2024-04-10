@@ -27,7 +27,11 @@ export interface CreateProbeCommandInput extends CreateProbeInput {}
 export interface CreateProbeCommandOutput extends CreateProbeOutput, __MetadataBearer {}
 
 /**
- * <p>Create a probe within a monitor. Once you create a probe, and it begins monitoring your network traffic, you'll incur billing charges for that probe. </p>
+ * <p>Create a probe within a monitor. Once you create a probe, and it begins monitoring your
+ *             network traffic, you'll incur billing charges for that probe. This action requires the
+ *                 <code>monitorName</code> parameter. Run <code>ListMonitors</code> to get a list of
+ *             monitor names. Note the name of the <code>monitorName</code> you want to create the
+ *             probe for.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

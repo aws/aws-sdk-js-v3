@@ -27,7 +27,10 @@ export interface GetProbeCommandInput extends GetProbeInput {}
 export interface GetProbeCommandOutput extends GetProbeOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details about a probe. You'll need both the <code>monitorName</code> and <code>probeId</code>. </p>
+ * <p>Returns the details about a probe. This action requires both the
+ *                 <code>monitorName</code> and <code>probeId</code> parameters. Run
+ *                 <code>ListMonitors</code> to get a list of monitor names. Run
+ *                 <code>GetMonitor</code> to get a list of probes and probe IDs. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

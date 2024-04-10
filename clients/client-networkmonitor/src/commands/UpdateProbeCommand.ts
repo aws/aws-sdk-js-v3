@@ -28,6 +28,38 @@ export interface UpdateProbeCommandOutput extends UpdateProbeOutput, __MetadataB
 
 /**
  * <p>Updates a monitor probe. This action requires both the <code>monitorName</code> and <code>probeId</code> parameters. Run <code>ListMonitors</code> to get a list of monitor names. Run <code>GetMonitor</code> to get a list of probes and probe IDs. </p>
+ *          <p>You can update the following para create a monitor with probes using this command. For
+ *             each probe, you define the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>state</code>—The state of the probe.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>destination</code>— The target destination IP address for the
+ *                     probe.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>destinationPort</code>—Required only if the protocol is
+ *                     <code>TCP</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>protocol</code>—The communication protocol between the source and
+ *                     destination. This will be either <code>TCP</code> or <code>ICMP</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>packetSize</code>—The size of the packets. This must be a number between
+ *                         <code>56</code> and <code>8500</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>(Optional) <code>tags</code> —Key-value pairs created and assigned to the
+ *                     probe.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,12 @@ export interface DeleteProbeCommandInput extends DeleteProbeInput {}
 export interface DeleteProbeCommandOutput extends DeleteProbeOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified monitor. Once a probe is deleted you'll no longer incur any billing fees for that probe.</p>
+ * <p>Deletes the specified probe. Once a probe is deleted you'll no longer incur any billing
+ *             fees for that probe.</p>
+ *          <p>This action requires both the <code>monitorName</code> and <code>probeId</code>
+ *             parameters. Run <code>ListMonitors</code> to get a list of monitor names. Run
+ *                 <code>GetMonitor</code> to get a list of probes and probe IDs. You can only delete a
+ *             single probe at a time using this action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

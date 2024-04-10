@@ -27,7 +27,9 @@ export interface GetMonitorCommandInput extends GetMonitorInput {}
 export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Returns details about a specific monitor.</p>
+ * <p>Returns details about a specific monitor. </p>
+ *          <p>This action requires the <code>monitorName</code> parameter. Run
+ *                 <code>ListMonitors</code> to get a list of monitor names. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
