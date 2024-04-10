@@ -21,7 +21,7 @@ export const parseXmlBody = (streamBody: any, context: SerdeContext): any =>
 
       let parsedObj;
       try {
-        parsedObj = parser.parse(encoded);
+        parsedObj = parser.parse(encoded, true);
       } catch (e: any) {
         if (e && typeof e === "object") {
           Object.defineProperty(e, "$responseBodyText", {
