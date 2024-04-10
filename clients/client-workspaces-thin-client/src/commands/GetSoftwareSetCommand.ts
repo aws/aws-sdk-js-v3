@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSoftwareSetRequest, GetSoftwareSetResponse } from "../models/models_0";
+import {
+  GetSoftwareSetRequest,
+  GetSoftwareSetResponse,
+  GetSoftwareSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetSoftwareSetCommand, se_GetSoftwareSetCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
@@ -57,6 +61,9 @@ export interface GetSoftwareSetCommandOutput extends GetSoftwareSetResponse, __M
  * //       },
  * //     ],
  * //     arn: "STRING_VALUE",
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -107,7 +114,7 @@ export class GetSoftwareSetCommand extends $Command
   })
   .s("ThinClient", "GetSoftwareSet", {})
   .n("WorkSpacesThinClientClient", "GetSoftwareSetCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetSoftwareSetResponseFilterSensitiveLog)
   .ser(se_GetSoftwareSetCommand)
   .de(de_GetSoftwareSetCommand)
   .build() {}

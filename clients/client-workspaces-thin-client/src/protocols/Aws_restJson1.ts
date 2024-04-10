@@ -58,7 +58,6 @@ import {
   Environment,
   EnvironmentSummary,
   InternalServerException,
-  InternalServiceException,
   MaintenanceWindow,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
@@ -879,9 +878,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.workspacesthinclient#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.workspacesthinclient#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -948,28 +944,6 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
-  });
-  return __decorateServiceException(exception, parsedOutput.body);
-};
-
-/**
- * deserializeAws_restJson1InternalServiceExceptionRes
- */
-const de_InternalServiceExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalServiceException> => {
-  const contents: any = map({
-    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
-  });
-  const data: any = parsedOutput.body;
-  const doc = take(data, {
-    message: __expectString,
-  });
-  Object.assign(contents, doc);
-  const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1130,12 +1104,9 @@ const de_DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary =
     serialNumber: __expectString,
     softwareSetUpdateSchedule: __expectString,
     status: __expectString,
-    tags: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
-
-// de_EmbeddedTag omitted.
 
 /**
  * deserializeAws_restJson1Environment
@@ -1194,7 +1165,6 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
     pendingSoftwareSetId: __expectString,
     softwareSetUpdateMode: __expectString,
     softwareSetUpdateSchedule: __expectString,
-    tags: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -1215,6 +1185,7 @@ const de_SoftwareSet = (output: any, context: __SerdeContext): SoftwareSet => {
     releasedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     software: _json,
     supportedUntil: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    tags: _json,
     validationStatus: __expectString,
     version: __expectString,
   }) as any;

@@ -95,10 +95,6 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     arn: "STRING_VALUE",
- * //     tags: { // EmbeddedTag
- * //       resourceArn: "STRING_VALUE",
- * //       internalId: "STRING_VALUE",
- * //     },
  * //   },
  * // };
  *

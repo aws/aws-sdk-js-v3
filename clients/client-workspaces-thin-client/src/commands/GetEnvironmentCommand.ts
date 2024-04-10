@@ -77,9 +77,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     arn: "STRING_VALUE",
  * //     kmsKeyArn: "STRING_VALUE",
- * //     tags: { // EmbeddedTag
- * //       resourceArn: "STRING_VALUE",
- * //       internalId: "STRING_VALUE",
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
  * // };

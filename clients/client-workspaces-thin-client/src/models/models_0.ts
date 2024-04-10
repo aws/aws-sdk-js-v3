@@ -277,24 +277,6 @@ export const DesktopType = {
 export type DesktopType = (typeof DesktopType)[keyof typeof DesktopType];
 
 /**
- * <p>The resource and internal ID of a resource to tag.</p>
- * @public
- */
-export interface EmbeddedTag {
-  /**
-   * <p>The Amazon Resource Name (ARN) of a resource to tag.</p>
-   * @public
-   */
-  resourceArn?: string;
-
-  /**
-   * <p>The internal ID of a resource to tag.</p>
-   * @public
-   */
-  internalId?: string;
-}
-
-/**
  * <p>Describes an environment.</p>
  * @public
  */
@@ -384,12 +366,6 @@ export interface EnvironmentSummary {
    * @public
    */
   arn?: string;
-
-  /**
-   * <p>The tag keys and optional values for the resource.</p>
-   * @public
-   */
-  tags?: EmbeddedTag;
 }
 
 /**
@@ -913,7 +889,7 @@ export interface Device {
    * <p>The tag keys and optional values for the resource.</p>
    * @public
    */
-  tags?: EmbeddedTag;
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1011,12 +987,6 @@ export interface DeviceSummary {
    * @public
    */
   arn?: string;
-
-  /**
-   * <p>The tag keys and optional values for the resource.</p>
-   * @public
-   */
-  tags?: EmbeddedTag;
 }
 
 /**
@@ -1156,7 +1126,7 @@ export interface Environment {
    * <p>The tag keys and optional values for the resource.</p>
    * @public
    */
-  tags?: EmbeddedTag;
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1293,6 +1263,12 @@ export interface SoftwareSet {
    * @public
    */
   arn?: string;
+
+  /**
+   * <p>The tag keys and optional values for the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1304,33 +1280,6 @@ export interface GetSoftwareSetResponse {
    * @public
    */
   softwareSet?: SoftwareSet;
-}
-
-/**
- * <p>Request processing failed due to some unknown error, exception, or failure.</p>
- * @public
- */
-export class InternalServiceException extends __BaseException {
-  readonly name: "InternalServiceException" = "InternalServiceException";
-  readonly $fault: "server" = "server";
-  /**
-   * <p>The number of seconds to wait before retrying the next request.</p>
-   * @public
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
-    super({
-      name: "InternalServiceException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
 }
 
 /**
@@ -1720,18 +1669,10 @@ export const CreateEnvironmentRequestFilterSensitiveLog = (obj: CreateEnvironmen
 /**
  * @internal
  */
-export const EmbeddedTagFilterSensitiveLog = (obj: EmbeddedTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
-  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -1757,7 +1698,6 @@ export const DeviceFilterSensitiveLog = (obj: Device): any => ({
 export const DeviceSummaryFilterSensitiveLog = (obj: DeviceSummary): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -1784,6 +1724,22 @@ export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any
 export const GetEnvironmentResponseFilterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
   ...obj,
   ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
+});
+
+/**
+ * @internal
+ */
+export const SoftwareSetFilterSensitiveLog = (obj: SoftwareSet): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetSoftwareSetResponseFilterSensitiveLog = (obj: GetSoftwareSetResponse): any => ({
+  ...obj,
+  ...(obj.softwareSet && { softwareSet: SoftwareSetFilterSensitiveLog(obj.softwareSet) }),
 });
 
 /**
