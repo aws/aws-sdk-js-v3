@@ -115,6 +115,7 @@ import {
   UpdateQuickResponseCommandInput,
   UpdateQuickResponseCommandOutput,
 } from "../commands/UpdateQuickResponseCommand";
+import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "../commands/UpdateSessionCommand";
 import {
   AccessDeniedException,
   AppIntegrationsConfiguration,
@@ -135,6 +136,7 @@ import {
   ImportJobData,
   ImportJobSummary,
   KnowledgeBaseData,
+  OrCondition,
   PreconditionFailedException,
   QueryCondition,
   QueryConditionItem,
@@ -157,6 +159,8 @@ import {
   ServiceQuotaExceededException,
   SourceConfiguration,
   SourceContentDataDetails,
+  TagCondition,
+  TagFilter,
   TooManyTagsException,
   ValidationException,
 } from "../models/models_0";
@@ -325,6 +329,7 @@ export const se_CreateSessionCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
+      tagFilter: (_) => _json(_),
       tags: (_) => _json(_),
     })
   );
@@ -1072,6 +1077,31 @@ export const se_UpdateQuickResponseCommand = async (
       removeGroupingConfiguration: [],
       removeShortcutKey: [],
       shortcutKey: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSessionCommand
+ */
+export const se_UpdateSessionCommand = async (
+  input: UpdateSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      tagFilter: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1944,6 +1974,27 @@ export const de_UpdateQuickResponseCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSessionCommand
+ */
+export const de_UpdateSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    session: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -2144,6 +2195,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AndConditions omitted.
+
 // se_AppIntegrationsConfiguration omitted.
 
 // se_AssistantAssociationInputData omitted.
@@ -2173,6 +2226,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_GroupingValues omitted.
 
 // se_ObjectFieldsList omitted.
+
+// se_OrCondition omitted.
+
+// se_OrConditions omitted.
 
 // se_QueryCondition omitted.
 
@@ -2208,7 +2265,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_SourceConfiguration omitted.
 
+// se_TagCondition omitted.
+
+// se_TagFilter omitted.
+
 // se_Tags omitted.
+
+// de_AndConditions omitted.
 
 // de_AppIntegrationsConfiguration omitted.
 
@@ -2439,6 +2502,10 @@ const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBa
 
 // de_ObjectFieldsList omitted.
 
+// de_OrCondition omitted.
+
+// de_OrConditions omitted.
+
 // de_QueryRecommendationTriggerData omitted.
 
 /**
@@ -2639,6 +2706,10 @@ const de_SourceContentDataDetails = (output: any, context: __SerdeContext): Sour
     type: __expectString,
   }) as any;
 };
+
+// de_TagCondition omitted.
+
+// de_TagFilter omitted.
 
 // de_Tags omitted.
 

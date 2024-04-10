@@ -196,6 +196,11 @@ import {
   UpdateQuickResponseCommandInput,
   UpdateQuickResponseCommandOutput,
 } from "./commands/UpdateQuickResponseCommand";
+import {
+  UpdateSessionCommand,
+  UpdateSessionCommandInput,
+  UpdateSessionCommandOutput,
+} from "./commands/UpdateSessionCommand";
 import { QConnectClient, QConnectClientConfig } from "./QConnectClient";
 
 const commands = {
@@ -241,6 +246,7 @@ const commands = {
   UpdateContentCommand,
   UpdateKnowledgeBaseTemplateUriCommand,
   UpdateQuickResponseCommand,
+  UpdateSessionCommand,
 };
 
 export interface QConnect {
@@ -857,24 +863,35 @@ export interface QConnect {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQuickResponseCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateSessionCommand}
+   */
+  updateSession(args: UpdateSessionCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSessionCommandOutput>;
+  updateSession(args: UpdateSessionCommandInput, cb: (err: any, data?: UpdateSessionCommandOutput) => void): void;
+  updateSession(
+    args: UpdateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSessionCommandOutput) => void
+  ): void;
 }
 
 /**
  * <note>
  *             <p>
  *                <b>Powered by Amazon Bedrock</b>: Amazon Web Services implements <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html">automated abuse
- *       detection</a>. Because Amazon Q in Connect is built on Amazon Bedrock, users can take full
- *       advantage of the controls implemented in Amazon Bedrock to enforce safety, security, and the
- *       responsible use of artificial intelligence (AI).</p>
+ *           detection</a>. Because Amazon Q in Connect is built on Amazon Bedrock, users can take full advantage of
+ *         the controls implemented in Amazon Bedrock to enforce safety, security, and the responsible use of
+ *         artificial intelligence (AI).</p>
  *          </note>
- *          <p>Amazon Q in Connect is a generative AI customer service assistant. It is an LLM-enhanced evolution
- *       of Amazon Connect Wisdom that delivers real-time recommendations to help contact center
- *       agents resolve customer issues quickly and accurately.</p>
- *          <p>Amazon Q automatically detects customer intent during calls and chats using
- *       conversational analytics and natural language understanding (NLU). It then provides agents
- *       with immediate, real-time generative responses and suggested actions, and links to relevant
- *       documents and articles. Agents can also query Amazon Q directly using natural language or
- *       keywords to answer customer requests.</p>
+ *          <p>Amazon Q in Connect is a generative AI customer service assistant. It is an LLM-enhanced
+ *       evolution of Amazon Connect Wisdom that delivers real-time recommendations to help contact
+ *       center agents resolve customer issues quickly and accurately.</p>
+ *          <p>Amazon Q in Connect automatically detects customer intent during calls and chats using conversational
+ *       analytics and natural language understanding (NLU). It then provides agents with immediate,
+ *       real-time generative responses and suggested actions, and links to relevant documents and
+ *       articles. Agents can also query Amazon Q in Connect directly using natural language or keywords to answer
+ *       customer requests.</p>
  *          <p>Use the Amazon Q in Connect APIs to create an assistant and a knowledge base, for example, or
  *       manage content by uploading custom files.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html">Use Amazon Q in Connect for generative AI

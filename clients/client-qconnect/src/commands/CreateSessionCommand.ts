@@ -28,8 +28,8 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
 
 /**
  * <p>Creates a session. A session is a contextual container used for generating
- *       recommendations. Amazon Connect creates a new Amazon Q session for each contact on which
- *       Amazon Q is enabled.</p>
+ *       recommendations. Amazon Connect creates a new Amazon Q in Connect session for each contact on which
+ *       Amazon Q in Connect is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,6 +43,26 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *   description: "STRING_VALUE",
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   tagFilter: { // TagFilter Union: only one key present
+ *     tagCondition: { // TagCondition
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *     andConditions: [ // AndConditions
+ *       {
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     orConditions: [ // OrConditions
+ *       { // OrCondition Union: only one key present
+ *         andConditions: [
+ *           "<TagCondition>",
+ *         ],
+ *         tagCondition: "<TagCondition>",
+ *       },
+ *     ],
  *   },
  * };
  * const command = new CreateSessionCommand(input);
@@ -59,6 +79,26 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //     integrationConfiguration: { // SessionIntegrationConfiguration
  * //       topicIntegrationArn: "STRING_VALUE",
  * //     },
+ * //     tagFilter: { // TagFilter Union: only one key present
+ * //       tagCondition: { // TagCondition
+ * //         key: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //       andConditions: [ // AndConditions
+ * //         {
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       orConditions: [ // OrConditions
+ * //         { // OrCondition Union: only one key present
+ * //           andConditions: [
+ * //             "<TagCondition>",
+ * //           ],
+ * //           tagCondition: "<TagCondition>",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -69,6 +109,9 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * @see {@link CreateSessionCommandInput} for command's `input` shape.
  * @see {@link CreateSessionCommandOutput} for command's `response` shape.
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request could not be processed because of conflict in the current state of the

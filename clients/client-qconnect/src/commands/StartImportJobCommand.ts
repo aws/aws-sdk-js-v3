@@ -31,11 +31,14 @@ export interface StartImportJobCommandInput extends StartImportJobRequest {}
 export interface StartImportJobCommandOutput extends StartImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Start an asynchronous job to import Amazon Q resources from an uploaded source file. Before calling this API, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
+ * <p>Start an asynchronous job to import Amazon Q in Connect resources from an uploaded source file.
+ *       Before calling this API, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
  *       upload an asset that contains the resource data.</p>
  *          <ul>
  *             <li>
- *                <p>For importing Amazon Q quick responses, you need to upload a csv file including the quick responses. For information about how to format the csv file for importing quick responses, see <a href="https://docs.aws.amazon.com/console/connect/quick-responses/add-data">Import quick responses</a>.</p>
+ *                <p>For importing Amazon Q in Connect quick responses, you need to upload a csv file including the
+ *           quick responses. For information about how to format the csv file for importing quick
+ *           responses, see <a href="https://docs.aws.amazon.com/console/connect/quick-responses/add-data">Import quick responses</a>.</p>
  *             </li>
  *          </ul>
  * @example

@@ -24,6 +24,25 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>A leaf node condition which can be used to specify a tag condition.
+ *   </p>
+ * @public
+ */
+export interface TagCondition {
+  /**
+   * <p>The tag key in the tag condition.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The tag value in the tag condition.</p>
+   * @public
+   */
+  value?: string;
+}
+
+/**
  * <p>Configuration information for Amazon AppIntegrations to automatically ingest content.</p>
  * @public
  */
@@ -73,7 +92,7 @@ export interface AppIntegrationsConfiguration {
   appIntegrationArn: string | undefined;
 
   /**
-   * <p>The fields from the source that are made available to your agents in Amazon Q. Optional if
+   * <p>The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if
    *       ObjectConfiguration is included in the provided DataIntegration. </p>
    *          <ul>
    *             <li>
@@ -123,7 +142,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The data that is input into Amazon Q as a result of the assistant association.</p>
+ * <p>The data that is input into Amazon Q in Connect as a result of the assistant association.</p>
  * @public
  */
 export type AssistantAssociationInputData =
@@ -135,8 +154,7 @@ export type AssistantAssociationInputData =
  */
 export namespace AssistantAssociationInputData {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.</p>
    * @public
    */
   export interface KnowledgeBaseIdMember {
@@ -181,7 +199,7 @@ export type AssociationType = (typeof AssociationType)[keyof typeof AssociationT
  */
 export interface CreateAssistantAssociationRequest {
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -220,8 +238,7 @@ export interface CreateAssistantAssociationRequest {
  */
 export interface KnowledgeBaseAssociationData {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId?: string;
@@ -292,13 +309,13 @@ export interface AssistantAssociationData {
   assistantAssociationArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q assistant.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantArn: string | undefined;
@@ -412,7 +429,7 @@ export interface DeleteAssistantAssociationRequest {
   assistantAssociationId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -434,7 +451,7 @@ export interface GetAssistantAssociationRequest {
   assistantAssociationId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -469,7 +486,7 @@ export interface ListAssistantAssociationsRequest {
   maxResults?: number;
 
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -493,13 +510,13 @@ export interface AssistantAssociationSummary {
   assistantAssociationArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q assistant.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantArn: string | undefined;
@@ -547,7 +564,7 @@ export interface ListAssistantAssociationsResponse {
 export interface ServerSideEncryptionConfiguration {
   /**
    * <p>The customer managed key used for encryption. For more information about setting up a
-   *         customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.
+   *         customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.
    *       For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a>.</p>
    * @public
    */
@@ -609,11 +626,11 @@ export interface CreateAssistantRequest {
    *          <p>The customer managed key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code> kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
    *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
-   *       key to invoke Amazon Q. To use Amazon Q with chat, the key policy must also allow
+   *       key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow
    *         <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and
    *         <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service
    *       principal. </p>
-   *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
+   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
    * @public
    */
@@ -635,19 +652,19 @@ export const AssistantCapabilityType = {
 export type AssistantCapabilityType = (typeof AssistantCapabilityType)[keyof typeof AssistantCapabilityType];
 
 /**
- * <p>The capability configuration for an Amazon Q assistant. </p>
+ * <p>The capability configuration for an Amazon Q in Connect assistant. </p>
  * @public
  */
 export interface AssistantCapabilityConfiguration {
   /**
-   * <p>The type of Amazon Q assistant capability. </p>
+   * <p>The type of Amazon Q in Connect assistant capability. </p>
    * @public
    */
   type?: AssistantCapabilityType;
 }
 
 /**
- * <p>The configuration information for the Amazon Q assistant integration.</p>
+ * <p>The configuration information for the Amazon Q in Connect assistant integration.</p>
  * @public
  */
 export interface AssistantIntegrationConfiguration {
@@ -682,13 +699,13 @@ export type AssistantStatus = (typeof AssistantStatus)[keyof typeof AssistantSta
  */
 export interface AssistantData {
   /**
-   * <p>The identifier of the Amazon Q assistant.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantArn: string | undefined;
@@ -728,24 +745,24 @@ export interface AssistantData {
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
    *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
-   *       key to invoke Amazon Q. To use Amazon Q with chat, the key policy must also allow
+   *       key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow
    *         <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and
    *         <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service
    *       principal. </p>
-   *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
+   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * <p>The configuration information for the Amazon Q assistant integration.</p>
+   * <p>The configuration information for the Amazon Q in Connect assistant integration.</p>
    * @public
    */
   integrationConfiguration?: AssistantIntegrationConfiguration;
 
   /**
-   * <p>The configuration information for the Amazon Q assistant capability. </p>
+   * <p>The configuration information for the Amazon Q in Connect assistant capability. </p>
    * @public
    */
   capabilityConfiguration?: AssistantCapabilityConfiguration;
@@ -767,7 +784,7 @@ export interface CreateAssistantResponse {
  */
 export interface DeleteAssistantRequest {
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -783,7 +800,7 @@ export interface DeleteAssistantResponse {}
  */
 export interface GetAssistantRequest {
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -805,7 +822,7 @@ export interface GetAssistantResponse {
  */
 export interface GetRecommendationsRequest {
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -993,8 +1010,7 @@ export interface ContentReference {
   knowledgeBaseArn?: string;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.</p>
    * @public
    */
   knowledgeBaseId?: string;
@@ -1277,13 +1293,13 @@ export interface ListAssistantsRequest {
  */
 export interface AssistantSummary {
   /**
-   * <p>The identifier of the Amazon Q assistant.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantArn: string | undefined;
@@ -1323,24 +1339,24 @@ export interface AssistantSummary {
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
    *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
-   *       key to invoke Amazon Q. To use Amazon Q with chat, the key policy must also allow
+   *       key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow
    *         <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>, and
    *         <code>kms:DescribeKey</code> permissions to the <code>connect.amazonaws.com</code> service
    *       principal. </p>
-   *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
+   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * <p>The configuration information for the Amazon Q assistant integration.</p>
+   * <p>The configuration information for the Amazon Q in Connect assistant integration.</p>
    * @public
    */
   integrationConfiguration?: AssistantIntegrationConfiguration;
 
   /**
-   * <p>The configuration information for the Amazon Q assistant capability. </p>
+   * <p>The configuration information for the Amazon Q in Connect assistant capability. </p>
    * @public
    */
   capabilityConfiguration?: AssistantCapabilityConfiguration;
@@ -1368,7 +1384,7 @@ export interface ListAssistantsResponse {
  */
 export interface NotifyRecommendationsReceivedRequest {
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -1507,7 +1523,7 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
  */
 export interface PutFeedbackRequest {
   /**
-   * <p>The identifier of the Amazon Q assistant.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -1536,13 +1552,13 @@ export interface PutFeedbackRequest {
  */
 export interface PutFeedbackResponse {
   /**
-   * <p>The identifier of the Amazon Q assistant.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantArn: string | undefined;
@@ -1660,7 +1676,7 @@ export namespace QueryCondition {
  */
 export interface QueryAssistantRequest {
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -1685,7 +1701,7 @@ export interface QueryAssistantRequest {
   maxResults?: number;
 
   /**
-   * <p>The identifier of the Amazon Q session. Can be either the ID or the ARN. URLs cannot
+   * <p>The identifier of the Amazon Q in Connect session. Can be either the ID or the ARN. URLs cannot
    *       contain the ARN.</p>
    * @public
    */
@@ -1815,7 +1831,7 @@ export interface SearchSessionsRequest {
   maxResults?: number;
 
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -1845,13 +1861,13 @@ export interface SessionSummary {
   sessionArn: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Q assistant.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.</p>
    * @public
    */
   assistantArn: string | undefined;
@@ -1875,6 +1891,130 @@ export interface SearchSessionsResponse {
 }
 
 /**
+ * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+ * @public
+ */
+export type OrCondition = OrCondition.AndConditionsMember | OrCondition.TagConditionMember | OrCondition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OrCondition {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * @public
+   */
+  export interface AndConditionsMember {
+    andConditions: TagCondition[];
+    tagCondition?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition.</p>
+   * @public
+   */
+  export interface TagConditionMember {
+    andConditions?: never;
+    tagCondition: TagCondition;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    andConditions?: never;
+    tagCondition?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    andConditions: (value: TagCondition[]) => T;
+    tagCondition: (value: TagCondition) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OrCondition, visitor: Visitor<T>): T => {
+    if (value.andConditions !== undefined) return visitor.andConditions(value.andConditions);
+    if (value.tagCondition !== undefined) return visitor.tagCondition(value.tagCondition);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>An object that can be used to specify Tag conditions.</p>
+ * @public
+ */
+export type TagFilter =
+  | TagFilter.AndConditionsMember
+  | TagFilter.OrConditionsMember
+  | TagFilter.TagConditionMember
+  | TagFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TagFilter {
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition.</p>
+   * @public
+   */
+  export interface TagConditionMember {
+    tagCondition: TagCondition;
+    andConditions?: never;
+    orConditions?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * @public
+   */
+  export interface AndConditionsMember {
+    tagCondition?: never;
+    andConditions: TagCondition[];
+    orConditions?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * @public
+   */
+  export interface OrConditionsMember {
+    tagCondition?: never;
+    andConditions?: never;
+    orConditions: OrCondition[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    tagCondition?: never;
+    andConditions?: never;
+    orConditions?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tagCondition: (value: TagCondition) => T;
+    andConditions: (value: TagCondition[]) => T;
+    orConditions: (value: OrCondition[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TagFilter, visitor: Visitor<T>): T => {
+    if (value.tagCondition !== undefined) return visitor.tagCondition(value.tagCondition);
+    if (value.andConditions !== undefined) return visitor.andConditions(value.andConditions);
+    if (value.orConditions !== undefined) return visitor.orConditions(value.orConditions);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  */
 export interface CreateSessionRequest {
@@ -1888,7 +2028,7 @@ export interface CreateSessionRequest {
   clientToken?: string;
 
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -1910,6 +2050,12 @@ export interface CreateSessionRequest {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>An object that can be used to specify Tag conditions. </p>
+   * @public
+   */
+  tagFilter?: TagFilter;
 }
 
 /**
@@ -1964,6 +2110,12 @@ export interface SessionData {
    * @public
    */
   integrationConfiguration?: SessionIntegrationConfiguration;
+
+  /**
+   * <p>An object that can be used to specify Tag conditions.</p>
+   * @public
+   */
+  tagFilter?: TagFilter;
 }
 
 /**
@@ -1982,7 +2134,7 @@ export interface CreateSessionResponse {
  */
 export interface GetSessionRequest {
   /**
-   * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   assistantId: string | undefined;
@@ -2000,6 +2152,46 @@ export interface GetSessionRequest {
 export interface GetSessionResponse {
   /**
    * <p>The session.</p>
+   * @public
+   */
+  session?: SessionData;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionRequest {
+  /**
+   * <p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  assistantId: string | undefined;
+
+  /**
+   * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The description.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>An object that can be used to specify Tag conditions.</p>
+   * @public
+   */
+  tagFilter?: TagFilter;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSessionResponse {
+  /**
+   * <p>Information about the session.</p>
    * @public
    */
   session?: SessionData;
@@ -2060,8 +2252,7 @@ export namespace Configuration {
  */
 export interface CreateContentRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2069,7 +2260,8 @@ export interface CreateContentRequest {
   /**
    * <p>The name of the content. Each piece of content in a knowledge base must have a unique
    *       name. You can retrieve a piece of content using only its knowledge base and its name with the
-   *         <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_SearchContent.html">SearchContent</a> API.</p>
+   *         <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_SearchContent.html">SearchContent</a>
+   *       API.</p>
    * @public
    */
   name: string | undefined;
@@ -2089,7 +2281,7 @@ export interface CreateContentRequest {
 
   /**
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
-   * For example, when synchronizing data between an external system and Amazon Q, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.</p>
    * @public
    */
   metadata?: Record<string, string>;
@@ -2159,8 +2351,7 @@ export interface ContentData {
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2197,7 +2388,7 @@ export interface ContentData {
 
   /**
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
-   * For example, when synchronizing data between an external system and Amazon Q, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.</p>
    * @public
    */
   metadata: Record<string, string> | undefined;
@@ -2243,8 +2434,7 @@ export interface CreateContentResponse {
  */
 export interface DeleteContentRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2272,8 +2462,7 @@ export interface GetContentRequest {
   contentId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2301,8 +2490,7 @@ export interface GetContentSummaryRequest {
   contentId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2332,8 +2520,7 @@ export interface ContentSummary {
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2370,7 +2557,7 @@ export interface ContentSummary {
 
   /**
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
-   * For example, when synchronizing data between an external system and Amazon Q, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * For example, when synchronizing data between an external system and Amazon Q in Connect, you can store an external version identifier as metadata to utilize for determining drift.</p>
    * @public
    */
   metadata: Record<string, string> | undefined;
@@ -2411,8 +2598,7 @@ export interface ListContentsRequest {
   maxResults?: number;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2461,8 +2647,7 @@ export class PreconditionFailedException extends __BaseException {
  */
 export interface UpdateContentRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2505,15 +2690,14 @@ export interface UpdateContentRequest {
 
   /**
    * <p>A key/value map to store attributes without affecting tagging or recommendations. For
-   *       example, when synchronizing data between an external system and Amazon Q, you can store an
+   *       example, when synchronizing data between an external system and Amazon Q in Connect, you can store an
    *       external version identifier as metadata to utilize for determining drift.</p>
    * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.
-   *     </p>
+   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>. </p>
    * @public
    */
   uploadId?: string;
@@ -2660,8 +2844,8 @@ export interface CreateKnowledgeBaseRequest {
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
    *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
-   *       key to invoke Amazon Q.</p>
-   *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
+   *       key to invoke Amazon Q in Connect.</p>
+   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
    * @public
    */
@@ -2704,8 +2888,7 @@ export type KnowledgeBaseStatus = (typeof KnowledgeBaseStatus)[keyof typeof Know
  */
 export interface KnowledgeBaseData {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2758,8 +2941,8 @@ export interface KnowledgeBaseData {
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
    *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
-   *       key to invoke Amazon Q. </p>
-   *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
+   *       key to invoke Amazon Q in Connect. </p>
+   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
    * @public
    */
@@ -2830,18 +3013,18 @@ export namespace QuickResponseDataProvider {
 }
 
 /**
- * <p>The configuration information of the grouping of Amazon Q users.</p>
+ * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
  * @public
  */
 export interface GroupingConfiguration {
   /**
-   * <p>The criteria used for grouping Amazon Q users.</p>
+   * <p>The criteria used for grouping Amazon Q in Connect users.</p>
    *          <p>The following is the list of supported criteria values.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RoutingProfileArn</code>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon Connect routing profile ARN</a>. User should have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfile</a> and
-   *             <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a> permissions when setting criteria to this value.</p>
+   *                   <code>RoutingProfileArn</code>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
+   *             Connect routing profile ARN</a>. User should have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfile</a> and <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a> permissions when setting criteria to this value.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2849,11 +3032,12 @@ export interface GroupingConfiguration {
   criteria?: string;
 
   /**
-   * <p>The list of values that define different groups of Amazon Q users.</p>
+   * <p>The list of values that define different groups of Amazon Q in Connect users.</p>
    *          <ul>
    *             <li>
-   *                <p>When setting <code>criteria</code> to <code>RoutingProfileArn</code>, you need to provide a list of
-   *             ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon Connect routing profiles</a> as values of this parameter.</p>
+   *                <p>When setting <code>criteria</code> to <code>RoutingProfileArn</code>, you need to
+   *           provide a list of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon Connect routing
+   *             profiles</a> as values of this parameter.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2866,8 +3050,7 @@ export interface GroupingConfiguration {
  */
 export interface CreateQuickResponseRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -2888,10 +3071,12 @@ export interface CreateQuickResponseRequest {
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written in plain text.</p>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written
+   *           in plain text.</p>
    *             </li>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response
+   *           written in richtext.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2899,7 +3084,8 @@ export interface CreateQuickResponseRequest {
   contentType?: string;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * <p>The configuration information of the user groups that the quick response is accessible
+   *       to.</p>
    * @public
    */
   groupingConfiguration?: GroupingConfiguration;
@@ -2912,8 +3098,7 @@ export interface CreateQuickResponseRequest {
 
   /**
    * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base.
-   *     </p>
+   *   knowledge base. </p>
    * @public
    */
   shortcutKey?: string;
@@ -2931,7 +3116,7 @@ export interface CreateQuickResponseRequest {
   channels?: string[];
 
   /**
-   * <p>The language code value for the language in which the quick response is written.  The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
    *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
    *   <code>zh_CN</code>, <code>zh_TW</code>
    *          </p>
@@ -3057,8 +3242,7 @@ export interface QuickResponseData {
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3073,10 +3257,12 @@ export interface QuickResponseData {
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
+   *           in plain text.</p>
    *             </li>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
+   *           written in richtext.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3114,7 +3300,8 @@ export interface QuickResponseData {
   description?: string;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * <p>The configuration information of the user groups that the quick response is accessible
+   *       to.</p>
    * @public
    */
   groupingConfiguration?: GroupingConfiguration;
@@ -3127,7 +3314,8 @@ export interface QuickResponseData {
   shortcutKey?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response
+   *       data.</p>
    * @public
    */
   lastModifiedBy?: string;
@@ -3139,7 +3327,8 @@ export interface QuickResponseData {
   isActive?: boolean;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Amazon Connect contact channels this quick response applies to.
+   *       The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[];
@@ -3173,8 +3362,7 @@ export interface CreateQuickResponseResponse {
  */
 export interface DeleteImportJobRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3212,8 +3400,7 @@ export interface DeleteKnowledgeBaseResponse {}
  */
 export interface DeleteQuickResponseRequest {
   /**
-   * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3321,8 +3508,7 @@ export interface ImportJobData {
   importJobId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3382,7 +3568,7 @@ export interface ImportJobData {
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The metadata fields of the imported Amazon Q resources.</p>
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
    * @public
    */
   metadata?: Record<string, string>;
@@ -3410,8 +3596,7 @@ export interface GetImportJobResponse {
  */
 export interface GetKnowledgeBaseRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3468,8 +3653,7 @@ export interface ImportJobSummary {
   importJobId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3511,13 +3695,14 @@ export interface ImportJobSummary {
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The metadata fields of the imported Amazon Q resources.</p>
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
    * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * <p>The configuration information of the external source that the resource data are imported from.</p>
+   * <p>The configuration information of the external source that the resource data are imported
+   *       from.</p>
    * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration;
@@ -3541,8 +3726,7 @@ export interface ListImportJobsRequest {
   maxResults?: number;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3590,8 +3774,7 @@ export interface ListKnowledgeBasesRequest {
  */
 export interface KnowledgeBaseSummary {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3637,8 +3820,8 @@ export interface KnowledgeBaseSummary {
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
    *         <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the
-   *       key to invoke Amazon Q. </p>
-   *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
+   *       key to invoke Amazon Q in Connect. </p>
+   *          <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
    * @public
    */
@@ -3692,8 +3875,7 @@ export interface ListQuickResponsesRequest {
   maxResults?: number;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3723,8 +3905,7 @@ export interface QuickResponseSummary {
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it.</p>
+   * <p>The identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3739,10 +3920,12 @@ export interface QuickResponseSummary {
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
+   *           in plain text.</p>
    *             </li>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
+   *           written in richtext.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3774,7 +3957,8 @@ export interface QuickResponseSummary {
   description?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response
+   *       data.</p>
    * @public
    */
   lastModifiedBy?: string;
@@ -3786,7 +3970,8 @@ export interface QuickResponseSummary {
   isActive?: boolean;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Amazon Connect contact channels this quick response applies to.
+   *       The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[];
@@ -3821,8 +4006,7 @@ export interface ListQuickResponsesResponse {
  */
 export interface UpdateQuickResponseRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3849,10 +4033,12 @@ export interface UpdateQuickResponseRequest {
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
+   *           in plain text.</p>
    *             </li>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
+   *           written in richtext.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3903,7 +4089,8 @@ export interface UpdateQuickResponseRequest {
   isActive?: boolean;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Amazon Connect contact channels this quick response applies to.
+   *       The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[];
@@ -3934,8 +4121,7 @@ export interface UpdateQuickResponseResponse {
  */
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3964,8 +4150,7 @@ export interface SearchContentRequest {
   maxResults?: number;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -4217,14 +4402,15 @@ export interface QuickResponseQueryField {
   operator: QuickResponseQueryOperator | undefined;
 
   /**
-   * <p>Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.</p>
+   * <p>Whether the query expects only exact matches on the attribute field values. The results of
+   *       the query will only include exact matches if this parameter is set to false.</p>
    * @public
    */
   allowFuzziness?: boolean;
 
   /**
-   * <p>The importance of the attribute field when calculating query result relevancy scores.
-   *       The value set for this parameter affects the ordering of search results.</p>
+   * <p>The importance of the attribute field when calculating query result relevancy scores. The
+   *       value set for this parameter affects the ordering of search results.</p>
    * @public
    */
   priority?: Priority;
@@ -4284,7 +4470,8 @@ export interface SearchQuickResponsesRequest {
   maxResults?: number;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Amazon Connect contact attributes</a> to be resolved when search
+   *       results are returned.</p>
    * @public
    */
   attributes?: Record<string, string>;
@@ -4314,8 +4501,7 @@ export interface QuickResponseSearchResultData {
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -4330,10 +4516,12 @@ export interface QuickResponseSearchResultData {
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p>
+   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
+   *           in plain text.</p>
    *             </li>
    *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p>
+   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
+   *           written in richtext.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4377,7 +4565,8 @@ export interface QuickResponseSearchResultData {
   description?: string;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * <p>The configuration information of the user groups that the quick response is accessible
+   *       to.</p>
    * @public
    */
   groupingConfiguration?: GroupingConfiguration;
@@ -4390,13 +4579,15 @@ export interface QuickResponseSearchResultData {
   shortcutKey?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response search result data.</p>
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response search
+   *       result data.</p>
    * @public
    */
   lastModifiedBy?: string;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Amazon Connect contact channels this quick response applies to.
+   *       The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[];
@@ -4408,13 +4599,15 @@ export interface QuickResponseSearchResultData {
   language?: string;
 
   /**
-   * <p>The user defined contact attributes that are not resolved when the search result is returned.</p>
+   * <p>The user defined contact attributes that are not resolved when the search result is
+   *       returned.</p>
    * @public
    */
   attributesNotInterpolated?: string[];
 
   /**
-   * <p>The user defined contact attributes that are resolved when the search result is returned.</p>
+   * <p>The user defined contact attributes that are resolved when the search result is
+   *       returned.</p>
    * @public
    */
   attributesInterpolated?: string[];
@@ -4449,8 +4642,7 @@ export interface SearchQuickResponsesResponse {
  */
 export interface StartContentUploadRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -4502,11 +4694,11 @@ export interface StartContentUploadResponse {
  */
 export interface StartImportJobRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    *          <ul>
    *             <li>
-   *                <p>For importing Amazon Q quick responses, this should be a <code>QUICK_RESPONSES</code> type knowledge base.</p>
+   *                <p>For importing Amazon Q in Connect quick responses, this should be a <code>QUICK_RESPONSES</code>
+   *           type knowledge base.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4517,7 +4709,8 @@ export interface StartImportJobRequest {
    * <p>The type of the import job.</p>
    *          <ul>
    *             <li>
-   *                <p>For importing quick response resource, set the value to <code>QUICK_RESPONSES</code>.</p>
+   *                <p>For importing quick response resource, set the value to
+   *           <code>QUICK_RESPONSES</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4537,13 +4730,14 @@ export interface StartImportJobRequest {
   clientToken?: string;
 
   /**
-   * <p>The metadata fields of the imported Amazon Q resources.</p>
+   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
    * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * <p>The configuration information of the external source that the resource data are imported from.</p>
+   * <p>The configuration information of the external source that the resource data are imported
+   *       from.</p>
    * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration;
@@ -4565,8 +4759,7 @@ export interface StartImportJobResponse {
  */
 export interface UpdateKnowledgeBaseTemplateUriRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-   * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;

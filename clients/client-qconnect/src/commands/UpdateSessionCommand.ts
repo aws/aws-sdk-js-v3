@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSessionRequest, GetSessionResponse } from "../models/models_0";
-import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_restJson1";
+import { UpdateSessionRequest, UpdateSessionResponse } from "../models/models_0";
+import { de_UpdateSessionCommand, se_UpdateSessionCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
@@ -16,31 +16,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetSessionCommand}.
+ * The input for {@link UpdateSessionCommand}.
  */
-export interface GetSessionCommandInput extends GetSessionRequest {}
+export interface UpdateSessionCommandInput extends UpdateSessionRequest {}
 /**
  * @public
  *
- * The output of {@link GetSessionCommand}.
+ * The output of {@link UpdateSessionCommand}.
  */
-export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
+export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information for a specified session.</p>
+ * <p>Updates a session. A session is a contextual container used for generating recommendations.
+ *         Amazon Connect updates the existing Amazon Q in Connect session for each contact on which Amazon Q in Connect
+ *       is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QConnectClient, GetSessionCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
- * // const { QConnectClient, GetSessionCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
+ * import { QConnectClient, UpdateSessionCommand } from "@aws-sdk/client-qconnect"; // ES Modules import
+ * // const { QConnectClient, UpdateSessionCommand } = require("@aws-sdk/client-qconnect"); // CommonJS import
  * const client = new QConnectClient(config);
- * const input = { // GetSessionRequest
+ * const input = { // UpdateSessionRequest
  *   assistantId: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tagFilter: { // TagFilter Union: only one key present
+ *     tagCondition: { // TagCondition
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *     andConditions: [ // AndConditions
+ *       {
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     orConditions: [ // OrConditions
+ *       { // OrCondition Union: only one key present
+ *         andConditions: [
+ *           "<TagCondition>",
+ *         ],
+ *         tagCondition: "<TagCondition>",
+ *       },
+ *     ],
+ *   },
  * };
- * const command = new GetSessionCommand(input);
+ * const command = new UpdateSessionCommand(input);
  * const response = await client.send(command);
- * // { // GetSessionResponse
+ * // { // UpdateSessionResponse
  * //   session: { // SessionData
  * //     sessionArn: "STRING_VALUE", // required
  * //     sessionId: "STRING_VALUE", // required
@@ -77,10 +100,10 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *
  * ```
  *
- * @param GetSessionCommandInput - {@link GetSessionCommandInput}
- * @returns {@link GetSessionCommandOutput}
- * @see {@link GetSessionCommandInput} for command's `input` shape.
- * @see {@link GetSessionCommandOutput} for command's `response` shape.
+ * @param UpdateSessionCommandInput - {@link UpdateSessionCommandInput}
+ * @returns {@link UpdateSessionCommandOutput}
+ * @see {@link UpdateSessionCommandInput} for command's `input` shape.
+ * @see {@link UpdateSessionCommandOutput} for command's `response` shape.
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -97,10 +120,10 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *
  * @public
  */
-export class GetSessionCommand extends $Command
+export class UpdateSessionCommand extends $Command
   .classBuilder<
-    GetSessionCommandInput,
-    GetSessionCommandOutput,
+    UpdateSessionCommandInput,
+    UpdateSessionCommandOutput,
     QConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -114,9 +137,9 @@ export class GetSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("WisdomService", "GetSession", {})
-  .n("QConnectClient", "GetSessionCommand")
+  .s("WisdomService", "UpdateSession", {})
+  .n("QConnectClient", "UpdateSessionCommand")
   .f(void 0, void 0)
-  .ser(se_GetSessionCommand)
-  .de(de_GetSessionCommand)
+  .ser(se_UpdateSessionCommand)
+  .de(de_UpdateSessionCommand)
   .build() {}

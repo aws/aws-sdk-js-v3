@@ -41,3 +41,4 @@ export * from "./UntagResourceCommand";
 export * from "./UpdateContentCommand";
 export * from "./UpdateKnowledgeBaseTemplateUriCommand";
 export * from "./UpdateQuickResponseCommand";
+export * from "./UpdateSessionCommand";

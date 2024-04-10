@@ -31,8 +31,7 @@ export interface CreateContentCommandInput extends CreateContentRequest {}
 export interface CreateContentCommandOutput extends CreateContentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates Amazon Q content. Before to calling this API, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
- *       upload an asset.</p>
+ * <p>Creates Amazon Q in Connect content. Before to calling this API, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to upload an asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ export interface SearchQuickResponsesCommandInput extends SearchQuickResponsesRe
 export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches existing Amazon Q quick responses in an Amazon Q knowledge base.</p>
+ * <p>Searches existing Amazon Q in Connect quick responses in an Amazon Q in Connect knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

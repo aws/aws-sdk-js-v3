@@ -32,7 +32,7 @@ export interface CreateQuickResponseCommandInput extends CreateQuickResponseRequ
 export interface CreateQuickResponseCommandOutput extends CreateQuickResponseResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Q quick response.</p>
+ * <p>Creates an Amazon Q in Connect quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
