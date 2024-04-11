@@ -40,8 +40,8 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  *          <p>Deletes a Multi-Region Access Point. This action does not delete the buckets associated with the Multi-Region Access Point,
  *          only the Multi-Region Access Point itself.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
- *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
- *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          about the restrictions around working with Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRestrictions.html">Multi-Region Access Point
+ *             restrictions and limitations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This request is asynchronous, meaning that you might receive a response before the
  *          command has completed. When this request provides a response, it provides a token that you
  *          can use to monitor the status of the request with

@@ -28,16 +28,14 @@ export interface GetBucketCommandInput extends GetBucketRequest {}
 export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html"> Using Amazon S3 on Outposts</a> in the
+ * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html"> Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
- *          </note>
  *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
  *          Outposts bucket, the calling identity must have the <code>s3-outposts:GetBucket</code>
  *          permissions on the specified Outposts bucket and belong to the Outposts bucket owner's
  *          account in order to use this action. Only users from Outposts bucket owner account with
  *          the right permissions can perform actions on an Outposts bucket. </p>
- *          <p> If you don't have <code>s3-outposts:GetBucket</code> permissions or you're not using an
+ *          <p>If you don't have <code>s3-outposts:GetBucket</code> permissions or you're not using an
  *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>403 Access
  *             Denied</code> error.</p>
  *          <p>The following actions are related to <code>GetBucket</code> for Amazon S3 on Outposts:</p>

@@ -68,9 +68,6 @@ export interface GetMultiRegionAccessPointRoutesCommandOutput
  *                </p>
  *             </li>
  *          </ul>
- *          <note>
- *             <p>Your Amazon S3 bucket does not need to be in these five Regions.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

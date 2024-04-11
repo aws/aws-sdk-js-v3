@@ -1259,6 +1259,9 @@ export interface CreateAccessPointRequest {
 
   /**
    * <p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>
+   *          <p>For same account access point when your bucket and access point belong to the same account owner, the <code>BucketAccountId</code> is not required.
+   *          For cross-account access point when your bucket and access point are not in the same account, the <code>BucketAccountId</code> is required.
+   *       </p>
    * @public
    */
   BucketAccountId?: string;
@@ -2144,8 +2147,8 @@ export interface LambdaInvokeOperation {
    * <p>Specifies the schema version for the payload that Batch Operations sends when invoking
    *          an Lambda function. Version <code>1.0</code> is the default. Version
    *             <code>2.0</code> is required when you use Batch Operations to invoke Lambda functions that act on directory buckets, or if you need to specify
-   *             <code>UserArguments</code>. For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon Web Services Storage
-   *             Blog</i>.</p>
+   *             <code>UserArguments</code>. For more information, see <a href="https://aws.amazon.com/blogs/storage/automate-object-processing-in-amazon-s3-directory-buckets-with-s3-batch-operations-and-aws-lambda/">Automate object processing in Amazon S3 directory buckets with S3 Batch Operations and
+   *                Lambda</a> in the <i>Amazon Web Services Storage Blog</i>.</p>
    *          <important>
    *             <p>Ensure that your Lambda function code expects
    *                <code>InvocationSchemaVersion</code>
@@ -2165,8 +2168,8 @@ export interface LambdaInvokeOperation {
    * <p>Key-value pairs that are passed in the payload that Batch Operations sends when invoking
    *          an Lambda function. You must specify <code>InvocationSchemaVersion</code>
    *             <b>2.0</b> for <code>LambdaInvoke</code> operations that include
-   *             <code>UserArguments</code>. For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon Web Services Storage
-   *             Blog</i>.</p>
+   *             <code>UserArguments</code>. For more information, see <a href="https://aws.amazon.com/blogs/storage/automate-object-processing-in-amazon-s3-directory-buckets-with-s3-batch-operations-and-aws-lambda/">Automate object processing in Amazon S3 directory buckets with S3 Batch Operations and
+   *                Lambda</a> in the <i>Amazon Web Services Storage Blog</i>.</p>
    * @public
    */
   UserArguments?: Record<string, string>;
@@ -2602,8 +2605,8 @@ export interface S3CopyObjectOperation {
    *             <li>
    *                <p>
    *                   <b>Directory buckets</b> - For example, to copy objects to a directory bucket named
-   *                <code>destinationBucket</code> in the Availability Zone; identified by the AZ ID <code>usw2-az2</code>, set the <code>TargetResource</code> property to
-   *                <code>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az2</i>--x-s3</code>.</p>
+   *                <code>destinationBucket</code> in the Availability Zone; identified by the AZ ID <code>usw2-az1</code>, set the <code>TargetResource</code> property to
+   *                <code>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az1</i>--x-s3</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4872,13 +4875,13 @@ export interface LifecycleRuleAndOperator {
   Tags?: S3Tag[];
 
   /**
-   * <p>Minimum object size to which the rule applies.</p>
+   * <p>The non-inclusive minimum object size for the lifecycle rule. Setting this property to 7 means the rule applies to objects with a size that is greater than 7. </p>
    * @public
    */
   ObjectSizeGreaterThan?: number;
 
   /**
-   * <p>Maximum object size to which the rule applies.</p>
+   * <p>The non-inclusive maximum object size for the lifecycle rule. Setting this property to 77 means the rule applies to objects with a size that is less than 77. </p>
    * @public
    */
   ObjectSizeLessThan?: number;
@@ -6023,7 +6026,7 @@ export interface GetMultiRegionAccessPointRequest {
   /**
    * <p>The name of the Multi-Region Access Point whose configuration information you want to receive. The name of
    *          the Multi-Region Access Point is different from the alias. For more information about the distinction between
-   *          the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *          the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Rules for naming Amazon S3 Multi-Region Access Points</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
@@ -6087,7 +6090,7 @@ export interface MultiRegionAccessPointReport {
 
   /**
    * <p>The alias for the Multi-Region Access Point. For more information about the distinction between the name
-   *          and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a>.</p>
+   *          and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Rules for naming Amazon S3 Multi-Region Access Points</a>.</p>
    * @public
    */
   Alias?: string;
@@ -6149,7 +6152,7 @@ export interface GetMultiRegionAccessPointPolicyRequest {
 
   /**
    * <p>Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more
-   *          information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *          information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Rules for naming Amazon S3 Multi-Region Access Points</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
@@ -6233,7 +6236,7 @@ export interface GetMultiRegionAccessPointPolicyStatusRequest {
 
   /**
    * <p>Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more
-   *          information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *          information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Rules for naming Amazon S3 Multi-Region Access Points</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    * @public
    */

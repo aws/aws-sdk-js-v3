@@ -39,8 +39,8 @@ export interface GetMultiRegionAccessPointPolicyCommandOutput
  *          </note>
  *          <p>Returns the access control policy of the specified Multi-Region Access Point.</p>
  *          <p>This action will always be routed to the US West (Oregon) Region. For more information
- *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
- *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          about the restrictions around working with Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRestrictions.html">Multi-Region Access Point
+ *             restrictions and limitations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>The following actions are related to
  *          <code>GetMultiRegionAccessPointPolicy</code>:</p>
  *          <ul>
