@@ -165,6 +165,22 @@ export interface Dimension {
 }
 
 /**
+ * <p>This object includes parameters that you can use to provide information to
+ * 			CloudWatch to help it build more accurate anomaly detection models.</p>
+ * @public
+ */
+export interface MetricCharacteristics {
+  /**
+   * <p>Set this parameter to <code>true</code> if values for this metric consistently include spikes
+   * 			that should not be considered to be anomalies. With this set to <code>true</code>, CloudWatch will expect
+   * 			to see spikes that occurred consistently during the model training period, and won't flag future similar spikes
+   * 			as anomalies.</p>
+   * @public
+   */
+  PeriodicSpikes?: boolean;
+}
+
+/**
  * <p>Represents a specific metric.</p>
  * @public
  */
@@ -512,11 +528,18 @@ export interface AnomalyDetector {
   Configuration?: AnomalyDetectorConfiguration;
 
   /**
-   * <p>The current status of the anomaly detector's training. The possible values are <code>TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA</code>
-   *          </p>
+   * <p>The current status of the anomaly detector's training.</p>
    * @public
    */
   StateValue?: AnomalyDetectorStateValue;
+
+  /**
+   * <p>This object includes parameters that you can use to provide information about your metric to
+   * 			CloudWatch to help it build more accurate anomaly detection models. Currently, it includes
+   * 			the <code>PeriodicSpikes</code> parameter.</p>
+   * @public
+   */
+  MetricCharacteristics?: MetricCharacteristics;
 
   /**
    * <p>The CloudWatch metric and statistic for this anomaly detector.</p>
@@ -3444,6 +3467,14 @@ export interface PutAnomalyDetectorInput {
    * @public
    */
   Configuration?: AnomalyDetectorConfiguration;
+
+  /**
+   * <p>Use this object to include parameters to provide information about your metric to
+   * 			CloudWatch to help it build more accurate anomaly detection models. Currently, it includes
+   * 			the <code>PeriodicSpikes</code> parameter.</p>
+   * @public
+   */
+  MetricCharacteristics?: MetricCharacteristics;
 
   /**
    * <p>A single metric anomaly detector to be created.</p>

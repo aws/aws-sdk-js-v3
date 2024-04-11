@@ -58,6 +58,9 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  *     ],
  *     MetricTimezone: "STRING_VALUE",
  *   },
+ *   MetricCharacteristics: { // MetricCharacteristics
+ *     PeriodicSpikes: true || false,
+ *   },
  *   SingleMetricAnomalyDetector: { // SingleMetricAnomalyDetector
  *     AccountId: "STRING_VALUE",
  *     Namespace: "STRING_VALUE",

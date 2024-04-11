@@ -79,6 +79,9 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * //         MetricTimezone: "STRING_VALUE",
  * //       },
  * //       StateValue: "PENDING_TRAINING" || "TRAINED_INSUFFICIENT_DATA" || "TRAINED",
+ * //       MetricCharacteristics: { // MetricCharacteristics
+ * //         PeriodicSpikes: true || false,
+ * //       },
  * //       SingleMetricAnomalyDetector: { // SingleMetricAnomalyDetector
  * //         AccountId: "STRING_VALUE",
  * //         Namespace: "STRING_VALUE",

@@ -180,6 +180,7 @@ import {
   MessageData,
   Metric,
   MetricAlarm,
+  MetricCharacteristics,
   MetricDataQuery,
   MetricDataResult,
   MetricDatum,
@@ -2772,6 +2773,17 @@ const se_Metric = (input: Metric, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_queryMetricCharacteristics
+ */
+const se_MetricCharacteristics = (input: MetricCharacteristics, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryMetricData
  */
 const se_MetricData = (input: MetricDatum[], context: __SerdeContext): any => {
@@ -3149,6 +3161,13 @@ const se_PutAnomalyDetectorInput = (input: PutAnomalyDetectorInput, context: __S
     const memberEntries = se_AnomalyDetectorConfiguration(input[_Co], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Configuration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MC] != null) {
+    const memberEntries = se_MetricCharacteristics(input[_MC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricCharacteristics.${key}`;
       entries[loc] = value;
     });
   }
@@ -3817,6 +3836,9 @@ const de_AnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetect
   }
   if (output[_SV] != null) {
     contents[_SV] = __expectString(output[_SV]);
+  }
+  if (output[_MC] != null) {
+    contents[_MC] = de_MetricCharacteristics(output[_MC], context);
   }
   if (output[_SMAD] != null) {
     contents[_SMAD] = de_SingleMetricAnomalyDetector(output[_SMAD], context);
@@ -4940,6 +4962,17 @@ const de_MetricAlarms = (output: any, context: __SerdeContext): MetricAlarm[] =>
 };
 
 /**
+ * deserializeAws_queryMetricCharacteristics
+ */
+const de_MetricCharacteristics = (output: any, context: __SerdeContext): MetricCharacteristics => {
+  const contents: any = {};
+  if (output[_PS] != null) {
+    contents[_PS] = __parseBoolean(output[_PS]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryMetricDataQueries
  */
 const de_MetricDataQueries = (output: any, context: __SerdeContext): MetricDataQuery[] => {
@@ -5626,6 +5659,7 @@ const _LTFR = "ListTagsForResource";
 const _LUD = "LastUpdateDate";
 const _M = "Metrics";
 const _MA = "MetricAlarms";
+const _MC = "MetricCharacteristics";
 const _MCC = "MaxContributorCount";
 const _MCV = "MaxContributorValue";
 const _MD = "MaxDatapoints";
@@ -5668,6 +5702,7 @@ const _PMD = "PutMetricData";
 const _PMIR = "PutManagedInsightRules";
 const _PMS = "PutMetricStream";
 const _POAN = "ParentsOfAlarmName";
+const _PS = "PeriodicSpikes";
 const _RA = "RecentlyActive";
 const _RARN = "ResourceARN";
 const _RAo = "RoleArn";
