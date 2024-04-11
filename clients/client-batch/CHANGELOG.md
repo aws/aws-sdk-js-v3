@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
+
+
+### Features
+
+* **client-batch:** This release adds the task properties field to attempt details and the name field on EKS container detail. ([6771613](https://github.com/aws/aws-sdk-js-v3/commit/6771613c297cad4fbc6bb5d5d111d9db9025fe67))
+
+
+
+
+
 # [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

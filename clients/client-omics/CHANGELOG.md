@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
+
+
+### Features
+
+* **client-omics:** This release adds support for retrieval of S3 direct access metadata on sequence stores and read sets, and adds support for SHA256up and SHA512up HealthOmics ETags. ([a6d5127](https://github.com/aws/aws-sdk-js-v3/commit/a6d5127c9929e1d301a62f862bd85905e76886e6))
+
+
+
+
+
 # [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
+
+
+### Bug Fixes
+
+* **private:** add dependency checking to private folder ([#5993](https://github.com/aws/aws-sdk-js-v3/issues/5993)) ([c071cea](https://github.com/aws/aws-sdk-js-v3/commit/c071ceab9292310812b00f97c5f5085bec39257f))
+
+
+
+
+
 # [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
 
 **Note:** Version bump only for package @aws-sdk/aws-echo-service

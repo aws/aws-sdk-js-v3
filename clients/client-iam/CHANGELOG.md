@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
+
+
+### Features
+
+* **client-iam:** For CreateOpenIDConnectProvider API, the ThumbprintList parameter is no longer required. ([bd8d5bf](https://github.com/aws/aws-sdk-js-v3/commit/bd8d5bf475c784c7d5ae5c01a2227ab59b490d1e))
+
+
+
+
+
 # [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
 
 **Note:** Version bump only for package @aws-sdk/client-iam

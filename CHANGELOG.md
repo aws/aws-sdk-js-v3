@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
+
+
+### Bug Fixes
+
+* **private:** add dependency checking to private folder ([#5993](https://github.com/aws/aws-sdk-js-v3/issues/5993)) ([c071cea](https://github.com/aws/aws-sdk-js-v3/commit/c071ceab9292310812b00f97c5f5085bec39257f))
+
+
+### Features
+
+* **client-batch:** This release adds the task properties field to attempt details and the name field on EKS container detail. ([6771613](https://github.com/aws/aws-sdk-js-v3/commit/6771613c297cad4fbc6bb5d5d111d9db9025fe67))
+* **client-cloudfront:** CloudFront origin access control extends support to AWS Lambda function URLs and AWS Elemental MediaPackage v2 origins. ([1061555](https://github.com/aws/aws-sdk-js-v3/commit/10615551f94ea7a01597c1dfa81bd808fb5d957b))
+* **client-cloudwatch:** This release adds support for Metric Characteristics for CloudWatch Anomaly Detection. Anomaly Detector now takes Metric Characteristics object with Periodic Spikes boolean field that tells Anomaly Detection that spikes that repeat at the same time every week are part of the expected pattern. ([e0d291a](https://github.com/aws/aws-sdk-js-v3/commit/e0d291a58ee664a5cbfb2215f70d31b2a6516c47))
+* **client-iam:** For CreateOpenIDConnectProvider API, the ThumbprintList parameter is no longer required. ([bd8d5bf](https://github.com/aws/aws-sdk-js-v3/commit/bd8d5bf475c784c7d5ae5c01a2227ab59b490d1e))
+* **client-medialive:** AWS Elemental MediaLive introduces workflow monitor, a new feature that enables the visualization and monitoring of your media workflows. Create signal maps of your existing workflows and monitor them by creating notification and monitoring template groups. ([17570f0](https://github.com/aws/aws-sdk-js-v3/commit/17570f048757c559c1734d696e4e9df0cdfdb014))
+* **client-omics:** This release adds support for retrieval of S3 direct access metadata on sequence stores and read sets, and adds support for SHA256up and SHA512up HealthOmics ETags. ([a6d5127](https://github.com/aws/aws-sdk-js-v3/commit/a6d5127c9929e1d301a62f862bd85905e76886e6))
+* **client-pipes:** LogConfiguration ARN validation fixes ([b937f44](https://github.com/aws/aws-sdk-js-v3/commit/b937f4408818c2771672f3598ca0337b8df8082d))
+* **client-wafv2:** Adds an updated version of smoke tests, including smithy trait, for SDK testing. ([5b79451](https://github.com/aws/aws-sdk-js-v3/commit/5b79451f29830bfd92a15fb30a7fc11601cfd9f2))
+* **clients:** update client endpoints as of 2024-04-11 ([bd1a417](https://github.com/aws/aws-sdk-js-v3/commit/bd1a4176db5973bef30982d94a6b01e52f8444e1))
+* **core:** validate XML during deserialization ([#5991](https://github.com/aws/aws-sdk-js-v3/issues/5991)) ([50002cf](https://github.com/aws/aws-sdk-js-v3/commit/50002cf02856165ebadecd0ebd975ac7358ec331))
+
+
+
+
+
 # [3.553.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.552.0...v3.553.0) (2024-04-10)
 
 

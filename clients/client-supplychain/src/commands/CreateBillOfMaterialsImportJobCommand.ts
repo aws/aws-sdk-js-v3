@@ -84,6 +84,24 @@ export interface CreateBillOfMaterialsImportJobCommandOutput
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
  * @public
+ * @example Invoke CreateBillOfMaterialsImportJob
+ * ```javascript
+ * //
+ * const input = {
+ *   "clientToken": "550e8400-e29b-41d4-a716-446655440000",
+ *   "instanceId": "60f82bbd-71f7-4fcd-a941-472f574c5243",
+ *   "s3uri": "s3://mybucketname/pathelemene/file.csv"
+ * };
+ * const command = new CreateBillOfMaterialsImportJobCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "jobId": "f79b359b-1515-4436-a3bf-bae7b33e47b4"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreateBillOfMaterialsImportJobCommand extends $Command
   .classBuilder<

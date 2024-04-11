@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
+
+
+### Features
+
+* **client-cloudfront:** CloudFront origin access control extends support to AWS Lambda function URLs and AWS Elemental MediaPackage v2 origins. ([1061555](https://github.com/aws/aws-sdk-js-v3/commit/10615551f94ea7a01597c1dfa81bd808fb5d957b))
+
+
+
+
+
 # [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront

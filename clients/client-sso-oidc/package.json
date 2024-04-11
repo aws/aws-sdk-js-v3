@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sso-oidc",
   "description": "AWS SDK for JavaScript Sso Oidc Client for Node.js, Browser and React Native",
-  "version": "3.552.0",
+  "version": "3.554.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-sso-oidc",
@@ -86,7 +86,7 @@
   },
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@aws-sdk/credential-provider-node": "^3.552.0"
+    "@aws-sdk/credential-provider-node": "^3.554.0"
   },
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"

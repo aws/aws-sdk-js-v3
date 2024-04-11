@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-client-api-test",
   "description": "Test suite for client interface stability",
-  "version": "3.552.0",
+  "version": "3.554.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -17,12 +17,12 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
+    "@aws-sdk/client-s3": "*",
     "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/middleware-bucket-endpoint": "*",
     "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/util-user-agent-node": "*",
-    "@aws-sdk/client-s3": "*",
     "@smithy/config-resolver": "^2.2.0",
     "@smithy/eventstream-serde-node": "^2.2.0",
     "@smithy/hash-node": "^2.2.0",

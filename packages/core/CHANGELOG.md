@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
+
+
+### Features
+
+* **core:** validate XML during deserialization ([#5991](https://github.com/aws/aws-sdk-js-v3/issues/5991)) ([50002cf](https://github.com/aws/aws-sdk-js-v3/commit/50002cf02856165ebadecd0ebd975ac7358ec331))
+
+
+
+
+
 # [3.552.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.551.0...v3.552.0) (2024-04-09)
 
 **Note:** Version bump only for package @aws-sdk/core
