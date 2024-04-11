@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteInputRequest, DeleteInputResponse } from "../models/models_2";
-import { de_DeleteInputCommand, se_DeleteInputCommand } from "../protocols/Aws_restJson1";
+import { DeleteCloudWatchAlarmTemplateGroupRequest } from "../models/models_2";
+import {
+  de_DeleteCloudWatchAlarmTemplateGroupCommand,
+  se_DeleteCloudWatchAlarmTemplateGroupCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,41 +19,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteInputCommand}.
+ * The input for {@link DeleteCloudWatchAlarmTemplateGroupCommand}.
  */
-export interface DeleteInputCommandInput extends DeleteInputRequest {}
+export interface DeleteCloudWatchAlarmTemplateGroupCommandInput extends DeleteCloudWatchAlarmTemplateGroupRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteInputCommand}.
+ * The output of {@link DeleteCloudWatchAlarmTemplateGroupCommand}.
  */
-export interface DeleteInputCommandOutput extends DeleteInputResponse, __MetadataBearer {}
+export interface DeleteCloudWatchAlarmTemplateGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * Deletes the input end point
+ * Deletes a cloudwatch alarm template group. You must detach this group from all signal maps and ensure its existing templates are moved to another group or deleted.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DeleteInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DeleteInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DeleteCloudWatchAlarmTemplateGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DeleteCloudWatchAlarmTemplateGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // DeleteInputRequest
- *   InputId: "STRING_VALUE", // required
+ * const input = { // DeleteCloudWatchAlarmTemplateGroupRequest
+ *   Identifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteInputCommand(input);
+ * const command = new DeleteCloudWatchAlarmTemplateGroupCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
- * @returns {@link DeleteInputCommandOutput}
- * @see {@link DeleteInputCommandInput} for command's `input` shape.
- * @see {@link DeleteInputCommandOutput} for command's `response` shape.
+ * @param DeleteCloudWatchAlarmTemplateGroupCommandInput - {@link DeleteCloudWatchAlarmTemplateGroupCommandInput}
+ * @returns {@link DeleteCloudWatchAlarmTemplateGroupCommandOutput}
+ * @see {@link DeleteCloudWatchAlarmTemplateGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteCloudWatchAlarmTemplateGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
- *
- * @throws {@link BadGatewayException} (server fault)
- *  Placeholder documentation for BadGatewayException
  *
  * @throws {@link BadRequestException} (client fault)
  *  Placeholder documentation for BadRequestException
@@ -60,9 +60,6 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  *
  * @throws {@link ForbiddenException} (client fault)
  *  Placeholder documentation for ForbiddenException
- *
- * @throws {@link GatewayTimeoutException} (server fault)
- *  Placeholder documentation for GatewayTimeoutException
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  Placeholder documentation for InternalServerErrorException
@@ -78,10 +75,10 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  *
  * @public
  */
-export class DeleteInputCommand extends $Command
+export class DeleteCloudWatchAlarmTemplateGroupCommand extends $Command
   .classBuilder<
-    DeleteInputCommandInput,
-    DeleteInputCommandOutput,
+    DeleteCloudWatchAlarmTemplateGroupCommandInput,
+    DeleteCloudWatchAlarmTemplateGroupCommandOutput,
     MediaLiveClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,9 +92,9 @@ export class DeleteInputCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaLive", "DeleteInput", {})
-  .n("MediaLiveClient", "DeleteInputCommand")
+  .s("MediaLive", "DeleteCloudWatchAlarmTemplateGroup", {})
+  .n("MediaLiveClient", "DeleteCloudWatchAlarmTemplateGroupCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteInputCommand)
-  .de(de_DeleteInputCommand)
+  .ser(se_DeleteCloudWatchAlarmTemplateGroupCommand)
+  .de(de_DeleteCloudWatchAlarmTemplateGroupCommand)
   .build() {}

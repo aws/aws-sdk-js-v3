@@ -6,6 +6,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -47,6 +48,22 @@ import {
 } from "../commands/CancelInputDeviceTransferCommand";
 import { ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "../commands/ClaimDeviceCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
+import {
+  CreateCloudWatchAlarmTemplateCommandInput,
+  CreateCloudWatchAlarmTemplateCommandOutput,
+} from "../commands/CreateCloudWatchAlarmTemplateCommand";
+import {
+  CreateCloudWatchAlarmTemplateGroupCommandInput,
+  CreateCloudWatchAlarmTemplateGroupCommandOutput,
+} from "../commands/CreateCloudWatchAlarmTemplateGroupCommand";
+import {
+  CreateEventBridgeRuleTemplateCommandInput,
+  CreateEventBridgeRuleTemplateCommandOutput,
+} from "../commands/CreateEventBridgeRuleTemplateCommand";
+import {
+  CreateEventBridgeRuleTemplateGroupCommandInput,
+  CreateEventBridgeRuleTemplateGroupCommandOutput,
+} from "../commands/CreateEventBridgeRuleTemplateGroupCommand";
 import { CreateInputCommandInput, CreateInputCommandOutput } from "../commands/CreateInputCommand";
 import {
   CreateInputSecurityGroupCommandInput,
@@ -58,8 +75,25 @@ import {
   CreateMultiplexProgramCommandOutput,
 } from "../commands/CreateMultiplexProgramCommand";
 import { CreatePartnerInputCommandInput, CreatePartnerInputCommandOutput } from "../commands/CreatePartnerInputCommand";
+import { CreateSignalMapCommandInput, CreateSignalMapCommandOutput } from "../commands/CreateSignalMapCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand";
+import {
+  DeleteCloudWatchAlarmTemplateCommandInput,
+  DeleteCloudWatchAlarmTemplateCommandOutput,
+} from "../commands/DeleteCloudWatchAlarmTemplateCommand";
+import {
+  DeleteCloudWatchAlarmTemplateGroupCommandInput,
+  DeleteCloudWatchAlarmTemplateGroupCommandOutput,
+} from "../commands/DeleteCloudWatchAlarmTemplateGroupCommand";
+import {
+  DeleteEventBridgeRuleTemplateCommandInput,
+  DeleteEventBridgeRuleTemplateCommandOutput,
+} from "../commands/DeleteEventBridgeRuleTemplateCommand";
+import {
+  DeleteEventBridgeRuleTemplateGroupCommandInput,
+  DeleteEventBridgeRuleTemplateGroupCommandOutput,
+} from "../commands/DeleteEventBridgeRuleTemplateGroupCommand";
 import { DeleteInputCommandInput, DeleteInputCommandOutput } from "../commands/DeleteInputCommand";
 import {
   DeleteInputSecurityGroupCommandInput,
@@ -72,6 +106,7 @@ import {
 } from "../commands/DeleteMultiplexProgramCommand";
 import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "../commands/DeleteReservationCommand";
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "../commands/DeleteScheduleCommand";
+import { DeleteSignalMapCommandInput, DeleteSignalMapCommandOutput } from "../commands/DeleteSignalMapCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
   DescribeAccountConfigurationCommandInput,
@@ -103,7 +138,40 @@ import {
 } from "../commands/DescribeReservationCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "../commands/DescribeScheduleCommand";
 import { DescribeThumbnailsCommandInput, DescribeThumbnailsCommandOutput } from "../commands/DescribeThumbnailsCommand";
+import {
+  GetCloudWatchAlarmTemplateCommandInput,
+  GetCloudWatchAlarmTemplateCommandOutput,
+} from "../commands/GetCloudWatchAlarmTemplateCommand";
+import {
+  GetCloudWatchAlarmTemplateGroupCommandInput,
+  GetCloudWatchAlarmTemplateGroupCommandOutput,
+} from "../commands/GetCloudWatchAlarmTemplateGroupCommand";
+import {
+  GetEventBridgeRuleTemplateCommandInput,
+  GetEventBridgeRuleTemplateCommandOutput,
+} from "../commands/GetEventBridgeRuleTemplateCommand";
+import {
+  GetEventBridgeRuleTemplateGroupCommandInput,
+  GetEventBridgeRuleTemplateGroupCommandOutput,
+} from "../commands/GetEventBridgeRuleTemplateGroupCommand";
+import { GetSignalMapCommandInput, GetSignalMapCommandOutput } from "../commands/GetSignalMapCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
+import {
+  ListCloudWatchAlarmTemplateGroupsCommandInput,
+  ListCloudWatchAlarmTemplateGroupsCommandOutput,
+} from "../commands/ListCloudWatchAlarmTemplateGroupsCommand";
+import {
+  ListCloudWatchAlarmTemplatesCommandInput,
+  ListCloudWatchAlarmTemplatesCommandOutput,
+} from "../commands/ListCloudWatchAlarmTemplatesCommand";
+import {
+  ListEventBridgeRuleTemplateGroupsCommandInput,
+  ListEventBridgeRuleTemplateGroupsCommandOutput,
+} from "../commands/ListEventBridgeRuleTemplateGroupsCommand";
+import {
+  ListEventBridgeRuleTemplatesCommandInput,
+  ListEventBridgeRuleTemplatesCommandOutput,
+} from "../commands/ListEventBridgeRuleTemplatesCommand";
 import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "../commands/ListInputDevicesCommand";
 import {
   ListInputDeviceTransfersCommandInput,
@@ -121,6 +189,7 @@ import {
 } from "../commands/ListMultiplexProgramsCommand";
 import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "../commands/ListOfferingsCommand";
 import { ListReservationsCommandInput, ListReservationsCommandOutput } from "../commands/ListReservationsCommand";
+import { ListSignalMapsCommandInput, ListSignalMapsCommandOutput } from "../commands/ListSignalMapsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -136,12 +205,24 @@ import {
   RestartChannelPipelinesCommandOutput,
 } from "../commands/RestartChannelPipelinesCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "../commands/StartChannelCommand";
+import {
+  StartDeleteMonitorDeploymentCommandInput,
+  StartDeleteMonitorDeploymentCommandOutput,
+} from "../commands/StartDeleteMonitorDeploymentCommand";
 import { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "../commands/StartInputDeviceCommand";
 import {
   StartInputDeviceMaintenanceWindowCommandInput,
   StartInputDeviceMaintenanceWindowCommandOutput,
 } from "../commands/StartInputDeviceMaintenanceWindowCommand";
+import {
+  StartMonitorDeploymentCommandInput,
+  StartMonitorDeploymentCommandOutput,
+} from "../commands/StartMonitorDeploymentCommand";
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "../commands/StartMultiplexCommand";
+import {
+  StartUpdateSignalMapCommandInput,
+  StartUpdateSignalMapCommandOutput,
+} from "../commands/StartUpdateSignalMapCommand";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "../commands/StopChannelCommand";
 import { StopInputDeviceCommandInput, StopInputDeviceCommandOutput } from "../commands/StopInputDeviceCommand";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "../commands/StopMultiplexCommand";
@@ -155,6 +236,22 @@ import {
 } from "../commands/UpdateAccountConfigurationCommand";
 import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "../commands/UpdateChannelClassCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
+import {
+  UpdateCloudWatchAlarmTemplateCommandInput,
+  UpdateCloudWatchAlarmTemplateCommandOutput,
+} from "../commands/UpdateCloudWatchAlarmTemplateCommand";
+import {
+  UpdateCloudWatchAlarmTemplateGroupCommandInput,
+  UpdateCloudWatchAlarmTemplateGroupCommandOutput,
+} from "../commands/UpdateCloudWatchAlarmTemplateGroupCommand";
+import {
+  UpdateEventBridgeRuleTemplateCommandInput,
+  UpdateEventBridgeRuleTemplateCommandOutput,
+} from "../commands/UpdateEventBridgeRuleTemplateCommand";
+import {
+  UpdateEventBridgeRuleTemplateGroupCommandInput,
+  UpdateEventBridgeRuleTemplateGroupCommandOutput,
+} from "../commands/UpdateEventBridgeRuleTemplateGroupCommand";
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "../commands/UpdateInputCommand";
 import { UpdateInputDeviceCommandInput, UpdateInputDeviceCommandOutput } from "../commands/UpdateInputDeviceCommand";
 import {
@@ -208,7 +305,8 @@ import {
   ChannelEgressEndpoint,
   ChannelPipelineIdToRestart,
   ChannelSummary,
-  CmafIngestGroupSettings,
+  CloudWatchAlarmTemplateGroupSummary,
+  CloudWatchAlarmTemplateSummary,
   CmafIngestOutputSettings,
   ColorCorrection,
   DashRoleAudio,
@@ -224,15 +322,15 @@ import {
   EmbeddedDestinationSettings,
   EmbeddedPlusScte20DestinationSettings,
   EmbeddedSourceSettings,
+  EventBridgeRuleTemplateGroupSummary,
+  EventBridgeRuleTemplateSummary,
+  EventBridgeRuleTemplateTarget,
   FailoverCondition,
   FailoverConditionSettings,
   FecOutputSettings,
   Fmp4HlsSettings,
-  FrameCaptureCdnSettings,
-  FrameCaptureGroupSettings,
   FrameCaptureHlsSettings,
   FrameCaptureOutputSettings,
-  FrameCaptureS3Settings,
   Hdr10Settings,
   HlsAdMarkers,
   HlsInputSettings,
@@ -269,6 +367,7 @@ import {
   MediaConnectFlowRequest,
   MediaPackageOutputDestinationSettings,
   MediaPackageOutputSettings,
+  MediaResourceNeighbor,
   Mp2Settings,
   MsSmoothOutputSettings,
   MultiplexMediaConnectOutputDestinationSettings,
@@ -329,6 +428,7 @@ import {
   BatchScheduleActionDeleteResult,
   BlackoutSlate,
   Channel,
+  CmafIngestGroupSettings,
   ColorCorrectionSettings,
   ColorSpacePassthroughSettings,
   ConflictException,
@@ -340,6 +440,9 @@ import {
   FixedModeScheduleActionStartSettings,
   FollowModeScheduleActionStartSettings,
   ForbiddenException,
+  FrameCaptureCdnSettings,
+  FrameCaptureGroupSettings,
+  FrameCaptureS3Settings,
   FrameCaptureSettings,
   GatewayTimeoutException,
   GlobalConfiguration,
@@ -369,6 +472,8 @@ import {
   KeyProviderSettings,
   MaintenanceCreateSettings,
   MediaPackageGroupSettings,
+  MediaResource,
+  MonitorDeployment,
   MotionGraphicsActivateScheduleActionSettings,
   MotionGraphicsConfiguration,
   MotionGraphicsDeactivateScheduleActionSettings,
@@ -413,6 +518,7 @@ import {
   Scte35SpliceInsertScheduleActionSettings,
   Scte35TimeSignalApos,
   Scte35TimeSignalScheduleActionSettings,
+  SignalMapSummary,
   StartTimecode,
   StaticImageActivateScheduleActionSettings,
   StaticImageDeactivateScheduleActionSettings,
@@ -420,6 +526,7 @@ import {
   StaticImageOutputDeactivateScheduleActionSettings,
   StaticKeySettings,
   StopTimecode,
+  SuccessfulMonitorDeployment,
   TemporalFilterSettings,
   Thumbnail,
   ThumbnailConfiguration,
@@ -626,6 +733,115 @@ export const se_CreateChannelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateCloudWatchAlarmTemplateCommand
+ */
+export const se_CreateCloudWatchAlarmTemplateCommand = async (
+  input: CreateCloudWatchAlarmTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/cloudwatch-alarm-templates");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      comparisonOperator: [, , `ComparisonOperator`],
+      datapointsToAlarm: [, , `DatapointsToAlarm`],
+      description: [, , `Description`],
+      evaluationPeriods: [, , `EvaluationPeriods`],
+      groupIdentifier: [, , `GroupIdentifier`],
+      metricName: [, , `MetricName`],
+      name: [, , `Name`],
+      period: [, , `Period`],
+      statistic: [, , `Statistic`],
+      tags: [, (_) => _json(_), `Tags`],
+      targetResourceType: [, , `TargetResourceType`],
+      threshold: [, (_) => __serializeFloat(_), `Threshold`],
+      treatMissingData: [, , `TreatMissingData`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateCloudWatchAlarmTemplateGroupCommand
+ */
+export const se_CreateCloudWatchAlarmTemplateGroupCommand = async (
+  input: CreateCloudWatchAlarmTemplateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/cloudwatch-alarm-template-groups");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+      name: [, , `Name`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateEventBridgeRuleTemplateCommand
+ */
+export const se_CreateEventBridgeRuleTemplateCommand = async (
+  input: CreateEventBridgeRuleTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/eventbridge-rule-templates");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+      eventTargets: [, (_) => se___listOfEventBridgeRuleTemplateTarget(_, context), `EventTargets`],
+      eventType: [, , `EventType`],
+      groupIdentifier: [, , `GroupIdentifier`],
+      name: [, , `Name`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateEventBridgeRuleTemplateGroupCommand
+ */
+export const se_CreateEventBridgeRuleTemplateGroupCommand = async (
+  input: CreateEventBridgeRuleTemplateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/eventbridge-rule-template-groups");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+      name: [, , `Name`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateInputCommand
  */
 export const se_CreateInputCommand = async (
@@ -756,6 +972,33 @@ export const se_CreatePartnerInputCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateSignalMapCommand
+ */
+export const se_CreateSignalMapCommand = async (
+  input: CreateSignalMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/signal-maps");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      cloudWatchAlarmTemplateGroupIdentifiers: [, (_) => _json(_), `CloudWatchAlarmTemplateGroupIdentifiers`],
+      description: [, , `Description`],
+      discoveryEntryPointArn: [, , `DiscoveryEntryPointArn`],
+      eventBridgeRuleTemplateGroupIdentifiers: [, (_) => _json(_), `EventBridgeRuleTemplateGroupIdentifiers`],
+      name: [, , `Name`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateTagsCommand
  */
 export const se_CreateTagsCommand = async (
@@ -789,6 +1032,70 @@ export const se_DeleteChannelCommand = async (
   const headers: any = {};
   b.bp("/prod/channels/{ChannelId}");
   b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCloudWatchAlarmTemplateCommand
+ */
+export const se_DeleteCloudWatchAlarmTemplateCommand = async (
+  input: DeleteCloudWatchAlarmTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/cloudwatch-alarm-templates/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCloudWatchAlarmTemplateGroupCommand
+ */
+export const se_DeleteCloudWatchAlarmTemplateGroupCommand = async (
+  input: DeleteCloudWatchAlarmTemplateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/cloudwatch-alarm-template-groups/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteEventBridgeRuleTemplateCommand
+ */
+export const se_DeleteEventBridgeRuleTemplateCommand = async (
+  input: DeleteEventBridgeRuleTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/eventbridge-rule-templates/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteEventBridgeRuleTemplateGroupCommand
+ */
+export const se_DeleteEventBridgeRuleTemplateGroupCommand = async (
+  input: DeleteEventBridgeRuleTemplateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/eventbridge-rule-template-groups/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -886,6 +1193,22 @@ export const se_DeleteScheduleCommand = async (
   const headers: any = {};
   b.bp("/prod/channels/{ChannelId}/schedule");
   b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteSignalMapCommand
+ */
+export const se_DeleteSignalMapCommand = async (
+  input: DeleteSignalMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/signal-maps/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1119,6 +1442,86 @@ export const se_DescribeThumbnailsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetCloudWatchAlarmTemplateCommand
+ */
+export const se_GetCloudWatchAlarmTemplateCommand = async (
+  input: GetCloudWatchAlarmTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/cloudwatch-alarm-templates/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCloudWatchAlarmTemplateGroupCommand
+ */
+export const se_GetCloudWatchAlarmTemplateGroupCommand = async (
+  input: GetCloudWatchAlarmTemplateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/cloudwatch-alarm-template-groups/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetEventBridgeRuleTemplateCommand
+ */
+export const se_GetEventBridgeRuleTemplateCommand = async (
+  input: GetEventBridgeRuleTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/eventbridge-rule-templates/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetEventBridgeRuleTemplateGroupCommand
+ */
+export const se_GetEventBridgeRuleTemplateGroupCommand = async (
+  input: GetEventBridgeRuleTemplateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/eventbridge-rule-template-groups/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetSignalMapCommand
+ */
+export const se_GetSignalMapCommand = async (
+  input: GetSignalMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/signal-maps/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListChannelsCommand
  */
 export const se_ListChannelsCommand = async (
@@ -1131,6 +1534,90 @@ export const se_ListChannelsCommand = async (
   const query: any = map({
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCloudWatchAlarmTemplateGroupsCommand
+ */
+export const se_ListCloudWatchAlarmTemplateGroupsCommand = async (
+  input: ListCloudWatchAlarmTemplateGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/cloudwatch-alarm-template-groups");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_s]: [, input[_S]!],
+    [_sMI]: [, input[_SMI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCloudWatchAlarmTemplatesCommand
+ */
+export const se_ListCloudWatchAlarmTemplatesCommand = async (
+  input: ListCloudWatchAlarmTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/cloudwatch-alarm-templates");
+  const query: any = map({
+    [_gI]: [, input[_GI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_s]: [, input[_S]!],
+    [_sMI]: [, input[_SMI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListEventBridgeRuleTemplateGroupsCommand
+ */
+export const se_ListEventBridgeRuleTemplateGroupsCommand = async (
+  input: ListEventBridgeRuleTemplateGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/eventbridge-rule-template-groups");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_sMI]: [, input[_SMI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListEventBridgeRuleTemplatesCommand
+ */
+export const se_ListEventBridgeRuleTemplatesCommand = async (
+  input: ListEventBridgeRuleTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/eventbridge-rule-templates");
+  const query: any = map({
+    [_gI]: [, input[_GI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_sMI]: [, input[_SMI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1310,6 +1797,27 @@ export const se_ListReservationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListSignalMapsCommand
+ */
+export const se_ListSignalMapsCommand = async (
+  input: ListSignalMapsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/signal-maps");
+  const query: any = map({
+    [_cWATGI]: [, input[_CWATGI]!],
+    [_eBRTGI]: [, input[_EBRTGI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -1432,6 +1940,22 @@ export const se_StartChannelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartDeleteMonitorDeploymentCommand
+ */
+export const se_StartDeleteMonitorDeploymentCommand = async (
+  input: StartDeleteMonitorDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/signal-maps/{Identifier}/monitor-deployment");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartInputDeviceCommand
  */
 export const se_StartInputDeviceCommand = async (
@@ -1464,6 +1988,29 @@ export const se_StartInputDeviceMaintenanceWindowCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartMonitorDeploymentCommand
+ */
+export const se_StartMonitorDeploymentCommand = async (
+  input: StartMonitorDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/signal-maps/{Identifier}/monitor-deployment");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      dryRun: [, , `DryRun`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartMultiplexCommand
  */
 export const se_StartMultiplexCommand = async (
@@ -1476,6 +2023,34 @@ export const se_StartMultiplexCommand = async (
   b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   let body: any;
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartUpdateSignalMapCommand
+ */
+export const se_StartUpdateSignalMapCommand = async (
+  input: StartUpdateSignalMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/signal-maps/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      cloudWatchAlarmTemplateGroupIdentifiers: [, (_) => _json(_), `CloudWatchAlarmTemplateGroupIdentifiers`],
+      description: [, , `Description`],
+      discoveryEntryPointArn: [, , `DiscoveryEntryPointArn`],
+      eventBridgeRuleTemplateGroupIdentifiers: [, (_) => _json(_), `EventBridgeRuleTemplateGroupIdentifiers`],
+      forceRediscovery: [, , `ForceRediscovery`],
+      name: [, , `Name`],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -1626,6 +2201,113 @@ export const se_UpdateChannelClassCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateCloudWatchAlarmTemplateCommand
+ */
+export const se_UpdateCloudWatchAlarmTemplateCommand = async (
+  input: UpdateCloudWatchAlarmTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/cloudwatch-alarm-templates/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      comparisonOperator: [, , `ComparisonOperator`],
+      datapointsToAlarm: [, , `DatapointsToAlarm`],
+      description: [, , `Description`],
+      evaluationPeriods: [, , `EvaluationPeriods`],
+      groupIdentifier: [, , `GroupIdentifier`],
+      metricName: [, , `MetricName`],
+      name: [, , `Name`],
+      period: [, , `Period`],
+      statistic: [, , `Statistic`],
+      targetResourceType: [, , `TargetResourceType`],
+      threshold: [, (_) => __serializeFloat(_), `Threshold`],
+      treatMissingData: [, , `TreatMissingData`],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateCloudWatchAlarmTemplateGroupCommand
+ */
+export const se_UpdateCloudWatchAlarmTemplateGroupCommand = async (
+  input: UpdateCloudWatchAlarmTemplateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/cloudwatch-alarm-template-groups/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateEventBridgeRuleTemplateCommand
+ */
+export const se_UpdateEventBridgeRuleTemplateCommand = async (
+  input: UpdateEventBridgeRuleTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/eventbridge-rule-templates/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+      eventTargets: [, (_) => se___listOfEventBridgeRuleTemplateTarget(_, context), `EventTargets`],
+      eventType: [, , `EventType`],
+      groupIdentifier: [, , `GroupIdentifier`],
+      name: [, , `Name`],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateEventBridgeRuleTemplateGroupCommand
+ */
+export const se_UpdateEventBridgeRuleTemplateGroupCommand = async (
+  input: UpdateEventBridgeRuleTemplateGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/eventbridge-rule-template-groups/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -1941,6 +2623,127 @@ export const de_CreateChannelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateCloudWatchAlarmTemplateCommand
+ */
+export const de_CreateCloudWatchAlarmTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCloudWatchAlarmTemplateCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ComparisonOperator: [, __expectString, `comparisonOperator`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    DatapointsToAlarm: [, __expectInt32, `datapointsToAlarm`],
+    Description: [, __expectString, `description`],
+    EvaluationPeriods: [, __expectInt32, `evaluationPeriods`],
+    GroupId: [, __expectString, `groupId`],
+    Id: [, __expectString, `id`],
+    MetricName: [, __expectString, `metricName`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Period: [, __expectInt32, `period`],
+    Statistic: [, __expectString, `statistic`],
+    Tags: [, _json, `tags`],
+    TargetResourceType: [, __expectString, `targetResourceType`],
+    Threshold: [, __limitedParseDouble, `threshold`],
+    TreatMissingData: [, __expectString, `treatMissingData`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCloudWatchAlarmTemplateGroupCommand
+ */
+export const de_CreateCloudWatchAlarmTemplateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCloudWatchAlarmTemplateGroupCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateEventBridgeRuleTemplateCommand
+ */
+export const de_CreateEventBridgeRuleTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventBridgeRuleTemplateCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    EventTargets: [, (_) => de___listOfEventBridgeRuleTemplateTarget(_, context), `eventTargets`],
+    EventType: [, __expectString, `eventType`],
+    GroupId: [, __expectString, `groupId`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateEventBridgeRuleTemplateGroupCommand
+ */
+export const de_CreateEventBridgeRuleTemplateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventBridgeRuleTemplateGroupCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateInputCommand
  */
 export const de_CreateInputCommand = async (
@@ -2046,6 +2849,48 @@ export const de_CreatePartnerInputCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateSignalMapCommand
+ */
+export const de_CreateSignalMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSignalMapCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CloudWatchAlarmTemplateGroupIds: [, _json, `cloudWatchAlarmTemplateGroupIds`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    DiscoveryEntryPointArn: [, __expectString, `discoveryEntryPointArn`],
+    ErrorMessage: [, __expectString, `errorMessage`],
+    EventBridgeRuleTemplateGroupIds: [, _json, `eventBridgeRuleTemplateGroupIds`],
+    FailedMediaResourceMap: [, (_) => de_FailedMediaResourceMap(_, context), `failedMediaResourceMap`],
+    Id: [, __expectString, `id`],
+    LastDiscoveredAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastDiscoveredAt`],
+    LastSuccessfulMonitorDeployment: [
+      ,
+      (_) => de_SuccessfulMonitorDeployment(_, context),
+      `lastSuccessfulMonitorDeployment`,
+    ],
+    MediaResourceMap: [, (_) => de_MediaResourceMap(_, context), `mediaResourceMap`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    MonitorChangesPendingDeployment: [, __expectBoolean, `monitorChangesPendingDeployment`],
+    MonitorDeployment: [, (_) => de_MonitorDeployment(_, context), `monitorDeployment`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateTagsCommand
  */
 export const de_CreateTagsCommand = async (
@@ -2097,6 +2942,74 @@ export const de_DeleteChannelCommand = async (
     Vpc: [, (_) => de_VpcOutputSettingsDescription(_, context), `vpc`],
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCloudWatchAlarmTemplateCommand
+ */
+export const de_DeleteCloudWatchAlarmTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCloudWatchAlarmTemplateCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCloudWatchAlarmTemplateGroupCommand
+ */
+export const de_DeleteCloudWatchAlarmTemplateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCloudWatchAlarmTemplateGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEventBridgeRuleTemplateCommand
+ */
+export const de_DeleteEventBridgeRuleTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventBridgeRuleTemplateCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEventBridgeRuleTemplateGroupCommand
+ */
+export const de_DeleteEventBridgeRuleTemplateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventBridgeRuleTemplateGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -2236,6 +3149,23 @@ export const de_DeleteScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteSignalMapCommand
+ */
+export const de_DeleteSignalMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSignalMapCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -2611,6 +3541,169 @@ export const de_DescribeThumbnailsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetCloudWatchAlarmTemplateCommand
+ */
+export const de_GetCloudWatchAlarmTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCloudWatchAlarmTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ComparisonOperator: [, __expectString, `comparisonOperator`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    DatapointsToAlarm: [, __expectInt32, `datapointsToAlarm`],
+    Description: [, __expectString, `description`],
+    EvaluationPeriods: [, __expectInt32, `evaluationPeriods`],
+    GroupId: [, __expectString, `groupId`],
+    Id: [, __expectString, `id`],
+    MetricName: [, __expectString, `metricName`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Period: [, __expectInt32, `period`],
+    Statistic: [, __expectString, `statistic`],
+    Tags: [, _json, `tags`],
+    TargetResourceType: [, __expectString, `targetResourceType`],
+    Threshold: [, __limitedParseDouble, `threshold`],
+    TreatMissingData: [, __expectString, `treatMissingData`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCloudWatchAlarmTemplateGroupCommand
+ */
+export const de_GetCloudWatchAlarmTemplateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCloudWatchAlarmTemplateGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetEventBridgeRuleTemplateCommand
+ */
+export const de_GetEventBridgeRuleTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventBridgeRuleTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    EventTargets: [, (_) => de___listOfEventBridgeRuleTemplateTarget(_, context), `eventTargets`],
+    EventType: [, __expectString, `eventType`],
+    GroupId: [, __expectString, `groupId`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetEventBridgeRuleTemplateGroupCommand
+ */
+export const de_GetEventBridgeRuleTemplateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventBridgeRuleTemplateGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSignalMapCommand
+ */
+export const de_GetSignalMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSignalMapCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CloudWatchAlarmTemplateGroupIds: [, _json, `cloudWatchAlarmTemplateGroupIds`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    DiscoveryEntryPointArn: [, __expectString, `discoveryEntryPointArn`],
+    ErrorMessage: [, __expectString, `errorMessage`],
+    EventBridgeRuleTemplateGroupIds: [, _json, `eventBridgeRuleTemplateGroupIds`],
+    FailedMediaResourceMap: [, (_) => de_FailedMediaResourceMap(_, context), `failedMediaResourceMap`],
+    Id: [, __expectString, `id`],
+    LastDiscoveredAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastDiscoveredAt`],
+    LastSuccessfulMonitorDeployment: [
+      ,
+      (_) => de_SuccessfulMonitorDeployment(_, context),
+      `lastSuccessfulMonitorDeployment`,
+    ],
+    MediaResourceMap: [, (_) => de_MediaResourceMap(_, context), `mediaResourceMap`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    MonitorChangesPendingDeployment: [, __expectBoolean, `monitorChangesPendingDeployment`],
+    MonitorDeployment: [, (_) => de_MonitorDeployment(_, context), `monitorDeployment`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -2626,6 +3719,110 @@ export const de_ListChannelsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Channels: [, (_) => de___listOfChannelSummary(_, context), `channels`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCloudWatchAlarmTemplateGroupsCommand
+ */
+export const de_ListCloudWatchAlarmTemplateGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCloudWatchAlarmTemplateGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CloudWatchAlarmTemplateGroups: [
+      ,
+      (_) => de___listOfCloudWatchAlarmTemplateGroupSummary(_, context),
+      `cloudWatchAlarmTemplateGroups`,
+    ],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCloudWatchAlarmTemplatesCommand
+ */
+export const de_ListCloudWatchAlarmTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCloudWatchAlarmTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CloudWatchAlarmTemplates: [
+      ,
+      (_) => de___listOfCloudWatchAlarmTemplateSummary(_, context),
+      `cloudWatchAlarmTemplates`,
+    ],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEventBridgeRuleTemplateGroupsCommand
+ */
+export const de_ListEventBridgeRuleTemplateGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventBridgeRuleTemplateGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EventBridgeRuleTemplateGroups: [
+      ,
+      (_) => de___listOfEventBridgeRuleTemplateGroupSummary(_, context),
+      `eventBridgeRuleTemplateGroups`,
+    ],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEventBridgeRuleTemplatesCommand
+ */
+export const de_ListEventBridgeRuleTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventBridgeRuleTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EventBridgeRuleTemplates: [
+      ,
+      (_) => de___listOfEventBridgeRuleTemplateSummary(_, context),
+      `eventBridgeRuleTemplates`,
+    ],
     NextToken: [, __expectString, `nextToken`],
   });
   Object.assign(contents, doc);
@@ -2809,6 +4006,28 @@ export const de_ListReservationsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListSignalMapsCommand
+ */
+export const de_ListSignalMapsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSignalMapsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    SignalMaps: [, (_) => de___listOfSignalMapSummary(_, context), `signalMaps`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2962,6 +4181,48 @@ export const de_StartChannelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartDeleteMonitorDeploymentCommand
+ */
+export const de_StartDeleteMonitorDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDeleteMonitorDeploymentCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CloudWatchAlarmTemplateGroupIds: [, _json, `cloudWatchAlarmTemplateGroupIds`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    DiscoveryEntryPointArn: [, __expectString, `discoveryEntryPointArn`],
+    ErrorMessage: [, __expectString, `errorMessage`],
+    EventBridgeRuleTemplateGroupIds: [, _json, `eventBridgeRuleTemplateGroupIds`],
+    FailedMediaResourceMap: [, (_) => de_FailedMediaResourceMap(_, context), `failedMediaResourceMap`],
+    Id: [, __expectString, `id`],
+    LastDiscoveredAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastDiscoveredAt`],
+    LastSuccessfulMonitorDeployment: [
+      ,
+      (_) => de_SuccessfulMonitorDeployment(_, context),
+      `lastSuccessfulMonitorDeployment`,
+    ],
+    MediaResourceMap: [, (_) => de_MediaResourceMap(_, context), `mediaResourceMap`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    MonitorChangesPendingDeployment: [, __expectBoolean, `monitorChangesPendingDeployment`],
+    MonitorDeployment: [, (_) => de_MonitorDeployment(_, context), `monitorDeployment`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartInputDeviceCommand
  */
 export const de_StartInputDeviceCommand = async (
@@ -2996,6 +4257,48 @@ export const de_StartInputDeviceMaintenanceWindowCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartMonitorDeploymentCommand
+ */
+export const de_StartMonitorDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMonitorDeploymentCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CloudWatchAlarmTemplateGroupIds: [, _json, `cloudWatchAlarmTemplateGroupIds`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    DiscoveryEntryPointArn: [, __expectString, `discoveryEntryPointArn`],
+    ErrorMessage: [, __expectString, `errorMessage`],
+    EventBridgeRuleTemplateGroupIds: [, _json, `eventBridgeRuleTemplateGroupIds`],
+    FailedMediaResourceMap: [, (_) => de_FailedMediaResourceMap(_, context), `failedMediaResourceMap`],
+    Id: [, __expectString, `id`],
+    LastDiscoveredAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastDiscoveredAt`],
+    LastSuccessfulMonitorDeployment: [
+      ,
+      (_) => de_SuccessfulMonitorDeployment(_, context),
+      `lastSuccessfulMonitorDeployment`,
+    ],
+    MediaResourceMap: [, (_) => de_MediaResourceMap(_, context), `mediaResourceMap`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    MonitorChangesPendingDeployment: [, __expectBoolean, `monitorChangesPendingDeployment`],
+    MonitorDeployment: [, (_) => de_MonitorDeployment(_, context), `monitorDeployment`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartMultiplexCommand
  */
 export const de_StartMultiplexCommand = async (
@@ -3019,6 +4322,48 @@ export const de_StartMultiplexCommand = async (
     PipelinesRunningCount: [, __expectInt32, `pipelinesRunningCount`],
     ProgramCount: [, __expectInt32, `programCount`],
     State: [, __expectString, `state`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartUpdateSignalMapCommand
+ */
+export const de_StartUpdateSignalMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartUpdateSignalMapCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CloudWatchAlarmTemplateGroupIds: [, _json, `cloudWatchAlarmTemplateGroupIds`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    DiscoveryEntryPointArn: [, __expectString, `discoveryEntryPointArn`],
+    ErrorMessage: [, __expectString, `errorMessage`],
+    EventBridgeRuleTemplateGroupIds: [, _json, `eventBridgeRuleTemplateGroupIds`],
+    FailedMediaResourceMap: [, (_) => de_FailedMediaResourceMap(_, context), `failedMediaResourceMap`],
+    Id: [, __expectString, `id`],
+    LastDiscoveredAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastDiscoveredAt`],
+    LastSuccessfulMonitorDeployment: [
+      ,
+      (_) => de_SuccessfulMonitorDeployment(_, context),
+      `lastSuccessfulMonitorDeployment`,
+    ],
+    MediaResourceMap: [, (_) => de_MediaResourceMap(_, context), `mediaResourceMap`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    MonitorChangesPendingDeployment: [, __expectBoolean, `monitorChangesPendingDeployment`],
+    MonitorDeployment: [, (_) => de_MonitorDeployment(_, context), `monitorDeployment`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
     Tags: [, _json, `tags`],
   });
   Object.assign(contents, doc);
@@ -3185,6 +4530,127 @@ export const de_UpdateChannelClassCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Channel: [, (_) => de_Channel(_, context), `channel`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCloudWatchAlarmTemplateCommand
+ */
+export const de_UpdateCloudWatchAlarmTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCloudWatchAlarmTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    ComparisonOperator: [, __expectString, `comparisonOperator`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    DatapointsToAlarm: [, __expectInt32, `datapointsToAlarm`],
+    Description: [, __expectString, `description`],
+    EvaluationPeriods: [, __expectInt32, `evaluationPeriods`],
+    GroupId: [, __expectString, `groupId`],
+    Id: [, __expectString, `id`],
+    MetricName: [, __expectString, `metricName`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Period: [, __expectInt32, `period`],
+    Statistic: [, __expectString, `statistic`],
+    Tags: [, _json, `tags`],
+    TargetResourceType: [, __expectString, `targetResourceType`],
+    Threshold: [, __limitedParseDouble, `threshold`],
+    TreatMissingData: [, __expectString, `treatMissingData`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCloudWatchAlarmTemplateGroupCommand
+ */
+export const de_UpdateCloudWatchAlarmTemplateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCloudWatchAlarmTemplateGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEventBridgeRuleTemplateCommand
+ */
+export const de_UpdateEventBridgeRuleTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventBridgeRuleTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    EventTargets: [, (_) => de___listOfEventBridgeRuleTemplateTarget(_, context), `eventTargets`],
+    EventType: [, __expectString, `eventType`],
+    GroupId: [, __expectString, `groupId`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEventBridgeRuleTemplateGroupCommand
+ */
+export const de_UpdateEventBridgeRuleTemplateGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventBridgeRuleTemplateGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -3547,6 +5013,8 @@ const de_UnprocessableEntityExceptionRes = async (
 
 // se___listOf__string omitted.
 
+// se___listOf__stringPatternS omitted.
+
 /**
  * serializeAws_restJson1__listOfAudioChannelMapping
  */
@@ -3640,6 +5108,20 @@ const se___listOfColorCorrection = (input: ColorCorrection[], context: __SerdeCo
 // se___listOfDashRoleAudio omitted.
 
 // se___listOfDashRoleCaption omitted.
+
+/**
+ * serializeAws_restJson1__listOfEventBridgeRuleTemplateTarget
+ */
+const se___listOfEventBridgeRuleTemplateTarget = (
+  input: EventBridgeRuleTemplateTarget[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EventBridgeRuleTemplateTarget(entry, context);
+    });
+};
 
 /**
  * serializeAws_restJson1__listOfFailoverCondition
@@ -4553,6 +6035,15 @@ const se_Esam = (input: Esam, context: __SerdeContext): any => {
     poisEndpoint: [, , `PoisEndpoint`],
     username: [, , `Username`],
     zoneIdentity: [, , `ZoneIdentity`],
+  });
+};
+
+/**
+ * serializeAws_restJson1EventBridgeRuleTemplateTarget
+ */
+const se_EventBridgeRuleTemplateTarget = (input: EventBridgeRuleTemplateTarget, context: __SerdeContext): any => {
+  return take(input, {
+    arn: [, , `Arn`],
   });
 };
 
@@ -6202,6 +7693,8 @@ const se_StopTimecode = (input: StopTimecode, context: __SerdeContext): any => {
   });
 };
 
+// se_TagMap omitted.
+
 // se_Tags omitted.
 
 // se_TeletextDestinationSettings omitted.
@@ -6418,6 +7911,8 @@ const se_WebvttDestinationSettings = (input: WebvttDestinationSettings, context:
 
 // de___listOf__string omitted.
 
+// de___listOf__stringMin7Max11PatternAws097 omitted.
+
 /**
  * deserializeAws_restJson1__listOfAudioChannelMapping
  */
@@ -6551,6 +8046,36 @@ const de___listOfChannelSummary = (output: any, context: __SerdeContext): Channe
 };
 
 /**
+ * deserializeAws_restJson1__listOfCloudWatchAlarmTemplateGroupSummary
+ */
+const de___listOfCloudWatchAlarmTemplateGroupSummary = (
+  output: any,
+  context: __SerdeContext
+): CloudWatchAlarmTemplateGroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CloudWatchAlarmTemplateGroupSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfCloudWatchAlarmTemplateSummary
+ */
+const de___listOfCloudWatchAlarmTemplateSummary = (
+  output: any,
+  context: __SerdeContext
+): CloudWatchAlarmTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CloudWatchAlarmTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfColorCorrection
  */
 const de___listOfColorCorrection = (output: any, context: __SerdeContext): ColorCorrection[] => {
@@ -6565,6 +8090,51 @@ const de___listOfColorCorrection = (output: any, context: __SerdeContext): Color
 // de___listOfDashRoleAudio omitted.
 
 // de___listOfDashRoleCaption omitted.
+
+/**
+ * deserializeAws_restJson1__listOfEventBridgeRuleTemplateGroupSummary
+ */
+const de___listOfEventBridgeRuleTemplateGroupSummary = (
+  output: any,
+  context: __SerdeContext
+): EventBridgeRuleTemplateGroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EventBridgeRuleTemplateGroupSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfEventBridgeRuleTemplateSummary
+ */
+const de___listOfEventBridgeRuleTemplateSummary = (
+  output: any,
+  context: __SerdeContext
+): EventBridgeRuleTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EventBridgeRuleTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfEventBridgeRuleTemplateTarget
+ */
+const de___listOfEventBridgeRuleTemplateTarget = (
+  output: any,
+  context: __SerdeContext
+): EventBridgeRuleTemplateTarget[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EventBridgeRuleTemplateTarget(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1__listOfFailoverCondition
@@ -6726,6 +8296,18 @@ const de___listOfMediaPackageOutputDestinationSettings = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_MediaPackageOutputDestinationSettings(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfMediaResourceNeighbor
+ */
+const de___listOfMediaResourceNeighbor = (output: any, context: __SerdeContext): MediaResourceNeighbor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MediaResourceNeighbor(entry, context);
     });
   return retVal;
 };
@@ -6899,6 +8481,18 @@ const de___listOfScte35Descriptor = (output: any, context: __SerdeContext): Scte
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_Scte35Descriptor(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfSignalMapSummary
+ */
+const de___listOfSignalMapSummary = (output: any, context: __SerdeContext): SignalMapSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SignalMapSummary(entry, context);
     });
   return retVal;
 };
@@ -7514,6 +9108,50 @@ const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary
 };
 
 /**
+ * deserializeAws_restJson1CloudWatchAlarmTemplateGroupSummary
+ */
+const de_CloudWatchAlarmTemplateGroupSummary = (
+  output: any,
+  context: __SerdeContext
+): CloudWatchAlarmTemplateGroupSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+    TemplateCount: [, __expectInt32, `templateCount`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CloudWatchAlarmTemplateSummary
+ */
+const de_CloudWatchAlarmTemplateSummary = (output: any, context: __SerdeContext): CloudWatchAlarmTemplateSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    ComparisonOperator: [, __expectString, `comparisonOperator`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    DatapointsToAlarm: [, __expectInt32, `datapointsToAlarm`],
+    Description: [, __expectString, `description`],
+    EvaluationPeriods: [, __expectInt32, `evaluationPeriods`],
+    GroupId: [, __expectString, `groupId`],
+    Id: [, __expectString, `id`],
+    MetricName: [, __expectString, `metricName`],
+    ModifiedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Period: [, __expectInt32, `period`],
+    Statistic: [, __expectString, `statistic`],
+    Tags: [, _json, `tags`],
+    TargetResourceType: [, __expectString, `targetResourceType`],
+    Threshold: [, __limitedParseDouble, `threshold`],
+    TreatMissingData: [, __expectString, `treatMissingData`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1CmafIngestGroupSettings
  */
 const de_CmafIngestGroupSettings = (output: any, context: __SerdeContext): CmafIngestGroupSettings => {
@@ -7746,6 +9384,65 @@ const de_Esam = (output: any, context: __SerdeContext): Esam => {
     Username: [, __expectString, `username`],
     ZoneIdentity: [, __expectString, `zoneIdentity`],
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EventBridgeRuleTemplateGroupSummary
+ */
+const de_EventBridgeRuleTemplateGroupSummary = (
+  output: any,
+  context: __SerdeContext
+): EventBridgeRuleTemplateGroupSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+    TemplateCount: [, __expectInt32, `templateCount`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EventBridgeRuleTemplateSummary
+ */
+const de_EventBridgeRuleTemplateSummary = (output: any, context: __SerdeContext): EventBridgeRuleTemplateSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    EventTargetCount: [, __expectInt32, `eventTargetCount`],
+    EventType: [, __expectString, `eventType`],
+    GroupId: [, __expectString, `groupId`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    Name: [, __expectString, `name`],
+    Tags: [, _json, `tags`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EventBridgeRuleTemplateTarget
+ */
+const de_EventBridgeRuleTemplateTarget = (output: any, context: __SerdeContext): EventBridgeRuleTemplateTarget => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FailedMediaResourceMap
+ */
+const de_FailedMediaResourceMap = (output: any, context: __SerdeContext): Record<string, MediaResource> => {
+  return Object.entries(output).reduce((acc: Record<string, MediaResource>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_MediaResource(value, context);
+    return acc;
+  }, {} as Record<string, MediaResource>);
 };
 
 /**
@@ -8681,6 +10378,51 @@ const de_MediaPackageOutputDestinationSettings = (
 // de_MediaPackageOutputSettings omitted.
 
 /**
+ * deserializeAws_restJson1MediaResource
+ */
+const de_MediaResource = (output: any, context: __SerdeContext): MediaResource => {
+  return take(output, {
+    Destinations: [, (_: any) => de___listOfMediaResourceNeighbor(_, context), `destinations`],
+    Name: [, __expectString, `name`],
+    Sources: [, (_: any) => de___listOfMediaResourceNeighbor(_, context), `sources`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MediaResourceMap
+ */
+const de_MediaResourceMap = (output: any, context: __SerdeContext): Record<string, MediaResource> => {
+  return Object.entries(output).reduce((acc: Record<string, MediaResource>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_MediaResource(value, context);
+    return acc;
+  }, {} as Record<string, MediaResource>);
+};
+
+/**
+ * deserializeAws_restJson1MediaResourceNeighbor
+ */
+const de_MediaResourceNeighbor = (output: any, context: __SerdeContext): MediaResourceNeighbor => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    Name: [, __expectString, `name`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MonitorDeployment
+ */
+const de_MonitorDeployment = (output: any, context: __SerdeContext): MonitorDeployment => {
+  return take(output, {
+    DetailsUri: [, __expectString, `detailsUri`],
+    ErrorMessage: [, __expectString, `errorMessage`],
+    Status: [, __expectString, `status`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1MotionGraphicsActivateScheduleActionSettings
  */
 const de_MotionGraphicsActivateScheduleActionSettings = (
@@ -9570,6 +11312,23 @@ const de_Scte35TimeSignalScheduleActionSettings = (
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1SignalMapSummary
+ */
+const de_SignalMapSummary = (output: any, context: __SerdeContext): SignalMapSummary => {
+  return take(output, {
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    Description: [, __expectString, `description`],
+    Id: [, __expectString, `id`],
+    ModifiedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `modifiedAt`],
+    MonitorDeploymentStatus: [, __expectString, `monitorDeploymentStatus`],
+    Name: [, __expectString, `name`],
+    Status: [, __expectString, `status`],
+    Tags: [, _json, `tags`],
+  }) as any;
+};
+
 // de_SmpteTtDestinationSettings omitted.
 
 /**
@@ -9680,6 +11439,18 @@ const de_StopTimecode = (output: any, context: __SerdeContext): StopTimecode => 
     Timecode: [, __expectString, `timecode`],
   }) as any;
 };
+
+/**
+ * deserializeAws_restJson1SuccessfulMonitorDeployment
+ */
+const de_SuccessfulMonitorDeployment = (output: any, context: __SerdeContext): SuccessfulMonitorDeployment => {
+  return take(output, {
+    DetailsUri: [, __expectString, `detailsUri`],
+    Status: [, __expectString, `status`],
+  }) as any;
+};
+
+// de_TagMap omitted.
 
 // de_Tags omitted.
 
@@ -9963,8 +11734,11 @@ const _CC = "ChannelClass";
 const _CCh = "ChannelConfiguration";
 const _CL = "ContentLength";
 const _CT = "ContentType";
+const _CWATGI = "CloudWatchAlarmTemplateGroupIdentifier";
 const _D = "Duration";
+const _EBRTGI = "EventBridgeRuleTemplateGroupIdentifier";
 const _ET = "ETag";
+const _GI = "GroupIdentifier";
 const _LM = "LastModified";
 const _MB = "MaximumBitrate";
 const _MF = "MaximumFramerate";
@@ -9973,7 +11747,9 @@ const _NT = "NextToken";
 const _PI = "PipelineId";
 const _R = "Resolution";
 const _RT = "ResourceType";
+const _S = "Scope";
 const _SF = "SpecialFeature";
+const _SMI = "SignalMapIdentifier";
 const _TK = "TagKeys";
 const _TT = "ThumbnailType";
 const _TTr = "TransferType";
@@ -9982,10 +11758,13 @@ const _a = "accept";
 const _c = "codec";
 const _cC = "channelClass";
 const _cCh = "channelConfiguration";
+const _cWATGI = "cloudWatchAlarmTemplateGroupIdentifier";
 const _cl = "content-length";
 const _ct = "content-type";
 const _d = "duration";
 const _e = "etag";
+const _eBRTGI = "eventBridgeRuleTemplateGroupIdentifier";
+const _gI = "groupIdentifier";
 const _lm = "last-modified";
 const _mB = "maximumBitrate";
 const _mF = "maximumFramerate";
@@ -9994,7 +11773,9 @@ const _nT = "nextToken";
 const _pI = "pipelineId";
 const _r = "resolution";
 const _rT = "resourceType";
+const _s = "scope";
 const _sF = "specialFeature";
+const _sMI = "signalMapIdentifier";
 const _tK = "tagKeys";
 const _tT = "thumbnailType";
 const _tTr = "transferType";

@@ -269,6 +269,38 @@ CreateChannel
 </details>
 <details>
 <summary>
+CreateCloudWatchAlarmTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/CreateCloudWatchAlarmTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateCloudWatchAlarmTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateCloudWatchAlarmTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateCloudWatchAlarmTemplateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/CreateCloudWatchAlarmTemplateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateCloudWatchAlarmTemplateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateCloudWatchAlarmTemplateGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateEventBridgeRuleTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/CreateEventBridgeRuleTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateEventBridgeRuleTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateEventBridgeRuleTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateEventBridgeRuleTemplateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/CreateEventBridgeRuleTemplateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateEventBridgeRuleTemplateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateEventBridgeRuleTemplateGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateInput
 </summary>
 
@@ -309,6 +341,14 @@ CreatePartnerInput
 </details>
 <details>
 <summary>
+CreateSignalMap
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/CreateSignalMapCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateSignalMapCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/CreateSignalMapCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateTags
 </summary>
 
@@ -321,6 +361,38 @@ DeleteChannel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/DeleteChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteChannelCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCloudWatchAlarmTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/DeleteCloudWatchAlarmTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteCloudWatchAlarmTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteCloudWatchAlarmTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCloudWatchAlarmTemplateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/DeleteCloudWatchAlarmTemplateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteCloudWatchAlarmTemplateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteCloudWatchAlarmTemplateGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteEventBridgeRuleTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/DeleteEventBridgeRuleTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteEventBridgeRuleTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteEventBridgeRuleTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteEventBridgeRuleTemplateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/DeleteEventBridgeRuleTemplateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteEventBridgeRuleTemplateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteEventBridgeRuleTemplateGroupCommandOutput/)
 
 </details>
 <details>
@@ -369,6 +441,14 @@ DeleteSchedule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/DeleteScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteScheduleCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteSignalMap
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/DeleteSignalMapCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteSignalMapCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/DeleteSignalMapCommandOutput/)
 
 </details>
 <details>
@@ -477,10 +557,82 @@ DescribeThumbnails
 </details>
 <details>
 <summary>
+GetCloudWatchAlarmTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/GetCloudWatchAlarmTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetCloudWatchAlarmTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetCloudWatchAlarmTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCloudWatchAlarmTemplateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/GetCloudWatchAlarmTemplateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetCloudWatchAlarmTemplateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetCloudWatchAlarmTemplateGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetEventBridgeRuleTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/GetEventBridgeRuleTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetEventBridgeRuleTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetEventBridgeRuleTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetEventBridgeRuleTemplateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/GetEventBridgeRuleTemplateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetEventBridgeRuleTemplateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetEventBridgeRuleTemplateGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetSignalMap
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/GetSignalMapCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetSignalMapCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/GetSignalMapCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListChannels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/ListChannelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListChannelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListChannelsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCloudWatchAlarmTemplateGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/ListCloudWatchAlarmTemplateGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListCloudWatchAlarmTemplateGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListCloudWatchAlarmTemplateGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCloudWatchAlarmTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/ListCloudWatchAlarmTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListCloudWatchAlarmTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListCloudWatchAlarmTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListEventBridgeRuleTemplateGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/ListEventBridgeRuleTemplateGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListEventBridgeRuleTemplateGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListEventBridgeRuleTemplateGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListEventBridgeRuleTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/ListEventBridgeRuleTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListEventBridgeRuleTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListEventBridgeRuleTemplatesCommandOutput/)
 
 </details>
 <details>
@@ -549,6 +701,14 @@ ListReservations
 </details>
 <details>
 <summary>
+ListSignalMaps
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/ListSignalMapsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListSignalMapsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/ListSignalMapsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -597,6 +757,14 @@ StartChannel
 </details>
 <details>
 <summary>
+StartDeleteMonitorDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/StartDeleteMonitorDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/StartDeleteMonitorDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/StartDeleteMonitorDeploymentCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartInputDevice
 </summary>
 
@@ -613,10 +781,26 @@ StartInputDeviceMaintenanceWindow
 </details>
 <details>
 <summary>
+StartMonitorDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/StartMonitorDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/StartMonitorDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/StartMonitorDeploymentCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartMultiplex
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/StartMultiplexCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/StartMultiplexCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/StartMultiplexCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartUpdateSignalMap
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/StartUpdateSignalMapCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/StartUpdateSignalMapCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/StartUpdateSignalMapCommandOutput/)
 
 </details>
 <details>
@@ -673,6 +857,38 @@ UpdateChannelClass
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/UpdateChannelClassCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateChannelClassCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateChannelClassCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCloudWatchAlarmTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/UpdateCloudWatchAlarmTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateCloudWatchAlarmTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateCloudWatchAlarmTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCloudWatchAlarmTemplateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/UpdateCloudWatchAlarmTemplateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateCloudWatchAlarmTemplateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateCloudWatchAlarmTemplateGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateEventBridgeRuleTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/UpdateEventBridgeRuleTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateEventBridgeRuleTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateEventBridgeRuleTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateEventBridgeRuleTemplateGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/UpdateEventBridgeRuleTemplateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateEventBridgeRuleTemplateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/UpdateEventBridgeRuleTemplateGroupCommandOutput/)
 
 </details>
 <details>

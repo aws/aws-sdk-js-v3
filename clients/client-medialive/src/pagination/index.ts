@@ -2,6 +2,10 @@ export * from "./DescribeSchedulePaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListChannelsPaginator";
+export * from "./ListCloudWatchAlarmTemplateGroupsPaginator";
+export * from "./ListCloudWatchAlarmTemplatesPaginator";
+export * from "./ListEventBridgeRuleTemplateGroupsPaginator";
+export * from "./ListEventBridgeRuleTemplatesPaginator";
 export * from "./ListInputDeviceTransfersPaginator";
 export * from "./ListInputDevicesPaginator";
 export * from "./ListInputSecurityGroupsPaginator";
@@ -10,3 +14,4 @@ export * from "./ListMultiplexProgramsPaginator";
 export * from "./ListMultiplexesPaginator";
 export * from "./ListOfferingsPaginator";
 export * from "./ListReservationsPaginator";
+export * from "./ListSignalMapsPaginator";

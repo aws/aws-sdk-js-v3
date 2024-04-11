@@ -71,6 +71,22 @@ import {
 } from "./commands/CancelInputDeviceTransferCommand";
 import { ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "./commands/ClaimDeviceCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import {
+  CreateCloudWatchAlarmTemplateCommandInput,
+  CreateCloudWatchAlarmTemplateCommandOutput,
+} from "./commands/CreateCloudWatchAlarmTemplateCommand";
+import {
+  CreateCloudWatchAlarmTemplateGroupCommandInput,
+  CreateCloudWatchAlarmTemplateGroupCommandOutput,
+} from "./commands/CreateCloudWatchAlarmTemplateGroupCommand";
+import {
+  CreateEventBridgeRuleTemplateCommandInput,
+  CreateEventBridgeRuleTemplateCommandOutput,
+} from "./commands/CreateEventBridgeRuleTemplateCommand";
+import {
+  CreateEventBridgeRuleTemplateGroupCommandInput,
+  CreateEventBridgeRuleTemplateGroupCommandOutput,
+} from "./commands/CreateEventBridgeRuleTemplateGroupCommand";
 import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
   CreateInputSecurityGroupCommandInput,
@@ -82,8 +98,25 @@ import {
   CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand";
 import { CreatePartnerInputCommandInput, CreatePartnerInputCommandOutput } from "./commands/CreatePartnerInputCommand";
+import { CreateSignalMapCommandInput, CreateSignalMapCommandOutput } from "./commands/CreateSignalMapCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import {
+  DeleteCloudWatchAlarmTemplateCommandInput,
+  DeleteCloudWatchAlarmTemplateCommandOutput,
+} from "./commands/DeleteCloudWatchAlarmTemplateCommand";
+import {
+  DeleteCloudWatchAlarmTemplateGroupCommandInput,
+  DeleteCloudWatchAlarmTemplateGroupCommandOutput,
+} from "./commands/DeleteCloudWatchAlarmTemplateGroupCommand";
+import {
+  DeleteEventBridgeRuleTemplateCommandInput,
+  DeleteEventBridgeRuleTemplateCommandOutput,
+} from "./commands/DeleteEventBridgeRuleTemplateCommand";
+import {
+  DeleteEventBridgeRuleTemplateGroupCommandInput,
+  DeleteEventBridgeRuleTemplateGroupCommandOutput,
+} from "./commands/DeleteEventBridgeRuleTemplateGroupCommand";
 import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
   DeleteInputSecurityGroupCommandInput,
@@ -96,6 +129,7 @@ import {
 } from "./commands/DeleteMultiplexProgramCommand";
 import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "./commands/DeleteReservationCommand";
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand";
+import { DeleteSignalMapCommandInput, DeleteSignalMapCommandOutput } from "./commands/DeleteSignalMapCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccountConfigurationCommandInput,
@@ -127,7 +161,40 @@ import {
 } from "./commands/DescribeReservationCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
 import { DescribeThumbnailsCommandInput, DescribeThumbnailsCommandOutput } from "./commands/DescribeThumbnailsCommand";
+import {
+  GetCloudWatchAlarmTemplateCommandInput,
+  GetCloudWatchAlarmTemplateCommandOutput,
+} from "./commands/GetCloudWatchAlarmTemplateCommand";
+import {
+  GetCloudWatchAlarmTemplateGroupCommandInput,
+  GetCloudWatchAlarmTemplateGroupCommandOutput,
+} from "./commands/GetCloudWatchAlarmTemplateGroupCommand";
+import {
+  GetEventBridgeRuleTemplateCommandInput,
+  GetEventBridgeRuleTemplateCommandOutput,
+} from "./commands/GetEventBridgeRuleTemplateCommand";
+import {
+  GetEventBridgeRuleTemplateGroupCommandInput,
+  GetEventBridgeRuleTemplateGroupCommandOutput,
+} from "./commands/GetEventBridgeRuleTemplateGroupCommand";
+import { GetSignalMapCommandInput, GetSignalMapCommandOutput } from "./commands/GetSignalMapCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import {
+  ListCloudWatchAlarmTemplateGroupsCommandInput,
+  ListCloudWatchAlarmTemplateGroupsCommandOutput,
+} from "./commands/ListCloudWatchAlarmTemplateGroupsCommand";
+import {
+  ListCloudWatchAlarmTemplatesCommandInput,
+  ListCloudWatchAlarmTemplatesCommandOutput,
+} from "./commands/ListCloudWatchAlarmTemplatesCommand";
+import {
+  ListEventBridgeRuleTemplateGroupsCommandInput,
+  ListEventBridgeRuleTemplateGroupsCommandOutput,
+} from "./commands/ListEventBridgeRuleTemplateGroupsCommand";
+import {
+  ListEventBridgeRuleTemplatesCommandInput,
+  ListEventBridgeRuleTemplatesCommandOutput,
+} from "./commands/ListEventBridgeRuleTemplatesCommand";
 import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "./commands/ListInputDevicesCommand";
 import {
   ListInputDeviceTransfersCommandInput,
@@ -145,6 +212,7 @@ import {
 } from "./commands/ListMultiplexProgramsCommand";
 import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
 import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
+import { ListSignalMapsCommandInput, ListSignalMapsCommandOutput } from "./commands/ListSignalMapsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -160,12 +228,24 @@ import {
   RestartChannelPipelinesCommandOutput,
 } from "./commands/RestartChannelPipelinesCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
+import {
+  StartDeleteMonitorDeploymentCommandInput,
+  StartDeleteMonitorDeploymentCommandOutput,
+} from "./commands/StartDeleteMonitorDeploymentCommand";
 import { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "./commands/StartInputDeviceCommand";
 import {
   StartInputDeviceMaintenanceWindowCommandInput,
   StartInputDeviceMaintenanceWindowCommandOutput,
 } from "./commands/StartInputDeviceMaintenanceWindowCommand";
+import {
+  StartMonitorDeploymentCommandInput,
+  StartMonitorDeploymentCommandOutput,
+} from "./commands/StartMonitorDeploymentCommand";
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "./commands/StartMultiplexCommand";
+import {
+  StartUpdateSignalMapCommandInput,
+  StartUpdateSignalMapCommandOutput,
+} from "./commands/StartUpdateSignalMapCommand";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
 import { StopInputDeviceCommandInput, StopInputDeviceCommandOutput } from "./commands/StopInputDeviceCommand";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./commands/StopMultiplexCommand";
@@ -179,6 +259,22 @@ import {
 } from "./commands/UpdateAccountConfigurationCommand";
 import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "./commands/UpdateChannelClassCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import {
+  UpdateCloudWatchAlarmTemplateCommandInput,
+  UpdateCloudWatchAlarmTemplateCommandOutput,
+} from "./commands/UpdateCloudWatchAlarmTemplateCommand";
+import {
+  UpdateCloudWatchAlarmTemplateGroupCommandInput,
+  UpdateCloudWatchAlarmTemplateGroupCommandOutput,
+} from "./commands/UpdateCloudWatchAlarmTemplateGroupCommand";
+import {
+  UpdateEventBridgeRuleTemplateCommandInput,
+  UpdateEventBridgeRuleTemplateCommandOutput,
+} from "./commands/UpdateEventBridgeRuleTemplateCommand";
+import {
+  UpdateEventBridgeRuleTemplateGroupCommandInput,
+  UpdateEventBridgeRuleTemplateGroupCommandOutput,
+} from "./commands/UpdateEventBridgeRuleTemplateGroupCommand";
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import { UpdateInputDeviceCommandInput, UpdateInputDeviceCommandOutput } from "./commands/UpdateInputDeviceCommand";
 import {
@@ -214,19 +310,29 @@ export type ServiceInputTypes =
   | CancelInputDeviceTransferCommandInput
   | ClaimDeviceCommandInput
   | CreateChannelCommandInput
+  | CreateCloudWatchAlarmTemplateCommandInput
+  | CreateCloudWatchAlarmTemplateGroupCommandInput
+  | CreateEventBridgeRuleTemplateCommandInput
+  | CreateEventBridgeRuleTemplateGroupCommandInput
   | CreateInputCommandInput
   | CreateInputSecurityGroupCommandInput
   | CreateMultiplexCommandInput
   | CreateMultiplexProgramCommandInput
   | CreatePartnerInputCommandInput
+  | CreateSignalMapCommandInput
   | CreateTagsCommandInput
   | DeleteChannelCommandInput
+  | DeleteCloudWatchAlarmTemplateCommandInput
+  | DeleteCloudWatchAlarmTemplateGroupCommandInput
+  | DeleteEventBridgeRuleTemplateCommandInput
+  | DeleteEventBridgeRuleTemplateGroupCommandInput
   | DeleteInputCommandInput
   | DeleteInputSecurityGroupCommandInput
   | DeleteMultiplexCommandInput
   | DeleteMultiplexProgramCommandInput
   | DeleteReservationCommandInput
   | DeleteScheduleCommandInput
+  | DeleteSignalMapCommandInput
   | DeleteTagsCommandInput
   | DescribeAccountConfigurationCommandInput
   | DescribeChannelCommandInput
@@ -240,7 +346,16 @@ export type ServiceInputTypes =
   | DescribeReservationCommandInput
   | DescribeScheduleCommandInput
   | DescribeThumbnailsCommandInput
+  | GetCloudWatchAlarmTemplateCommandInput
+  | GetCloudWatchAlarmTemplateGroupCommandInput
+  | GetEventBridgeRuleTemplateCommandInput
+  | GetEventBridgeRuleTemplateGroupCommandInput
+  | GetSignalMapCommandInput
   | ListChannelsCommandInput
+  | ListCloudWatchAlarmTemplateGroupsCommandInput
+  | ListCloudWatchAlarmTemplatesCommandInput
+  | ListEventBridgeRuleTemplateGroupsCommandInput
+  | ListEventBridgeRuleTemplatesCommandInput
   | ListInputDeviceTransfersCommandInput
   | ListInputDevicesCommandInput
   | ListInputSecurityGroupsCommandInput
@@ -249,15 +364,19 @@ export type ServiceInputTypes =
   | ListMultiplexesCommandInput
   | ListOfferingsCommandInput
   | ListReservationsCommandInput
+  | ListSignalMapsCommandInput
   | ListTagsForResourceCommandInput
   | PurchaseOfferingCommandInput
   | RebootInputDeviceCommandInput
   | RejectInputDeviceTransferCommandInput
   | RestartChannelPipelinesCommandInput
   | StartChannelCommandInput
+  | StartDeleteMonitorDeploymentCommandInput
   | StartInputDeviceCommandInput
   | StartInputDeviceMaintenanceWindowCommandInput
+  | StartMonitorDeploymentCommandInput
   | StartMultiplexCommandInput
+  | StartUpdateSignalMapCommandInput
   | StopChannelCommandInput
   | StopInputDeviceCommandInput
   | StopMultiplexCommandInput
@@ -265,6 +384,10 @@ export type ServiceInputTypes =
   | UpdateAccountConfigurationCommandInput
   | UpdateChannelClassCommandInput
   | UpdateChannelCommandInput
+  | UpdateCloudWatchAlarmTemplateCommandInput
+  | UpdateCloudWatchAlarmTemplateGroupCommandInput
+  | UpdateEventBridgeRuleTemplateCommandInput
+  | UpdateEventBridgeRuleTemplateGroupCommandInput
   | UpdateInputCommandInput
   | UpdateInputDeviceCommandInput
   | UpdateInputSecurityGroupCommandInput
@@ -284,19 +407,29 @@ export type ServiceOutputTypes =
   | CancelInputDeviceTransferCommandOutput
   | ClaimDeviceCommandOutput
   | CreateChannelCommandOutput
+  | CreateCloudWatchAlarmTemplateCommandOutput
+  | CreateCloudWatchAlarmTemplateGroupCommandOutput
+  | CreateEventBridgeRuleTemplateCommandOutput
+  | CreateEventBridgeRuleTemplateGroupCommandOutput
   | CreateInputCommandOutput
   | CreateInputSecurityGroupCommandOutput
   | CreateMultiplexCommandOutput
   | CreateMultiplexProgramCommandOutput
   | CreatePartnerInputCommandOutput
+  | CreateSignalMapCommandOutput
   | CreateTagsCommandOutput
   | DeleteChannelCommandOutput
+  | DeleteCloudWatchAlarmTemplateCommandOutput
+  | DeleteCloudWatchAlarmTemplateGroupCommandOutput
+  | DeleteEventBridgeRuleTemplateCommandOutput
+  | DeleteEventBridgeRuleTemplateGroupCommandOutput
   | DeleteInputCommandOutput
   | DeleteInputSecurityGroupCommandOutput
   | DeleteMultiplexCommandOutput
   | DeleteMultiplexProgramCommandOutput
   | DeleteReservationCommandOutput
   | DeleteScheduleCommandOutput
+  | DeleteSignalMapCommandOutput
   | DeleteTagsCommandOutput
   | DescribeAccountConfigurationCommandOutput
   | DescribeChannelCommandOutput
@@ -310,7 +443,16 @@ export type ServiceOutputTypes =
   | DescribeReservationCommandOutput
   | DescribeScheduleCommandOutput
   | DescribeThumbnailsCommandOutput
+  | GetCloudWatchAlarmTemplateCommandOutput
+  | GetCloudWatchAlarmTemplateGroupCommandOutput
+  | GetEventBridgeRuleTemplateCommandOutput
+  | GetEventBridgeRuleTemplateGroupCommandOutput
+  | GetSignalMapCommandOutput
   | ListChannelsCommandOutput
+  | ListCloudWatchAlarmTemplateGroupsCommandOutput
+  | ListCloudWatchAlarmTemplatesCommandOutput
+  | ListEventBridgeRuleTemplateGroupsCommandOutput
+  | ListEventBridgeRuleTemplatesCommandOutput
   | ListInputDeviceTransfersCommandOutput
   | ListInputDevicesCommandOutput
   | ListInputSecurityGroupsCommandOutput
@@ -319,15 +461,19 @@ export type ServiceOutputTypes =
   | ListMultiplexesCommandOutput
   | ListOfferingsCommandOutput
   | ListReservationsCommandOutput
+  | ListSignalMapsCommandOutput
   | ListTagsForResourceCommandOutput
   | PurchaseOfferingCommandOutput
   | RebootInputDeviceCommandOutput
   | RejectInputDeviceTransferCommandOutput
   | RestartChannelPipelinesCommandOutput
   | StartChannelCommandOutput
+  | StartDeleteMonitorDeploymentCommandOutput
   | StartInputDeviceCommandOutput
   | StartInputDeviceMaintenanceWindowCommandOutput
+  | StartMonitorDeploymentCommandOutput
   | StartMultiplexCommandOutput
+  | StartUpdateSignalMapCommandOutput
   | StopChannelCommandOutput
   | StopInputDeviceCommandOutput
   | StopMultiplexCommandOutput
@@ -335,6 +481,10 @@ export type ServiceOutputTypes =
   | UpdateAccountConfigurationCommandOutput
   | UpdateChannelClassCommandOutput
   | UpdateChannelCommandOutput
+  | UpdateCloudWatchAlarmTemplateCommandOutput
+  | UpdateCloudWatchAlarmTemplateGroupCommandOutput
+  | UpdateEventBridgeRuleTemplateCommandOutput
+  | UpdateEventBridgeRuleTemplateGroupCommandOutput
   | UpdateInputCommandOutput
   | UpdateInputDeviceCommandOutput
   | UpdateInputSecurityGroupCommandOutput

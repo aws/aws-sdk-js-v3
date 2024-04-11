@@ -3639,6 +3639,241 @@ export interface ChannelSummary {
 }
 
 /**
+ * Placeholder documentation for CloudWatchAlarmTemplateGroupSummary
+ * @public
+ */
+export interface CloudWatchAlarmTemplateGroupSummary {
+  /**
+   * A cloudwatch alarm template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * The number of templates in a group.
+   * @public
+   */
+  TemplateCount: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchAlarmTemplateComparisonOperator = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudWatchAlarmTemplateComparisonOperator =
+  (typeof CloudWatchAlarmTemplateComparisonOperator)[keyof typeof CloudWatchAlarmTemplateComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchAlarmTemplateStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudWatchAlarmTemplateStatistic =
+  (typeof CloudWatchAlarmTemplateStatistic)[keyof typeof CloudWatchAlarmTemplateStatistic];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchAlarmTemplateTargetResourceType = {
+  CLOUDFRONT_DISTRIBUTION: "CLOUDFRONT_DISTRIBUTION",
+  MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
+  MEDIALIVE_CHANNEL: "MEDIALIVE_CHANNEL",
+  MEDIALIVE_INPUT_DEVICE: "MEDIALIVE_INPUT_DEVICE",
+  MEDIALIVE_MULTIPLEX: "MEDIALIVE_MULTIPLEX",
+  MEDIAPACKAGE_CHANNEL: "MEDIAPACKAGE_CHANNEL",
+  MEDIAPACKAGE_ORIGIN_ENDPOINT: "MEDIAPACKAGE_ORIGIN_ENDPOINT",
+  S3_BUCKET: "S3_BUCKET",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudWatchAlarmTemplateTargetResourceType =
+  (typeof CloudWatchAlarmTemplateTargetResourceType)[keyof typeof CloudWatchAlarmTemplateTargetResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchAlarmTemplateTreatMissingData = {
+  breaching: "breaching",
+  ignore: "ignore",
+  missing: "missing",
+  notBreaching: "notBreaching",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudWatchAlarmTemplateTreatMissingData =
+  (typeof CloudWatchAlarmTemplateTreatMissingData)[keyof typeof CloudWatchAlarmTemplateTreatMissingData];
+
+/**
+ * Placeholder documentation for CloudWatchAlarmTemplateSummary
+ * @public
+ */
+export interface CloudWatchAlarmTemplateSummary {
+  /**
+   * A cloudwatch alarm template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The comparison operator used to compare the specified statistic and the threshold.
+   * @public
+   */
+  ComparisonOperator: CloudWatchAlarmTemplateComparisonOperator | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
+   * @public
+   */
+  DatapointsToAlarm?: number;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * The number of periods over which data is compared to the specified threshold.
+   * @public
+   */
+  EvaluationPeriods: number | undefined;
+
+  /**
+   * A cloudwatch alarm template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * A cloudwatch alarm template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
+   * @public
+   */
+  MetricName: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The period, in seconds, over which the specified statistic is applied.
+   * @public
+   */
+  Period: number | undefined;
+
+  /**
+   * The statistic to apply to the alarm's metric data.
+   * @public
+   */
+  Statistic: CloudWatchAlarmTemplateStatistic | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * The resource type this template should dynamically generate cloudwatch metric alarms for.
+   * @public
+   */
+  TargetResourceType: CloudWatchAlarmTemplateTargetResourceType | undefined;
+
+  /**
+   * The threshold value to compare with the specified statistic.
+   * @public
+   */
+  Threshold: number | undefined;
+
+  /**
+   * Specifies how missing data points are treated when evaluating the alarm's condition.
+   * @public
+   */
+  TreatMissingData: CloudWatchAlarmTemplateTreatMissingData | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3676,6 +3911,164 @@ export interface ColorCorrection {
    * @public
    */
   Uri: string | undefined;
+}
+
+/**
+ * Placeholder documentation for EventBridgeRuleTemplateGroupSummary
+ * @public
+ */
+export interface EventBridgeRuleTemplateGroupSummary {
+  /**
+   * An eventbridge rule template group's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * The number of templates in a group.
+   * @public
+   */
+  TemplateCount: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EventBridgeRuleTemplateEventType = {
+  MEDIACONNECT_ALERT: "MEDIACONNECT_ALERT",
+  MEDIACONNECT_FLOW_STATUS_CHANGE: "MEDIACONNECT_FLOW_STATUS_CHANGE",
+  MEDIACONNECT_OUTPUT_HEALTH: "MEDIACONNECT_OUTPUT_HEALTH",
+  MEDIACONNECT_SOURCE_HEALTH: "MEDIACONNECT_SOURCE_HEALTH",
+  MEDIALIVE_CHANNEL_ALERT: "MEDIALIVE_CHANNEL_ALERT",
+  MEDIALIVE_CHANNEL_INPUT_CHANGE: "MEDIALIVE_CHANNEL_INPUT_CHANGE",
+  MEDIALIVE_CHANNEL_STATE_CHANGE: "MEDIALIVE_CHANNEL_STATE_CHANGE",
+  MEDIALIVE_MULTIPLEX_ALERT: "MEDIALIVE_MULTIPLEX_ALERT",
+  MEDIALIVE_MULTIPLEX_STATE_CHANGE: "MEDIALIVE_MULTIPLEX_STATE_CHANGE",
+  MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION: "MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION",
+  MEDIAPACKAGE_INPUT_NOTIFICATION: "MEDIAPACKAGE_INPUT_NOTIFICATION",
+  MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION: "MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION",
+  SIGNAL_MAP_ACTIVE_ALARM: "SIGNAL_MAP_ACTIVE_ALARM",
+} as const;
+
+/**
+ * @public
+ */
+export type EventBridgeRuleTemplateEventType =
+  (typeof EventBridgeRuleTemplateEventType)[keyof typeof EventBridgeRuleTemplateEventType];
+
+/**
+ * Placeholder documentation for EventBridgeRuleTemplateSummary
+ * @public
+ */
+export interface EventBridgeRuleTemplateSummary {
+  /**
+   * An eventbridge rule template's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * The number of targets configured to send matching events.
+   * @public
+   */
+  EventTargetCount: number | undefined;
+
+  /**
+   * The type of event to match with the rule.
+   * @public
+   */
+  EventType: EventBridgeRuleTemplateEventType | undefined;
+
+  /**
+   * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * An eventbridge rule template's id. AWS provided templates have ids that start with `aws-`
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * The target to which to send matching events.
+ * @public
+ */
+export interface EventBridgeRuleTemplateTarget {
+  /**
+   * Target ARNs must be either an SNS topic or CloudWatch log group.
+   * @public
+   */
+  Arn: string | undefined;
 }
 
 /**
@@ -4646,6 +5039,24 @@ export interface MediaConnectFlowRequest {
    * @public
    */
   FlowArn?: string;
+}
+
+/**
+ * A direct source or destination neighbor to an AWS media resource.
+ * @public
+ */
+export interface MediaResourceNeighbor {
+  /**
+   * The ARN of a resource used in AWS media workflows.
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * The logical name of an AWS media resource.
+   * @public
+   */
+  Name?: string;
 }
 
 /**
@@ -6561,187 +6972,3 @@ export const CmafNielsenId3Behavior = {
  * @public
  */
 export type CmafNielsenId3Behavior = (typeof CmafNielsenId3Behavior)[keyof typeof CmafNielsenId3Behavior];
-
-/**
- * @public
- * @enum
- */
-export const Scte35Type = {
-  NONE: "NONE",
-  SCTE_35_WITHOUT_SEGMENTATION: "SCTE_35_WITHOUT_SEGMENTATION",
-} as const;
-
-/**
- * @public
- */
-export type Scte35Type = (typeof Scte35Type)[keyof typeof Scte35Type];
-
-/**
- * @public
- * @enum
- */
-export const CmafIngestSegmentLengthUnits = {
-  MILLISECONDS: "MILLISECONDS",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type CmafIngestSegmentLengthUnits =
-  (typeof CmafIngestSegmentLengthUnits)[keyof typeof CmafIngestSegmentLengthUnits];
-
-/**
- * Cmaf Ingest Group Settings
- * @public
- */
-export interface CmafIngestGroupSettings {
-  /**
-   * A HTTP destination for the tracks
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   * @public
-   */
-  NielsenId3Behavior?: CmafNielsenId3Behavior;
-
-  /**
-   * Type of scte35 track to add. none or scte35WithoutSegmentation
-   * @public
-   */
-  Scte35Type?: Scte35Type;
-
-  /**
-   * The nominal duration of segments. The units are specified in SegmentLengthUnits. The segments will end on the next keyframe after the specified duration, so the actual segment length might be longer, and it might be a fraction of the units.
-   * @public
-   */
-  SegmentLength?: number;
-
-  /**
-   * Time unit for segment length parameter.
-   * @public
-   */
-  SegmentLengthUnits?: CmafIngestSegmentLengthUnits;
-
-  /**
-   * Number of milliseconds to delay the output from the second pipeline.
-   * @public
-   */
-  SendDelayMs?: number;
-}
-
-/**
- * Frame Capture S3 Settings
- * @public
- */
-export interface FrameCaptureS3Settings {
-  /**
-   * Specify the canned ACL to apply to each S3 request. Defaults to none.
-   * @public
-   */
-  CannedAcl?: S3CannedAcl;
-}
-
-/**
- * Frame Capture Cdn Settings
- * @public
- */
-export interface FrameCaptureCdnSettings {
-  /**
-   * Frame Capture S3 Settings
-   * @public
-   */
-  FrameCaptureS3Settings?: FrameCaptureS3Settings;
-}
-
-/**
- * Frame Capture Group Settings
- * @public
- */
-export interface FrameCaptureGroupSettings {
-  /**
-   * The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling-) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling-). The final file names consist of the prefix from the destination field (for example, "curling-") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curling-low.00001.jpg
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Parameters that control interactions with the CDN.
-   * @public
-   */
-  FrameCaptureCdnSettings?: FrameCaptureCdnSettings;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsCaptionLanguageSetting = {
-  INSERT: "INSERT",
-  NONE: "NONE",
-  OMIT: "OMIT",
-} as const;
-
-/**
- * @public
- */
-export type HlsCaptionLanguageSetting = (typeof HlsCaptionLanguageSetting)[keyof typeof HlsCaptionLanguageSetting];
-
-/**
- * @public
- * @enum
- */
-export const HlsClientCache = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type HlsClientCache = (typeof HlsClientCache)[keyof typeof HlsClientCache];
-
-/**
- * @public
- * @enum
- */
-export const HlsCodecSpecification = {
-  RFC_4281: "RFC_4281",
-  RFC_6381: "RFC_6381",
-} as const;
-
-/**
- * @public
- */
-export type HlsCodecSpecification = (typeof HlsCodecSpecification)[keyof typeof HlsCodecSpecification];
-
-/**
- * @public
- * @enum
- */
-export const HlsDirectoryStructure = {
-  SINGLE_DIRECTORY: "SINGLE_DIRECTORY",
-  SUBDIRECTORY_PER_STREAM: "SUBDIRECTORY_PER_STREAM",
-} as const;
-
-/**
- * @public
- */
-export type HlsDirectoryStructure = (typeof HlsDirectoryStructure)[keyof typeof HlsDirectoryStructure];
-
-/**
- * @public
- * @enum
- */
-export const HlsDiscontinuityTags = {
-  INSERT: "INSERT",
-  NEVER_INSERT: "NEVER_INSERT",
-} as const;
-
-/**
- * @public
- */
-export type HlsDiscontinuityTags = (typeof HlsDiscontinuityTags)[keyof typeof HlsDiscontinuityTags];

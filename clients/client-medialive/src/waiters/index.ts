@@ -10,3 +10,7 @@ export * from "./waitForMultiplexCreated";
 export * from "./waitForMultiplexDeleted";
 export * from "./waitForMultiplexRunning";
 export * from "./waitForMultiplexStopped";
+export * from "./waitForSignalMapCreated";
+export * from "./waitForSignalMapMonitorDeleted";
+export * from "./waitForSignalMapMonitorDeployed";
+export * from "./waitForSignalMapUpdated";

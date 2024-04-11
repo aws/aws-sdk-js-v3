@@ -26,6 +26,26 @@ import {
   CreateChannelCommandInput,
   CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
+import {
+  CreateCloudWatchAlarmTemplateCommand,
+  CreateCloudWatchAlarmTemplateCommandInput,
+  CreateCloudWatchAlarmTemplateCommandOutput,
+} from "./commands/CreateCloudWatchAlarmTemplateCommand";
+import {
+  CreateCloudWatchAlarmTemplateGroupCommand,
+  CreateCloudWatchAlarmTemplateGroupCommandInput,
+  CreateCloudWatchAlarmTemplateGroupCommandOutput,
+} from "./commands/CreateCloudWatchAlarmTemplateGroupCommand";
+import {
+  CreateEventBridgeRuleTemplateCommand,
+  CreateEventBridgeRuleTemplateCommandInput,
+  CreateEventBridgeRuleTemplateCommandOutput,
+} from "./commands/CreateEventBridgeRuleTemplateCommand";
+import {
+  CreateEventBridgeRuleTemplateGroupCommand,
+  CreateEventBridgeRuleTemplateGroupCommandInput,
+  CreateEventBridgeRuleTemplateGroupCommandOutput,
+} from "./commands/CreateEventBridgeRuleTemplateGroupCommand";
 import { CreateInputCommand, CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
   CreateInputSecurityGroupCommand,
@@ -47,12 +67,37 @@ import {
   CreatePartnerInputCommandInput,
   CreatePartnerInputCommandOutput,
 } from "./commands/CreatePartnerInputCommand";
+import {
+  CreateSignalMapCommand,
+  CreateSignalMapCommandInput,
+  CreateSignalMapCommandOutput,
+} from "./commands/CreateSignalMapCommand";
 import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteChannelCommand,
   DeleteChannelCommandInput,
   DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
+import {
+  DeleteCloudWatchAlarmTemplateCommand,
+  DeleteCloudWatchAlarmTemplateCommandInput,
+  DeleteCloudWatchAlarmTemplateCommandOutput,
+} from "./commands/DeleteCloudWatchAlarmTemplateCommand";
+import {
+  DeleteCloudWatchAlarmTemplateGroupCommand,
+  DeleteCloudWatchAlarmTemplateGroupCommandInput,
+  DeleteCloudWatchAlarmTemplateGroupCommandOutput,
+} from "./commands/DeleteCloudWatchAlarmTemplateGroupCommand";
+import {
+  DeleteEventBridgeRuleTemplateCommand,
+  DeleteEventBridgeRuleTemplateCommandInput,
+  DeleteEventBridgeRuleTemplateCommandOutput,
+} from "./commands/DeleteEventBridgeRuleTemplateCommand";
+import {
+  DeleteEventBridgeRuleTemplateGroupCommand,
+  DeleteEventBridgeRuleTemplateGroupCommandInput,
+  DeleteEventBridgeRuleTemplateGroupCommandOutput,
+} from "./commands/DeleteEventBridgeRuleTemplateGroupCommand";
 import { DeleteInputCommand, DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
   DeleteInputSecurityGroupCommand,
@@ -79,6 +124,11 @@ import {
   DeleteScheduleCommandInput,
   DeleteScheduleCommandOutput,
 } from "./commands/DeleteScheduleCommand";
+import {
+  DeleteSignalMapCommand,
+  DeleteSignalMapCommandInput,
+  DeleteSignalMapCommandOutput,
+} from "./commands/DeleteSignalMapCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccountConfigurationCommand,
@@ -141,10 +191,55 @@ import {
   DescribeThumbnailsCommandOutput,
 } from "./commands/DescribeThumbnailsCommand";
 import {
+  GetCloudWatchAlarmTemplateCommand,
+  GetCloudWatchAlarmTemplateCommandInput,
+  GetCloudWatchAlarmTemplateCommandOutput,
+} from "./commands/GetCloudWatchAlarmTemplateCommand";
+import {
+  GetCloudWatchAlarmTemplateGroupCommand,
+  GetCloudWatchAlarmTemplateGroupCommandInput,
+  GetCloudWatchAlarmTemplateGroupCommandOutput,
+} from "./commands/GetCloudWatchAlarmTemplateGroupCommand";
+import {
+  GetEventBridgeRuleTemplateCommand,
+  GetEventBridgeRuleTemplateCommandInput,
+  GetEventBridgeRuleTemplateCommandOutput,
+} from "./commands/GetEventBridgeRuleTemplateCommand";
+import {
+  GetEventBridgeRuleTemplateGroupCommand,
+  GetEventBridgeRuleTemplateGroupCommandInput,
+  GetEventBridgeRuleTemplateGroupCommandOutput,
+} from "./commands/GetEventBridgeRuleTemplateGroupCommand";
+import {
+  GetSignalMapCommand,
+  GetSignalMapCommandInput,
+  GetSignalMapCommandOutput,
+} from "./commands/GetSignalMapCommand";
+import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
+import {
+  ListCloudWatchAlarmTemplateGroupsCommand,
+  ListCloudWatchAlarmTemplateGroupsCommandInput,
+  ListCloudWatchAlarmTemplateGroupsCommandOutput,
+} from "./commands/ListCloudWatchAlarmTemplateGroupsCommand";
+import {
+  ListCloudWatchAlarmTemplatesCommand,
+  ListCloudWatchAlarmTemplatesCommandInput,
+  ListCloudWatchAlarmTemplatesCommandOutput,
+} from "./commands/ListCloudWatchAlarmTemplatesCommand";
+import {
+  ListEventBridgeRuleTemplateGroupsCommand,
+  ListEventBridgeRuleTemplateGroupsCommandInput,
+  ListEventBridgeRuleTemplateGroupsCommandOutput,
+} from "./commands/ListEventBridgeRuleTemplateGroupsCommand";
+import {
+  ListEventBridgeRuleTemplatesCommand,
+  ListEventBridgeRuleTemplatesCommandInput,
+  ListEventBridgeRuleTemplatesCommandOutput,
+} from "./commands/ListEventBridgeRuleTemplatesCommand";
 import {
   ListInputDevicesCommand,
   ListInputDevicesCommandInput,
@@ -182,6 +277,11 @@ import {
   ListReservationsCommandOutput,
 } from "./commands/ListReservationsCommand";
 import {
+  ListSignalMapsCommand,
+  ListSignalMapsCommandInput,
+  ListSignalMapsCommandOutput,
+} from "./commands/ListSignalMapsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -212,6 +312,11 @@ import {
   StartChannelCommandOutput,
 } from "./commands/StartChannelCommand";
 import {
+  StartDeleteMonitorDeploymentCommand,
+  StartDeleteMonitorDeploymentCommandInput,
+  StartDeleteMonitorDeploymentCommandOutput,
+} from "./commands/StartDeleteMonitorDeploymentCommand";
+import {
   StartInputDeviceCommand,
   StartInputDeviceCommandInput,
   StartInputDeviceCommandOutput,
@@ -222,10 +327,20 @@ import {
   StartInputDeviceMaintenanceWindowCommandOutput,
 } from "./commands/StartInputDeviceMaintenanceWindowCommand";
 import {
+  StartMonitorDeploymentCommand,
+  StartMonitorDeploymentCommandInput,
+  StartMonitorDeploymentCommandOutput,
+} from "./commands/StartMonitorDeploymentCommand";
+import {
   StartMultiplexCommand,
   StartMultiplexCommandInput,
   StartMultiplexCommandOutput,
 } from "./commands/StartMultiplexCommand";
+import {
+  StartUpdateSignalMapCommand,
+  StartUpdateSignalMapCommandInput,
+  StartUpdateSignalMapCommandOutput,
+} from "./commands/StartUpdateSignalMapCommand";
 import { StopChannelCommand, StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
 import {
   StopInputDeviceCommand,
@@ -257,6 +372,26 @@ import {
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
+import {
+  UpdateCloudWatchAlarmTemplateCommand,
+  UpdateCloudWatchAlarmTemplateCommandInput,
+  UpdateCloudWatchAlarmTemplateCommandOutput,
+} from "./commands/UpdateCloudWatchAlarmTemplateCommand";
+import {
+  UpdateCloudWatchAlarmTemplateGroupCommand,
+  UpdateCloudWatchAlarmTemplateGroupCommandInput,
+  UpdateCloudWatchAlarmTemplateGroupCommandOutput,
+} from "./commands/UpdateCloudWatchAlarmTemplateGroupCommand";
+import {
+  UpdateEventBridgeRuleTemplateCommand,
+  UpdateEventBridgeRuleTemplateCommandInput,
+  UpdateEventBridgeRuleTemplateCommandOutput,
+} from "./commands/UpdateEventBridgeRuleTemplateCommand";
+import {
+  UpdateEventBridgeRuleTemplateGroupCommand,
+  UpdateEventBridgeRuleTemplateGroupCommandInput,
+  UpdateEventBridgeRuleTemplateGroupCommandOutput,
+} from "./commands/UpdateEventBridgeRuleTemplateGroupCommand";
 import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import {
   UpdateInputDeviceCommand,
@@ -294,19 +429,29 @@ const commands = {
   CancelInputDeviceTransferCommand,
   ClaimDeviceCommand,
   CreateChannelCommand,
+  CreateCloudWatchAlarmTemplateCommand,
+  CreateCloudWatchAlarmTemplateGroupCommand,
+  CreateEventBridgeRuleTemplateCommand,
+  CreateEventBridgeRuleTemplateGroupCommand,
   CreateInputCommand,
   CreateInputSecurityGroupCommand,
   CreateMultiplexCommand,
   CreateMultiplexProgramCommand,
   CreatePartnerInputCommand,
+  CreateSignalMapCommand,
   CreateTagsCommand,
   DeleteChannelCommand,
+  DeleteCloudWatchAlarmTemplateCommand,
+  DeleteCloudWatchAlarmTemplateGroupCommand,
+  DeleteEventBridgeRuleTemplateCommand,
+  DeleteEventBridgeRuleTemplateGroupCommand,
   DeleteInputCommand,
   DeleteInputSecurityGroupCommand,
   DeleteMultiplexCommand,
   DeleteMultiplexProgramCommand,
   DeleteReservationCommand,
   DeleteScheduleCommand,
+  DeleteSignalMapCommand,
   DeleteTagsCommand,
   DescribeAccountConfigurationCommand,
   DescribeChannelCommand,
@@ -320,7 +465,16 @@ const commands = {
   DescribeReservationCommand,
   DescribeScheduleCommand,
   DescribeThumbnailsCommand,
+  GetCloudWatchAlarmTemplateCommand,
+  GetCloudWatchAlarmTemplateGroupCommand,
+  GetEventBridgeRuleTemplateCommand,
+  GetEventBridgeRuleTemplateGroupCommand,
+  GetSignalMapCommand,
   ListChannelsCommand,
+  ListCloudWatchAlarmTemplateGroupsCommand,
+  ListCloudWatchAlarmTemplatesCommand,
+  ListEventBridgeRuleTemplateGroupsCommand,
+  ListEventBridgeRuleTemplatesCommand,
   ListInputDevicesCommand,
   ListInputDeviceTransfersCommand,
   ListInputsCommand,
@@ -329,15 +483,19 @@ const commands = {
   ListMultiplexProgramsCommand,
   ListOfferingsCommand,
   ListReservationsCommand,
+  ListSignalMapsCommand,
   ListTagsForResourceCommand,
   PurchaseOfferingCommand,
   RebootInputDeviceCommand,
   RejectInputDeviceTransferCommand,
   RestartChannelPipelinesCommand,
   StartChannelCommand,
+  StartDeleteMonitorDeploymentCommand,
   StartInputDeviceCommand,
   StartInputDeviceMaintenanceWindowCommand,
+  StartMonitorDeploymentCommand,
   StartMultiplexCommand,
+  StartUpdateSignalMapCommand,
   StopChannelCommand,
   StopInputDeviceCommand,
   StopMultiplexCommand,
@@ -345,6 +503,10 @@ const commands = {
   UpdateAccountConfigurationCommand,
   UpdateChannelCommand,
   UpdateChannelClassCommand,
+  UpdateCloudWatchAlarmTemplateCommand,
+  UpdateCloudWatchAlarmTemplateGroupCommand,
+  UpdateEventBridgeRuleTemplateCommand,
+  UpdateEventBridgeRuleTemplateGroupCommand,
   UpdateInputCommand,
   UpdateInputDeviceCommand,
   UpdateInputSecurityGroupCommand,
@@ -466,6 +628,74 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link CreateCloudWatchAlarmTemplateCommand}
+   */
+  createCloudWatchAlarmTemplate(
+    args: CreateCloudWatchAlarmTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCloudWatchAlarmTemplateCommandOutput>;
+  createCloudWatchAlarmTemplate(
+    args: CreateCloudWatchAlarmTemplateCommandInput,
+    cb: (err: any, data?: CreateCloudWatchAlarmTemplateCommandOutput) => void
+  ): void;
+  createCloudWatchAlarmTemplate(
+    args: CreateCloudWatchAlarmTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCloudWatchAlarmTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCloudWatchAlarmTemplateGroupCommand}
+   */
+  createCloudWatchAlarmTemplateGroup(
+    args: CreateCloudWatchAlarmTemplateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCloudWatchAlarmTemplateGroupCommandOutput>;
+  createCloudWatchAlarmTemplateGroup(
+    args: CreateCloudWatchAlarmTemplateGroupCommandInput,
+    cb: (err: any, data?: CreateCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+  createCloudWatchAlarmTemplateGroup(
+    args: CreateCloudWatchAlarmTemplateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEventBridgeRuleTemplateCommand}
+   */
+  createEventBridgeRuleTemplate(
+    args: CreateEventBridgeRuleTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventBridgeRuleTemplateCommandOutput>;
+  createEventBridgeRuleTemplate(
+    args: CreateEventBridgeRuleTemplateCommandInput,
+    cb: (err: any, data?: CreateEventBridgeRuleTemplateCommandOutput) => void
+  ): void;
+  createEventBridgeRuleTemplate(
+    args: CreateEventBridgeRuleTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventBridgeRuleTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEventBridgeRuleTemplateGroupCommand}
+   */
+  createEventBridgeRuleTemplateGroup(
+    args: CreateEventBridgeRuleTemplateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventBridgeRuleTemplateGroupCommandOutput>;
+  createEventBridgeRuleTemplateGroup(
+    args: CreateEventBridgeRuleTemplateGroupCommandInput,
+    cb: (err: any, data?: CreateEventBridgeRuleTemplateGroupCommandOutput) => void
+  ): void;
+  createEventBridgeRuleTemplateGroup(
+    args: CreateEventBridgeRuleTemplateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventBridgeRuleTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateInputCommand}
    */
   createInput(): Promise<CreateInputCommandOutput>;
@@ -544,6 +774,20 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link CreateSignalMapCommand}
+   */
+  createSignalMap(
+    args: CreateSignalMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSignalMapCommandOutput>;
+  createSignalMap(args: CreateSignalMapCommandInput, cb: (err: any, data?: CreateSignalMapCommandOutput) => void): void;
+  createSignalMap(
+    args: CreateSignalMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSignalMapCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTagsCommand}
    */
   createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
@@ -563,6 +807,74 @@ export interface MediaLive {
     args: DeleteChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCloudWatchAlarmTemplateCommand}
+   */
+  deleteCloudWatchAlarmTemplate(
+    args: DeleteCloudWatchAlarmTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCloudWatchAlarmTemplateCommandOutput>;
+  deleteCloudWatchAlarmTemplate(
+    args: DeleteCloudWatchAlarmTemplateCommandInput,
+    cb: (err: any, data?: DeleteCloudWatchAlarmTemplateCommandOutput) => void
+  ): void;
+  deleteCloudWatchAlarmTemplate(
+    args: DeleteCloudWatchAlarmTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCloudWatchAlarmTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCloudWatchAlarmTemplateGroupCommand}
+   */
+  deleteCloudWatchAlarmTemplateGroup(
+    args: DeleteCloudWatchAlarmTemplateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCloudWatchAlarmTemplateGroupCommandOutput>;
+  deleteCloudWatchAlarmTemplateGroup(
+    args: DeleteCloudWatchAlarmTemplateGroupCommandInput,
+    cb: (err: any, data?: DeleteCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+  deleteCloudWatchAlarmTemplateGroup(
+    args: DeleteCloudWatchAlarmTemplateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEventBridgeRuleTemplateCommand}
+   */
+  deleteEventBridgeRuleTemplate(
+    args: DeleteEventBridgeRuleTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventBridgeRuleTemplateCommandOutput>;
+  deleteEventBridgeRuleTemplate(
+    args: DeleteEventBridgeRuleTemplateCommandInput,
+    cb: (err: any, data?: DeleteEventBridgeRuleTemplateCommandOutput) => void
+  ): void;
+  deleteEventBridgeRuleTemplate(
+    args: DeleteEventBridgeRuleTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventBridgeRuleTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEventBridgeRuleTemplateGroupCommand}
+   */
+  deleteEventBridgeRuleTemplateGroup(
+    args: DeleteEventBridgeRuleTemplateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventBridgeRuleTemplateGroupCommandOutput>;
+  deleteEventBridgeRuleTemplateGroup(
+    args: DeleteEventBridgeRuleTemplateGroupCommandInput,
+    cb: (err: any, data?: DeleteEventBridgeRuleTemplateGroupCommandOutput) => void
+  ): void;
+  deleteEventBridgeRuleTemplateGroup(
+    args: DeleteEventBridgeRuleTemplateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventBridgeRuleTemplateGroupCommandOutput) => void
   ): void;
 
   /**
@@ -653,6 +965,20 @@ export interface MediaLive {
     args: DeleteScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSignalMapCommand}
+   */
+  deleteSignalMap(
+    args: DeleteSignalMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSignalMapCommandOutput>;
+  deleteSignalMap(args: DeleteSignalMapCommandInput, cb: (err: any, data?: DeleteSignalMapCommandOutput) => void): void;
+  deleteSignalMap(
+    args: DeleteSignalMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSignalMapCommandOutput) => void
   ): void;
 
   /**
@@ -863,6 +1189,85 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link GetCloudWatchAlarmTemplateCommand}
+   */
+  getCloudWatchAlarmTemplate(
+    args: GetCloudWatchAlarmTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCloudWatchAlarmTemplateCommandOutput>;
+  getCloudWatchAlarmTemplate(
+    args: GetCloudWatchAlarmTemplateCommandInput,
+    cb: (err: any, data?: GetCloudWatchAlarmTemplateCommandOutput) => void
+  ): void;
+  getCloudWatchAlarmTemplate(
+    args: GetCloudWatchAlarmTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCloudWatchAlarmTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCloudWatchAlarmTemplateGroupCommand}
+   */
+  getCloudWatchAlarmTemplateGroup(
+    args: GetCloudWatchAlarmTemplateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCloudWatchAlarmTemplateGroupCommandOutput>;
+  getCloudWatchAlarmTemplateGroup(
+    args: GetCloudWatchAlarmTemplateGroupCommandInput,
+    cb: (err: any, data?: GetCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+  getCloudWatchAlarmTemplateGroup(
+    args: GetCloudWatchAlarmTemplateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventBridgeRuleTemplateCommand}
+   */
+  getEventBridgeRuleTemplate(
+    args: GetEventBridgeRuleTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventBridgeRuleTemplateCommandOutput>;
+  getEventBridgeRuleTemplate(
+    args: GetEventBridgeRuleTemplateCommandInput,
+    cb: (err: any, data?: GetEventBridgeRuleTemplateCommandOutput) => void
+  ): void;
+  getEventBridgeRuleTemplate(
+    args: GetEventBridgeRuleTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventBridgeRuleTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventBridgeRuleTemplateGroupCommand}
+   */
+  getEventBridgeRuleTemplateGroup(
+    args: GetEventBridgeRuleTemplateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventBridgeRuleTemplateGroupCommandOutput>;
+  getEventBridgeRuleTemplateGroup(
+    args: GetEventBridgeRuleTemplateGroupCommandInput,
+    cb: (err: any, data?: GetEventBridgeRuleTemplateGroupCommandOutput) => void
+  ): void;
+  getEventBridgeRuleTemplateGroup(
+    args: GetEventBridgeRuleTemplateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventBridgeRuleTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSignalMapCommand}
+   */
+  getSignalMap(args: GetSignalMapCommandInput, options?: __HttpHandlerOptions): Promise<GetSignalMapCommandOutput>;
+  getSignalMap(args: GetSignalMapCommandInput, cb: (err: any, data?: GetSignalMapCommandOutput) => void): void;
+  getSignalMap(
+    args: GetSignalMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSignalMapCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListChannelsCommand}
    */
   listChannels(): Promise<ListChannelsCommandOutput>;
@@ -872,6 +1277,78 @@ export interface MediaLive {
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCloudWatchAlarmTemplateGroupsCommand}
+   */
+  listCloudWatchAlarmTemplateGroups(): Promise<ListCloudWatchAlarmTemplateGroupsCommandOutput>;
+  listCloudWatchAlarmTemplateGroups(
+    args: ListCloudWatchAlarmTemplateGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCloudWatchAlarmTemplateGroupsCommandOutput>;
+  listCloudWatchAlarmTemplateGroups(
+    args: ListCloudWatchAlarmTemplateGroupsCommandInput,
+    cb: (err: any, data?: ListCloudWatchAlarmTemplateGroupsCommandOutput) => void
+  ): void;
+  listCloudWatchAlarmTemplateGroups(
+    args: ListCloudWatchAlarmTemplateGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCloudWatchAlarmTemplateGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCloudWatchAlarmTemplatesCommand}
+   */
+  listCloudWatchAlarmTemplates(): Promise<ListCloudWatchAlarmTemplatesCommandOutput>;
+  listCloudWatchAlarmTemplates(
+    args: ListCloudWatchAlarmTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCloudWatchAlarmTemplatesCommandOutput>;
+  listCloudWatchAlarmTemplates(
+    args: ListCloudWatchAlarmTemplatesCommandInput,
+    cb: (err: any, data?: ListCloudWatchAlarmTemplatesCommandOutput) => void
+  ): void;
+  listCloudWatchAlarmTemplates(
+    args: ListCloudWatchAlarmTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCloudWatchAlarmTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventBridgeRuleTemplateGroupsCommand}
+   */
+  listEventBridgeRuleTemplateGroups(): Promise<ListEventBridgeRuleTemplateGroupsCommandOutput>;
+  listEventBridgeRuleTemplateGroups(
+    args: ListEventBridgeRuleTemplateGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventBridgeRuleTemplateGroupsCommandOutput>;
+  listEventBridgeRuleTemplateGroups(
+    args: ListEventBridgeRuleTemplateGroupsCommandInput,
+    cb: (err: any, data?: ListEventBridgeRuleTemplateGroupsCommandOutput) => void
+  ): void;
+  listEventBridgeRuleTemplateGroups(
+    args: ListEventBridgeRuleTemplateGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventBridgeRuleTemplateGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventBridgeRuleTemplatesCommand}
+   */
+  listEventBridgeRuleTemplates(): Promise<ListEventBridgeRuleTemplatesCommandOutput>;
+  listEventBridgeRuleTemplates(
+    args: ListEventBridgeRuleTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventBridgeRuleTemplatesCommandOutput>;
+  listEventBridgeRuleTemplates(
+    args: ListEventBridgeRuleTemplatesCommandInput,
+    cb: (err: any, data?: ListEventBridgeRuleTemplatesCommandOutput) => void
+  ): void;
+  listEventBridgeRuleTemplates(
+    args: ListEventBridgeRuleTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventBridgeRuleTemplatesCommandOutput) => void
   ): void;
 
   /**
@@ -1002,6 +1479,21 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link ListSignalMapsCommand}
+   */
+  listSignalMaps(): Promise<ListSignalMapsCommandOutput>;
+  listSignalMaps(
+    args: ListSignalMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSignalMapsCommandOutput>;
+  listSignalMaps(args: ListSignalMapsCommandInput, cb: (err: any, data?: ListSignalMapsCommandOutput) => void): void;
+  listSignalMaps(
+    args: ListSignalMapsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSignalMapsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1098,6 +1590,23 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link StartDeleteMonitorDeploymentCommand}
+   */
+  startDeleteMonitorDeployment(
+    args: StartDeleteMonitorDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDeleteMonitorDeploymentCommandOutput>;
+  startDeleteMonitorDeployment(
+    args: StartDeleteMonitorDeploymentCommandInput,
+    cb: (err: any, data?: StartDeleteMonitorDeploymentCommandOutput) => void
+  ): void;
+  startDeleteMonitorDeployment(
+    args: StartDeleteMonitorDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDeleteMonitorDeploymentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartInputDeviceCommand}
    */
   startInputDevice(
@@ -1132,6 +1641,23 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link StartMonitorDeploymentCommand}
+   */
+  startMonitorDeployment(
+    args: StartMonitorDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMonitorDeploymentCommandOutput>;
+  startMonitorDeployment(
+    args: StartMonitorDeploymentCommandInput,
+    cb: (err: any, data?: StartMonitorDeploymentCommandOutput) => void
+  ): void;
+  startMonitorDeployment(
+    args: StartMonitorDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMonitorDeploymentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartMultiplexCommand}
    */
   startMultiplex(
@@ -1143,6 +1669,23 @@ export interface MediaLive {
     args: StartMultiplexCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartMultiplexCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartUpdateSignalMapCommand}
+   */
+  startUpdateSignalMap(
+    args: StartUpdateSignalMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartUpdateSignalMapCommandOutput>;
+  startUpdateSignalMap(
+    args: StartUpdateSignalMapCommandInput,
+    cb: (err: any, data?: StartUpdateSignalMapCommandOutput) => void
+  ): void;
+  startUpdateSignalMap(
+    args: StartUpdateSignalMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartUpdateSignalMapCommandOutput) => void
   ): void;
 
   /**
@@ -1242,6 +1785,74 @@ export interface MediaLive {
     args: UpdateChannelClassCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateChannelClassCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCloudWatchAlarmTemplateCommand}
+   */
+  updateCloudWatchAlarmTemplate(
+    args: UpdateCloudWatchAlarmTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCloudWatchAlarmTemplateCommandOutput>;
+  updateCloudWatchAlarmTemplate(
+    args: UpdateCloudWatchAlarmTemplateCommandInput,
+    cb: (err: any, data?: UpdateCloudWatchAlarmTemplateCommandOutput) => void
+  ): void;
+  updateCloudWatchAlarmTemplate(
+    args: UpdateCloudWatchAlarmTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCloudWatchAlarmTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCloudWatchAlarmTemplateGroupCommand}
+   */
+  updateCloudWatchAlarmTemplateGroup(
+    args: UpdateCloudWatchAlarmTemplateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCloudWatchAlarmTemplateGroupCommandOutput>;
+  updateCloudWatchAlarmTemplateGroup(
+    args: UpdateCloudWatchAlarmTemplateGroupCommandInput,
+    cb: (err: any, data?: UpdateCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+  updateCloudWatchAlarmTemplateGroup(
+    args: UpdateCloudWatchAlarmTemplateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCloudWatchAlarmTemplateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEventBridgeRuleTemplateCommand}
+   */
+  updateEventBridgeRuleTemplate(
+    args: UpdateEventBridgeRuleTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventBridgeRuleTemplateCommandOutput>;
+  updateEventBridgeRuleTemplate(
+    args: UpdateEventBridgeRuleTemplateCommandInput,
+    cb: (err: any, data?: UpdateEventBridgeRuleTemplateCommandOutput) => void
+  ): void;
+  updateEventBridgeRuleTemplate(
+    args: UpdateEventBridgeRuleTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventBridgeRuleTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEventBridgeRuleTemplateGroupCommand}
+   */
+  updateEventBridgeRuleTemplateGroup(
+    args: UpdateEventBridgeRuleTemplateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventBridgeRuleTemplateGroupCommandOutput>;
+  updateEventBridgeRuleTemplateGroup(
+    args: UpdateEventBridgeRuleTemplateGroupCommandInput,
+    cb: (err: any, data?: UpdateEventBridgeRuleTemplateGroupCommandOutput) => void
+  ): void;
+  updateEventBridgeRuleTemplateGroup(
+    args: UpdateEventBridgeRuleTemplateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventBridgeRuleTemplateGroupCommandOutput) => void
   ): void;
 
   /**

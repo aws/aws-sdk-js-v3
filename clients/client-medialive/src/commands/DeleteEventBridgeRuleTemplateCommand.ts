@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteInputRequest, DeleteInputResponse } from "../models/models_2";
-import { de_DeleteInputCommand, se_DeleteInputCommand } from "../protocols/Aws_restJson1";
+import { DeleteEventBridgeRuleTemplateRequest } from "../models/models_2";
+import {
+  de_DeleteEventBridgeRuleTemplateCommand,
+  se_DeleteEventBridgeRuleTemplateCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,41 +19,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteInputCommand}.
+ * The input for {@link DeleteEventBridgeRuleTemplateCommand}.
  */
-export interface DeleteInputCommandInput extends DeleteInputRequest {}
+export interface DeleteEventBridgeRuleTemplateCommandInput extends DeleteEventBridgeRuleTemplateRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteInputCommand}.
+ * The output of {@link DeleteEventBridgeRuleTemplateCommand}.
  */
-export interface DeleteInputCommandOutput extends DeleteInputResponse, __MetadataBearer {}
+export interface DeleteEventBridgeRuleTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * Deletes the input end point
+ * Deletes an eventbridge rule template.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DeleteInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DeleteInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DeleteEventBridgeRuleTemplateCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DeleteEventBridgeRuleTemplateCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // DeleteInputRequest
- *   InputId: "STRING_VALUE", // required
+ * const input = { // DeleteEventBridgeRuleTemplateRequest
+ *   Identifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteInputCommand(input);
+ * const command = new DeleteEventBridgeRuleTemplateCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
- * @returns {@link DeleteInputCommandOutput}
- * @see {@link DeleteInputCommandInput} for command's `input` shape.
- * @see {@link DeleteInputCommandOutput} for command's `response` shape.
+ * @param DeleteEventBridgeRuleTemplateCommandInput - {@link DeleteEventBridgeRuleTemplateCommandInput}
+ * @returns {@link DeleteEventBridgeRuleTemplateCommandOutput}
+ * @see {@link DeleteEventBridgeRuleTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteEventBridgeRuleTemplateCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
- *
- * @throws {@link BadGatewayException} (server fault)
- *  Placeholder documentation for BadGatewayException
  *
  * @throws {@link BadRequestException} (client fault)
  *  Placeholder documentation for BadRequestException
@@ -60,9 +60,6 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  *
  * @throws {@link ForbiddenException} (client fault)
  *  Placeholder documentation for ForbiddenException
- *
- * @throws {@link GatewayTimeoutException} (server fault)
- *  Placeholder documentation for GatewayTimeoutException
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  Placeholder documentation for InternalServerErrorException
@@ -78,10 +75,10 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  *
  * @public
  */
-export class DeleteInputCommand extends $Command
+export class DeleteEventBridgeRuleTemplateCommand extends $Command
   .classBuilder<
-    DeleteInputCommandInput,
-    DeleteInputCommandOutput,
+    DeleteEventBridgeRuleTemplateCommandInput,
+    DeleteEventBridgeRuleTemplateCommandOutput,
     MediaLiveClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,9 +92,9 @@ export class DeleteInputCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaLive", "DeleteInput", {})
-  .n("MediaLiveClient", "DeleteInputCommand")
+  .s("MediaLive", "DeleteEventBridgeRuleTemplate", {})
+  .n("MediaLiveClient", "DeleteEventBridgeRuleTemplateCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteInputCommand)
-  .de(de_DeleteInputCommand)
+  .ser(se_DeleteEventBridgeRuleTemplateCommand)
+  .de(de_DeleteEventBridgeRuleTemplateCommand)
   .build() {}

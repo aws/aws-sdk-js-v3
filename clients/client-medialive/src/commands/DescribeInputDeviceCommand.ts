@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DescribeInputDeviceRequest, DescribeInputDeviceResponse } from "../models/models_1";
+import { DescribeInputDeviceRequest, DescribeInputDeviceResponse } from "../models/models_2";
 import { de_DescribeInputDeviceCommand, se_DescribeInputDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**

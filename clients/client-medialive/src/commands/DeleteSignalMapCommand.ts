@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteInputRequest, DeleteInputResponse } from "../models/models_2";
-import { de_DeleteInputCommand, se_DeleteInputCommand } from "../protocols/Aws_restJson1";
+import { DeleteSignalMapRequest } from "../models/models_2";
+import { de_DeleteSignalMapCommand, se_DeleteSignalMapCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,41 +16,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteInputCommand}.
+ * The input for {@link DeleteSignalMapCommand}.
  */
-export interface DeleteInputCommandInput extends DeleteInputRequest {}
+export interface DeleteSignalMapCommandInput extends DeleteSignalMapRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteInputCommand}.
+ * The output of {@link DeleteSignalMapCommand}.
  */
-export interface DeleteInputCommandOutput extends DeleteInputResponse, __MetadataBearer {}
+export interface DeleteSignalMapCommandOutput extends __MetadataBearer {}
 
 /**
- * Deletes the input end point
+ * Deletes the specified signal map.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, DeleteInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, DeleteInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DeleteSignalMapCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DeleteSignalMapCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // DeleteInputRequest
- *   InputId: "STRING_VALUE", // required
+ * const input = { // DeleteSignalMapRequest
+ *   Identifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteInputCommand(input);
+ * const command = new DeleteSignalMapCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
- * @returns {@link DeleteInputCommandOutput}
- * @see {@link DeleteInputCommandInput} for command's `input` shape.
- * @see {@link DeleteInputCommandOutput} for command's `response` shape.
+ * @param DeleteSignalMapCommandInput - {@link DeleteSignalMapCommandInput}
+ * @returns {@link DeleteSignalMapCommandOutput}
+ * @see {@link DeleteSignalMapCommandInput} for command's `input` shape.
+ * @see {@link DeleteSignalMapCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
- *
- * @throws {@link BadGatewayException} (server fault)
- *  Placeholder documentation for BadGatewayException
  *
  * @throws {@link BadRequestException} (client fault)
  *  Placeholder documentation for BadRequestException
@@ -60,9 +57,6 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  *
  * @throws {@link ForbiddenException} (client fault)
  *  Placeholder documentation for ForbiddenException
- *
- * @throws {@link GatewayTimeoutException} (server fault)
- *  Placeholder documentation for GatewayTimeoutException
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  Placeholder documentation for InternalServerErrorException
@@ -78,10 +72,10 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  *
  * @public
  */
-export class DeleteInputCommand extends $Command
+export class DeleteSignalMapCommand extends $Command
   .classBuilder<
-    DeleteInputCommandInput,
-    DeleteInputCommandOutput,
+    DeleteSignalMapCommandInput,
+    DeleteSignalMapCommandOutput,
     MediaLiveClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,9 +89,9 @@ export class DeleteInputCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MediaLive", "DeleteInput", {})
-  .n("MediaLiveClient", "DeleteInputCommand")
+  .s("MediaLive", "DeleteSignalMap", {})
+  .n("MediaLiveClient", "DeleteSignalMapCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteInputCommand)
-  .de(de_DeleteInputCommand)
+  .ser(se_DeleteSignalMapCommand)
+  .de(de_DeleteSignalMapCommand)
   .build() {}

@@ -10,7 +10,7 @@ import {
   DescribeInputDeviceThumbnailRequest,
   DescribeInputDeviceThumbnailResponse,
   DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_DescribeInputDeviceThumbnailCommand,
   se_DescribeInputDeviceThumbnailCommand,
