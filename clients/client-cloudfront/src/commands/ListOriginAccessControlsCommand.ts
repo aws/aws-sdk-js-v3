@@ -59,7 +59,7 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * //         Name: "STRING_VALUE", // required
  * //         SigningProtocol: "sigv4", // required
  * //         SigningBehavior: "never" || "always" || "no-override", // required
- * //         OriginAccessControlOriginType: "s3" || "mediastore", // required
+ * //         OriginAccessControlOriginType: "s3" || "mediastore" || "mediapackagev2" || "lambda", // required
  * //       },
  * //     ],
  * //   },

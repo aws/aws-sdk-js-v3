@@ -27,7 +27,7 @@ export interface DeleteKeyValueStoreCommandInput extends DeleteKeyValueStoreRequ
 export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Specifies the Key Value Store to delete.</p>
+ * <p>Specifies the key value store to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,10 +54,10 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  *  <p>Access denied.</p>
  *
  * @throws {@link CannotDeleteEntityWhileInUse} (client fault)
- *  <p>The Key Value Store entity cannot be deleted while it is in use.</p>
+ *  <p>The key value store entity cannot be deleted while it is in use.</p>
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The Key Value Store entity was not found.</p>
+ *  <p>The key value store entity was not found.</p>
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
@@ -65,6 +65,9 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  * @throws {@link PreconditionFailed} (client fault)
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

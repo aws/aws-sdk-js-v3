@@ -27,7 +27,7 @@ export interface CreateKeyValueStoreCommandInput extends CreateKeyValueStoreRequ
 export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreResult, __MetadataBearer {}
 
 /**
- * <p>Specifies the Key Value Store resource to add to your account. In your account, the Key Value Store names must be unique. You can also import Key Value Store data in JSON format from an S3 bucket by providing a valid <code>ImportSource</code> that you own.</p>
+ * <p>Specifies the key value store resource to add to your account. In your account, the key value store names must be unique. You can also import key value store data in JSON format from an S3 bucket by providing a valid <code>ImportSource</code> that you own.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,17 +69,20 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  *  <p>Access denied.</p>
  *
  * @throws {@link EntityAlreadyExists} (client fault)
- *  <p>The Key Value Store entity already exists. You must provide a unique Key Value Store
+ *  <p>The key value store entity already exists. You must provide a unique key value store
  * 			entity.</p>
  *
  * @throws {@link EntityLimitExceeded} (client fault)
- *  <p>The Key Value Store entity limit has been exceeded.</p>
+ *  <p>The key value store entity limit has been exceeded.</p>
  *
  * @throws {@link EntitySizeLimitExceeded} (client fault)
- *  <p>The Key Value Store entity size limit was exceeded.</p>
+ *  <p>The key value store entity size limit was exceeded.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

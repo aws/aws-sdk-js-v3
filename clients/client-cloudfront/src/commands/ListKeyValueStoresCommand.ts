@@ -27,7 +27,7 @@ export interface ListKeyValueStoresCommandInput extends ListKeyValueStoresReques
 export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResult, __MetadataBearer {}
 
 /**
- * <p>Specifies the Key Value Stores to list.</p>
+ * <p>Specifies the key value stores to list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +72,9 @@ export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResul
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>

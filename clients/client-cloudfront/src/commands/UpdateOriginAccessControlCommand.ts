@@ -40,7 +40,7 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  *     Description: "STRING_VALUE",
  *     SigningProtocol: "sigv4", // required
  *     SigningBehavior: "never" || "always" || "no-override", // required
- *     OriginAccessControlOriginType: "s3" || "mediastore", // required
+ *     OriginAccessControlOriginType: "s3" || "mediastore" || "mediapackagev2" || "lambda", // required
  *   },
  *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE",
@@ -55,7 +55,7 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  * //       Description: "STRING_VALUE",
  * //       SigningProtocol: "sigv4", // required
  * //       SigningBehavior: "never" || "always" || "no-override", // required
- * //       OriginAccessControlOriginType: "s3" || "mediastore", // required
+ * //       OriginAccessControlOriginType: "s3" || "mediastore" || "mediapackagev2" || "lambda", // required
  * //     },
  * //   },
  * //   ETag: "STRING_VALUE",

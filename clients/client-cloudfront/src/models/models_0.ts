@@ -757,7 +757,7 @@ export interface FunctionAssociation {
 
 /**
  * <p>A list of CloudFront functions that are associated with a cache behavior in a CloudFront
- * 			distribution. CloudFront functions must be published to the <code>LIVE</code> stage to
+ * 			distribution. Your functions must be published to the <code>LIVE</code> stage to
  * 			associate them with a cache behavior.</p>
  * @public
  */
@@ -770,7 +770,7 @@ export interface FunctionAssociations {
 
   /**
    * <p>The CloudFront functions that are associated with a cache behavior in a CloudFront distribution.
-   * 			CloudFront functions must be published to the <code>LIVE</code> stage to associate them with a
+   * 			Your functions must be published to the <code>LIVE</code> stage to associate them with a
    * 			cache behavior.</p>
    * @public
    */
@@ -944,7 +944,7 @@ export type ViewerProtocolPolicy = (typeof ViewerProtocolPolicy)[keyof typeof Vi
  * 			you can add to a distribution, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  *          <p>If you don't want to specify any cache behaviors, include only an empty
- * 				<code>CacheBehaviors</code> element. Don't include an empty
+ * 			<code>CacheBehaviors</code> element. For more information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html">CacheBehaviors</a>. Don't include an empty
  * 				<code>CacheBehavior</code> element because this is invalid.</p>
  *          <p>To delete all cache behaviors in an existing distribution, update the distribution
  * 			configuration and include only an empty <code>CacheBehaviors</code> element.</p>
@@ -1031,7 +1031,7 @@ export interface CacheBehavior {
    * 					HTTP status code of 403 (Forbidden).</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html">Requiring HTTPS Between Viewers and CloudFront</a> in the
+   *          <p>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html">Requiring HTTPS Between Viewers and  CloudFront</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    *          <note>
    *             <p>The only way to guarantee that viewers retrieve an object that was fetched from
@@ -1816,7 +1816,7 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
 }
 
 /**
- * <p>The Key Value Store entity cannot be deleted while it is in use.</p>
+ * <p>The key value store entity cannot be deleted while it is in use.</p>
  * @public
  */
 export class CannotDeleteEntityWhileInUse extends __BaseException {
@@ -2113,7 +2113,7 @@ export interface DefaultCacheBehavior {
    * 					HTTP status code of 403 (Forbidden).</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html">Requiring HTTPS Between Viewers and CloudFront</a> in the
+   *          <p>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html">Requiring HTTPS Between Viewers and  CloudFront</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    *          <note>
    *             <p>The only way to guarantee that viewers retrieve an object that was fetched from
@@ -2181,7 +2181,7 @@ export interface DefaultCacheBehavior {
   LambdaFunctionAssociations?: LambdaFunctionAssociations;
 
   /**
-   * <p>A list of CloudFront functions that are associated with this cache behavior. CloudFront functions
+   * <p>A list of CloudFront functions that are associated with this cache behavior. Your functions
    * 			must be published to the <code>LIVE</code> stage to associate them with a cache
    * 			behavior.</p>
    * @public
@@ -2391,8 +2391,7 @@ export interface StatusCodes {
  */
 export interface OriginGroupFailoverCriteria {
   /**
-   * <p>The status codes that, when returned from the primary origin, will trigger CloudFront
-   * 			to failover to the second origin.</p>
+   * <p>The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.</p>
    * @public
    */
   StatusCodes: StatusCodes | undefined;
@@ -2431,7 +2430,7 @@ export interface OriginGroupMembers {
 /**
  * <p>An origin group includes two origins (a primary origin and a second origin to failover to)
  * 			and a failover criteria that you specify. You create an origin group to support origin
- * 			failover in CloudFront. When you create or update a distribution, you can specify the
+ * 			failover in  CloudFront. When you create or update a distribution, you can specify the
  * 			origin group instead of a single origin, and CloudFront will failover from the primary
  * 			origin to the second origin under the failover conditions that you've chosen.</p>
  * @public
@@ -2687,15 +2686,22 @@ export interface OriginShield {
  */
 export interface S3OriginConfig {
   /**
-   * <p>The CloudFront origin access identity to associate with the origin. Use an origin access
+   * <note>
+   *             <p>If you're using origin access control (OAC) instead of origin access identity,
+   * 				specify an empty <code>OriginAccessIdentity</code> element. For more information,
+   * 				see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html">Restricting access to an Amazon Web Services</a> in the
+   * 					<i>Amazon CloudFront Developer Guide</i>.</p>
+   *          </note>
+   *          <p>The CloudFront origin access identity to associate with the origin. Use an origin access
    * 			identity to configure the origin so that viewers can <i>only</i> access
    * 			objects in an Amazon S3 bucket through CloudFront. The format of the value is:</p>
-   *          <p>origin-access-identity/cloudfront/<i>ID-of-origin-access-identity</i>
+   *          <p>
+   *             <code>origin-access-identity/cloudfront/ID-of-origin-access-identity</code>
    *          </p>
-   *          <p>where <code>
+   *          <p>The <code>
    *                <i>ID-of-origin-access-identity</i>
-   *             </code> is the value that
-   * 			CloudFront returned in the <code>ID</code> element when you created the origin access
+   *             </code> is the value that CloudFront
+   * 			returned in the <code>ID</code> element when you created the origin access
    * 			identity.</p>
    *          <p>If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3
    * 			URL, specify an empty <code>OriginAccessIdentity</code> element.</p>
@@ -3364,9 +3370,9 @@ export interface DistributionConfig {
    * <p>A unique identifier that specifies the WAF web ACL, if any, to associate with this
    * 			distribution. To specify a web ACL created using the latest version of WAF, use the
    * 			ACL ARN, for example
-   * 				<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+   * 			<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.
    * 			To specify a web ACL created using WAF Classic, use the ACL ID, for example
-   * 				<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+   * 			<code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
    *          <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
    * 			that are forwarded to CloudFront, and lets you control access to your content. Based on
    * 			conditions that you specify, such as the IP addresses that requests originate from or
@@ -3379,10 +3385,9 @@ export interface DistributionConfig {
   WebACLId?: string;
 
   /**
-   * <p>(Optional) Specify the maximum HTTP version(s) that you want viewers to use to
-   * 			communicate with CloudFront. The default value for new web distributions is
-   * 			<code>http2</code>. Viewers that don't support HTTP/2 automatically use an earlier HTTP
-   * 			version.</p>
+   * <p>(Optional) Specify the HTTP version(s) that you want viewers to use to communicate with
+   * 			CloudFront. The default value for new web distributions is <code>http2</code>. Viewers that
+   * 			don't support HTTP/2 automatically use an earlier HTTP version.</p>
    *          <p>For viewers and CloudFront to use HTTP/2, viewers must support TLSv1.2 or later, and must
    * 			support Server Name Indication (SNI).</p>
    *          <p>For viewers and CloudFront to use HTTP/3, viewers must support TLSv1.3 and Server Name
@@ -5256,7 +5261,7 @@ export interface SessionStickinessConfig {
   /**
    * <p>The maximum amount of time to consider requests from the viewer as being part of the
    * 			same session. Allowed values are 300–3600 seconds (5–60 minutes).</p>
-   *          <p>The value must be less than or equal to <code>IdleTTL</code>.</p>
+   *          <p>The value must be greater than or equal to <code>IdleTTL</code>.</p>
    * @public
    */
   MaximumTTL: number | undefined;
@@ -5269,7 +5274,7 @@ export interface SessionStickinessConfig {
 export interface ContinuousDeploymentSingleWeightConfig {
   /**
    * <p>The percentage of traffic to send to a staging distribution, expressed as a decimal
-   * 			number between 0 and .15.</p>
+   * 			number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.</p>
    * @public
    */
   Weight: number | undefined;
@@ -6363,30 +6368,30 @@ export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
 }
 
 /**
- * <p>The Key Value Store association.</p>
+ * <p>The key value store association.</p>
  * @public
  */
 export interface KeyValueStoreAssociation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store association.</p>
+   * <p>The Amazon Resource Name (ARN) of the key value store association.</p>
    * @public
    */
   KeyValueStoreARN: string | undefined;
 }
 
 /**
- * <p>The Key Value Store associations.</p>
+ * <p>The key value store associations.</p>
  * @public
  */
 export interface KeyValueStoreAssociations {
   /**
-   * <p>The quantity of Key Value Store associations.</p>
+   * <p>The quantity of key value store associations.</p>
    * @public
    */
   Quantity: number | undefined;
 
   /**
-   * <p>The items of the Key Value Store association.</p>
+   * <p>The items of the key value store association.</p>
    * @public
    */
   Items?: KeyValueStoreAssociation[];
@@ -6424,7 +6429,7 @@ export interface FunctionConfig {
   Runtime: FunctionRuntime | undefined;
 
   /**
-   * <p>The configuration for the Key Value Store associations.</p>
+   * <p>The configuration for the key value store associations.</p>
    * @public
    */
   KeyValueStoreAssociations?: KeyValueStoreAssociations;
@@ -6969,18 +6974,18 @@ export const ImportSourceType = {
 export type ImportSourceType = (typeof ImportSourceType)[keyof typeof ImportSourceType];
 
 /**
- * <p>The import source for the Key Value Store.</p>
+ * <p>The import source for the key value store.</p>
  * @public
  */
 export interface ImportSource {
   /**
-   * <p>The source type of the import source for the Key Value Store.</p>
+   * <p>The source type of the import source for the key value store.</p>
    * @public
    */
   SourceType: ImportSourceType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the import source for the Key Value Store.</p>
+   * <p>The Amazon Resource Name (ARN) of the import source for the key value store.</p>
    * @public
    */
   SourceARN: string | undefined;
@@ -6991,13 +6996,14 @@ export interface ImportSource {
  */
 export interface CreateKeyValueStoreRequest {
   /**
-   * <p>The name of the Key Value Store. The maximum length of the name is 32 characters.</p>
+   * <p>The name of the key value store. The minimum length is 1 character and the maximum length is
+   * 			64 characters.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The comment of the Key Value Store.</p>
+   * <p>The comment of the key value store.</p>
    * @public
    */
   Comment?: string;
@@ -7010,44 +7016,44 @@ export interface CreateKeyValueStoreRequest {
 }
 
 /**
- * <p>The Key Value Store. Use this to separate data from function code, allowing you to update
- * 			data without having to publish a new version of a function. The Key Value Store holds
+ * <p>The key value store. Use this to separate data from function code, allowing you to update
+ * 			data without having to publish a new version of a function. The key value store holds
  * 			keys and their corresponding values.</p>
  * @public
  */
 export interface KeyValueStore {
   /**
-   * <p>The name of the Key Value Store.</p>
+   * <p>The name of the key value store.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The unique Id for the Key Value Store.</p>
+   * <p>The unique Id for the key value store.</p>
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>A comment for the Key Value Store.</p>
+   * <p>A comment for the key value store.</p>
    * @public
    */
   Comment: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * <p>The Amazon Resource Name (ARN) of the key value store.</p>
    * @public
    */
   ARN: string | undefined;
 
   /**
-   * <p>The status of the Key Value Store.</p>
+   * <p>The status of the key value store.</p>
    * @public
    */
   Status?: string;
 
   /**
-   * <p>The last-modified time of the Key Value Store.</p>
+   * <p>The last-modified time of the key value store.</p>
    * @public
    */
   LastModifiedTime: Date | undefined;
@@ -7058,26 +7064,26 @@ export interface KeyValueStore {
  */
 export interface CreateKeyValueStoreResult {
   /**
-   * <p>The resulting Key Value Store.</p>
+   * <p>The resulting key value store.</p>
    * @public
    */
   KeyValueStore?: KeyValueStore;
 
   /**
-   * <p>The ETag in the resulting Key Value Store.</p>
+   * <p>The <code>ETag</code> in the resulting key value store.</p>
    * @public
    */
   ETag?: string;
 
   /**
-   * <p>The location of the resulting Key Value Store.</p>
+   * <p>The location of the resulting key value store.</p>
    * @public
    */
   Location?: string;
 }
 
 /**
- * <p>The Key Value Store entity already exists. You must provide a unique Key Value Store
+ * <p>The key value store entity already exists. You must provide a unique key value store
  * 			entity.</p>
  * @public
  */
@@ -7100,7 +7106,7 @@ export class EntityAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The Key Value Store entity limit has been exceeded.</p>
+ * <p>The key value store entity limit has been exceeded.</p>
  * @public
  */
 export class EntityLimitExceeded extends __BaseException {
@@ -7122,7 +7128,7 @@ export class EntityLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The Key Value Store entity size limit was exceeded.</p>
+ * <p>The key value store entity size limit was exceeded.</p>
  * @public
  */
 export class EntitySizeLimitExceeded extends __BaseException {
@@ -7241,6 +7247,8 @@ export class MonitoringSubscriptionAlreadyExists extends __BaseException {
  * @enum
  */
 export const OriginAccessControlOriginTypes = {
+  lambda: "lambda",
+  mediapackagev2: "mediapackagev2",
   mediastore: "mediastore",
   s3: "s3",
 } as const;
@@ -7287,7 +7295,7 @@ export type OriginAccessControlSigningProtocols =
  */
 export interface OriginAccessControlConfig {
   /**
-   * <p>A name to identify the origin access control.</p>
+   * <p>A name to identify the origin access control. You can specify up to 64 characters.</p>
    * @public
    */
   Name: string | undefined;
@@ -8131,9 +8139,7 @@ export interface CreateRealtimeLogConfigRequest {
   Name: string | undefined;
 
   /**
-   * <p>The sampling rate for this real-time log configuration. The sampling rate determines
-   * 			the percentage of viewer requests that are represented in the real-time log data. You
-   * 			must provide an integer between 1 and 100, inclusive.</p>
+   * <p>The sampling rate for this real-time log configuration. You can specify a whole number between 1 and 100 (inclusive) to determine the percentage of viewer requests that are represented in the real-time log data.</p>
    * @public
    */
   SamplingRate: number | undefined;

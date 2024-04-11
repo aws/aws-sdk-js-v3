@@ -46,7 +46,7 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  *     Description: "STRING_VALUE",
  *     SigningProtocol: "sigv4", // required
  *     SigningBehavior: "never" || "always" || "no-override", // required
- *     OriginAccessControlOriginType: "s3" || "mediastore", // required
+ *     OriginAccessControlOriginType: "s3" || "mediastore" || "mediapackagev2" || "lambda", // required
  *   },
  * };
  * const command = new CreateOriginAccessControlCommand(input);
@@ -59,7 +59,7 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  * //       Description: "STRING_VALUE",
  * //       SigningProtocol: "sigv4", // required
  * //       SigningBehavior: "never" || "always" || "no-override", // required
- * //       OriginAccessControlOriginType: "s3" || "mediastore", // required
+ * //       OriginAccessControlOriginType: "s3" || "mediastore" || "mediapackagev2" || "lambda", // required
  * //     },
  * //   },
  * //   Location: "STRING_VALUE",

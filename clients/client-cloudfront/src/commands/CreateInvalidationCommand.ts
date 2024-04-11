@@ -27,7 +27,7 @@ export interface CreateInvalidationCommandInput extends CreateInvalidationReques
 export interface CreateInvalidationCommandOutput extends CreateInvalidationResult, __MetadataBearer {}
 
 /**
- * <p>Create a new invalidation.</p>
+ * <p>Create a new invalidation. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating files</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

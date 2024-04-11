@@ -329,7 +329,7 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
    * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP
    * 			response header and the header's value.</p>
    *          <p>For more information about the <code>Strict-Transport-Security</code> HTTP response
-   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
+   * 			header, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security">Security headers</a> in the <i>Amazon CloudFront Developer Guide</i> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
    * @public
    */
   StrictTransportSecurity?: ResponseHeadersPolicyStrictTransportSecurity;
@@ -1402,20 +1402,20 @@ export class ResourceInUse extends __BaseException {
  */
 export interface DeleteKeyValueStoreRequest {
   /**
-   * <p>The name of the Key Value Store.</p>
+   * <p>The name of the key value store.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Key Value Store to delete, if a match occurs.</p>
+   * <p>The key value store to delete, if a match occurs.</p>
    * @public
    */
   IfMatch: string | undefined;
 }
 
 /**
- * <p>The Key Value Store entity was not found.</p>
+ * <p>The key value store entity was not found.</p>
  * @public
  */
 export class EntityNotFound extends __BaseException {
@@ -1809,7 +1809,7 @@ export interface DescribeFunctionResult {
  */
 export interface DescribeKeyValueStoreRequest {
   /**
-   * <p>The name of the Key Value Store.</p>
+   * <p>The name of the key value store.</p>
    * @public
    */
   Name: string | undefined;
@@ -1820,13 +1820,13 @@ export interface DescribeKeyValueStoreRequest {
  */
 export interface DescribeKeyValueStoreResult {
   /**
-   * <p>The resulting Key Value Store.</p>
+   * <p>The resulting key value store.</p>
    * @public
    */
   KeyValueStore?: KeyValueStore;
 
   /**
-   * <p>The ETag of the resulting Key Value Store.</p>
+   * <p>The <code>ETag</code> of the resulting key value store.</p>
    * @public
    */
   ETag?: string;
@@ -3229,7 +3229,9 @@ export interface DistributionSummary {
   AliasICPRecordals?: AliasICPRecordal[];
 
   /**
-   * <p>Whether the primary distribution has a staging distribution enabled.</p>
+   * <p>A Boolean that indicates whether this is a staging distribution. When this value is
+   * 				<code>true</code>, this is a staging distribution. When this value is
+   * 				<code>false</code>, this is not a staging distribution.</p>
    * @public
    */
   Staging: boolean | undefined;
@@ -3562,7 +3564,10 @@ export interface ListDistributionsByWebACLIdRequest {
   /**
    * <p>The ID of the WAF web ACL that you want to list the associated distributions. If you
    * 			specify "null" for the ID, the request returns a list of the distributions that aren't
-   * 			associated with a web ACL.</p>
+   * 			associated with a web ACL. </p>
+   *          <p>For WAFV2, this is the ARN of the web ACL, such as
+   * 				<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+   *          <p>For WAF Classic, this is the ID of the web ACL, such as <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
    * @public
    */
   WebACLId: string | undefined;
@@ -4057,49 +4062,49 @@ export interface ListKeyGroupsResult {
  */
 export interface ListKeyValueStoresRequest {
   /**
-   * <p>The marker associated with the Key Value Stores list.</p>
+   * <p>The marker associated with the key value stores list.</p>
    * @public
    */
   Marker?: string;
 
   /**
-   * <p>The maximum number of items in the Key Value Stores list.</p>
+   * <p>The maximum number of items in the key value stores list.</p>
    * @public
    */
   MaxItems?: number;
 
   /**
-   * <p>The status of the request for the Key Value Stores list.</p>
+   * <p>The status of the request for the key value stores list.</p>
    * @public
    */
   Status?: string;
 }
 
 /**
- * <p>The Key Value Store list.</p>
+ * <p>The key value store list.</p>
  * @public
  */
 export interface KeyValueStoreList {
   /**
-   * <p>The next marker associated with the Key Value Store list.</p>
+   * <p>The next marker associated with the key value store list.</p>
    * @public
    */
   NextMarker?: string;
 
   /**
-   * <p>The maximum number of items in the Key Value Store list.</p>
+   * <p>The maximum number of items in the key value store list.</p>
    * @public
    */
   MaxItems: number | undefined;
 
   /**
-   * <p>The quantity of the Key Value Store list.</p>
+   * <p>The quantity of the key value store list.</p>
    * @public
    */
   Quantity: number | undefined;
 
   /**
-   * <p>The items of the Key Value Store list.</p>
+   * <p>The items of the key value store list.</p>
    * @public
    */
   Items?: KeyValueStore[];
@@ -4110,7 +4115,7 @@ export interface KeyValueStoreList {
  */
 export interface ListKeyValueStoresResult {
   /**
-   * <p>The resulting Key Value Stores list.</p>
+   * <p>The resulting key value stores list.</p>
    * @public
    */
   KeyValueStoreList?: KeyValueStoreList;
@@ -5441,19 +5446,19 @@ export interface UpdateKeyGroupResult {
  */
 export interface UpdateKeyValueStoreRequest {
   /**
-   * <p>The name of the Key Value Store to update.</p>
+   * <p>The name of the key value store to update.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The comment of the Key Value Store to update.</p>
+   * <p>The comment of the key value store to update.</p>
    * @public
    */
   Comment: string | undefined;
 
   /**
-   * <p>The Key Value Store to update, if a match occurs.</p>
+   * <p>The key value store to update, if a match occurs.</p>
    * @public
    */
   IfMatch: string | undefined;
@@ -5464,13 +5469,13 @@ export interface UpdateKeyValueStoreRequest {
  */
 export interface UpdateKeyValueStoreResult {
   /**
-   * <p>The resulting Key Value Store to update.</p>
+   * <p>The resulting key value store to update.</p>
    * @public
    */
   KeyValueStore?: KeyValueStore;
 
   /**
-   * <p>The ETag of the resulting Key Value Store.</p>
+   * <p>The <code>ETag</code> of the resulting key value store.</p>
    * @public
    */
   ETag?: string;

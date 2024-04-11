@@ -27,7 +27,7 @@ export interface UpdateKeyValueStoreCommandInput extends UpdateKeyValueStoreRequ
 export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreResult, __MetadataBearer {}
 
 /**
- * <p>Specifies the Key Value Store to update.</p>
+ * <p>Specifies the key value store to update.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,7 +65,7 @@ export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreRes
  *  <p>Access denied.</p>
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The Key Value Store entity was not found.</p>
+ *  <p>The key value store entity was not found.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -76,6 +76,9 @@ export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreRes
  * @throws {@link PreconditionFailed} (client fault)
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
