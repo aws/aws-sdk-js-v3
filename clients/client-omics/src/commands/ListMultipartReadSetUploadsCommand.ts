@@ -32,9 +32,8 @@ export interface ListMultipartReadSetUploadsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *       Lists multipart read set uploads and for in progress uploads. Once the upload is completed, a read set is created and the upload will no longer be returned in the respone.
- *     </p>
+ * <p>Lists multipart read set uploads and for in progress uploads.
+ *       Once the upload is completed, a read set is created and the upload will no longer be returned in the response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

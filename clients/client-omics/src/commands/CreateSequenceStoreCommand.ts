@@ -46,6 +46,7 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  *   },
  *   clientToken: "STRING_VALUE",
  *   fallbackLocation: "STRING_VALUE",
+ *   eTagAlgorithmFamily: "STRING_VALUE",
  * };
  * const command = new CreateSequenceStoreCommand(input);
  * const response = await client.send(command);
@@ -60,6 +61,7 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  * //   },
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   fallbackLocation: "STRING_VALUE",
+ * //   eTagAlgorithmFamily: "STRING_VALUE",
  * // };
  *
  * ```

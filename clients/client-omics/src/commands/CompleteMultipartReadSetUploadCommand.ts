@@ -32,9 +32,7 @@ export interface CompleteMultipartReadSetUploadCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *       Concludes a multipart upload once you have uploaded all the components.
- *     </p>
+ * <p>Concludes a multipart upload once you have uploaded all the components.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

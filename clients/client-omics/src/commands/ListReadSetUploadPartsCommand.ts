@@ -27,9 +27,7 @@ export interface ListReadSetUploadPartsCommandInput extends ListReadSetUploadPar
 export interface ListReadSetUploadPartsCommandOutput extends ListReadSetUploadPartsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       This operation will list all parts in a requested multipart upload for a sequence store.
- *     </p>
+ * <p>This operation will list all parts in a requested multipart upload for a sequence store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

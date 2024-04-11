@@ -694,6 +694,7 @@ export const se_CreateSequenceStoreCommand = async (
     take(input, {
       clientToken: [],
       description: [],
+      eTagAlgorithmFamily: [],
       fallbackLocation: [],
       name: [],
       sseConfig: (_) => _json(_),
@@ -3058,6 +3059,7 @@ export const de_CreateSequenceStoreCommand = async (
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    eTagAlgorithmFamily: __expectString,
     fallbackLocation: __expectString,
     id: __expectString,
     name: __expectString,
@@ -3796,9 +3798,11 @@ export const de_GetSequenceStoreCommand = async (
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    eTagAlgorithmFamily: __expectString,
     fallbackLocation: __expectString,
     id: __expectString,
     name: __expectString,
+    s3Access: _json,
     sseConfig: _json,
   });
   Object.assign(contents, doc);
@@ -5467,6 +5471,8 @@ const de_ReadSetListItem = (output: any, context: __SerdeContext): ReadSetListIt
   }) as any;
 };
 
+// de_ReadSetS3Access omitted.
+
 /**
  * deserializeAws_restJson1ReadSetUploadPartList
  */
@@ -5635,6 +5641,7 @@ const de_SequenceStoreDetail = (output: any, context: __SerdeContext): SequenceS
     arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    eTagAlgorithmFamily: __expectString,
     fallbackLocation: __expectString,
     id: __expectString,
     name: __expectString,
@@ -5653,6 +5660,8 @@ const de_SequenceStoreDetailList = (output: any, context: __SerdeContext): Seque
     });
   return retVal;
 };
+
+// de_SequenceStoreS3Access omitted.
 
 /**
  * deserializeAws_restJson1ShareDetails

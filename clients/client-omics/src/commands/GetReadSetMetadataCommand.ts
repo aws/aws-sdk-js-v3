@@ -63,16 +63,25 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * //       totalParts: Number("int"),
  * //       partSize: Number("long"),
  * //       contentLength: Number("long"),
+ * //       s3Access: { // ReadSetS3Access
+ * //         s3Uri: "STRING_VALUE",
+ * //       },
  * //     },
  * //     source2: {
  * //       totalParts: Number("int"),
  * //       partSize: Number("long"),
  * //       contentLength: Number("long"),
+ * //       s3Access: {
+ * //         s3Uri: "STRING_VALUE",
+ * //       },
  * //     },
  * //     index: {
  * //       totalParts: Number("int"),
  * //       partSize: Number("long"),
  * //       contentLength: Number("long"),
+ * //       s3Access: {
+ * //         s3Uri: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * //   statusMessage: "STRING_VALUE",

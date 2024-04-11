@@ -59,6 +59,7 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * //       },
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       fallbackLocation: "STRING_VALUE",
+ * //       eTagAlgorithmFamily: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

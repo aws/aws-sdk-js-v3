@@ -34,9 +34,8 @@ export interface UploadReadSetPartCommandInput extends Omit<UploadReadSetPartReq
 export interface UploadReadSetPartCommandOutput extends UploadReadSetPartResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       This operation uploads a specific part of a read set. If you upload a new part using a previously used part number, the previously uploaded part will be overwritten.
- *     </p>
+ * <p>This operation uploads a specific part of a read set. If you upload a new part using a previously used part number,
+ *       the previously uploaded part will be overwritten.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

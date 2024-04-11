@@ -32,9 +32,7 @@ export interface CreateMultipartReadSetUploadCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *       Begins a multipart read set upload.
- *     </p>
+ * <p>Begins a multipart read set upload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

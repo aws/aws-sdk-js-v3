@@ -50,6 +50,11 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * //   },
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   fallbackLocation: "STRING_VALUE",
+ * //   s3Access: { // SequenceStoreS3Access
+ * //     s3Uri: "STRING_VALUE",
+ * //     s3AccessPointArn: "STRING_VALUE",
+ * //   },
+ * //   eTagAlgorithmFamily: "STRING_VALUE",
  * // };
  *
  * ```

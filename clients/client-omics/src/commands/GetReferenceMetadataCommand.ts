@@ -55,11 +55,17 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  * //       totalParts: Number("int"),
  * //       partSize: Number("long"),
  * //       contentLength: Number("long"),
+ * //       s3Access: { // ReadSetS3Access
+ * //         s3Uri: "STRING_VALUE",
+ * //       },
  * //     },
  * //     index: {
  * //       totalParts: Number("int"),
  * //       partSize: Number("long"),
  * //       contentLength: Number("long"),
+ * //       s3Access: {
+ * //         s3Uri: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };

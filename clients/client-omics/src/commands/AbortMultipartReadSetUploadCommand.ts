@@ -32,9 +32,7 @@ export interface AbortMultipartReadSetUploadCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *       Stops a multipart upload.
- *     </p>
+ * <p>Stops a multipart upload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
