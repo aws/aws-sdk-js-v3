@@ -47,8 +47,8 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *          <important>
- *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you
- *                 are about to delete. Deleting a role or instance profile that is associated with a
+ *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you are
+ *                 about to delete. Deleting a role or instance profile that is associated with a
  *                 running instance will break any applications running on the instance.</p>
  *          </important>
  * @example

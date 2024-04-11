@@ -623,6 +623,7 @@ import {
   MFADevice,
   NoSuchEntityException,
   OpenIDConnectProviderListEntry,
+  OpenIdIdpCommunicationErrorException,
   OrganizationsDecisionDetail,
   PasswordPolicy,
   PasswordPolicyViolationException,
@@ -685,7 +686,6 @@ import {
   TrackedActionLastAccessed,
   UnmodifiableEntityException,
   UnrecognizedPublicKeyEncodingException,
-  UntagInstanceProfileRequest,
   User,
   UserDetail,
   VirtualMFADevice,
@@ -697,6 +697,7 @@ import {
   InvalidPublicKeyException,
   KeyPairMismatchException,
   MalformedCertificateException,
+  UntagInstanceProfileRequest,
   UntagMFADeviceRequest,
   UntagOpenIDConnectProviderRequest,
   UntagPolicyRequest,
@@ -6429,6 +6430,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConcurrentModification":
     case "com.amazonaws.iam#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "OpenIdIdpCommunicationError":
+    case "com.amazonaws.iam#OpenIdIdpCommunicationErrorException":
+      throw await de_OpenIdIdpCommunicationErrorExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocument":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
       throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
@@ -6785,6 +6789,22 @@ const de_NoSuchEntityExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_NoSuchEntityException(body.Error, context);
   const exception = new NoSuchEntityException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryOpenIdIdpCommunicationErrorExceptionRes
+ */
+const de_OpenIdIdpCommunicationErrorExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpenIdIdpCommunicationErrorException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_OpenIdIdpCommunicationErrorException(body.Error, context);
+  const exception = new OpenIdIdpCommunicationErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -12146,6 +12166,20 @@ const de_OpenIDConnectProviderListType = (output: any, context: __SerdeContext):
     .map((entry: any) => {
       return de_OpenIDConnectProviderListEntry(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryOpenIdIdpCommunicationErrorException
+ */
+const de_OpenIdIdpCommunicationErrorException = (
+  output: any,
+  context: __SerdeContext
+): OpenIdIdpCommunicationErrorException => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
 };
 
 /**

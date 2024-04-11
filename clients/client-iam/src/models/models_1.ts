@@ -8,6 +8,26 @@ import { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey, Stat
 /**
  * @public
  */
+export interface UntagInstanceProfileRequest {
+  /**
+   * <p>The name of the IAM instance profile from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  InstanceProfileName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified instance profile.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UntagMFADeviceRequest {
   /**
    * <p>The unique identifier for the IAM virtual MFA device from which you want to remove
@@ -448,6 +468,10 @@ export interface UpdateRoleRequest {
    *             or the <code>assume-role*</code> CLI operations but does not apply when you use those
    *             operations to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
    *                 roles</a> in the <i>IAM User Guide</i>.</p>
+   *          <note>
+   *             <p>IAM role credentials provided by Amazon EC2 instances assigned to the role are not
+   *                 subject to the specified maximum session duration.</p>
+   *          </note>
    * @public
    */
   MaxSessionDuration?: number;

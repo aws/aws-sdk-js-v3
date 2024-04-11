@@ -1220,11 +1220,13 @@ export interface CreateOpenIDConnectProviderRequest {
    *             provider's server certificates. Typically this list includes only one entry. However,
    *             IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain
    *             multiple thumbprints if the identity provider is rotating certificates.</p>
+   *          <p>This parameter is optional. If it is not included, IAM will retrieve and use the top
+   *             intermediate certificate authority (CA) thumbprint of the OpenID Connect identity
+   *             provider server certificate.</p>
    *          <p>The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509
    *             certificate used by the domain where the OpenID Connect provider makes its keys
    *             available. It is always a 40-character string.</p>
-   *          <p>You must provide at least one thumbprint when creating an IAM OIDC provider. For
-   *             example, assume that the OIDC provider is <code>server.example.com</code> and the
+   *          <p>For example, assume that the OIDC provider is <code>server.example.com</code> and the
    *             provider stores its keys at https://keys.server.example.com/openid-connect. In that
    *             case, the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate
    *             used by <code>https://keys.server.example.com.</code>
@@ -1234,7 +1236,7 @@ export interface CreateOpenIDConnectProviderRequest {
    *                 Guide</i>.</p>
    * @public
    */
-  ThumbprintList: string[] | undefined;
+  ThumbprintList?: string[];
 
   /**
    * <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider.
@@ -1270,6 +1272,26 @@ export interface CreateOpenIDConnectProviderResponse {
    * @public
    */
   Tags?: Tag[];
+}
+
+/**
+ * <p>The request failed because IAM cannot connect to the OpenID Connect identity provider URL.</p>
+ * @public
+ */
+export class OpenIdIdpCommunicationErrorException extends __BaseException {
+  readonly name: "OpenIdIdpCommunicationErrorException" = "OpenIdIdpCommunicationErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OpenIdIdpCommunicationErrorException, __BaseException>) {
+    super({
+      name: "OpenIdIdpCommunicationErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OpenIdIdpCommunicationErrorException.prototype);
+  }
 }
 
 /**
@@ -8391,12 +8413,11 @@ export interface SimulateCustomPolicyRequest {
    *             not match one of the following scenarios, then you can omit this parameter. The
    *             following list shows each of the supported scenario values and the resources that you
    *             must define to run the simulation.</p>
-   *          <p>Each of the EC2 scenarios requires that you specify instance, image, and security
+   *          <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security
    *             group resources. If your scenario includes an EBS volume, then you must specify that
-   *             volume as a resource. If the EC2 scenario includes VPC, then you must supply the network
-   *             interface resource. If it includes an IP subnet, then you must specify the subnet
-   *             resource. For more information on the EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User
-   *             Guide</i>.</p>
+   *             volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the
+   *             network interface resource. If it includes an IP subnet, then you must specify the
+   *             subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -8935,12 +8956,11 @@ export interface SimulatePrincipalPolicyRequest {
    *             not match one of the following scenarios, then you can omit this parameter. The
    *             following list shows each of the supported scenario values and the resources that you
    *             must define to run the simulation.</p>
-   *          <p>Each of the EC2 scenarios requires that you specify instance, image, and security
+   *          <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security
    *             group resources. If your scenario includes an EBS volume, then you must specify that
-   *             volume as a resource. If the EC2 scenario includes VPC, then you must supply the network
-   *             interface resource. If it includes an IP subnet, then you must specify the subnet
-   *             resource. For more information on the EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User
-   *             Guide</i>.</p>
+   *             volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the
+   *             network interface resource. If it includes an IP subnet, then you must specify the
+   *             subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9151,26 +9171,6 @@ export interface TagUserRequest {
    * @public
    */
   Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagInstanceProfileRequest {
-  /**
-   * <p>The name of the IAM instance profile from which you want to remove tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  InstanceProfileName: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified instance profile.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
 }
 
 /**
