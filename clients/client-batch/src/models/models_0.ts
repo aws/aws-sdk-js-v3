@@ -160,6 +160,69 @@ export interface AttemptContainerDetail {
 }
 
 /**
+ * <p>An object that represents the details of a container that's part of a job attempt.</p>
+ * @public
+ */
+export interface AttemptTaskContainerDetails {
+  /**
+   * <p>The exit code for the container’s attempt. A non-zero exit code is considered failed.</p>
+   * @public
+   */
+  exitCode?: number;
+
+  /**
+   * <p>The name of a container.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>A short (255 max characters) string that's easy to understand and provides additional details for a
+   *    running or stopped container.</p>
+   * @public
+   */
+  reason?: string;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs log stream that's associated with the container. The log
+   *    group for Batch jobs is <code>/aws/batch/job</code>. Each container attempt receives a log stream name
+   *    when they reach the <code>RUNNING</code> status.</p>
+   * @public
+   */
+  logStreamName?: string;
+
+  /**
+   * <p>The network interfaces that are associated with the job attempt.</p>
+   * @public
+   */
+  networkInterfaces?: NetworkInterface[];
+}
+
+/**
+ * <p>An object that represents the details of a task.</p>
+ * @public
+ */
+export interface AttemptEcsTaskDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>
+   * @public
+   */
+  containerInstanceArn?: string;
+
+  /**
+   * <p>The ARN of the Amazon ECS task.</p>
+   * @public
+   */
+  taskArn?: string;
+
+  /**
+   * <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
+   * @public
+   */
+  containers?: AttemptTaskContainerDetails[];
+}
+
+/**
  * <p>An object that represents a job attempt.</p>
  * @public
  */
@@ -191,6 +254,13 @@ export interface AttemptDetail {
    * @public
    */
   statusReason?: string;
+
+  /**
+   * <p>The properties for a task definition that describes the container and volume definitions of
+   *    an Amazon ECS task.</p>
+   * @public
+   */
+  taskProperties?: AttemptEcsTaskDetails[];
 }
 
 /**
@@ -998,7 +1068,7 @@ export interface JobStateTimeLimitAction {
   reason: string | undefined;
 
   /**
-   * <p>The state of the job needed to trigger the action. The only supported value is "<code>RUNNABLE</code>".</p>
+   * <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
    * @public
    */
   state: JobStateTimeLimitActionsState | undefined;
@@ -1012,7 +1082,7 @@ export interface JobStateTimeLimitAction {
 
   /**
    * <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of
-   *    time. The only supported value is "<code>CANCEL</code>", which will cancel the job.</p>
+   *    time. The only supported value is <code>CANCEL</code>, which will cancel the job.</p>
    * @public
    */
   action: JobStateTimeLimitActionsAction | undefined;
@@ -2820,7 +2890,9 @@ export interface TaskContainerDependency {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>START</code> - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start. </p>
+   *                   <code>START</code> - This condition emulates the behavior of links and volumes today. It
+   *      validates that a dependent container is started before permitting other containers to start.
+   *     </p>
    *             </li>
    *             <li>
    *                <p>
@@ -2965,7 +3037,8 @@ export interface TaskContainerProperties {
   mountPoints?: MountPoint[];
 
   /**
-   * <p>The name of a container. The name can be used as a unique identifier to target your <code>dependsOn</code> and <code>Overrides</code> objects. </p>
+   * <p>The name of a container. The name can be used as a unique identifier to target your
+   *     <code>dependsOn</code> and <code>Overrides</code> objects. </p>
    * @public
    */
   name?: string;
@@ -3131,9 +3204,9 @@ export interface EcsTaskProperties {
 
   /**
    * <p>The IPC resource namespace to use for the containers in the task. The valid values are
-   *    <code>host</code>, <code>task</code>, or <code>none</code>.</p>
+   *     <code>host</code>, <code>task</code>, or <code>none</code>.</p>
    *          <p>If <code>host</code> is specified, all containers within the tasks that specified the
-   *    <code>host</code> IPC mode on the same container instance share the same IPC resources with the
+   *     <code>host</code> IPC mode on the same container instance share the same IPC resources with the
    *    host Amazon EC2 instance.</p>
    *          <p>If <code>task</code> is specified, all containers within the specified <code>task</code>
    *    share the same IPC resources.</p>
@@ -3157,11 +3230,11 @@ export interface EcsTaskProperties {
 
   /**
    * <p>The process namespace to use for the containers in the task. The valid values are
-   *    <code>host</code> or <code>task</code>. For example, monitoring sidecars might need
-   *    <code>pidMode</code> to access information about other containers running in the same
+   *     <code>host</code> or <code>task</code>. For example, monitoring sidecars might need
+   *     <code>pidMode</code> to access information about other containers running in the same
    *    task.</p>
    *          <p>If <code>host</code> is specified, all containers within the tasks that specified the
-   *    <code>host</code> PID mode on the same container instance share the process namespace with the
+   *     <code>host</code> PID mode on the same container instance share the process namespace with the
    *    host Amazon EC2 instance.</p>
    *          <p>If <code>task</code> is specified, all containers within the specified task share the same
    *    process namespace.</p>
@@ -3354,7 +3427,8 @@ export interface EksContainerSecurityContext {
   privileged?: boolean;
 
   /**
-   * <p>Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is <code>false</code>.</p>
+   * <p>Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent
+   *    process. The default value is <code>false</code>.</p>
    * @public
    */
   allowPrivilegeEscalation?: boolean;
@@ -3504,12 +3578,15 @@ export interface EksContainer {
 }
 
 /**
- * <p>References a Kubernetes configuration resource that holds a list of secrets. These secrets help to gain access to pull an image from a private registry.</p>
+ * <p>References a Kubernetes secret resource. This name of the secret must start and end with an
+ *    alphanumeric character, is required to be lowercase, can include periods (.) and hyphens (-), and
+ *    can't contain more than 253 characters.</p>
  * @public
  */
 export interface ImagePullSecret {
   /**
-   * <p>Provides a unique identifier for the <code>ImagePullSecret</code>. This object is required when <code>EksPodProperties$imagePullSecrets</code> is used.</p>
+   * <p>Provides a unique identifier for the <code>ImagePullSecret</code>. This object is required
+   *    when <code>EksPodProperties$imagePullSecrets</code> is used.</p>
    * @public
    */
   name: string | undefined;
@@ -3683,7 +3760,8 @@ export interface EksPodProperties {
   dnsPolicy?: string;
 
   /**
-   * <p>References a Kubernetes secret resource. This object must start and end with an alphanumeric character, is required to be lowercase, can include periods (.) and hyphens (-), and can't contain more than 253 characters.</p>
+   * <p>References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain
+   *    access to pull an images from a private registry.</p>
    *          <p>
    *             <code>ImagePullSecret$name</code> is required when this object is used.</p>
    * @public
@@ -3697,8 +3775,11 @@ export interface EksPodProperties {
   containers?: EksContainer[];
 
   /**
-   * <p>These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store.  For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
-   *    Containers</a> in the <i>Kubernetes documentation</i>.</p>
+   * <p>These containers run before application containers, always runs to completion, and must
+   *    complete successfully before the next container starts. These containers are registered with the
+   *    Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store.
+   *    For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
+   *     Containers</a> in the <i>Kubernetes documentation</i>.</p>
    *          <note>
    *             <p>This object is limited to 10 elements</p>
    *          </note>
@@ -3768,7 +3849,8 @@ export interface NodeRangeProperty {
   container?: ContainerProperties;
 
   /**
-   * <p>The instance types of the underlying host infrastructure of a multi-node parallel job.</p>
+   * <p>The instance types of the underlying host infrastructure of a multi-node parallel
+   *    job.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources.</p>
    *             <p>In addition, this list object is currently limited to one element.</p>
@@ -3993,8 +4075,9 @@ export interface JobDefinition {
   retryStrategy?: RetryStrategy;
 
   /**
-   * <p>An object with properties specific to Amazon ECS-based jobs. When <code>containerProperties</code> is used in the job definition, it can't be used in addition to <code>eksProperties</code>, <code>ecsProperties</code>, or
-   *     <code>nodeProperties</code>.</p>
+   * <p>An object with properties specific to Amazon ECS-based jobs. When
+   *     <code>containerProperties</code> is used in the job definition, it can't be used in addition to
+   *     <code>eksProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
    * @public
    */
   containerProperties?: ContainerProperties;
@@ -4007,7 +4090,10 @@ export interface JobDefinition {
   timeout?: JobTimeout;
 
   /**
-   * <p>An object with properties that are specific to multi-node parallel jobs. When <code>nodeProperties</code> is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>eksProperties</code>.</p>
+   * <p>An object with properties that are specific to multi-node parallel jobs. When
+   *     <code>nodeProperties</code> is used in the job definition, it can't be used in addition to
+   *     <code>containerProperties</code>, <code>ecsProperties</code>, or
+   *    <code>eksProperties</code>.</p>
    *          <note>
    *             <p>If the job runs on Fargate resources, don't specify <code>nodeProperties</code>. Use
    *      <code>containerProperties</code> instead.</p>
@@ -4041,15 +4127,19 @@ export interface JobDefinition {
   platformCapabilities?: PlatformCapability[];
 
   /**
-   * <p>An object that contains the properties for the Amazon ECS resources of a job.When <code>ecsProperties</code>
-   *    is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>eksProperties</code>, or <code>nodeProperties</code>.</p>
+   * <p>An object that contains the properties for the Amazon ECS resources of a job.When
+   *     <code>ecsProperties</code> is used in the job definition, it can't be used in addition to
+   *     <code>containerProperties</code>, <code>eksProperties</code>, or
+   *    <code>nodeProperties</code>.</p>
    * @public
    */
   ecsProperties?: EcsProperties;
 
   /**
-   * <p>An object with properties that are specific to Amazon EKS-based jobs. When <code>eksProperties</code>
-   *    is used in the job definition, it can't be used in addition to <code>containerProperties</code>, <code>ecsProperties</code>, or <code>nodeProperties</code>.</p>
+   * <p>An object with properties that are specific to Amazon EKS-based jobs. When
+   *     <code>eksProperties</code> is used in the job definition, it can't be used in addition to
+   *     <code>containerProperties</code>, <code>ecsProperties</code>, or
+   *    <code>nodeProperties</code>.</p>
    * @public
    */
   eksProperties?: EksProperties;
@@ -4819,8 +4909,7 @@ export interface TaskContainerDetails {
  */
 export interface EcsTaskDetails {
   /**
-   * <p>A list of containers that are included in the <code>taskProperties</code>
-   *    list.</p>
+   * <p>A list of containers that are included in the <code>taskProperties</code> list.</p>
    * @public
    */
   containers?: TaskContainerDetails[];
@@ -4866,7 +4955,7 @@ export interface EcsTaskDetails {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for Amazon Web Services permissions. For more
    *    information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM roles for tasks</a> in the
-   *    <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *     <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <note>
    *             <p>This is object is comparable to <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html">ContainerProperties:jobRoleArn</a>.</p>
    *          </note>
@@ -4920,7 +5009,14 @@ export interface EcsPropertiesDetail {
  */
 export interface EksAttemptContainerDetail {
   /**
-   * <p>The exit code returned for the job attempt. A non-zero exit code is considered failed.</p>
+   * <p>The name of a container.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The exit code returned for the job attempt. A non-zero exit code is considered
+   *    failed.</p>
    * @public
    */
   exitCode?: number;
@@ -5057,7 +5153,8 @@ export interface EksContainerDetail {
   resources?: EksContainerResourceRequirements;
 
   /**
-   * <p>The exit code returned for the job attempt. A non-zero exit code is considered failed.</p>
+   * <p>The exit code returned for the job attempt. A non-zero exit code is considered
+   *    failed.</p>
    * @public
    */
   exitCode?: number;
@@ -5130,7 +5227,8 @@ export interface EksPodPropertiesDetail {
   dnsPolicy?: string;
 
   /**
-   * <p>Displays the reference pointer to the Kubernetes secret resource.</p>
+   * <p>Displays the reference pointer to the Kubernetes secret resource. These secrets help to gain
+   *    access to pull an images from a private registry.</p>
    * @public
    */
   imagePullSecrets?: ImagePullSecret[];
@@ -5294,27 +5392,28 @@ export interface JobDetail {
   attempts?: AttemptDetail[];
 
   /**
-   * <p>A short, human-readable string to provide more details for the current status of the job.</p>
+   * <p>A short, human-readable string to provide more details for the current status of the
+   *    job.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY</code> - All compute environments have insufficient capacity to
-   *      service the job.</p>
+   *                   <code>CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY</code> - All compute environments have
+   *      insufficient capacity to service the job.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MISCONFIGURATION:COMPUTE_ENVIRONMENT_MAX_RESOURCE</code> - All compute environments have a
-   *      <code>maxVcpu</code> setting that is smaller than the job requirements.</p>
+   *                   <code>MISCONFIGURATION:COMPUTE_ENVIRONMENT_MAX_RESOURCE</code> - All compute environments
+   *      have a <code>maxVcpu</code> setting that is smaller than the job requirements.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MISCONFIGURATION:JOB_RESOURCE_REQUIREMENT</code> - All compute environments  have no connected instances
-   *      that meet the job requirements.</p>
+   *                   <code>MISCONFIGURATION:JOB_RESOURCE_REQUIREMENT</code> - All compute environments have no
+   *      connected instances that meet the job requirements.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MISCONFIGURATION:SERVICE_ROLE_PERMISSIONS</code> - All compute environments have problems with the
-   *      service role permissions.</p>
+   *                   <code>MISCONFIGURATION:SERVICE_ROLE_PERMISSIONS</code> - All compute environments have
+   *      problems with the service role permissions.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5373,8 +5472,8 @@ export interface JobDetail {
   parameters?: Record<string, string>;
 
   /**
-   * <p>An object that represents the details for the container that's associated with the
-   *    job. If the details are for a multiple-container job, this object will be empty. </p>
+   * <p>An object that represents the details for the container that's associated with the job. If
+   *    the details are for a multiple-container job, this object will be empty. </p>
    * @public
    */
   container?: ContainerDetail;
@@ -6247,7 +6346,8 @@ export interface EcsPropertiesOverride {
  */
 export interface EksContainerOverride {
   /**
-   * <p>A pointer to the container that you want to override. The name must match a unique container name that you wish to override.</p>
+   * <p>A pointer to the container that you want to override. The name must match a unique container
+   *    name that you wish to override.</p>
    * @public
    */
   name?: string;
@@ -6309,7 +6409,10 @@ export interface EksPodPropertiesOverride {
   containers?: EksContainerOverride[];
 
   /**
-   * <p>The overrides for the conatainers defined in the Amazon EKS  pod. These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store.  For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
+   * <p>The overrides for the conatainers defined in the Amazon EKS pod. These containers run before
+   *    application containers, always runs to completion, and must complete successfully before the next
+   *    container starts. These containers are registered with the Amazon EKS Connector agent and persists the
+   *    registration information in the Kubernetes backend data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
    *     Containers</a> in the <i>Kubernetes documentation</i>.</p>
    *          <note>
    *             <p>This object is limited to 10 elements</p>

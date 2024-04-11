@@ -70,6 +70,27 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //           startedAt: Number("long"),
  * //           stoppedAt: Number("long"),
  * //           statusReason: "STRING_VALUE",
+ * //           taskProperties: [ // ListAttemptEcsTaskDetails
+ * //             { // AttemptEcsTaskDetails
+ * //               containerInstanceArn: "STRING_VALUE",
+ * //               taskArn: "STRING_VALUE",
+ * //               containers: [ // ListAttemptTaskContainerDetails
+ * //                 { // AttemptTaskContainerDetails
+ * //                   exitCode: Number("int"),
+ * //                   name: "STRING_VALUE",
+ * //                   reason: "STRING_VALUE",
+ * //                   logStreamName: "STRING_VALUE",
+ * //                   networkInterfaces: [
+ * //                     {
+ * //                       attachmentId: "STRING_VALUE",
+ * //                       ipv6Address: "STRING_VALUE",
+ * //                       privateIpv4Address: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       statusReason: "STRING_VALUE",
@@ -153,13 +174,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //         taskArn: "STRING_VALUE",
  * //         logStreamName: "STRING_VALUE",
  * //         instanceType: "STRING_VALUE",
- * //         networkInterfaces: [
- * //           {
- * //             attachmentId: "STRING_VALUE",
- * //             ipv6Address: "STRING_VALUE",
- * //             privateIpv4Address: "STRING_VALUE",
- * //           },
- * //         ],
+ * //         networkInterfaces: "<NetworkInterfaceList>",
  * //         resourceRequirements: [ // ResourceRequirements
  * //           { // ResourceRequirement
  * //             value: "STRING_VALUE", // required
@@ -520,12 +535,14 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //         { // EksAttemptDetail
  * //           containers: [ // EksAttemptContainerDetails
  * //             { // EksAttemptContainerDetail
+ * //               name: "STRING_VALUE",
  * //               exitCode: Number("int"),
  * //               reason: "STRING_VALUE",
  * //             },
  * //           ],
  * //           initContainers: [
  * //             {
+ * //               name: "STRING_VALUE",
  * //               exitCode: Number("int"),
  * //               reason: "STRING_VALUE",
  * //             },

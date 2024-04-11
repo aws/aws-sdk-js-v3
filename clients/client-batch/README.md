@@ -12,7 +12,7 @@ AWS SDK for JavaScript Batch Client for Node.js, Browser and React Native.
 developers, scientists, and engineers to access large amounts of compute resources. Batch uses the advantages of
 the batch computing to remove the undifferentiated heavy lifting of configuring and managing required infrastructure.
 At the same time, it also adopts a familiar batch computing software approach. You can use Batch to efficiently
-provision resources d, and work toward eliminating capacity constraints, reducing your overall compute costs, and
+provision resources, and work toward eliminating capacity constraints, reducing your overall compute costs, and
 delivering results more quickly.</p>
 <p>As a fully managed service, Batch can run batch computing workloads of any scale. Batch automatically
 provisions compute resources and optimizes workload distribution based on the quantity and scale of your specific

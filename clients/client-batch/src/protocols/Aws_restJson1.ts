@@ -1557,6 +1557,10 @@ const se_ShareAttributesList = (input: ShareAttributes[], context: __SerdeContex
 
 // de_AttemptDetails omitted.
 
+// de_AttemptEcsTaskDetails omitted.
+
+// de_AttemptTaskContainerDetails omitted.
+
 // de_ComputeEnvironmentDetail omitted.
 
 // de_ComputeEnvironmentDetailList omitted.
@@ -1787,6 +1791,10 @@ const de_JobDetailList = (output: any, context: __SerdeContext): JobDetail[] => 
 // de_LaunchTemplateSpecification omitted.
 
 // de_LinuxParameters omitted.
+
+// de_ListAttemptEcsTaskDetails omitted.
+
+// de_ListAttemptTaskContainerDetails omitted.
 
 // de_ListEcsTaskDetails omitted.
 
