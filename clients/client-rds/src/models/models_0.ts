@@ -3641,8 +3641,29 @@ export class CreateCustomDBEngineVersionFault extends __BaseException {
  */
 export interface CreateCustomDBEngineVersionMessage {
   /**
-   * <p>The database engine to use for your custom engine version (CEV). The only supported value is
-   *             <code>custom-oracle-ee</code>.</p>
+   * <p>The database engine. RDS Custom for Oracle supports the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Engine: string | undefined;
@@ -7289,6 +7310,15 @@ export interface CreateDBInstanceMessage {
    *             <li>
    *                <p>
    *                   <code>custom-oracle-ee-cdb</code> (for RDS Custom for Oracle DB instances)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2</code> (for RDS Custom for Oracle DB instances)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2-cdb</code> (for RDS Custom for Oracle DB
+   *                     instances)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -12893,7 +12923,29 @@ export class CustomDBEngineVersionNotFoundFault extends __BaseException {
  */
 export interface DeleteCustomDBEngineVersionMessage {
   /**
-   * <p>The database engine. The only supported engines are <code>custom-oracle-ee</code> and <code>custom-oracle-ee-cdb</code>.</p>
+   * <p>The database engine. RDS Custom for Oracle supports the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Engine: string | undefined;
