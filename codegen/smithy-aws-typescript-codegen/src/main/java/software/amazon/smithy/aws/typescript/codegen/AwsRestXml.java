@@ -109,6 +109,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
         writer.addDependency(AwsDependency.XML_BUILDER);
 
+        writer.addDependency(AwsDependency.AWS_SDK_CORE);
         writer.addImport("loadRestXmlErrorCode", null, AwsDependency.AWS_SDK_CORE);
 
         writer.write(

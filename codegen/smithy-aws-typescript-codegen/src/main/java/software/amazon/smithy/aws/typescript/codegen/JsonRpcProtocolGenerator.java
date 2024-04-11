@@ -106,6 +106,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
+        writer.addDependency(AwsDependency.AWS_SDK_CORE);
         writer.addImport("loadRestJsonErrorCode", null, AwsDependency.AWS_SDK_CORE);
 
         if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
