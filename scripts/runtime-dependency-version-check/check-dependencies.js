@@ -9,7 +9,14 @@ const pkgJsonEnforcement = require("./package-json-enforcement");
 
 const root = path.join(__dirname, "..", "..");
 const packages = path.join(root, "packages");
+const _private = path.join(root, "private");
+const topLevelFolders = [packages, _private];
+const packageFolders = [];
 const walk = require("../utils/walk");
+
+for (const topLevelFolder of topLevelFolders) {
+  packageFolders.push(...fs.readdirSync(topLevelFolder));
+}
 
 const node_libraries = [
   "buffer",
@@ -41,16 +48,21 @@ const node_libraries = [
 (async () => {
   const errors = [];
 
-  for (const folder of fs.readdirSync(packages)) {
-    if (folder === "util-dynamodb") {
+  for (const packageFolder of packageFolders) {
+    if (packageFolder === "util-dynamodb") {
       // exempt
       continue;
     }
 
-    const pkgJsonPath = path.join(packages, folder, "package.json");
-    errors.push(...pkgJsonEnforcement(pkgJsonPath, true));
+    const containingFolder = topLevelFolders.find((f) => fs.existsSync(path.join(f, packageFolder, "package.json")));
 
-    const srcPath = path.join(packages, folder, "src");
+    const pkgJsonPath = path.join(containingFolder, packageFolder, "package.json");
+
+    if (containingFolder === packages) {
+      errors.push(...pkgJsonEnforcement(pkgJsonPath, true));
+    }
+
+    const srcPath = path.join(containingFolder, packageFolder, "src");
     const pkgJson = require(pkgJsonPath);
 
     if (!pkgJson.dependencies.tslib) {
@@ -93,7 +105,7 @@ const node_libraries = [
 
       for (const [dep, version] of Object.entries(pkgJson.devDependencies ?? {})) {
         if ((dep.startsWith("@smithy") || dep.startsWith("@aws-sdk")) && contents.includes(`from "${dep}";`)) {
-          errors.push(`${dep} incorrectly declared in devDependencies of ${folder}`);
+          errors.push(`${dep} incorrectly declared in devDependencies of ${packageFolder}`);
           delete pkgJson.devDependencies[dep];
           if (!pkgJson.dependencies) {
             pkgJson.dependencies = {};
