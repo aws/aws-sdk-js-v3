@@ -5732,7 +5732,7 @@ export interface ImportSourceCredentialsInput {
 
   /**
    * <p> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,
-   *             this is the app password. </p>
+   *             this is either the access token or the app password. </p>
    * @public
    */
   token: string | undefined;
