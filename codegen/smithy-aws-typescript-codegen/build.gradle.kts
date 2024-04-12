@@ -35,15 +35,20 @@ buildscript {
 }
 
 dependencies {
-    api("software.amazon.smithy:smithy-aws-cloudformation-traits:$smithyVersion")
-    api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
-    api("software.amazon.smithy:smithy-aws-endpoints:$smithyVersion")
-    api("software.amazon.smithy:smithy-waiters:$smithyVersion")
-    api("software.amazon.smithy:smithy-aws-iam-traits:$smithyVersion")
-    api("software.amazon.smithy:smithy-protocol-test-traits:$smithyVersion")
-    api("software.amazon.smithy:smithy-model:$smithyVersion")
-    api("software.amazon.smithy:smithy-rules-engine:$smithyVersion")
+    // Smithy TypeScript
     api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.20.1")
+
+    // Smithy generic dependencies
+    api("software.amazon.smithy:smithy-model:$smithyVersion")
+    api("software.amazon.smithy:smithy-protocol-test-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-rules-engine:$smithyVersion")
+    api("software.amazon.smithy:smithy-waiters:$smithyVersion")
+
+    // Smithy AWS dependencies
+    api("software.amazon.smithy:smithy-aws-cloudformation-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-aws-endpoints:$smithyVersion")
+    api("software.amazon.smithy:smithy-aws-iam-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
 }
 
 tasks.register("set-aws-sdk-versions") {
