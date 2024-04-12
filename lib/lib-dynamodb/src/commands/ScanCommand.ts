@@ -1,11 +1,5 @@
 // smithy-typescript generated code
-import {
-  Condition,
-  ScanCommand as __ScanCommand,
-  ScanCommandInput as __ScanCommandInput,
-  ScanCommandOutput as __ScanCommandOutput,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { ScanCommand as __ScanCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -102,3 +96,10 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  Condition,
+  ScanCommandInput as __ScanCommandInput,
+  ScanCommandOutput as __ScanCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

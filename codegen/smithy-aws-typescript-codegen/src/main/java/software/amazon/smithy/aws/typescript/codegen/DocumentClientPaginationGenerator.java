@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
 import software.amazon.smithy.codegen.core.CodegenException;
@@ -77,20 +78,20 @@ final class DocumentClientPaginationGenerator implements Runnable {
     @Override
     public void run() {
         // Import Service Types
-        String commandFileLocation = Paths.get(".", DocumentClientUtils.CLIENT_COMMANDS_FOLDER,
-            DocumentClientUtils.getModifiedName(operationTypeName)).toString();
-        writer.addImport(operationTypeName, operationTypeName, commandFileLocation);
-        writer.addImport(inputTypeName, inputTypeName, commandFileLocation);
-        writer.addImport(outputTypeName, outputTypeName, commandFileLocation);
-        writer.addImport(
+        Path commandFileLocation = Paths.get(".", DocumentClientUtils.CLIENT_COMMANDS_FOLDER,
+            DocumentClientUtils.getModifiedName(operationTypeName));
+        writer.addRelativeImport(operationTypeName, operationTypeName, commandFileLocation);
+        writer.addRelativeImport(inputTypeName, inputTypeName, commandFileLocation);
+        writer.addRelativeImport(outputTypeName, outputTypeName, commandFileLocation);
+        writer.addRelativeImport(
             DocumentClientUtils.CLIENT_NAME,
             DocumentClientUtils.CLIENT_NAME,
-            Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
+            Paths.get(".", DocumentClientUtils.CLIENT_NAME));
 
         // Import Pagination types
         writer.addImport("Paginator", "Paginator", TypeScriptDependency.SMITHY_TYPES);
-        writer.addImport(paginationType, paginationType,
-            Paths.get(".", getInterfaceFilelocation().replace(".ts", "")).toString());
+        writer.addRelativeImport(paginationType, paginationType,
+            Paths.get(".", getInterfaceFilelocation().replace(".ts", "")));
 
         writer.writeDocs("@public");
         writer.write("export { Paginator }");
@@ -113,14 +114,14 @@ final class DocumentClientPaginationGenerator implements Runnable {
     static void generateServicePaginationInterfaces(TypeScriptWriter writer) {
         writer.addImport("PaginationConfiguration", "PaginationConfiguration", TypeScriptDependency.SMITHY_TYPES);
 
-        writer.addImport(
+        writer.addRelativeImport(
             DocumentClientUtils.CLIENT_NAME,
             DocumentClientUtils.CLIENT_NAME,
-            Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
-        writer.addImport(
+            Paths.get(".", DocumentClientUtils.CLIENT_NAME));
+        writer.addRelativeImport(
             DocumentClientUtils.CLIENT_FULL_NAME,
             DocumentClientUtils.CLIENT_FULL_NAME,
-            Paths.get(".", DocumentClientUtils.CLIENT_FULL_NAME).toString());
+            Paths.get(".", DocumentClientUtils.CLIENT_FULL_NAME));
 
         writer.writeDocs("@public");
         writer.write("export { PaginationConfiguration };");

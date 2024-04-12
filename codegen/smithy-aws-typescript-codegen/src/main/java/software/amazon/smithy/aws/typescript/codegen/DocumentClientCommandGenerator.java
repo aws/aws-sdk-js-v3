@@ -15,11 +15,14 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.codegen.core.Symbol;
@@ -62,6 +65,10 @@ final class DocumentClientCommandGenerator implements Runnable {
     private final List<MemberShape> outputMembersWithAttr;
     private final String clientCommandClassName;
     private final String clientCommandLocalName;
+    /**
+     * Map of package name to external:local name entries.
+     */
+    private final Map<String, Map<String, String>> orderedUncheckedImports = new TreeMap<>();
 
     DocumentClientCommandGenerator(
             TypeScriptSettings settings,
@@ -97,12 +104,21 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     @Override
     public void run() {
-        String servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString();
+        Path servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME);
         String configType = DocumentClientUtils.CLIENT_CONFIG_NAME;
 
+        // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
+        writer.write("""
+           import { %s as %s } from "%s";
+           """.formatted(
+                clientCommandClassName,
+                clientCommandLocalName,
+                AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
+            )
+        );
 
         // Add required imports.
-        writer.addImport(configType, configType, servicePath);
+        writer.addRelativeImport(configType, configType, servicePath);
         writer.addImport(
             "DynamoDBDocumentClientCommand",
             "DynamoDBDocumentClientCommand",
@@ -159,6 +175,24 @@ final class DocumentClientCommandGenerator implements Runnable {
                 writer.pushState(COMMAND_BODY_EXTRA_SECTION).popState();
             }
         );
+
+        // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
+        writer.write("");
+        orderedUncheckedImports.forEach((dep, symbols) -> {
+            writer.openBlock("import type {", """
+                } from "%s";
+                """.formatted(dep), () -> {
+                symbols.forEach((externalName, localName) -> {
+                    if (externalName.equals(localName)) {
+                        writer.writeInline(localName).write(",");
+                    } else {
+                        writer.write("""
+                            %s as %s,
+                            """.formatted(externalName, localName));
+                    }
+                });
+            });
+        });
     }
 
     private void generateCommandConstructor() {
@@ -180,9 +214,9 @@ final class DocumentClientCommandGenerator implements Runnable {
         String handler = "Handler";
         String middlewareStack = "MiddlewareStack";
 
-        String servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString();
-        writer.addImport(serviceInputTypes, serviceInputTypes, servicePath);
-        writer.addImport(serviceOutputTypes, serviceOutputTypes, servicePath);
+        Path servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME);
+        writer.addRelativeImport(serviceInputTypes, serviceInputTypes, servicePath);
+        writer.addRelativeImport(serviceOutputTypes, serviceOutputTypes, servicePath);
         writer.addImport(handler, handler, TypeScriptDependency.SMITHY_TYPES);
         writer.addImport(middlewareStack, middlewareStack, TypeScriptDependency.SMITHY_TYPES);
 
@@ -193,8 +227,6 @@ final class DocumentClientCommandGenerator implements Runnable {
                 .write("options?: $T", ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType())
                 .dedent();
         writer.openBlock("): $L<$L, $L> {", "}", handler, inputTypeName, outputTypeName, () -> {
-
-            writer.addImport(clientCommandClassName, clientCommandLocalName, "@aws-sdk/client-dynamodb");
 
             String commandVarName = "this.clientCommand";
 
@@ -312,7 +344,11 @@ final class DocumentClientCommandGenerator implements Runnable {
     ) {
         writer.writeDocs("@public");
         if (optionalShape.isPresent()) {
-            writer.addImport(originalTypeName, "__" + originalTypeName, "@aws-sdk/client-dynamodb");
+            registerTypeImport(
+                originalTypeName,
+                "__" + originalTypeName,
+                AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
+            );
             if (membersWithAttr.isEmpty()) {
                 writer.write("export type $L = __$L;", typeName, originalTypeName);
             } else {
@@ -339,7 +375,11 @@ final class DocumentClientCommandGenerator implements Runnable {
             .map(memberWithAttr -> "'" + symbolProvider.toMemberName(memberWithAttr) + "'")
             .collect(Collectors.joining(" | "));
         String typeNameToOmit = symbolProvider.toSymbol(structureTarget).getName();
-        writer.addImport(typeNameToOmit, typeNameToOmit, "@aws-sdk/client-dynamodb");
+        registerTypeImport(
+            typeNameToOmit,
+            typeNameToOmit,
+            AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
+        );
         writer.openBlock("Omit<$L, $L> & {", "}", typeNameToOmit,
             memberUnionToOmit, () -> {
                 for (MemberShape memberWithAttr: membersWithAttr) {
@@ -387,7 +427,11 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void writeNativeAttributeValue() {
         String nativeAttributeValue = "NativeAttributeValue";
-        writer.addImport(nativeAttributeValue, nativeAttributeValue, "@aws-sdk/util-dynamodb");
+        registerTypeImport(
+            nativeAttributeValue,
+            nativeAttributeValue,
+            AwsDependency.UTIL_DYNAMODB.getPackageName()
+        );
         writer.write(nativeAttributeValue);
     }
 
@@ -401,5 +445,13 @@ final class DocumentClientCommandGenerator implements Runnable {
      */
     private boolean isRequiredMember(MemberShape member) {
         return member.isRequired() && !member.hasTrait(IdempotencyTokenTrait.class);
+    }
+
+    private void registerTypeImport(String externalName, String localName, String packageName) {
+        orderedUncheckedImports.putIfAbsent(packageName, new TreeMap<>());
+        orderedUncheckedImports.get(packageName)
+            .put(
+                externalName, localName
+            );
     }
 }

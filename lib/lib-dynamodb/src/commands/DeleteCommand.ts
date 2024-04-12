@@ -1,12 +1,5 @@
 // smithy-typescript generated code
-import {
-  DeleteItemCommand as __DeleteItemCommand,
-  DeleteItemCommandInput as __DeleteItemCommandInput,
-  DeleteItemCommandOutput as __DeleteItemCommandOutput,
-  ExpectedAttributeValue,
-  ItemCollectionMetrics,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { DeleteItemCommand as __DeleteItemCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -104,3 +97,11 @@ export class DeleteCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  DeleteItemCommandInput as __DeleteItemCommandInput,
+  DeleteItemCommandOutput as __DeleteItemCommandOutput,
+  ExpectedAttributeValue,
+  ItemCollectionMetrics,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

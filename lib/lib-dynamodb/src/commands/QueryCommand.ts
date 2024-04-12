@@ -1,11 +1,5 @@
 // smithy-typescript generated code
-import {
-  Condition,
-  QueryCommand as __QueryCommand,
-  QueryCommandInput as __QueryCommandInput,
-  QueryCommandOutput as __QueryCommandOutput,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { QueryCommand as __QueryCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -113,3 +107,10 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  Condition,
+  QueryCommandInput as __QueryCommandInput,
+  QueryCommandOutput as __QueryCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

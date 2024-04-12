@@ -1,14 +1,5 @@
 // smithy-typescript generated code
-import {
-  BatchWriteItemCommand as __BatchWriteItemCommand,
-  BatchWriteItemCommandInput as __BatchWriteItemCommandInput,
-  BatchWriteItemCommandOutput as __BatchWriteItemCommandOutput,
-  DeleteRequest,
-  ItemCollectionMetrics,
-  PutRequest,
-  WriteRequest,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { BatchWriteItemCommand as __BatchWriteItemCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -145,3 +136,13 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  BatchWriteItemCommandInput as __BatchWriteItemCommandInput,
+  BatchWriteItemCommandOutput as __BatchWriteItemCommandOutput,
+  DeleteRequest,
+  ItemCollectionMetrics,
+  PutRequest,
+  WriteRequest,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

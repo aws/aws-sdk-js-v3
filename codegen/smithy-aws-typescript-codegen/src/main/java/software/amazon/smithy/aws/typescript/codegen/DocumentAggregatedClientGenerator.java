@@ -63,8 +63,12 @@ final class DocumentAggregatedClientGenerator implements Runnable {
 
     @Override
     public void run() {
-        writer.addImport(DocumentClientUtils.CLIENT_NAME,
-            DocumentClientUtils.CLIENT_NAME, Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
+        // Note: using addImport would register this dependency on the dynamodb client, which must be avoided.
+        writer.write("""
+            import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+            """);
+        writer.addRelativeImport(DocumentClientUtils.CLIENT_NAME,
+            DocumentClientUtils.CLIENT_NAME, Paths.get(".", DocumentClientUtils.CLIENT_NAME));
         writer.writeDocs(DocumentClientUtils.getClientDocs());
         writer.openBlock("export class $L extends $L {", "}",
             DocumentClientUtils.CLIENT_FULL_NAME, DocumentClientUtils.CLIENT_NAME, () -> {
@@ -77,8 +81,7 @@ final class DocumentAggregatedClientGenerator implements Runnable {
 
     private void generateStaticFactoryFrom() {
         String translateConfig = DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE;
-        writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
-        writer.addImport(translateConfig, translateConfig, Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
+        writer.addRelativeImport(translateConfig, translateConfig, Paths.get(".", DocumentClientUtils.CLIENT_NAME));
         writer.openBlock("static from(client: $L, translateConfig?: $L) {", "}",
             serviceName, translateConfig, () -> {
                 writer.write("return new $L(client, translateConfig);", DocumentClientUtils.CLIENT_FULL_NAME);

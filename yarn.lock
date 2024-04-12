@@ -2901,16 +2901,16 @@
     "@smithy/types" "^2.12.0"
     tslib "^2.6.2"
 
-"@smithy/experimental-identity-and-auth@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@smithy/experimental-identity-and-auth/-/experimental-identity-and-auth-0.2.2.tgz#54718c72125840b1b6fc317b5105e5ceae1dd965"
-  integrity sha512-Huu0zW5jBckE+u4lXrTua9jDR4JNiB2Sp9O3shVaTfVVJwYYCZGdFl2Qvg+2TN9hJTVMXuvXakCiRNRQZbw/Zw==
+"@smithy/experimental-identity-and-auth@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@smithy/experimental-identity-and-auth/-/experimental-identity-and-auth-0.2.3.tgz#821460377189121eb8dfa304160461d12ba834c9"
+  integrity sha512-Wbgjn22s/0/Gen+97Vi4WRHcPSVFozVQEWqrtp4l+ztjXrNoWvWmsiJX6ab3CArw0uT4gwLXtW7Ys7uJcKIhsw==
   dependencies:
     "@smithy/middleware-endpoint" "^2.5.1"
     "@smithy/middleware-retry" "^2.3.1"
     "@smithy/middleware-serde" "^2.3.0"
     "@smithy/protocol-http" "^3.3.0"
-    "@smithy/signature-v4" "^2.2.1"
+    "@smithy/signature-v4" "^2.3.0"
     "@smithy/types" "^2.12.0"
     "@smithy/util-middleware" "^2.2.0"
     tslib "^2.6.2"
@@ -3141,10 +3141,10 @@
     "@smithy/types" "^2.12.0"
     tslib "^2.6.2"
 
-"@smithy/signature-v4@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@smithy/signature-v4/-/signature-v4-2.2.1.tgz#9b32571e9785c8f69aa4115517bf2a784f690c4d"
-  integrity sha512-j5fHgL1iqKTsKJ1mTcw88p0RUcidDu95AWSeZTgiYJb+QcfwWU/UpBnaqiB59FNH5MiAZuSbOBnZlwzeeY2tIw==
+"@smithy/signature-v4@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@smithy/signature-v4/-/signature-v4-2.3.0.tgz#c30dd4028ae50c607db99459981cce8cdab7a3fd"
+  integrity sha512-ui/NlpILU+6HAQBfJX8BBsDXuKSNrjTSuOYArRblcrErwKFutjrCNb/OExfVRyj9+26F9J+ZmfWT+fKWuDrH3Q==
   dependencies:
     "@smithy/is-array-buffer" "^2.2.0"
     "@smithy/types" "^2.12.0"

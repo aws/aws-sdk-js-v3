@@ -1,12 +1,5 @@
 // smithy-typescript generated code
-import {
-  ExpectedAttributeValue,
-  ItemCollectionMetrics,
-  PutItemCommand as __PutItemCommand,
-  PutItemCommandInput as __PutItemCommandInput,
-  PutItemCommandOutput as __PutItemCommandOutput,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { PutItemCommand as __PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -104,3 +97,11 @@ export class PutCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  ExpectedAttributeValue,
+  ItemCollectionMetrics,
+  PutItemCommandInput as __PutItemCommandInput,
+  PutItemCommandOutput as __PutItemCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

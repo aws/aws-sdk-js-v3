@@ -1,13 +1,5 @@
 // smithy-typescript generated code
-import {
-  BatchExecuteStatementCommand as __BatchExecuteStatementCommand,
-  BatchExecuteStatementCommandInput as __BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput as __BatchExecuteStatementCommandOutput,
-  BatchStatementError,
-  BatchStatementRequest,
-  BatchStatementResponse,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { BatchExecuteStatementCommand as __BatchExecuteStatementCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -104,3 +96,12 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  BatchExecuteStatementCommandInput as __BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput as __BatchExecuteStatementCommandOutput,
+  BatchStatementError,
+  BatchStatementRequest,
+  BatchStatementResponse,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

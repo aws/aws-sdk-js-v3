@@ -1,11 +1,5 @@
 // smithy-typescript generated code
-import {
-  BatchGetItemCommand as __BatchGetItemCommand,
-  BatchGetItemCommandInput as __BatchGetItemCommandInput,
-  BatchGetItemCommandOutput as __BatchGetItemCommandOutput,
-  KeysAndAttributes,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { BatchGetItemCommand as __BatchGetItemCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -112,3 +106,10 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  BatchGetItemCommandInput as __BatchGetItemCommandInput,
+  BatchGetItemCommandOutput as __BatchGetItemCommandOutput,
+  KeysAndAttributes,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

@@ -1,16 +1,5 @@
 // smithy-typescript generated code
-import {
-  ConditionCheck,
-  Delete,
-  ItemCollectionMetrics,
-  Put,
-  TransactWriteItem,
-  TransactWriteItemsCommand as __TransactWriteItemsCommand,
-  TransactWriteItemsCommandInput as __TransactWriteItemsCommandInput,
-  TransactWriteItemsCommandOutput as __TransactWriteItemsCommandOutput,
-  Update,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { TransactWriteItemsCommand as __TransactWriteItemsCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -136,3 +125,15 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  ConditionCheck,
+  Delete,
+  ItemCollectionMetrics,
+  Put,
+  TransactWriteItem,
+  TransactWriteItemsCommandInput as __TransactWriteItemsCommandInput,
+  TransactWriteItemsCommandOutput as __TransactWriteItemsCommandOutput,
+  Update,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

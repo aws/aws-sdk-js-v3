@@ -1,13 +1,5 @@
 // smithy-typescript generated code
-import {
-  AttributeValueUpdate,
-  ExpectedAttributeValue,
-  ItemCollectionMetrics,
-  UpdateItemCommand as __UpdateItemCommand,
-  UpdateItemCommandInput as __UpdateItemCommandInput,
-  UpdateItemCommandOutput as __UpdateItemCommandOutput,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { UpdateItemCommand as __UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -119,3 +111,12 @@ export class UpdateCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  AttributeValueUpdate,
+  ExpectedAttributeValue,
+  ItemCollectionMetrics,
+  UpdateItemCommandInput as __UpdateItemCommandInput,
+  UpdateItemCommandOutput as __UpdateItemCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

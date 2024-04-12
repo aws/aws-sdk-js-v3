@@ -1,12 +1,5 @@
 // smithy-typescript generated code
-import {
-  ExecuteTransactionCommand as __ExecuteTransactionCommand,
-  ExecuteTransactionCommandInput as __ExecuteTransactionCommandInput,
-  ExecuteTransactionCommandOutput as __ExecuteTransactionCommandOutput,
-  ItemResponse,
-  ParameterizedStatement,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { ExecuteTransactionCommand as __ExecuteTransactionCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -97,3 +90,11 @@ export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+
+import type {
+  ExecuteTransactionCommandInput as __ExecuteTransactionCommandInput,
+  ExecuteTransactionCommandOutput as __ExecuteTransactionCommandOutput,
+  ItemResponse,
+  ParameterizedStatement,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
