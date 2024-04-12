@@ -383,6 +383,27 @@ export class CloudHsmClusterNotRelatedException extends __BaseException {
 }
 
 /**
+ * <p>The request was rejected because an automatic rotation of this key is currently in
+ *       progress or scheduled to begin within the next 20 minutes. </p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface ConnectCustomKeyStoreRequest {
@@ -965,8 +986,8 @@ export class XksProxyInvalidResponseException extends __BaseException {
 
 /**
  * <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already
- *       associated with another external key store in this Amazon Web Services Region. To identify the cause,
- *       see the error message that accompanies the exception. </p>
+ *       associated with another external key store in this Amazon Web Services Region. To identify the cause, see
+ *       the error message that accompanies the exception. </p>
  * @public
  */
 export class XksProxyUriEndpointInUseException extends __BaseException {
@@ -3132,7 +3153,7 @@ export interface DescribeCustomKeyStoresResponse {
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
-   *     the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
+   *     the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
    *     subsequent request.</p>
    * @public
    */
@@ -3327,6 +3348,21 @@ export interface EnableKeyRotationRequest {
    * @public
    */
   KeyId: string | undefined;
+
+  /**
+   * <p>Use this parameter to specify a custom period of time between each rotation date. If no
+   *       value is specified, the default value is 365 days.</p>
+   *          <p>The rotation period defines the number of days after you enable automatic key rotation
+   *       that KMS will rotate your key material, and the number of days between each automatic
+   *       rotation thereafter.</p>
+   *          <p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days">
+   *                <code>kms:RotationPeriodInDays</code>
+   *             </a> condition key to further constrain the
+   *       values that principals can specify in the <code>RotationPeriodInDays</code> parameter.</p>
+   *          <p> </p>
+   * @public
+   */
+  RotationPeriodInDays?: number;
 }
 
 /**
@@ -4136,6 +4172,35 @@ export interface GetKeyRotationStatusResponse {
    * @public
    */
   KeyRotationEnabled?: boolean;
+
+  /**
+   * <p>Identifies the specified symmetric encryption KMS key.</p>
+   * @public
+   */
+  KeyId?: string;
+
+  /**
+   * <p>The number of days between each automatic rotation. The default value is 365 days.</p>
+   * @public
+   */
+  RotationPeriodInDays?: number;
+
+  /**
+   * <p>The next date that KMS will automatically rotate the key material.</p>
+   * @public
+   */
+  NextRotationDate?: Date;
+
+  /**
+   * <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
+   *          <p>The KMS API follows an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">eventual consistency</a> model
+   *       due to the distributed nature of the system. As a result, there might be a slight delay
+   *       between initiating on-demand key rotation and the rotation's completion. Once the on-demand
+   *       rotation is complete, use <a>ListKeyRotations</a> to view the details of the
+   *       on-demand rotation.</p>
+   * @public
+   */
+  OnDemandRotationStartDate?: Date;
 }
 
 /**
@@ -4708,7 +4773,7 @@ export interface ListAliasesResponse {
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
-   *     the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
+   *     the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
    *     subsequent request.</p>
    * @public
    */
@@ -4792,7 +4857,7 @@ export interface ListGrantsResponse {
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
-   *     the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
+   *     the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
    *     subsequent request.</p>
    * @public
    */
@@ -4862,7 +4927,114 @@ export interface ListKeyPoliciesResponse {
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
-   *     the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
+   *     the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
+   *     subsequent request.</p>
+   * @public
+   */
+  Truncated?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListKeyRotationsRequest {
+  /**
+   * <p>Gets the key rotations for the specified KMS key.</p>
+   *          <p>Specify the key ID or key ARN of the KMS key.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+   * @public
+   */
+  KeyId: string | undefined;
+
+  /**
+   * <p>Use this parameter to specify the maximum number of items to return. When this
+   *     value is present, KMS does not return more than the specified number of items, but it might
+   *     return fewer.</p>
+   *          <p>This value is optional. If you include a value, it must be between
+   *     1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>Use this parameter in a subsequent request after you receive a response with
+   *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
+   *     you just received.</p>
+   * @public
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RotationType = {
+  AUTOMATIC: "AUTOMATIC",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type RotationType = (typeof RotationType)[keyof typeof RotationType];
+
+/**
+ * <p>Contains information about completed key material rotations.</p>
+ * @public
+ */
+export interface RotationsListEntry {
+  /**
+   * <p>Unique identifier of the key.</p>
+   * @public
+   */
+  KeyId?: string;
+
+  /**
+   * <p>Date and time that the key material rotation completed. Formatted as Unix time.</p>
+   * @public
+   */
+  RotationDate?: Date;
+
+  /**
+   * <p>Identifies whether the key material rotation was a scheduled <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable">automatic rotation</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-on-demand">on-demand rotation</a>.</p>
+   * @public
+   */
+  RotationType?: RotationType;
+}
+
+/**
+ * @public
+ */
+export interface ListKeyRotationsResponse {
+  /**
+   * <p>A list of completed key material rotations.</p>
+   * @public
+   */
+  Rotations?: RotationsListEntry[];
+
+  /**
+   * <p>When <code>Truncated</code> is true, this element is present and contains the
+   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+   * @public
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>A flag that indicates whether there are more items in the list. When this
+   *     value is true, the list in this response is truncated. To get more items, pass the value of
+   *     the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
    *     subsequent request.</p>
    * @public
    */
@@ -4912,7 +5084,7 @@ export interface ListKeysResponse {
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
-   *     the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
+   *     the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
    *     subsequent request.</p>
    * @public
    */
@@ -4987,7 +5159,7 @@ export interface ListResourceTagsResponse {
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
-   *     the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
+   *     the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
    *     subsequent request.</p>
    * @public
    */
@@ -5557,6 +5729,46 @@ export interface RevokeGrantRequest {
    * @public
    */
   DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface RotateKeyOnDemandRequest {
+  /**
+   * <p>Identifies a symmetric encryption KMS key. You cannot perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>,
+   *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>,
+   *       KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To perform
+   *       on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>,
+   *       invoke the on-demand rotation on the primary key.</p>
+   *          <p>Specify the key ID or key ARN of the KMS key.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+   * @public
+   */
+  KeyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RotateKeyOnDemandResponse {
+  /**
+   * <p>Identifies the symmetric encryption KMS key that you initiated on-demand rotation
+   *       on.</p>
+   * @public
+   */
+  KeyId?: string;
 }
 
 /**

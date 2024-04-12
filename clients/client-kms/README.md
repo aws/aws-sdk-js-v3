@@ -556,6 +556,14 @@ ListKeyPolicies
 </details>
 <details>
 <summary>
+ListKeyRotations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kms/command/ListKeyRotationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/ListKeyRotationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/ListKeyRotationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListKeys
 </summary>
 
@@ -616,6 +624,14 @@ RevokeGrant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kms/command/RevokeGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/RevokeGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/RevokeGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
+RotateKeyOnDemand
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kms/command/RotateKeyOnDemandCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/RotateKeyOnDemandCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/RotateKeyOnDemandCommandOutput/)
 
 </details>
 <details>

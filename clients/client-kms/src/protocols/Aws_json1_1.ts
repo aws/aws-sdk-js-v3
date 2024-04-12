@@ -86,6 +86,7 @@ import { ImportKeyMaterialCommandInput, ImportKeyMaterialCommandOutput } from ".
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import { ListGrantsCommandInput, ListGrantsCommandOutput } from "../commands/ListGrantsCommand";
 import { ListKeyPoliciesCommandInput, ListKeyPoliciesCommandOutput } from "../commands/ListKeyPoliciesCommand";
+import { ListKeyRotationsCommandInput, ListKeyRotationsCommandOutput } from "../commands/ListKeyRotationsCommand";
 import { ListKeysCommandInput, ListKeysCommandOutput } from "../commands/ListKeysCommand";
 import { ListResourceTagsCommandInput, ListResourceTagsCommandOutput } from "../commands/ListResourceTagsCommand";
 import {
@@ -97,6 +98,7 @@ import { ReEncryptCommandInput, ReEncryptCommandOutput } from "../commands/ReEnc
 import { ReplicateKeyCommandInput, ReplicateKeyCommandOutput } from "../commands/ReplicateKeyCommand";
 import { RetireGrantCommandInput, RetireGrantCommandOutput } from "../commands/RetireGrantCommand";
 import { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "../commands/RevokeGrantCommand";
+import { RotateKeyOnDemandCommandInput, RotateKeyOnDemandCommandOutput } from "../commands/RotateKeyOnDemandCommand";
 import {
   ScheduleKeyDeletionCommandInput,
   ScheduleKeyDeletionCommandOutput,
@@ -129,6 +131,7 @@ import {
   CloudHsmClusterNotActiveException,
   CloudHsmClusterNotFoundException,
   CloudHsmClusterNotRelatedException,
+  ConflictException,
   ConnectCustomKeyStoreRequest,
   CreateAliasRequest,
   CreateCustomKeyStoreRequest,
@@ -174,6 +177,7 @@ import {
   GenerateRandomResponse,
   GetKeyPolicyRequest,
   GetKeyRotationStatusRequest,
+  GetKeyRotationStatusResponse,
   GetParametersForImportRequest,
   GetParametersForImportResponse,
   GetPublicKeyRequest,
@@ -205,6 +209,8 @@ import {
   ListGrantsRequest,
   ListGrantsResponse,
   ListKeyPoliciesRequest,
+  ListKeyRotationsRequest,
+  ListKeyRotationsResponse,
   ListKeysRequest,
   ListResourceTagsRequest,
   ListRetirableGrantsRequest,
@@ -218,6 +224,8 @@ import {
   ReplicateKeyResponse,
   RetireGrantRequest,
   RevokeGrantRequest,
+  RotateKeyOnDemandRequest,
+  RotationsListEntry,
   ScheduleKeyDeletionRequest,
   ScheduleKeyDeletionResponse,
   SignRequest,
@@ -665,6 +673,19 @@ export const se_ListKeyPoliciesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListKeyRotationsCommand
+ */
+export const se_ListKeyRotationsCommand = async (
+  input: ListKeyRotationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListKeyRotations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListKeysCommand
  */
 export const se_ListKeysCommand = async (
@@ -763,6 +784,19 @@ export const se_RevokeGrantCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RevokeGrant");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1RotateKeyOnDemandCommand
+ */
+export const se_RotateKeyOnDemandCommand = async (
+  input: RotateKeyOnDemandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RotateKeyOnDemand");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1383,7 +1417,7 @@ export const de_GetKeyRotationStatusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_GetKeyRotationStatusResponse(data, context);
   const response: GetKeyRotationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1505,6 +1539,26 @@ export const de_ListKeyPoliciesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListKeyPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListKeyRotationsCommand
+ */
+export const de_ListKeyRotationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKeyRotationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListKeyRotationsResponse(data, context);
+  const response: ListKeyRotationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1658,6 +1712,26 @@ export const de_RevokeGrantCommand = async (
   await collectBody(output.body, context);
   const response: RevokeGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RotateKeyOnDemandCommand
+ */
+export const de_RotateKeyOnDemandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RotateKeyOnDemandCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RotateKeyOnDemandCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -1986,6 +2060,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidGrantIdException":
     case "com.amazonaws.kms#InvalidGrantIdException":
       throw await de_InvalidGrantIdExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.kms#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "CloudHsmClusterNotRelatedException":
     case "com.amazonaws.kms#CloudHsmClusterNotRelatedException":
       throw await de_CloudHsmClusterNotRelatedExceptionRes(parsedOutput, context);
@@ -2095,6 +2172,19 @@ const de_CloudHsmClusterNotRelatedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new CloudHsmClusterNotRelatedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2898,6 +2988,8 @@ const se_ImportKeyMaterialRequest = (input: ImportKeyMaterialRequest, context: _
 
 // se_ListKeyPoliciesRequest omitted.
 
+// se_ListKeyRotationsRequest omitted.
+
 // se_ListKeysRequest omitted.
 
 // se_ListResourceTagsRequest omitted.
@@ -2938,6 +3030,8 @@ const se_ReEncryptRequest = (input: ReEncryptRequest, context: __SerdeContext): 
 // se_RetireGrantRequest omitted.
 
 // se_RevokeGrantRequest omitted.
+
+// se_RotateKeyOnDemandRequest omitted.
 
 // se_ScheduleKeyDeletionRequest omitted.
 
@@ -3042,6 +3136,8 @@ const de_AliasListEntry = (output: any, context: __SerdeContext): AliasListEntry
 // de_CloudHsmClusterNotFoundException omitted.
 
 // de_CloudHsmClusterNotRelatedException omitted.
+
+// de_ConflictException omitted.
 
 // de_ConnectCustomKeyStoreResponse omitted.
 
@@ -3231,7 +3327,18 @@ const de_GenerateRandomResponse = (output: any, context: __SerdeContext): Genera
 
 // de_GetKeyPolicyResponse omitted.
 
-// de_GetKeyRotationStatusResponse omitted.
+/**
+ * deserializeAws_json1_1GetKeyRotationStatusResponse
+ */
+const de_GetKeyRotationStatusResponse = (output: any, context: __SerdeContext): GetKeyRotationStatusResponse => {
+  return take(output, {
+    KeyId: __expectString,
+    KeyRotationEnabled: __expectBoolean,
+    NextRotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OnDemandRotationStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RotationPeriodInDays: __expectInt32,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1GetParametersForImportResponse
@@ -3389,6 +3496,17 @@ const de_ListGrantsResponse = (output: any, context: __SerdeContext): ListGrants
 
 // de_ListKeyPoliciesResponse omitted.
 
+/**
+ * deserializeAws_json1_1ListKeyRotationsResponse
+ */
+const de_ListKeyRotationsResponse = (output: any, context: __SerdeContext): ListKeyRotationsResponse => {
+  return take(output, {
+    NextMarker: __expectString,
+    Rotations: (_: any) => de_RotationsList(_, context),
+    Truncated: __expectBoolean,
+  }) as any;
+};
+
 // de_ListKeysResponse omitted.
 
 // de_ListResourceTagsResponse omitted.
@@ -3428,6 +3546,31 @@ const de_ReplicateKeyResponse = (output: any, context: __SerdeContext): Replicat
     ReplicaKeyMetadata: (_: any) => de_KeyMetadata(_, context),
     ReplicaPolicy: __expectString,
     ReplicaTags: _json,
+  }) as any;
+};
+
+// de_RotateKeyOnDemandResponse omitted.
+
+/**
+ * deserializeAws_json1_1RotationsList
+ */
+const de_RotationsList = (output: any, context: __SerdeContext): RotationsListEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RotationsListEntry(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1RotationsListEntry
+ */
+const de_RotationsListEntry = (output: any, context: __SerdeContext): RotationsListEntry => {
+  return take(output, {
+    KeyId: __expectString,
+    RotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RotationType: __expectString,
   }) as any;
 };
 

@@ -114,6 +114,11 @@ import {
   ListKeyPoliciesCommandInput,
   ListKeyPoliciesCommandOutput,
 } from "./commands/ListKeyPoliciesCommand";
+import {
+  ListKeyRotationsCommand,
+  ListKeyRotationsCommandInput,
+  ListKeyRotationsCommandOutput,
+} from "./commands/ListKeyRotationsCommand";
 import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
 import {
   ListResourceTagsCommand,
@@ -138,6 +143,11 @@ import {
 } from "./commands/ReplicateKeyCommand";
 import { RetireGrantCommand, RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand";
 import { RevokeGrantCommand, RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand";
+import {
+  RotateKeyOnDemandCommand,
+  RotateKeyOnDemandCommandInput,
+  RotateKeyOnDemandCommandOutput,
+} from "./commands/RotateKeyOnDemandCommand";
 import {
   ScheduleKeyDeletionCommand,
   ScheduleKeyDeletionCommandInput,
@@ -203,6 +213,7 @@ const commands = {
   ListAliasesCommand,
   ListGrantsCommand,
   ListKeyPoliciesCommand,
+  ListKeyRotationsCommand,
   ListKeysCommand,
   ListResourceTagsCommand,
   ListRetirableGrantsCommand,
@@ -211,6 +222,7 @@ const commands = {
   ReplicateKeyCommand,
   RetireGrantCommand,
   RevokeGrantCommand,
+  RotateKeyOnDemandCommand,
   ScheduleKeyDeletionCommand,
   SignCommand,
   TagResourceCommand,
@@ -680,6 +692,23 @@ export interface KMS {
   ): void;
 
   /**
+   * @see {@link ListKeyRotationsCommand}
+   */
+  listKeyRotations(
+    args: ListKeyRotationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeyRotationsCommandOutput>;
+  listKeyRotations(
+    args: ListKeyRotationsCommandInput,
+    cb: (err: any, data?: ListKeyRotationsCommandOutput) => void
+  ): void;
+  listKeyRotations(
+    args: ListKeyRotationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKeyRotationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListKeysCommand}
    */
   listKeys(): Promise<ListKeysCommandOutput>;
@@ -779,6 +808,23 @@ export interface KMS {
     args: RevokeGrantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RevokeGrantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RotateKeyOnDemandCommand}
+   */
+  rotateKeyOnDemand(
+    args: RotateKeyOnDemandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RotateKeyOnDemandCommandOutput>;
+  rotateKeyOnDemand(
+    args: RotateKeyOnDemandCommandInput,
+    cb: (err: any, data?: RotateKeyOnDemandCommandOutput) => void
+  ): void;
+  rotateKeyOnDemand(
+    args: RotateKeyOnDemandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RotateKeyOnDemandCommandOutput) => void
   ): void;
 
   /**

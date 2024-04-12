@@ -59,6 +59,16 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  *                   <a>GetKeyRotationStatus</a>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListKeyRotations</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>RotateKeyOnDemand</a>
+ *                </p>
+ *             </li>
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.

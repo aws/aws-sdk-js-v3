@@ -4,6 +4,7 @@ export * from "./Interfaces";
 export * from "./ListAliasesPaginator";
 export * from "./ListGrantsPaginator";
 export * from "./ListKeyPoliciesPaginator";
+export * from "./ListKeyRotationsPaginator";
 export * from "./ListKeysPaginator";
 export * from "./ListResourceTagsPaginator";
 export * from "./ListRetirableGrantsPaginator";

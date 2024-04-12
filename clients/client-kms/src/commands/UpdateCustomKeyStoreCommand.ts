@@ -280,8 +280,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *
  * @throws {@link XksProxyUriEndpointInUseException} (client fault)
  *  <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already
- *       associated with another external key store in this Amazon Web Services Region. To identify the cause,
- *       see the error message that accompanies the exception. </p>
+ *       associated with another external key store in this Amazon Web Services Region. To identify the cause, see
+ *       the error message that accompanies the exception. </p>
  *
  * @throws {@link XksProxyUriInUseException} (client fault)
  *  <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>

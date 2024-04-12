@@ -118,6 +118,7 @@ import { ImportKeyMaterialCommandInput, ImportKeyMaterialCommandOutput } from ".
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import { ListGrantsCommandInput, ListGrantsCommandOutput } from "./commands/ListGrantsCommand";
 import { ListKeyPoliciesCommandInput, ListKeyPoliciesCommandOutput } from "./commands/ListKeyPoliciesCommand";
+import { ListKeyRotationsCommandInput, ListKeyRotationsCommandOutput } from "./commands/ListKeyRotationsCommand";
 import { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
 import { ListResourceTagsCommandInput, ListResourceTagsCommandOutput } from "./commands/ListResourceTagsCommand";
 import {
@@ -129,6 +130,7 @@ import { ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncr
 import { ReplicateKeyCommandInput, ReplicateKeyCommandOutput } from "./commands/ReplicateKeyCommand";
 import { RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand";
 import { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand";
+import { RotateKeyOnDemandCommandInput, RotateKeyOnDemandCommandOutput } from "./commands/RotateKeyOnDemandCommand";
 import {
   ScheduleKeyDeletionCommandInput,
   ScheduleKeyDeletionCommandOutput,
@@ -198,6 +200,7 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListGrantsCommandInput
   | ListKeyPoliciesCommandInput
+  | ListKeyRotationsCommandInput
   | ListKeysCommandInput
   | ListResourceTagsCommandInput
   | ListRetirableGrantsCommandInput
@@ -206,6 +209,7 @@ export type ServiceInputTypes =
   | ReplicateKeyCommandInput
   | RetireGrantCommandInput
   | RevokeGrantCommandInput
+  | RotateKeyOnDemandCommandInput
   | ScheduleKeyDeletionCommandInput
   | SignCommandInput
   | TagResourceCommandInput
@@ -253,6 +257,7 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListGrantsCommandOutput
   | ListKeyPoliciesCommandOutput
+  | ListKeyRotationsCommandOutput
   | ListKeysCommandOutput
   | ListResourceTagsCommandOutput
   | ListRetirableGrantsCommandOutput
@@ -261,6 +266,7 @@ export type ServiceOutputTypes =
   | ReplicateKeyCommandOutput
   | RetireGrantCommandOutput
   | RevokeGrantCommandOutput
+  | RotateKeyOnDemandCommandOutput
   | ScheduleKeyDeletionCommandOutput
   | SignCommandOutput
   | TagResourceCommandOutput
