@@ -26,7 +26,7 @@
     "@aws-sdk/types": "*",
     "@aws-sdk/util-user-agent-node": "*",
     "@smithy/querystring-parser": "^2.2.0",
-    "@smithy/signature-v4": "^2.2.1",
+    "@smithy/signature-v4": "^2.3.0",
     "@smithy/types": "^2.12.0",
     "@smithy/util-middleware": "^2.2.0",
     "aws-crt": "^1.18.3",
