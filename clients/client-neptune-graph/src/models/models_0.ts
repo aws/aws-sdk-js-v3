@@ -650,6 +650,11 @@ export interface CreateGraphInput {
 
   /**
    * <p>The number of replicas in other AZs. Min =0, Max = 2, Default = 1.</p>
+   *          <important>
+   *             <p>
+   *         Additional charges equivalent to the m-NCUs selected for the graph apply for each replica.
+   *       </p>
+   *          </important>
    * @public
    */
   replicaCount?: number;
@@ -1328,6 +1333,11 @@ export interface RestoreGraphFromSnapshotInput {
 
   /**
    * <p>The number of replicas in other AZs. Min =0, Max = 2, Default =1</p>
+   *          <important>
+   *             <p>
+   *         Additional charges equivalent to the m-NCUs selected for the graph apply for each replica.
+   *       </p>
+   *          </important>
    * @public
    */
   replicaCount?: number;
@@ -2477,6 +2487,11 @@ export interface CreateGraphUsingImportTaskInput {
 
   /**
    * <p>The number of replicas in other AZs to provision on the new graph after import. Default = 0, Min = 0, Max = 2.</p>
+   *          <important>
+   *             <p>
+   *         Additional charges equivalent to the m-NCUs selected for the graph apply for each replica.
+   *       </p>
+   *          </important>
    * @public
    */
   replicaCount?: number;
