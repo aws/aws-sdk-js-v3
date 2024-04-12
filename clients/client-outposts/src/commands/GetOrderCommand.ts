@@ -52,7 +52,7 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * //         Status: "PREPARING" || "BUILDING" || "SHIPPED" || "DELIVERED" || "INSTALLING" || "INSTALLED" || "ERROR" || "CANCELLED" || "REPLACED",
  * //         ShipmentInformation: { // ShipmentInformation
  * //           ShipmentTrackingNumber: "STRING_VALUE",
- * //           ShipmentCarrier: "DHL" || "DBS" || "FEDEX" || "UPS",
+ * //           ShipmentCarrier: "DHL" || "DBS" || "FEDEX" || "UPS" || "EXPEDITORS",
  * //         },
  * //         AssetInformationList: [ // LineItemAssetInformationList
  * //           { // LineItemAssetInformation

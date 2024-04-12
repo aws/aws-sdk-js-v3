@@ -630,6 +630,7 @@ export interface LineItemAssetInformation {
 export const ShipmentCarrier = {
   DBS: "DBS",
   DHL: "DHL",
+  EXPEDITORS: "EXPEDITORS",
   FEDEX: "FEDEX",
   UPS: "UPS",
 } as const;
