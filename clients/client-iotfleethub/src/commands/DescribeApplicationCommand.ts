@@ -27,10 +27,7 @@ export interface DescribeApplicationCommandInput extends DescribeApplicationRequ
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a Fleet Hub for AWS IoT Device Management web application.</p>
- *          <note>
- *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
- *          </note>
+ * <p>Gets information about a Fleet Hub for IoT Device Management web application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

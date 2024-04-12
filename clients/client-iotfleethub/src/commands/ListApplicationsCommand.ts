@@ -27,10 +27,7 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of Fleet Hub for AWS IoT Device Management web applications for the current account.</p>
- *          <note>
- *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
- *          </note>
+ * <p>Gets a list of Fleet Hub for IoT Device Management web applications for the current account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

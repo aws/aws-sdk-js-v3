@@ -27,10 +27,11 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Fleet Hub for AWS IoT Device Management web application.</p>
- *          <note>
- *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
- *          </note>
+ * <p>Creates a Fleet Hub for IoT Device Management web application.</p>
+ *          <p>When creating a Fleet Hub application, you must create an organization instance of
+ *       IAM Identity Center if you don't already have one. The Fleet Hub application you create must also be in
+ *       the same Amazon Web Services Region of the organization instance of IAM Identity Center. For more information see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html">Enabling
+ *         IAM Identity Center</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/organization-instances-identity-center.html">Organization instances of IAM Identity Center</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

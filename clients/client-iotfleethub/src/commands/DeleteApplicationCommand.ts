@@ -27,10 +27,7 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Fleet Hub for AWS IoT Device Management web application.</p>
- *          <note>
- *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
- *          </note>
+ * <p>Deletes a Fleet Hub for IoT Device Management web application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

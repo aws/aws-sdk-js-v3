@@ -28,9 +28,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>Removes the specified tags (metadata) from the resource.</p>
- *          <note>
- *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

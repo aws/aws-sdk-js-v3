@@ -276,10 +276,7 @@ export type IoTFleetHubClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface IoTFleetHubClientResolvedConfig extends IoTFleetHubClientResolvedConfigType {}
 
 /**
- * <p>With Fleet Hub for AWS IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.</p>
- *          <note>
- *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
- *          </note>
+ * <p>With Fleet Hub for IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.</p>
  * @public
  */
 export class IoTFleetHubClient extends __Client<

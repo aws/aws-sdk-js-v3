@@ -21,10 +21,7 @@ export const ApplicationState = {
 export type ApplicationState = (typeof ApplicationState)[keyof typeof ApplicationState];
 
 /**
- * <p>A summary of information about a AWS IoT Device Management web application.</p>
- *          <note>
- *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
- *          </note>
+ * <p>A summary of information about a Fleet Hub for IoT Device Management web application.</p>
  * @public
  */
 export interface ApplicationSummary {
@@ -95,7 +92,7 @@ export interface CreateApplicationRequest {
   clientToken?: string;
 
   /**
-   * <p>The ARN of the role that the web application assumes when it interacts with AWS IoT Core.</p>
+   * <p>The ARN of the role that the web application assumes when it interacts with Amazon Web Services IoT Core.</p>
    *          <note>
    *             <p>The name of the role must be in the form <code>AWSIotFleetHub_<i>random_string</i>
    *                </code>.</p>
@@ -315,7 +312,7 @@ export interface DescribeApplicationResponse {
   applicationLastUpdateDate: number | undefined;
 
   /**
-   * <p>The ARN of the role that the web application assumes when it interacts with AWS IoT Core.</p>
+   * <p>The ARN of the role that the web application assumes when it interacts with Amazon Web Services IoT Core.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -327,7 +324,8 @@ export interface DescribeApplicationResponse {
   ssoClientId?: string;
 
   /**
-   * <p>A message indicating why the <code>DescribeApplication</code> API failed.</p>
+   * <p>A message that explains any failures included in the <code>applicationState</code> response field. This message
+   *     explains failures in the <code>CreateApplication</code> and <code>DeleteApplication</code> actions.</p>
    * @public
    */
   errorMessage?: string;
