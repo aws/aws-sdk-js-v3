@@ -1,10 +1,5 @@
 // smithy-typescript generated code
-import {
-  ExecuteStatementCommand as __ExecuteStatementCommand,
-  ExecuteStatementCommandInput as __ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput as __ExecuteStatementCommandOutput,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { ExecuteStatementCommand as __ExecuteStatementCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -85,3 +80,6 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+import { ExecuteStatementCommandInput as __ExecuteStatementCommandInput } from "@aws-sdk/client-dynamodb";
+import { ExecuteStatementCommandOutput as __ExecuteStatementCommandOutput } from "@aws-sdk/client-dynamodb";
+import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";

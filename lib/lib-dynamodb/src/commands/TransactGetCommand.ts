@@ -1,13 +1,5 @@
 // smithy-typescript generated code
-import {
-  Get,
-  ItemResponse,
-  TransactGetItem,
-  TransactGetItemsCommand as __TransactGetItemsCommand,
-  TransactGetItemsCommandInput as __TransactGetItemsCommandInput,
-  TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
-} from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+import { TransactGetItemsCommand as __TransactGetItemsCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
@@ -104,3 +96,9 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
+import { Get as Get } from "@aws-sdk/client-dynamodb";
+import { ItemResponse as ItemResponse } from "@aws-sdk/client-dynamodb";
+import { TransactGetItem as TransactGetItem } from "@aws-sdk/client-dynamodb";
+import { TransactGetItemsCommandInput as __TransactGetItemsCommandInput } from "@aws-sdk/client-dynamodb";
+import { TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput } from "@aws-sdk/client-dynamodb";
+import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
