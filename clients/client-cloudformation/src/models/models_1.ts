@@ -23,6 +23,19 @@ import {
 /**
  * @public
  */
+export interface SetTypeConfigurationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the configuration data, in this account and Region.</p>
+   *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
+   *    <code>TypeName</code>.</p>
+   * @public
+   */
+  ConfigurationArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface SetTypeDefaultVersionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension for which you want version summary information.</p>

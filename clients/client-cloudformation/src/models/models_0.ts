@@ -410,6 +410,21 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AttributeChangeType = {
+  Add: "Add",
+  Modify: "Modify",
+  Remove: "Remove",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeChangeType = (typeof AttributeChangeType)[keyof typeof AttributeChangeType];
+
+/**
  * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations
  *    accounts that are added to a target organization or organizational unit (OU).</p>
  * @public
@@ -820,6 +835,44 @@ export interface ResourceTargetDefinition {
    * @public
    */
   RequiresRecreation?: RequiresRecreation;
+
+  /**
+   * <p>The property path of the property.</p>
+   * @public
+   */
+  Path?: string;
+
+  /**
+   * <p>The value of the property before the change is executed. Large values can be truncated.</p>
+   * @public
+   */
+  BeforeValue?: string;
+
+  /**
+   * <p>The value of the property after the change is executed. Large values can be truncated.</p>
+   * @public
+   */
+  AfterValue?: string;
+
+  /**
+   * <p>The type of change to be made to the property if the change is executed.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Add</code> The item will be added.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Remove</code> The item will be removed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modify</code> The item will be modified.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AttributeChangeType?: AttributeChangeType;
 }
 
 /**
@@ -1070,6 +1123,18 @@ export interface ResourceChange {
    * @public
    */
   ModuleInfo?: ModuleInfo;
+
+  /**
+   * <p>An encoded JSON string containing the context of the resource before the change is executed.</p>
+   * @public
+   */
+  BeforeContext?: string;
+
+  /**
+   * <p>An encoded JSON string containing the context of the resource after the change is executed.</p>
+   * @public
+   */
+  AfterContext?: string;
 }
 
 /**
@@ -1091,7 +1156,13 @@ export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
  */
 export interface Change {
   /**
-   * <p>The type of entity that CloudFormation changes. Currently, the only entity type is <code>Resource</code>.</p>
+   * <p>The type of entity that CloudFormation changes.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Resource</code> This change is for a resource.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Type?: ChangeType;
@@ -3678,6 +3749,12 @@ export interface DescribeChangeSetInput {
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>If <code>true</code>, the returned changes include detailed changes in the property values.</p>
+   * @public
+   */
+  IncludePropertyValues?: boolean;
 }
 
 /**
@@ -10914,17 +10991,4 @@ export interface SetTypeConfigurationInput {
    * @public
    */
   Type?: ThirdPartyType;
-}
-
-/**
- * @public
- */
-export interface SetTypeConfigurationOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the configuration data, in this account and Region.</p>
-   *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
-   *    <code>TypeName</code>.</p>
-   * @public
-   */
-  ConfigurationArn?: string;
 }

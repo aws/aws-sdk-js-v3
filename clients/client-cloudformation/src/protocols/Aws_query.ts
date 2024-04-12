@@ -420,7 +420,6 @@ import {
   ScannedResourceIdentifier,
   SetStackPolicyInput,
   SetTypeConfigurationInput,
-  SetTypeConfigurationOutput,
   Stack,
   StackDriftInformation,
   StackDriftInformationSummary,
@@ -473,6 +472,7 @@ import {
 } from "../models/models_0";
 import {
   ResourceScanLimitExceededException,
+  SetTypeConfigurationOutput,
   SetTypeDefaultVersionInput,
   SetTypeDefaultVersionOutput,
   SignalResourceInput,
@@ -4849,6 +4849,9 @@ const se_DescribeChangeSetInput = (input: DescribeChangeSetInput, context: __Ser
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
   }
+  if (input[_IPV] != null) {
+    entries[_IPV] = input[_IPV];
+  }
   return entries;
 };
 
@@ -9052,6 +9055,12 @@ const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange
   if (output[_MI] != null) {
     contents[_MI] = de_ModuleInfo(output[_MI], context);
   }
+  if (output[_BC] != null) {
+    contents[_BC] = __expectString(output[_BC]);
+  }
+  if (output[_AC] != null) {
+    contents[_AC] = __expectString(output[_AC]);
+  }
   return contents;
 };
 
@@ -9269,6 +9278,18 @@ const de_ResourceTargetDefinition = (output: any, context: __SerdeContext): Reso
   }
   if (output[_RReq] != null) {
     contents[_RReq] = __expectString(output[_RReq]);
+  }
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
+  }
+  if (output[_BV] != null) {
+    contents[_BV] = __expectString(output[_BV]);
+  }
+  if (output[_AVf] != null) {
+    contents[_AVf] = __expectString(output[_AVf]);
+  }
+  if (output[_ACT] != null) {
+    contents[_ACT] = __expectString(output[_ACT]);
   }
   return contents;
 };
@@ -11050,6 +11071,8 @@ const SHARED_HEADERS: __HeaderBag = {
 
 const _ = "2010-05-15";
 const _A = "Action";
+const _AC = "AfterContext";
+const _ACT = "AttributeChangeType";
 const _AD = "AutoDeployment";
 const _AFT = "AccountFilterType";
 const _AGR = "AccountGateResult";
@@ -11064,14 +11087,17 @@ const _AU = "AutoUpdate";
 const _AUc = "AccountsUrl";
 const _AV = "AllowedValues";
 const _AVc = "ActualValue";
+const _AVf = "AfterValue";
 const _Ac = "Accounts";
 const _Acc = "Account";
 const _Act = "Active";
 const _Al = "Alias";
 const _Ar = "Arn";
 const _At = "Attribute";
+const _BC = "BeforeContext";
 const _BDTC = "BatchDescribeTypeConfigurations";
 const _BT = "BearerToken";
+const _BV = "BeforeValue";
 const _C = "Capabilities";
 const _CA = "CallAs";
 const _CAo = "ConnectionArn";
@@ -11195,6 +11221,7 @@ const _IER = "ImportExistingResources";
 const _INS = "IncludeNestedStacks";
 const _IP = "InvocationPoint";
 const _IPSIC = "InProgressStackInstancesCount";
+const _IPV = "IncludePropertyValues";
 const _IPd = "IdentityProvider";
 const _ISSIC = "InSyncStackInstancesCount";
 const _ISTSS = "ImportStacksToStackSet";
@@ -11285,6 +11312,7 @@ const _PTa = "ParameterType";
 const _PTr = "ProvisioningType";
 const _PV = "ParameterValue";
 const _PVN = "PublicVersionNumber";
+const _Pa = "Path";
 const _Pr = "Progress";
 const _Pro = "Properties";
 const _R = "Resources";
