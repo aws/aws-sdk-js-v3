@@ -801,6 +801,7 @@ const de_DatastoreProperties = (output: any, context: __SerdeContext): Datastore
     DatastoreName: __expectString,
     DatastoreStatus: __expectString,
     DatastoreTypeVersion: __expectString,
+    ErrorCause: _json,
     IdentityProviderConfiguration: _json,
     PreloadDataConfig: _json,
     SseConfiguration: _json,
@@ -847,6 +848,8 @@ const de_DescribeFHIRImportJobResponse = (output: any, context: __SerdeContext):
     ImportJobProperties: (_: any) => de_ImportJobProperties(_, context),
   }) as any;
 };
+
+// de_ErrorCause omitted.
 
 /**
  * deserializeAws_json1_0ExportJobProperties

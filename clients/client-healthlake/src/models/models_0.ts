@@ -275,6 +275,7 @@ export interface CreateFHIRDatastoreRequest {
  */
 export const DatastoreStatus = {
   ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
   CREATING: "CREATING",
   DELETED: "DELETED",
   DELETING: "DELETING",
@@ -415,6 +416,38 @@ export interface DatastoreFilter {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ErrorCategory = {
+  NON_RETRYABLE_ERROR: "NON_RETRYABLE_ERROR",
+  RETRYABLE_ERROR: "RETRYABLE_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCategory = (typeof ErrorCategory)[keyof typeof ErrorCategory];
+
+/**
+ * <p>The error info of the create/delete data store operation.</p>
+ * @public
+ */
+export interface ErrorCause {
+  /**
+   * <p>The text of the error message.</p>
+   * @public
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The error category of the create/delete data store operation. Possible statuses are RETRYABLE_ERROR or NON_RETRYABLE_ERROR.</p>
+   * @public
+   */
+  ErrorCategory?: ErrorCategory;
+}
+
+/**
  * <p>Displays the properties of the data store, including the ID, ARN, name, and the status of the data store.</p>
  * @public
  */
@@ -480,6 +513,12 @@ export interface DatastoreProperties {
    * @public
    */
   IdentityProviderConfiguration?: IdentityProviderConfiguration;
+
+  /**
+   * <p>The error cause for the current data store operation.</p>
+   * @public
+   */
+  ErrorCause?: ErrorCause;
 }
 
 /**

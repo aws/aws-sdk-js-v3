@@ -45,7 +45,7 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * //     DatastoreId: "STRING_VALUE", // required
  * //     DatastoreArn: "STRING_VALUE", // required
  * //     DatastoreName: "STRING_VALUE",
- * //     DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED", // required
+ * //     DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "CREATE_FAILED", // required
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     DatastoreTypeVersion: "R4", // required
  * //     DatastoreEndpoint: "STRING_VALUE", // required
@@ -63,6 +63,10 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * //       FineGrainedAuthorizationEnabled: true || false,
  * //       Metadata: "STRING_VALUE",
  * //       IdpLambdaArn: "STRING_VALUE",
+ * //     },
+ * //     ErrorCause: { // ErrorCause
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       ErrorCategory: "RETRYABLE_ERROR" || "NON_RETRYABLE_ERROR",
  * //     },
  * //   },
  * // };
