@@ -183,8 +183,9 @@ subprojects {
          * ====================================================
          */
         apply(plugin = "checkstyle")
+
         checkstyle {
-            configFile = File("${project.rootDir}/gradleConfig/checkstyle/checkstyle.xml")
+            configDirectory.set(rootProject.file("gradleConfig/checkstyle"))
         }
 
         tasks["checkstyleTest"].enabled = false
@@ -240,7 +241,7 @@ subprojects {
         // Configure the bug filter for spotbugs.
         spotbugs {
             setEffort("max")
-            val excludeFile = File("${project.rootDir}/gradleConfig/spotbugs/filter.xml")
+            val excludeFile = rootProject.file("gradleConfig/spotbugs/filter.xml")
             if (excludeFile.exists()) {
                 excludeFilter.set(excludeFile)
             }
