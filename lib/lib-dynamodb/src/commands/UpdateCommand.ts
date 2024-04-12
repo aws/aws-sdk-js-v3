@@ -111,9 +111,12 @@ export class UpdateCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { AttributeValueUpdate as AttributeValueUpdate } from "@aws-sdk/client-dynamodb";
-import { ExpectedAttributeValue as ExpectedAttributeValue } from "@aws-sdk/client-dynamodb";
-import { ItemCollectionMetrics as ItemCollectionMetrics } from "@aws-sdk/client-dynamodb";
-import { UpdateItemCommandInput as __UpdateItemCommandInput } from "@aws-sdk/client-dynamodb";
-import { UpdateItemCommandOutput as __UpdateItemCommandOutput } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  AttributeValueUpdate,
+  ExpectedAttributeValue,
+  ItemCollectionMetrics,
+  UpdateItemCommandInput as __UpdateItemCommandInput,
+  UpdateItemCommandOutput as __UpdateItemCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

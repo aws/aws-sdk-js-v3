@@ -80,6 +80,9 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { ExecuteStatementCommandInput as __ExecuteStatementCommandInput } from "@aws-sdk/client-dynamodb";
-import { ExecuteStatementCommandOutput as __ExecuteStatementCommandOutput } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  ExecuteStatementCommandInput as __ExecuteStatementCommandInput,
+  ExecuteStatementCommandOutput as __ExecuteStatementCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

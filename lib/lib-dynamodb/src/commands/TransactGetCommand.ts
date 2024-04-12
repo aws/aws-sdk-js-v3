@@ -96,9 +96,12 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { Get as Get } from "@aws-sdk/client-dynamodb";
-import { ItemResponse as ItemResponse } from "@aws-sdk/client-dynamodb";
-import { TransactGetItem as TransactGetItem } from "@aws-sdk/client-dynamodb";
-import { TransactGetItemsCommandInput as __TransactGetItemsCommandInput } from "@aws-sdk/client-dynamodb";
-import { TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  Get,
+  ItemResponse,
+  TransactGetItem,
+  TransactGetItemsCommandInput as __TransactGetItemsCommandInput,
+  TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

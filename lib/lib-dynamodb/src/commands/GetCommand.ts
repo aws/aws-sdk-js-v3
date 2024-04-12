@@ -76,6 +76,9 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { GetItemCommandInput as __GetItemCommandInput } from "@aws-sdk/client-dynamodb";
-import { GetItemCommandOutput as __GetItemCommandOutput } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  GetItemCommandInput as __GetItemCommandInput,
+  GetItemCommandOutput as __GetItemCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

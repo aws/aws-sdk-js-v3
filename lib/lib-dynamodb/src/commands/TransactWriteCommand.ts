@@ -125,12 +125,15 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { ConditionCheck as ConditionCheck } from "@aws-sdk/client-dynamodb";
-import { Delete as Delete } from "@aws-sdk/client-dynamodb";
-import { ItemCollectionMetrics as ItemCollectionMetrics } from "@aws-sdk/client-dynamodb";
-import { Put as Put } from "@aws-sdk/client-dynamodb";
-import { TransactWriteItem as TransactWriteItem } from "@aws-sdk/client-dynamodb";
-import { TransactWriteItemsCommandInput as __TransactWriteItemsCommandInput } from "@aws-sdk/client-dynamodb";
-import { TransactWriteItemsCommandOutput as __TransactWriteItemsCommandOutput } from "@aws-sdk/client-dynamodb";
-import { Update as Update } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  ConditionCheck,
+  Delete,
+  ItemCollectionMetrics,
+  Put,
+  TransactWriteItem,
+  TransactWriteItemsCommandInput as __TransactWriteItemsCommandInput,
+  TransactWriteItemsCommandOutput as __TransactWriteItemsCommandOutput,
+  Update,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

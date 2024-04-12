@@ -97,8 +97,11 @@ export class DeleteCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { DeleteItemCommandInput as __DeleteItemCommandInput } from "@aws-sdk/client-dynamodb";
-import { DeleteItemCommandOutput as __DeleteItemCommandOutput } from "@aws-sdk/client-dynamodb";
-import { ExpectedAttributeValue as ExpectedAttributeValue } from "@aws-sdk/client-dynamodb";
-import { ItemCollectionMetrics as ItemCollectionMetrics } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  DeleteItemCommandInput as __DeleteItemCommandInput,
+  DeleteItemCommandOutput as __DeleteItemCommandOutput,
+  ExpectedAttributeValue,
+  ItemCollectionMetrics,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

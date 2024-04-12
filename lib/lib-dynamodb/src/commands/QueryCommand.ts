@@ -107,7 +107,10 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { Condition as Condition } from "@aws-sdk/client-dynamodb";
-import { QueryCommandInput as __QueryCommandInput } from "@aws-sdk/client-dynamodb";
-import { QueryCommandOutput as __QueryCommandOutput } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  Condition,
+  QueryCommandInput as __QueryCommandInput,
+  QueryCommandOutput as __QueryCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

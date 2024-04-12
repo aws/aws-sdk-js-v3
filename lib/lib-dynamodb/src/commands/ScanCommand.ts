@@ -96,7 +96,10 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { Condition as Condition } from "@aws-sdk/client-dynamodb";
-import { ScanCommandInput as __ScanCommandInput } from "@aws-sdk/client-dynamodb";
-import { ScanCommandOutput as __ScanCommandOutput } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  Condition,
+  ScanCommandInput as __ScanCommandInput,
+  ScanCommandOutput as __ScanCommandOutput,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

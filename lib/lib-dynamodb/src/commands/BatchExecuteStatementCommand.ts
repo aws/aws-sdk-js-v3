@@ -96,9 +96,12 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { BatchExecuteStatementCommandInput as __BatchExecuteStatementCommandInput } from "@aws-sdk/client-dynamodb";
-import { BatchExecuteStatementCommandOutput as __BatchExecuteStatementCommandOutput } from "@aws-sdk/client-dynamodb";
-import { BatchStatementError as BatchStatementError } from "@aws-sdk/client-dynamodb";
-import { BatchStatementRequest as BatchStatementRequest } from "@aws-sdk/client-dynamodb";
-import { BatchStatementResponse as BatchStatementResponse } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  BatchExecuteStatementCommandInput as __BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput as __BatchExecuteStatementCommandOutput,
+  BatchStatementError,
+  BatchStatementRequest,
+  BatchStatementResponse,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

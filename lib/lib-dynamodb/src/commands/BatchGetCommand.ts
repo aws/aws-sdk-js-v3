@@ -106,7 +106,10 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { BatchGetItemCommandInput as __BatchGetItemCommandInput } from "@aws-sdk/client-dynamodb";
-import { BatchGetItemCommandOutput as __BatchGetItemCommandOutput } from "@aws-sdk/client-dynamodb";
-import { KeysAndAttributes as KeysAndAttributes } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  BatchGetItemCommandInput as __BatchGetItemCommandInput,
+  BatchGetItemCommandOutput as __BatchGetItemCommandOutput,
+  KeysAndAttributes,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

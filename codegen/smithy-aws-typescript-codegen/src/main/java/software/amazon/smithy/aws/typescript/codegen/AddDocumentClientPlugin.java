@@ -48,8 +48,6 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
         SymbolProvider symbolProvider = codegenContext.symbolProvider();
         BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory = codegenContext.writerDelegator()::useFileWriter;
 
-        codegenContext.writerDelegator();
-        
         writeAdditionalFiles(settings, model, symbolProvider, writerFactory);
     }
 

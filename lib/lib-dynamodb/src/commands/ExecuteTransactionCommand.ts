@@ -90,8 +90,11 @@ export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { ExecuteTransactionCommandInput as __ExecuteTransactionCommandInput } from "@aws-sdk/client-dynamodb";
-import { ExecuteTransactionCommandOutput as __ExecuteTransactionCommandOutput } from "@aws-sdk/client-dynamodb";
-import { ItemResponse as ItemResponse } from "@aws-sdk/client-dynamodb";
-import { ParameterizedStatement as ParameterizedStatement } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  ExecuteTransactionCommandInput as __ExecuteTransactionCommandInput,
+  ExecuteTransactionCommandOutput as __ExecuteTransactionCommandOutput,
+  ItemResponse,
+  ParameterizedStatement,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";

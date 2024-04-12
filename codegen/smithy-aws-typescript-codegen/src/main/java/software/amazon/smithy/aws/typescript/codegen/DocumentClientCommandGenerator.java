@@ -65,7 +65,10 @@ final class DocumentClientCommandGenerator implements Runnable {
     private final List<MemberShape> outputMembersWithAttr;
     private final String clientCommandClassName;
     private final String clientCommandLocalName;
-    private final Map<String, List<String>> orderedUncheckedImports = new TreeMap<>();
+    /**
+     * Map of package name to external:local name entries.
+     */
+    private final Map<String, Map<String, String>> orderedUncheckedImports = new TreeMap<>();
 
     DocumentClientCommandGenerator(
             TypeScriptSettings settings,
@@ -173,17 +176,23 @@ final class DocumentClientCommandGenerator implements Runnable {
             }
         );
 
-        for (List<String> uncheckedImport : orderedUncheckedImports.values()) {
-            // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
-            writer.write("""
-               import { %s as %s } from "%s";
-               """.formatted(
-                    uncheckedImport.get(0),
-                    uncheckedImport.get(1),
-                    uncheckedImport.get(2)
-                )
-            );
-        }
+        // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
+        writer.write("");
+        orderedUncheckedImports.forEach((dep, symbols) -> {
+            writer.openBlock("import type {", """
+                } from "%s";
+                """.formatted(dep), () -> {
+                symbols.forEach((externalName, localName) -> {
+                    if (externalName.equals(localName)) {
+                        writer.writeInline(localName).write(",");
+                    } else {
+                        writer.write("""
+                            %s as %s,
+                            """.formatted(externalName, localName));
+                    }
+                });
+            });
+        });
     }
 
     private void generateCommandConstructor() {
@@ -335,13 +344,10 @@ final class DocumentClientCommandGenerator implements Runnable {
     ) {
         writer.writeDocs("@public");
         if (optionalShape.isPresent()) {
-            orderedUncheckedImports.put(
-                originalTypeName + "-c",
-                List.of(
-                    originalTypeName,
-                    "__" + originalTypeName,
-                    AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
-                )
+            registerTypeImport(
+                originalTypeName,
+                "__" + originalTypeName,
+                AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
             );
             if (membersWithAttr.isEmpty()) {
                 writer.write("export type $L = __$L;", typeName, originalTypeName);
@@ -369,13 +375,10 @@ final class DocumentClientCommandGenerator implements Runnable {
             .map(memberWithAttr -> "'" + symbolProvider.toMemberName(memberWithAttr) + "'")
             .collect(Collectors.joining(" | "));
         String typeNameToOmit = symbolProvider.toSymbol(structureTarget).getName();
-        orderedUncheckedImports.put(
-            typeNameToOmit + "-c", 
-            List.of(
-                typeNameToOmit,
-                typeNameToOmit,
-                AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
-            )
+        registerTypeImport(
+            typeNameToOmit,
+            typeNameToOmit,
+            AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
         );
         writer.openBlock("Omit<$L, $L> & {", "}", typeNameToOmit,
             memberUnionToOmit, () -> {
@@ -424,13 +427,10 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void writeNativeAttributeValue() {
         String nativeAttributeValue = "NativeAttributeValue";
-        orderedUncheckedImports.put(
-            nativeAttributeValue + "-u",
-            List.of(
-                nativeAttributeValue,
-                nativeAttributeValue,
-                AwsDependency.UTIL_DYNAMODB.getPackageName()
-            )
+        registerTypeImport(
+            nativeAttributeValue,
+            nativeAttributeValue,
+            AwsDependency.UTIL_DYNAMODB.getPackageName()
         );
         writer.write(nativeAttributeValue);
     }
@@ -445,5 +445,13 @@ final class DocumentClientCommandGenerator implements Runnable {
      */
     private boolean isRequiredMember(MemberShape member) {
         return member.isRequired() && !member.hasTrait(IdempotencyTokenTrait.class);
+    }
+
+    private void registerTypeImport(String externalName, String localName, String packageName) {
+        orderedUncheckedImports.putIfAbsent(packageName, new TreeMap<>());
+        orderedUncheckedImports.get(packageName)
+            .put(
+                externalName, localName
+            );
     }
 }

@@ -136,10 +136,13 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
     return async () => handler(this.clientCommand);
   }
 }
-import { BatchWriteItemCommandInput as __BatchWriteItemCommandInput } from "@aws-sdk/client-dynamodb";
-import { BatchWriteItemCommandOutput as __BatchWriteItemCommandOutput } from "@aws-sdk/client-dynamodb";
-import { DeleteRequest as DeleteRequest } from "@aws-sdk/client-dynamodb";
-import { ItemCollectionMetrics as ItemCollectionMetrics } from "@aws-sdk/client-dynamodb";
-import { PutRequest as PutRequest } from "@aws-sdk/client-dynamodb";
-import { WriteRequest as WriteRequest } from "@aws-sdk/client-dynamodb";
-import { NativeAttributeValue as NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  BatchWriteItemCommandInput as __BatchWriteItemCommandInput,
+  BatchWriteItemCommandOutput as __BatchWriteItemCommandOutput,
+  DeleteRequest,
+  ItemCollectionMetrics,
+  PutRequest,
+  WriteRequest,
+} from "@aws-sdk/client-dynamodb";
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
