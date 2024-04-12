@@ -103,6 +103,7 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotRes
  * //     SnapshotRetentionStartTime: new Date("TIMESTAMP"),
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     SnapshotArn: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -1707,6 +1707,12 @@ export interface Snapshot {
    * @public
    */
   MasterPasswordSecretKmsKeyId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the snapshot.</p>
+   * @public
+   */
+  SnapshotArn?: string;
 }
 
 /**

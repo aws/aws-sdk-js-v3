@@ -102,6 +102,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * //     SnapshotRetentionStartTime: new Date("TIMESTAMP"),
  * //     MasterPasswordSecretArn: "STRING_VALUE",
  * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     SnapshotArn: "STRING_VALUE",
  * //   },
  * // };
  *

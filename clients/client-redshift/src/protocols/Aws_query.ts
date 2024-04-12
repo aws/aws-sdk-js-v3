@@ -17719,6 +17719,9 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output[_MPSKKI] != null) {
     contents[_MPSKKI] = __expectString(output[_MPSKKI]);
   }
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
+  }
   return contents;
 };
 
