@@ -806,6 +806,20 @@ export interface HlsConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const InsertionMode = {
+  PLAYER_SELECT: "PLAYER_SELECT",
+  STITCHED_ONLY: "STITCHED_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type InsertionMode = (typeof InsertionMode)[keyof typeof InsertionMode];
+
+/**
  * <p>The configuration for pre-roll ad insertion.</p>
  * @public
  */
@@ -909,6 +923,12 @@ export interface PlaybackConfiguration {
    * @public
    */
   HlsConfiguration?: HlsConfiguration;
+
+  /**
+   * <p>The setting that controls whether players can use stitched or guided ad insertion. The default, <code>STITCHED_ONLY</code>, forces all player sessions to use stitched (server-side) ad insertion. Choosing <code>PLAYER_SELECT</code> allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.</p>
+   * @public
+   */
+  InsertionMode?: InsertionMode;
 
   /**
    * <p>The configuration for pre-roll ad insertion.</p>
@@ -3341,6 +3361,12 @@ export interface GetPlaybackConfigurationResponse {
   HlsConfiguration?: HlsConfiguration;
 
   /**
+   * <p>The setting that controls whether players can use stitched or guided ad insertion. The default, <code>STITCHED_ONLY</code>, forces all player sessions to use stitched (server-side) ad insertion. Choosing <code>PLAYER_SELECT</code> allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.</p>
+   * @public
+   */
+  InsertionMode?: InsertionMode;
+
+  /**
    * <p>The configuration for pre-roll ad insertion.</p>
    * @public
    */
@@ -3841,6 +3867,12 @@ export interface PutPlaybackConfigurationRequest {
   DashConfiguration?: DashConfigurationForPut;
 
   /**
+   * <p>The setting that controls whether players can use stitched or guided ad insertion. The default, <code>STITCHED_ONLY</code>, forces all player sessions to use stitched (server-side) ad insertion. Choosing <code>PLAYER_SELECT</code> allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.</p>
+   * @public
+   */
+  InsertionMode?: InsertionMode;
+
+  /**
    * <p>The configuration for pre-roll ad insertion.</p>
    * @public
    */
@@ -3934,6 +3966,12 @@ export interface PutPlaybackConfigurationResponse {
    * @public
    */
   HlsConfiguration?: HlsConfiguration;
+
+  /**
+   * <p>The setting that controls whether players can use stitched or guided ad insertion. The default, <code>STITCHED_ONLY</code>, forces all player sessions to use stitched (server-side) ad insertion. Choosing <code>PLAYER_SELECT</code> allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.</p>
+   * @public
+   */
+  InsertionMode?: InsertionMode;
 
   /**
    * <p>The configuration for pre-roll ad insertion.</p>

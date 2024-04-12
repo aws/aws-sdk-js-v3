@@ -70,6 +70,7 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //       HlsConfiguration: { // HlsConfiguration
  * //         ManifestEndpointPrefix: "STRING_VALUE",
  * //       },
+ * //       InsertionMode: "STITCHED_ONLY" || "PLAYER_SELECT",
  * //       LivePreRollConfiguration: { // LivePreRollConfiguration
  * //         AdDecisionServerUrl: "STRING_VALUE",
  * //         MaxDurationSeconds: Number("int"),

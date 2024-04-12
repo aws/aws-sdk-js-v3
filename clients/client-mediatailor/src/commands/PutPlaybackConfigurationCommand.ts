@@ -58,6 +58,7 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  *     MpdLocation: "STRING_VALUE",
  *     OriginManifestType: "SINGLE_PERIOD" || "MULTI_PERIOD",
  *   },
+ *   InsertionMode: "STITCHED_ONLY" || "PLAYER_SELECT",
  *   LivePreRollConfiguration: { // LivePreRollConfiguration
  *     AdDecisionServerUrl: "STRING_VALUE",
  *     MaxDurationSeconds: Number("int"),
@@ -106,6 +107,7 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   HlsConfiguration: { // HlsConfiguration
  * //     ManifestEndpointPrefix: "STRING_VALUE",
  * //   },
+ * //   InsertionMode: "STITCHED_ONLY" || "PLAYER_SELECT",
  * //   LivePreRollConfiguration: { // LivePreRollConfiguration
  * //     AdDecisionServerUrl: "STRING_VALUE",
  * //     MaxDurationSeconds: Number("int"),
