@@ -166,7 +166,7 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link MaxNumberOfConfigRulesExceededException} (client fault)
  *  <p>Failed to add the Config rule because the account already
- * 			contains the maximum number of 150 rules. Consider deleting any
+ * 			contains the maximum number of 1000 rules. Consider deleting any
  * 			deactivated rules before you add new rules.</p>
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)

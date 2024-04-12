@@ -1235,6 +1235,12 @@ export interface BaseConfigurationItem {
 
   /**
    * <p>The time when configuration changes for the resource were delivered.</p>
+   *          <note>
+   *             <p>This field is optional and is not guaranteed to be present in a configuration item  (CI). If you are using daily recording,
+   * 			this field will be populated. However, if you are using continuous recording,
+   * 			this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
+   * 					Developer Guide</i>.</p>
+   *          </note>
    * @public
    */
   configurationItemDeliveryTime?: Date;
@@ -2529,6 +2535,12 @@ export interface ConfigurationItem {
 
   /**
    * <p>The time when configuration changes for the resource were delivered.</p>
+   *          <note>
+   *             <p>This field is optional and is not guaranteed to be present in a configuration item  (CI). If you are using daily recording,
+   * 			this field will be populated. However, if you are using continuous recording,
+   * 			this field will be omitted since the delivery time is instantaneous as the CI is available right away. For more information on daily recording and continuous recording, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-recording-frequency">Recording Frequency</a> in the <i>Config
+   * 					Developer Guide</i>.</p>
+   *          </note>
    * @public
    */
   configurationItemDeliveryTime?: Date;
@@ -4722,7 +4734,7 @@ export interface DescribeConfigRuleEvaluationStatusRequest {
    * <p>The number of rule evaluation results that you want
    * 			returned.</p>
    *          <p>This parameter is required if the rule limit for your account
-   * 			is more than the default of 150 rules.</p>
+   * 			is more than the default of 1000 rules.</p>
    *          <p>For information about requesting a rule limit increase, see
    * 				<a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">Config Limits</a> in the <i>Amazon Web Services General
    * 				Reference Guide</i>.</p>
@@ -8799,7 +8811,10 @@ export interface TimeWindow {
  */
 export interface ResourceEvaluationFilters {
   /**
-   * <p>Filters all resource evaluations results based on an evaluation mode. the valid value for this API is <code>Proactive</code>.</p>
+   * <p>Filters all resource evaluations results based on an evaluation mode.</p>
+   *          <important>
+   *             <p>Currently, <code>DECTECTIVE</code> is not supported as a valid value. Ignore other documentation stating otherwise.</p>
+   *          </important>
    * @public
    */
   EvaluationMode?: EvaluationMode;
