@@ -50,7 +50,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * //     { // ListedCertificate
  * //       Arn: "STRING_VALUE",
  * //       CertificateId: "STRING_VALUE",
- * //       Usage: "SIGNING" || "ENCRYPTION",
+ * //       Usage: "SIGNING" || "ENCRYPTION" || "TLS",
  * //       Status: "ACTIVE" || "PENDING_ROTATION" || "INACTIVE",
  * //       ActiveDate: new Date("TIMESTAMP"),
  * //       InactiveDate: new Date("TIMESTAMP"),

@@ -41,7 +41,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * // const { TransferClient, ImportCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
  * const input = { // ImportCertificateRequest
- *   Usage: "SIGNING" || "ENCRYPTION", // required
+ *   Usage: "SIGNING" || "ENCRYPTION" || "TLS", // required
  *   Certificate: "STRING_VALUE", // required
  *   CertificateChain: "STRING_VALUE",
  *   PrivateKey: "STRING_VALUE",

@@ -47,7 +47,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * //   Certificate: { // DescribedCertificate
  * //     Arn: "STRING_VALUE", // required
  * //     CertificateId: "STRING_VALUE",
- * //     Usage: "SIGNING" || "ENCRYPTION",
+ * //     Usage: "SIGNING" || "ENCRYPTION" || "TLS",
  * //     Status: "ACTIVE" || "PENDING_ROTATION" || "INACTIVE",
  * //     Certificate: "STRING_VALUE",
  * //     CertificateChain: "STRING_VALUE",

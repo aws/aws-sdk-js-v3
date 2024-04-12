@@ -277,6 +277,7 @@ export type CertificateType = (typeof CertificateType)[keyof typeof CertificateT
 export const CertificateUsageType = {
   ENCRYPTION: "ENCRYPTION",
   SIGNING: "SIGNING",
+  TLS: "TLS",
 } as const;
 
 /**
@@ -2938,7 +2939,21 @@ export interface DescribedCertificate {
   CertificateId?: string;
 
   /**
-   * <p>Specifies whether this certificate is used for signing or encryption.</p>
+   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SIGNING</code>: For signing AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Usage?: CertificateUsageType;
@@ -4368,7 +4383,21 @@ export interface DescribeWorkflowResponse {
  */
 export interface ImportCertificateRequest {
   /**
-   * <p>Specifies whether this certificate is used for signing or encryption.</p>
+   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SIGNING</code>: For signing AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Usage: CertificateUsageType | undefined;
@@ -4805,7 +4834,21 @@ export interface ListedCertificate {
   CertificateId?: string;
 
   /**
-   * <p>Specifies whether this certificate is used for signing or encryption.</p>
+   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SIGNING</code>: For signing AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Usage?: CertificateUsageType;
