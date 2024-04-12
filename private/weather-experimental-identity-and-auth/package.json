@@ -27,7 +27,7 @@
     "@aws-sdk/util-user-agent-node": "*",
     "@smithy/config-resolver": "^2.2.0",
     "@smithy/core": "^1.4.2",
-    "@smithy/experimental-identity-and-auth": "^0.2.2",
+    "@smithy/experimental-identity-and-auth": "^0.2.3",
     "@smithy/fetch-http-handler": "^2.5.0",
     "@smithy/hash-node": "^2.2.0",
     "@smithy/invalid-dependency": "^2.2.0",
