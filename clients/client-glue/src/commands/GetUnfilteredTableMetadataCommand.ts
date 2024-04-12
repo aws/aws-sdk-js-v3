@@ -27,8 +27,7 @@ export interface GetUnfilteredTableMetadataCommandInput extends GetUnfilteredTab
 export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTableMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves table metadata from the Data Catalog that contains unfiltered
- *           metadata.</p>
+ * <p>Allows a third-party analytical engine to retrieve unfiltered table metadata from the Data Catalog.</p>
  *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +50,8 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  *   SupportedPermissionTypes: [ // PermissionTypeList // required
  *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION" || "NESTED_PERMISSION" || "NESTED_CELL_PERMISSION",
  *   ],
+ *   ParentResourceArn: "STRING_VALUE",
+ *   RootResourceArn: "STRING_VALUE",
  *   SupportedDialect: { // SupportedDialect
  *     Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
  *     DialectVersion: "STRING_VALUE",

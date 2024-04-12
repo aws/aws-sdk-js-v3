@@ -1425,10 +1425,42 @@ export interface GetUnfilteredTableMetadataRequest {
   AuditContext?: AuditContext;
 
   /**
-   * <p>(Required) A list of supported permission types. </p>
+   * <p>Indicates the level of filtering a third-party analytical engine is capable of enforcing when calling the <code>GetUnfilteredTableMetadata</code> API operation. Accepted values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COLUMN_PERMISSION</code> - Column permissions ensure that users can access only specific columns in the table. If there are particular columns contain sensitive data, data lake administrators can define column filters that exclude access to specific columns.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CELL_FILTER_PERMISSION</code> - Cell-level filtering combines column filtering (include or exclude columns) and row filter expressions to restrict access to individual elements in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NESTED_PERMISSION</code> - Nested permissions combines cell-level filtering and nested column filtering to restrict access to columns and/or nested columns in specific rows based on row filter expressions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NESTED_CELL_PERMISSION</code> - Nested cell permissions combines nested permission with nested cell-level filtering. This allows different subsets of nested columns to be restricted based on an array of row filter expressions. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Note: Each of these permission types follows a hierarchical order where each subsequent permission type includes all permission of the previous type.</p>
+   *          <p>Important: If you provide a supported permission type that doesn't match the user's level of permissions on the table, then Lake Formation raises an exception. For example, if the third-party engine calling the <code>GetUnfilteredTableMetadata</code> operation can enforce only column-level filtering, and the user has nested cell filtering applied on the table, Lake Formation throws an exception, and will not return unfiltered table metadata and data access credentials.</p>
    * @public
    */
   SupportedPermissionTypes: PermissionType[] | undefined;
+
+  /**
+   * <p>The resource ARN of the view.</p>
+   * @public
+   */
+  ParentResourceArn?: string;
+
+  /**
+   * <p>The resource ARN of the root view in a chain of nested views.</p>
+   * @public
+   */
+  RootResourceArn?: string;
 
   /**
    * <p>A structure specifying the dialect and dialect version used by the query engine.</p>

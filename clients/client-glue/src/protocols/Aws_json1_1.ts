@@ -9899,9 +9899,11 @@ const se_GetUnfilteredTableMetadataRequest = (
     CatalogId: [],
     DatabaseName: [],
     Name: [],
+    ParentResourceArn: [],
     Permissions: _json,
     QuerySessionContext: (_) => se_QuerySessionContext(_, context),
     Region: [],
+    RootResourceArn: [],
     SupportedDialect: _json,
     SupportedPermissionTypes: _json,
   });
