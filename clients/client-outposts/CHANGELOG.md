@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.555.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.554.0...v3.555.0) (2024-04-12)
+
+
+### Features
+
+* **client-outposts:** This release adds EXPEDITORS as a valid shipment carrier. ([8060deb](https://github.com/aws/aws-sdk-js-v3/commit/8060deb05f781a75866bcd07b9bb6a8864a5cdc0))
+
+
+
+
+
 # [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts

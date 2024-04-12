@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.555.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.554.0...v3.555.0) (2024-04-12)
+
+
+### Features
+
+* **client-kms:** This feature supports the ability to specify a custom rotation period for automatic key rotations, the ability to perform on-demand key rotations, and visibility into your key material rotations. ([b4a9a68](https://github.com/aws/aws-sdk-js-v3/commit/b4a9a689f5ed5bd67f1f201cce0f7ac416e668fd))
+
+
+
+
+
 # [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
 
 **Note:** Version bump only for package @aws-sdk/client-kms

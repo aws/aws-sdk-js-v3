@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.555.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.554.0...v3.555.0) (2024-04-12)
+
+
+### Features
+
+* **client-mediatailor:** Added InsertionMode to PlaybackConfigurations. This setting controls whether players can use stitched or guided ad insertion. The default for players that do not specify an insertion mode is stitched. ([7566539](https://github.com/aws/aws-sdk-js-v3/commit/7566539dc3c15fafbcf0f9234e36e379162128f4))
+
+
+
+
+
 # [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

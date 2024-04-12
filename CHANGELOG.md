@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.555.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.554.0...v3.555.0) (2024-04-12)
+
+
+### Features
+
+* **client-cloudformation:** Adding support for the new parameter "IncludePropertyValues" in the CloudFormation DescribeChangeSet API. When this parameter is included, the DescribeChangeSet response will include more detailed information such as before and after values for the resource properties that will change. ([aed244d](https://github.com/aws/aws-sdk-js-v3/commit/aed244d386c0eb10d4e0fe8174533e5d9d40e84b))
+* **client-glue:** Modifying request for GetUnfilteredTableMetadata for view-related fields. ([ae8aec7](https://github.com/aws/aws-sdk-js-v3/commit/ae8aec78335b7a8e85d8321d3dce539ca2ba7bf3))
+* **client-healthlake:** Added new CREATE_FAILED status for data stores. Added new errorCause to DescribeFHIRDatastore API and ListFHIRDatastores API response for additional insights into data store creation and deletion workflows. ([874e200](https://github.com/aws/aws-sdk-js-v3/commit/874e2004889741e4046b2fe586968ce9bc51cada))
+* **client-kms:** This feature supports the ability to specify a custom rotation period for automatic key rotations, the ability to perform on-demand key rotations, and visibility into your key material rotations. ([b4a9a68](https://github.com/aws/aws-sdk-js-v3/commit/b4a9a689f5ed5bd67f1f201cce0f7ac416e668fd))
+* **client-mediatailor:** Added InsertionMode to PlaybackConfigurations. This setting controls whether players can use stitched or guided ad insertion. The default for players that do not specify an insertion mode is stitched. ([7566539](https://github.com/aws/aws-sdk-js-v3/commit/7566539dc3c15fafbcf0f9234e36e379162128f4))
+* **client-outposts:** This release adds EXPEDITORS as a valid shipment carrier. ([8060deb](https://github.com/aws/aws-sdk-js-v3/commit/8060deb05f781a75866bcd07b9bb6a8864a5cdc0))
+* **client-redshift:** Adds support for Amazon Redshift DescribeClusterSnapshots API to include Snapshot ARN response field. ([d7ebbc3](https://github.com/aws/aws-sdk-js-v3/commit/d7ebbc3dee0a938d88fc792d721025335795a17e))
+* **client-transfer:** This change releases support for importing self signed certificates to the Transfer Family for sending outbound file transfers over TLS/HTTPS. ([d8d946a](https://github.com/aws/aws-sdk-js-v3/commit/d8d946a8c26317922afba781ba71eed036e39948))
+
+
+
+
+
 # [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
 
 
