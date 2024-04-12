@@ -69,8 +69,8 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         String serviceOutputTypes = "ServiceOutputTypes";
 
         // Add required imports.
-        writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
-        writer.addImport(configType, configType, "@aws-sdk/client-dynamodb");
+        writer.addImport(serviceName, serviceName, AwsDependency.CLIENT_DYNAMODB_PEER);
+        writer.addImport(configType, configType, AwsDependency.CLIENT_DYNAMODB_PEER);
         writer.addImport("Client", "__Client", TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.writeDocs("@public");
         writer.write("export { __Client };");
@@ -101,8 +101,8 @@ final class DocumentBareBonesClientGenerator implements Runnable {
     }
 
     private void generateInputOutputImports(String serviceInputTypes, String serviceOutputTypes) {
-        writer.addImport(serviceInputTypes, String.format("__%s", serviceInputTypes), "@aws-sdk/client-dynamodb");
-        writer.addImport(serviceOutputTypes, String.format("__%s", serviceOutputTypes), "@aws-sdk/client-dynamodb");
+        writer.addImport(serviceInputTypes, String.format("__%s", serviceInputTypes), AwsDependency.CLIENT_DYNAMODB_PEER);
+        writer.addImport(serviceOutputTypes, String.format("__%s", serviceOutputTypes), AwsDependency.CLIENT_DYNAMODB_PEER);
         Set<OperationShape> containedOperations =
                 new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
 
@@ -199,7 +199,7 @@ final class DocumentBareBonesClientGenerator implements Runnable {
     }
 
     private void generateTranslateConfigOption(String translateOption) {
-        writer.addImport(translateOption, translateOption, "@aws-sdk/util-dynamodb");
+        writer.addImport(translateOption, translateOption, AwsDependency.UTIL_DYNAMODB);
         writer.write("${1L}?: ${1L};", translateOption);
     }
 }

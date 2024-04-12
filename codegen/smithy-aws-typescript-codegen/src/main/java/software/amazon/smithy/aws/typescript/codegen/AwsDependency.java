@@ -93,7 +93,11 @@ public enum AwsDependency implements Dependency {
     // feat(experimentalIdentityAndAuth): Conditionally added when @httpBearerAuth is used in an AWS service
     TOKEN_PROVIDERS(NORMAL_DEPENDENCY, "@aws-sdk/token-providers"),
     TYPES(NORMAL_DEPENDENCY, "@aws-sdk/types"),
-    REGION_CONFIG_RESOLVER(NORMAL_DEPENDENCY, "@aws-sdk/region-config-resolver");
+    REGION_CONFIG_RESOLVER(NORMAL_DEPENDENCY, "@aws-sdk/region-config-resolver"),
+
+    CLIENT_DYNAMODB_PEER(PEER_DEPENDENCY, "@aws-sdk/client-dynamodb", "^3.0.0"),
+    UTIL_DYNAMODB(PEER_DEPENDENCY, "@aws-sdk/util-dynamodb", "*");
+
 
     public final String packageName;
     public final String version;

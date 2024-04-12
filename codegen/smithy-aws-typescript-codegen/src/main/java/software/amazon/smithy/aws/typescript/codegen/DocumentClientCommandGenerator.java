@@ -194,7 +194,7 @@ final class DocumentClientCommandGenerator implements Runnable {
                 .dedent();
         writer.openBlock("): $L<$L, $L> {", "}", handler, inputTypeName, outputTypeName, () -> {
 
-            writer.addImport(clientCommandClassName, clientCommandLocalName, "@aws-sdk/client-dynamodb");
+            writer.addImport(clientCommandClassName, clientCommandLocalName, AwsDependency.CLIENT_DYNAMODB_PEER);
 
             String commandVarName = "this.clientCommand";
 
@@ -312,7 +312,7 @@ final class DocumentClientCommandGenerator implements Runnable {
     ) {
         writer.writeDocs("@public");
         if (optionalShape.isPresent()) {
-            writer.addImport(originalTypeName, "__" + originalTypeName, "@aws-sdk/client-dynamodb");
+            writer.addImport(originalTypeName, "__" + originalTypeName, AwsDependency.CLIENT_DYNAMODB_PEER);
             if (membersWithAttr.isEmpty()) {
                 writer.write("export type $L = __$L;", typeName, originalTypeName);
             } else {
@@ -339,7 +339,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             .map(memberWithAttr -> "'" + symbolProvider.toMemberName(memberWithAttr) + "'")
             .collect(Collectors.joining(" | "));
         String typeNameToOmit = symbolProvider.toSymbol(structureTarget).getName();
-        writer.addImport(typeNameToOmit, typeNameToOmit, "@aws-sdk/client-dynamodb");
+        writer.addImport(typeNameToOmit, typeNameToOmit, AwsDependency.CLIENT_DYNAMODB_PEER);
         writer.openBlock("Omit<$L, $L> & {", "}", typeNameToOmit,
             memberUnionToOmit, () -> {
                 for (MemberShape memberWithAttr: membersWithAttr) {
@@ -387,7 +387,7 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void writeNativeAttributeValue() {
         String nativeAttributeValue = "NativeAttributeValue";
-        writer.addImport(nativeAttributeValue, nativeAttributeValue, "@aws-sdk/util-dynamodb");
+        writer.addImport(nativeAttributeValue, nativeAttributeValue, AwsDependency.UTIL_DYNAMODB);
         writer.write(nativeAttributeValue);
     }
 
