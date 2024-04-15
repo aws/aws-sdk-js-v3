@@ -16,7 +16,6 @@ const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 const { buildSmithyTypeScript } = require("./build-smithy-typescript");
 const { SMITHY_TS_COMMIT } = require("./config");
-const s3Hack = require("./s3-hack");
 
 const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
@@ -77,7 +76,6 @@ const {
 
 (async () => {
   try {
-    require("../runtime-dependency-version-check/runtime-dep-version-check");
     if (!noSmithyCheckout) {
       await buildSmithyTypeScript(repo, commit);
     }
@@ -97,14 +95,7 @@ const {
     }
 
     if (!protocolTestsOnly) {
-      const undoS3 = s3Hack();
-      try {
-        await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
-        undoS3();
-      } catch (e) {
-        undoS3();
-        throw e;
-      }
+      await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
     }
 
     if (!noPrivateClients) {
@@ -148,6 +139,7 @@ const {
     }
 
     require("./customizations/workspaces-thin-client")();
+    require("../runtime-dependency-version-check/runtime-dep-version-check");
   } catch (e) {
     console.log(e);
     process.exit(1);

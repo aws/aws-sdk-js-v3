@@ -4,7 +4,6 @@ const { generateClient } = require("./code-gen");
 const { codeOrdering } = require("./code-ordering");
 const { copyToClients } = require("./copy-to-clients");
 const { spawnProcess } = require("../utils/spawn-process");
-const s3Hack = require("./s3-hack");
 
 const SDK_CLIENTS_DIR = normalize(join(__dirname, "..", "..", "clients"));
 
@@ -15,14 +14,7 @@ const { solo } = yargs(process.argv.slice(2))
 
 (async () => {
   try {
-    let afterGenerate = () => {};
-    if (solo === "s3") {
-      afterGenerate = s3Hack();
-    }
     await generateClient(solo);
-    if (solo === "s3") {
-      afterGenerate();
-    }
     await copyToClients(
       normalize(join(__dirname, "..", "..", "codegen", "sdk-codegen", "build-single", solo)),
       SDK_CLIENTS_DIR,
