@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
@@ -158,7 +159,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                         String memberName = entry.getKey();
                         MemberShape memberShape = entry.getValue();
 
-                        if (memberShape.getTarget().equals(expiresShape.getId())) {
+                        Optional<HttpHeaderTrait> httpHeader = memberShape.getTrait(HttpHeaderTrait.class);
+                        Optional<DocumentationTrait> doc = memberShape.getTrait(DocumentationTrait.class);
+
+                        if (memberShape.getTarget().equals(expiresShape.getId())
+                            && httpHeader.isPresent()) {
                             structureShapeBuilder
                                 .removeMember(memberName)
                                 .addMember(
@@ -167,7 +172,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                                     (m) -> {
                                         m
                                             .addTrait(new DocumentationTrait("Deprecated in favor of ExpiresString."))
-                                            .addTrait(memberShape.getTrait(HttpHeaderTrait.class).get())
+                                            .addTrait(httpHeader.get())
                                             .addTrait(DeprecatedTrait.builder().build());
                                     }
                                 )
@@ -175,9 +180,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                                     "ExpiresString",
                                     expiresStringShape.getId(),
                                     (m) -> {
-                                        m
-                                            .addTrait(memberShape.getTrait(DocumentationTrait.class).get())
-                                            .addTrait(new HttpHeaderTrait("ExpiresString"));
+                                        m.addTrait(new HttpHeaderTrait("ExpiresString"));
+                                        doc.ifPresent(m::addTrait);
                                     }
                                 );
                         } else {
