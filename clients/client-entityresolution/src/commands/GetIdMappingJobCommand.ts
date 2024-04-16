@@ -54,6 +54,13 @@ export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __M
  * //   errorDetails: { // ErrorDetails
  * //     errorMessage: "STRING_VALUE",
  * //   },
+ * //   outputSourceConfig: [ // IdMappingJobOutputSourceConfig
+ * //     { // IdMappingJobOutputSource
+ * //       roleArn: "STRING_VALUE", // required
+ * //       outputS3Path: "STRING_VALUE", // required
+ * //       KMSArn: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

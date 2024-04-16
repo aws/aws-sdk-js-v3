@@ -37,11 +37,25 @@ export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput,
  * const client = new EntityResolutionClient(config);
  * const input = { // StartIdMappingJobInput
  *   workflowName: "STRING_VALUE", // required
+ *   outputSourceConfig: [ // IdMappingJobOutputSourceConfig
+ *     { // IdMappingJobOutputSource
+ *       roleArn: "STRING_VALUE", // required
+ *       outputS3Path: "STRING_VALUE", // required
+ *       KMSArn: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new StartIdMappingJobCommand(input);
  * const response = await client.send(command);
  * // { // StartIdMappingJobOutput
  * //   jobId: "STRING_VALUE", // required
+ * //   outputSourceConfig: [ // IdMappingJobOutputSourceConfig
+ * //     { // IdMappingJobOutputSource
+ * //       roleArn: "STRING_VALUE", // required
+ * //       outputS3Path: "STRING_VALUE", // required
+ * //       KMSArn: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

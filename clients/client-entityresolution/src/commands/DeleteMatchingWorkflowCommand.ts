@@ -57,6 +57,12 @@ export interface DeleteMatchingWorkflowCommandOutput extends DeleteMatchingWorkf
  *             403</code>
  *          </p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
+ *          running, etc. <code>HTTP Status Code: 400</code>
+ *          </p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution
  *          service. <code>HTTP Status Code: 500</code>

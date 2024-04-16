@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { GetMatchingJobInput, GetMatchingJobOutput } from "../models/models_0";
-import { de_GetMatchingJobCommand, se_GetMatchingJobCommand } from "../protocols/Aws_restJson1";
+import { DeletePolicyStatementInput, DeletePolicyStatementOutput } from "../models/models_0";
+import { de_DeletePolicyStatementCommand, se_DeletePolicyStatementCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,65 +16,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetMatchingJobCommand}.
+ * The input for {@link DeletePolicyStatementCommand}.
  */
-export interface GetMatchingJobCommandInput extends GetMatchingJobInput {}
+export interface DeletePolicyStatementCommandInput extends DeletePolicyStatementInput {}
 /**
  * @public
  *
- * The output of {@link GetMatchingJobCommand}.
+ * The output of {@link DeletePolicyStatementCommand}.
  */
-export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __MetadataBearer {}
+export interface DeletePolicyStatementCommandOutput extends DeletePolicyStatementOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the status, metrics, and errors (if there are any) that are associated with a
- *          job.</p>
+ * <p>Deletes the policy statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, GetMatchingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, GetMatchingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, DeletePolicyStatementCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, DeletePolicyStatementCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // GetMatchingJobInput
- *   workflowName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
+ * const input = { // DeletePolicyStatementInput
+ *   arn: "STRING_VALUE", // required
+ *   statementId: "STRING_VALUE", // required
  * };
- * const command = new GetMatchingJobCommand(input);
+ * const command = new DeletePolicyStatementCommand(input);
  * const response = await client.send(command);
- * // { // GetMatchingJobOutput
- * //   jobId: "STRING_VALUE", // required
- * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "QUEUED", // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   endTime: new Date("TIMESTAMP"),
- * //   metrics: { // JobMetrics
- * //     inputRecords: Number("int"),
- * //     totalRecordsProcessed: Number("int"),
- * //     recordsNotProcessed: Number("int"),
- * //     matchIDs: Number("int"),
- * //   },
- * //   errorDetails: { // ErrorDetails
- * //     errorMessage: "STRING_VALUE",
- * //   },
- * //   outputSourceConfig: [ // JobOutputSourceConfig
- * //     { // JobOutputSource
- * //       roleArn: "STRING_VALUE", // required
- * //       outputS3Path: "STRING_VALUE", // required
- * //       KMSArn: "STRING_VALUE",
- * //     },
- * //   ],
+ * // { // DeletePolicyStatementOutput
+ * //   arn: "STRING_VALUE", // required
+ * //   token: "STRING_VALUE", // required
+ * //   policy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetMatchingJobCommandInput - {@link GetMatchingJobCommandInput}
- * @returns {@link GetMatchingJobCommandOutput}
- * @see {@link GetMatchingJobCommandInput} for command's `input` shape.
- * @see {@link GetMatchingJobCommandOutput} for command's `response` shape.
+ * @param DeletePolicyStatementCommandInput - {@link DeletePolicyStatementCommandInput}
+ * @returns {@link DeletePolicyStatementCommandOutput}
+ * @see {@link DeletePolicyStatementCommandInput} for command's `input` shape.
+ * @see {@link DeletePolicyStatementCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
  *             403</code>
+ *          </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
+ *          running, etc. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -101,10 +89,10 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  *
  * @public
  */
-export class GetMatchingJobCommand extends $Command
+export class DeletePolicyStatementCommand extends $Command
   .classBuilder<
-    GetMatchingJobCommandInput,
-    GetMatchingJobCommandOutput,
+    DeletePolicyStatementCommandInput,
+    DeletePolicyStatementCommandOutput,
     EntityResolutionClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,9 +106,9 @@ export class GetMatchingJobCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSVeniceService", "GetMatchingJob", {})
-  .n("EntityResolutionClient", "GetMatchingJobCommand")
+  .s("AWSVeniceService", "DeletePolicyStatement", {})
+  .n("EntityResolutionClient", "DeletePolicyStatementCommand")
   .f(void 0, void 0)
-  .ser(se_GetMatchingJobCommand)
-  .de(de_GetMatchingJobCommand)
+  .ser(se_DeletePolicyStatementCommand)
+  .de(de_DeletePolicyStatementCommand)
   .build() {}

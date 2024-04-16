@@ -31,15 +31,86 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
-export const AttributeMatchingModel = {
-  MANY_TO_MANY: "MANY_TO_MANY",
-  ONE_TO_ONE: "ONE_TO_ONE",
+export const StatementEffect = {
+  Allow: "Allow",
+  Deny: "Deny",
 } as const;
 
 /**
  * @public
  */
-export type AttributeMatchingModel = (typeof AttributeMatchingModel)[keyof typeof AttributeMatchingModel];
+export type StatementEffect = (typeof StatementEffect)[keyof typeof StatementEffect];
+
+/**
+ * @public
+ */
+export interface AddPolicyStatementInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that will be accessed by the
+   *          principal.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A statement identifier that differentiates the statement from others in the same
+   *          policy.</p>
+   * @public
+   */
+  statementId: string | undefined;
+
+  /**
+   * <p>Determines whether the permissions specified in the policy are to be allowed
+   *             (<code>Allow</code>) or denied (<code>Deny</code>).</p>
+   * @public
+   */
+  effect: StatementEffect | undefined;
+
+  /**
+   * <p>The action that the principal can use on the resource. </p>
+   *          <p>For example, <code>entityresolution:GetIdMappingJob</code>,
+   *             <code>entityresolution:GetMatchingJob</code>.</p>
+   * @public
+   */
+  action: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services service or Amazon Web Services account that can access the
+   *          resource defined as ARN.</p>
+   * @public
+   */
+  principal: string[] | undefined;
+
+  /**
+   * <p>A set of condition keys that you can use in key policies.</p>
+   * @public
+   */
+  condition?: string;
+}
+
+/**
+ * @public
+ */
+export interface AddPolicyStatementOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that will be accessed by the
+   *          principal.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   * @public
+   */
+  token: string | undefined;
+
+  /**
+   * <p>The resource-based policy.</p>
+   * @public
+   */
+  policy?: string;
+}
 
 /**
  * <p>The request could not be processed because of conflict in the current state of the
@@ -63,6 +134,111 @@ export class ConflictException extends __BaseException {
     Object.setPrototypeOf(this, ConflictException.prototype);
   }
 }
+
+/**
+ * <p>This exception occurs when there is an internal failure in the Entity Resolution
+ *          service. <code>HTTP Status Code: 500</code>
+ *          </p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>The resource could not be found. <code>HTTP Status Code: 404</code>
+ *          </p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling. <code>HTTP Status Code:
+ *          429</code>
+ *          </p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
+ *             Status Code: 400</code>
+ *          </p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AttributeMatchingModel = {
+  MANY_TO_MANY: "MANY_TO_MANY",
+  ONE_TO_ONE: "ONE_TO_ONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeMatchingModel = (typeof AttributeMatchingModel)[keyof typeof AttributeMatchingModel];
 
 /**
  * @public
@@ -135,16 +311,31 @@ export interface IdMappingTechniques {
    *          service.</p>
    * @public
    */
-  providerProperties: ProviderProperties | undefined;
+  providerProperties?: ProviderProperties;
 }
 
 /**
- * <p>An object containing <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
+ * @public
+ * @enum
+ */
+export const IdNamespaceType = {
+  SOURCE: "SOURCE",
+  TARGET: "TARGET",
+} as const;
+
+/**
+ * @public
+ */
+export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceType];
+
+/**
+ * <p>An object containing <code>InputSourceARN</code>, <code>SchemaName</code>, and
+ *             <code>Type</code>.</p>
  * @public
  */
 export interface IdMappingWorkflowInputSource {
   /**
-   * <p>An Gluetable ARN for the input source table.</p>
+   * <p>An Glue table ARN for the input source table.</p>
    * @public
    */
   inputSourceARN: string | undefined;
@@ -153,7 +344,18 @@ export interface IdMappingWorkflowInputSource {
    * <p>The name of the schema to be retrieved.</p>
    * @public
    */
-  schemaName: string | undefined;
+  schemaName?: string;
+
+  /**
+   * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
+   *             <code>TARGET</code>. </p>
+   *          <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will
+   *          be processed in an ID mapping workflow. </p>
+   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all
+   *             <code>sourceIds</code> will resolve to.</p>
+   * @public
+   */
+  type?: IdNamespaceType;
 }
 
 /**
@@ -204,7 +406,7 @@ export interface CreateIdMappingWorkflowInput {
    *          fields <code>OutputS3Path</code> and <code>Output</code>.</p>
    * @public
    */
-  outputSourceConfig: IdMappingWorkflowOutputSource[] | undefined;
+  outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
    * <p>An object which defines the <code>idMappingType</code> and the
@@ -262,7 +464,7 @@ export interface CreateIdMappingWorkflowOutput {
    *          fields <code>OutputS3Path</code> and <code>Output</code>.</p>
    * @public
    */
-  outputSourceConfig: IdMappingWorkflowOutputSource[] | undefined;
+  outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
    * <p>An object which defines the <code>idMappingType</code> and the
@@ -317,73 +519,193 @@ export class ExceedsLimitException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. <code>HTTP Status Code: 500</code>
- *          </p>
+ * <p>An object containing <code>ProviderConfiguration</code> and
+ *             <code>ProviderServiceArn</code>.</p>
  * @public
  */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
+export interface NamespaceProviderProperties {
   /**
-   * @internal
+   * <p>The Amazon Resource Name (ARN) of the provider service.</p>
+   * @public
    */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
+  providerServiceArn: string | undefined;
+
+  /**
+   * <p>An object which defines any additional configurations required by the provider
+   *          service.</p>
+   * @public
+   */
+  providerConfiguration?: __DocumentType;
 }
 
 /**
- * <p>The request was denied due to request throttling. <code>HTTP Status Code:
- *          429</code>
- *          </p>
+ * <p>An object containing <code>IdMappingType</code> and
+ *          <code>ProviderProperties</code>.</p>
  * @public
  */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
+export interface IdNamespaceIdMappingWorkflowProperties {
   /**
-   * @internal
+   * <p>The type of ID mapping.</p>
+   * @public
    */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
+  idMappingType: IdMappingType | undefined;
+
+  /**
+   * <p>An object which defines any additional configurations required by the provider
+   *          service.</p>
+   * @public
+   */
+  providerProperties?: NamespaceProviderProperties;
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
- *             Status Code: 400</code>
- *          </p>
+ * <p>An object containing <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
  * @public
  */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
+export interface IdNamespaceInputSource {
   /**
-   * @internal
+   * <p>An Glue table ARN for the input source table.</p>
+   * @public
    */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
+  inputSourceARN: string | undefined;
+
+  /**
+   * <p>The name of the schema.</p>
+   * @public
+   */
+  schemaName?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateIdNamespaceInput {
+  /**
+   * <p>The name of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceName: string | undefined;
+
+  /**
+   * <p>The description of the ID namespace.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>A list of <code>InputSource</code> objects, which have the fields
+   *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
+   * @public
+   */
+  inputSourceConfig?: IdNamespaceInputSource[];
+
+  /**
+   * <p>Determines the properties of <code>IdMappingWorflow</code> where this
+   *             <code>IdNamespace</code> can be used as a <code>Source</code> or a
+   *          <code>Target</code>.</p>
+   * @public
+   */
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+
+  /**
+   * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
+   *             <code>TARGET</code>. </p>
+   *          <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will
+   *          be processed in an ID mapping workflow. </p>
+   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all
+   *             <code>sourceIds</code> will resolve to.</p>
+   * @public
+   */
+  type: IdNamespaceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
+   *          this role to access the resources defined in this <code>IdNamespace</code> on your behalf
+   *          as part of the workflow run.</p>
+   * @public
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateIdNamespaceOutput {
+  /**
+   * <p>The name of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceArn: string | undefined;
+
+  /**
+   * <p>The description of the ID namespace.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>A list of <code>InputSource</code> objects, which have the fields
+   *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
+   * @public
+   */
+  inputSourceConfig?: IdNamespaceInputSource[];
+
+  /**
+   * <p>Determines the properties of <code>IdMappingWorkflow</code> where this
+   *             <code>IdNamespace</code> can be used as a <code>Source</code> or a
+   *          <code>Target</code>.</p>
+   * @public
+   */
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+
+  /**
+   * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
+   *             <code>TARGET</code>.</p>
+   *          <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will
+   *          be processed in an ID mapping workflow. </p>
+   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all
+   *             <code>sourceIds</code> will resolve to.</p>
+   * @public
+   */
+  type: IdNamespaceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
+   *          this role to access the resources defined in <code>inputSourceConfig</code> on your behalf
+   *          as part of the workflow run.</p>
+   * @public
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The timestamp of when the ID namespace was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the ID namespace was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -568,8 +890,8 @@ export interface RuleBasedProperties {
  */
 export interface ResolutionTechniques {
   /**
-   * <p>The type of matching. There are two types of matching: <code>RULE_MATCHING</code> and
-   *             <code>ML_MATCHING</code>.</p>
+   * <p>The type of matching. There are three types of matching: <code>RULE_MATCHING</code>,
+   *             <code>ML_MATCHING</code>, and <code>PROVIDER</code>.</p>
    * @public
    */
   resolutionType: ResolutionType | undefined;
@@ -742,7 +1064,7 @@ export type SchemaAttributeType = (typeof SchemaAttributeType)[keyof typeof Sche
 
 /**
  * <p>An object containing <code>FieldName</code>, <code>Type</code>, <code>GroupName</code>,
- *          and <code>MatchKey</code>.</p>
+ *          <code>MatchKey</code>, and <code>SubType</code>.</p>
  * @public
  */
 export interface SchemaInputAttribute {
@@ -759,23 +1081,24 @@ export interface SchemaInputAttribute {
   type: SchemaAttributeType | undefined;
 
   /**
-   * <p>Instruct Entity Resolution to combine several columns into a unified column with the
-   *          identical attribute type. For example, when working with columns such as first_name,
-   *          middle_name, and last_name, assigning them a common <code>GroupName</code> will prompt
-   *             Entity Resolution to concatenate them into a single value.</p>
+   * <p>A string that instructs Entity Resolution to combine several columns into a unified
+   *          column with the identical attribute type. </p>
+   *          <p>For example, when working with columns such as <code>first_name</code>,
+   *             <code>middle_name</code>, and <code>last_name</code>, assigning them a common
+   *             <code>groupName</code> will prompt Entity Resolution to concatenate them into a single
+   *          value.</p>
    * @public
    */
   groupName?: string;
 
   /**
    * <p>A key that allows grouping of multiple input attributes into a unified matching group.
-   *          For example, let's consider a scenario where the source table contains various addresses,
-   *          such as <code>business_address</code> and <code>shipping_address</code>. By assigning the
-   *             <code>MatchKey</code>
-   *             <i>Address</i> to both attributes, Entity Resolution will match records
-   *          across these fields to create a consolidated matching group. If no <code>MatchKey</code> is
-   *          specified for a column, it won't be utilized for matching purposes but will still be
-   *          included in the output table.</p>
+   *          For example, consider a scenario where the source table contains various addresses, such as
+   *             <code>business_address</code> and <code>shipping_address</code>. By assigning a
+   *             <code>matchKey</code>  called <code>address</code> to both attributes, Entity Resolution
+   *          will match records across these fields to create a consolidated matching group. If no
+   *             <code>matchKey</code> is specified for a column, it won't be utilized for matching
+   *          purposes but will still be included in the output table.</p>
    * @public
    */
   matchKey?: string;
@@ -876,6 +1199,28 @@ export interface DeleteIdMappingWorkflowOutput {
 /**
  * @public
  */
+export interface DeleteIdNamespaceInput {
+  /**
+   * <p>The name of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdNamespaceOutput {
+  /**
+   * <p>A successful operation message.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteMatchingWorkflowInput {
   /**
    * <p>The name of the workflow to be retrieved.</p>
@@ -893,6 +1238,47 @@ export interface DeleteMatchingWorkflowOutput {
    * @public
    */
   message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyStatementInput {
+  /**
+   * <p>The ARN of the resource for which the policy need to be deleted.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A statement identifier that differentiates the statement from others in the same
+   *          policy.</p>
+   * @public
+   */
+  statementId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyStatementOutput {
+  /**
+   * <p>The ARN of the resource for which the policy need to be deleted.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the deleted policy.</p>
+   * @public
+   */
+  token: string | undefined;
+
+  /**
+   * <p>The resource-based policy.</p>
+   * @public
+   */
+  policy?: string;
 }
 
 /**
@@ -972,6 +1358,34 @@ export interface IdMappingJobMetrics {
 }
 
 /**
+ * <p>An object containing <code>KMSArn</code>, <code>OutputS3Path</code>, and
+ *             <code>RoleARN</code>.</p>
+ * @public
+ */
+export interface IdMappingJobOutputSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
+   *          this role to access Amazon Web Services resources on your behalf as part of workflow
+   *          execution.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The S3 path to which Entity Resolution will write the output table.</p>
+   * @public
+   */
+  outputS3Path: string | undefined;
+
+  /**
+   * <p>Customer KMS ARN for encryption at rest. If not provided, system will use
+   *          an Entity Resolution managed KMS key.</p>
+   * @public
+   */
+  KMSArn?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1027,27 +1441,12 @@ export interface GetIdMappingJobOutput {
    * @public
    */
   errorDetails?: ErrorDetails;
-}
 
-/**
- * <p>The resource could not be found. <code>HTTP Status Code: 404</code>
- *          </p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
   /**
-   * @internal
+   * <p>A list of <code>OutputSource</code> objects.</p>
+   * @public
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
+  outputSourceConfig?: IdMappingJobOutputSource[];
 }
 
 /**
@@ -1096,7 +1495,7 @@ export interface GetIdMappingWorkflowOutput {
    *             <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
-  outputSourceConfig: IdMappingWorkflowOutputSource[] | undefined;
+  outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
    * <p>An object which defines the <code>idMappingType</code> and the
@@ -1119,10 +1518,96 @@ export interface GetIdMappingWorkflowOutput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
-   *          this role to access resources on your behalf.</p>
+   *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetIdNamespaceInput {
+  /**
+   * <p>The name of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIdNamespaceOutput {
+  /**
+   * <p>The name of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceArn: string | undefined;
+
+  /**
+   * <p>The description of the ID namespace.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>A list of <code>InputSource</code> objects, which have the fields
+   *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
+   * @public
+   */
+  inputSourceConfig?: IdNamespaceInputSource[];
+
+  /**
+   * <p>Determines the properties of <code>IdMappingWorkflow</code> where this
+   *             <code>IdNamespace</code> can be used as a <code>Source</code> or a
+   *          <code>Target</code>.</p>
+   * @public
+   */
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+
+  /**
+   * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
+   *             <code>TARGET</code>.</p>
+   *          <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will
+   *          be processed in an ID mapping workflow. </p>
+   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all
+   *             <code>sourceIds</code> will resolve to.</p>
+   * @public
+   */
+  type: IdNamespaceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
+   *          this role to access the resources defined in this <code>IdNamespace</code> on your behalf
+   *          as part of a workflow run.</p>
+   * @public
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The timestamp of when the ID namespace was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the ID namespace was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -1146,6 +1631,15 @@ export interface GetMatchIdInput {
    * @public
    */
   record: Record<string, string> | undefined;
+
+  /**
+   * <p>Normalizes the attributes defined in the schema in the input data. For example, if an
+   *          attribute has an <code>AttributeType</code> of <code>PHONE_NUMBER</code>, and the data in
+   *          the input table is in a format of 1234567890, Entity Resolution will normalize this field
+   *          in the output to (123)-456-7890.</p>
+   * @public
+   */
+  applyNormalization?: boolean;
 }
 
 /**
@@ -1157,6 +1651,12 @@ export interface GetMatchIdOutput {
    * @public
    */
   matchId?: string;
+
+  /**
+   * <p>The rule the record matched on.</p>
+   * @public
+   */
+  matchRule?: string;
 }
 
 /**
@@ -1208,6 +1708,34 @@ export interface JobMetrics {
 }
 
 /**
+ * <p>An object containing <code>KMSArn</code>, <code>OutputS3Path</code>, and
+ *             <code>RoleArn</code>.</p>
+ * @public
+ */
+export interface JobOutputSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
+   *          this role to access Amazon Web Services resources on your behalf as part of workflow
+   *          execution.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The S3 path to which Entity Resolution will write the output table.</p>
+   * @public
+   */
+  outputS3Path: string | undefined;
+
+  /**
+   * <p>Customer KMS ARN for encryption at rest. If not provided, system will use
+   *          an Entity Resolution managed KMS key.</p>
+   * @public
+   */
+  KMSArn?: string;
+}
+
+/**
  * @public
  */
 export interface GetMatchingJobOutput {
@@ -1247,6 +1775,12 @@ export interface GetMatchingJobOutput {
    * @public
    */
   errorDetails?: ErrorDetails;
+
+  /**
+   * <p>A list of <code>OutputSource</code> objects.</p>
+   * @public
+   */
+  outputSourceConfig?: JobOutputSource[];
 }
 
 /**
@@ -1326,7 +1860,7 @@ export interface GetMatchingWorkflowOutput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
-   *          this role to access resources on your behalf.</p>
+   *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -1336,6 +1870,41 @@ export interface GetMatchingWorkflowOutput {
    * @public
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which the policy need to be
+   *          returned.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyOutput {
+  /**
+   * <p>The Entity Resolution resource ARN.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   * @public
+   */
+  token: string | undefined;
+
+  /**
+   * <p>The resource-based policy.</p>
+   * @public
+   */
+  policy?: string;
 }
 
 /**
@@ -1353,6 +1922,54 @@ export interface GetProviderServiceInput {
    * @public
    */
   providerServiceName: string | undefined;
+}
+
+/**
+ * <p>The provider schema attribute.</p>
+ * @public
+ */
+export interface ProviderSchemaAttribute {
+  /**
+   * <p>The field name.</p>
+   * @public
+   */
+  fieldName: string | undefined;
+
+  /**
+   * <p>The type of the provider schema attribute.</p>
+   * @public
+   */
+  type: SchemaAttributeType | undefined;
+
+  /**
+   * <p>The sub type of the provider schema attribute.</p>
+   * @public
+   */
+  subType?: string;
+
+  /**
+   * <p>The hashing attribute of the provider schema.</p>
+   * @public
+   */
+  hashing?: boolean;
+}
+
+/**
+ * <p>The input schema supported by provider service.</p>
+ * @public
+ */
+export interface ProviderComponentSchema {
+  /**
+   * <p>Input schema for the provider service.</p>
+   * @public
+   */
+  schemas?: string[][];
+
+  /**
+   * <p>The provider schema attributes.</p>
+   * @public
+   */
+  providerSchemaAttributes?: ProviderSchemaAttribute[];
 }
 
 /**
@@ -1427,16 +2044,38 @@ export namespace ProviderEndpointConfiguration {
 }
 
 /**
+ * <p>The provider configuration required for different ID namespace types.</p>
+ * @public
+ */
+export interface ProviderIdNameSpaceConfiguration {
+  /**
+   * <p>The description of the ID namespace.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>Configurations required for the target  ID namespace.</p>
+   * @public
+   */
+  providerTargetConfigurationDefinition?: __DocumentType;
+
+  /**
+   * <p>Configurations required for the source ID namespace.</p>
+   * @public
+   */
+  providerSourceConfigurationDefinition?: __DocumentType;
+}
+
+/**
  * <p>The required configuration fields to give intermediate access to a provider
  *          service.</p>
  * @public
  */
 export interface ProviderIntermediateDataAccessConfiguration {
   /**
-   * <p>The Amazon Web Services account
-   *          that
-   *          provider can use to read or write data into the customer's intermediate S3
-   *          bucket.</p>
+   * <p>The Amazon Web Services account that provider can use to read or write data into the
+   *          customer's intermediate S3 bucket.</p>
    * @public
    */
   awsAccountIds?: string[];
@@ -1504,6 +2143,18 @@ export interface GetProviderServiceOutput {
   providerConfigurationDefinition?: __DocumentType;
 
   /**
+   * <p>The provider configuration required for different ID namespace types.</p>
+   * @public
+   */
+  providerIdNameSpaceConfiguration?: ProviderIdNameSpaceConfiguration;
+
+  /**
+   * <p>Provider service job configurations.</p>
+   * @public
+   */
+  providerJobConfiguration?: __DocumentType;
+
+  /**
    * <p>The required configuration fields to use with the provider service.</p>
    * @public
    */
@@ -1531,6 +2182,12 @@ export interface GetProviderServiceOutput {
    * @public
    */
   providerIntermediateDataAccessConfiguration?: ProviderIntermediateDataAccessConfiguration;
+
+  /**
+   * <p>Input schema for the provider service.</p>
+   * @public
+   */
+  providerComponentSchema?: ProviderComponentSchema;
 }
 
 /**
@@ -1730,6 +2387,87 @@ export interface ListIdMappingWorkflowsOutput {
    * @public
    */
   workflowSummaries?: IdMappingWorkflowSummary[];
+
+  /**
+   * <p>The pagination token from the previous API call.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIdNamespacesInput {
+  /**
+   * <p>The pagination token from the previous API call.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of <code>IdNamespace</code> objects returned per page.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>A summary of ID namespaces.</p>
+ * @public
+ */
+export interface IdNamespaceSummary {
+  /**
+   * <p>The name of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceArn: string | undefined;
+
+  /**
+   * <p>The description of the ID namespace.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
+   *             <code>TARGET</code>.</p>
+   *          <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will
+   *          be processed in an ID mapping workflow. </p>
+   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all
+   *             <code>sourceIds</code> will resolve to.</p>
+   * @public
+   */
+  type: IdNamespaceType | undefined;
+
+  /**
+   * <p>The timestamp of when the ID namespace was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the ID namespace was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIdNamespacesOutput {
+  /**
+   * <p>A list of <code>IdNamespaceSummaries</code> objects.</p>
+   * @public
+   */
+  idNamespaceSummaries?: IdNamespaceSummary[];
 
   /**
    * <p>The pagination token from the previous API call.</p>
@@ -2033,12 +2771,65 @@ export interface ListTagsForResourceOutput {
 /**
  * @public
  */
+export interface PutPolicyInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which the policy needs to be
+   *          updated.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   * @public
+   */
+  token?: string;
+
+  /**
+   * <p>The resource-based policy.</p>
+   * @public
+   */
+  policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutPolicyOutput {
+  /**
+   * <p>The Entity Resolution resource ARN.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   * @public
+   */
+  token: string | undefined;
+
+  /**
+   * <p>The resource-based policy.</p>
+   * @public
+   */
+  policy?: string;
+}
+
+/**
+ * @public
+ */
 export interface StartIdMappingJobInput {
   /**
    * <p>The name of the ID mapping job to be retrieved.</p>
    * @public
    */
   workflowName: string | undefined;
+
+  /**
+   * <p>A list of <code>OutputSource</code> objects.</p>
+   * @public
+   */
+  outputSourceConfig?: IdMappingJobOutputSource[];
 }
 
 /**
@@ -2050,6 +2841,12 @@ export interface StartIdMappingJobOutput {
    * @public
    */
   jobId: string | undefined;
+
+  /**
+   * <p>A list of <code>OutputSource</code> objects.</p>
+   * @public
+   */
+  outputSourceConfig?: IdMappingJobOutputSource[];
 }
 
 /**
@@ -2146,7 +2943,7 @@ export interface UpdateIdMappingWorkflowInput {
    *             <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
-  outputSourceConfig: IdMappingWorkflowOutputSource[] | undefined;
+  outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
    * <p>An object which defines the <code>idMappingType</code> and the
@@ -2157,7 +2954,7 @@ export interface UpdateIdMappingWorkflowInput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
-   *          this role to access resources on your behalf.</p>
+   *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -2175,7 +2972,7 @@ export interface UpdateIdMappingWorkflowOutput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the workflow role. Entity Resolution assumes this role
-   *          to access resources on your behalf.</p>
+   *          to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
   workflowArn: string | undefined;
@@ -2198,7 +2995,7 @@ export interface UpdateIdMappingWorkflowOutput {
    *             <code>OutputS3Path</code> and <code>KMSArn</code>.</p>
    * @public
    */
-  outputSourceConfig: IdMappingWorkflowOutputSource[] | undefined;
+  outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
    * <p>An object which defines the <code>idMappingType</code> and the
@@ -2209,10 +3006,119 @@ export interface UpdateIdMappingWorkflowOutput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
-   *          this role to access resources on your behalf.</p>
+   *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
   roleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIdNamespaceInput {
+  /**
+   * <p>The name of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceName: string | undefined;
+
+  /**
+   * <p>The description of the ID namespace.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>A list of <code>InputSource</code> objects, which have the fields
+   *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
+   * @public
+   */
+  inputSourceConfig?: IdNamespaceInputSource[];
+
+  /**
+   * <p>Determines the properties of <code>IdMappingWorkflow</code> where this
+   *             <code>IdNamespace</code> can be used as a <code>Source</code> or a
+   *          <code>Target</code>.</p>
+   * @public
+   */
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
+   *          this role to access the resources defined in this <code>IdNamespace</code> on your behalf
+   *          as part of a workflow run.</p>
+   * @public
+   */
+  roleArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIdNamespaceOutput {
+  /**
+   * <p>The name of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ID namespace.</p>
+   * @public
+   */
+  idNamespaceArn: string | undefined;
+
+  /**
+   * <p>The description of the ID namespace.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>A list of <code>InputSource</code> objects, which have the fields
+   *             <code>InputSourceARN</code> and <code>SchemaName</code>.</p>
+   * @public
+   */
+  inputSourceConfig?: IdNamespaceInputSource[];
+
+  /**
+   * <p>Determines the properties of <code>IdMappingWorkflow</code> where this
+   *             <code>IdNamespace</code> can be used as a <code>Source</code> or a
+   *          <code>Target</code>.</p>
+   * @public
+   */
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowProperties[];
+
+  /**
+   * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
+   *             <code>TARGET</code>.</p>
+   *          <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will
+   *          be processed in an ID mapping workflow. </p>
+   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all
+   *             <code>sourceIds</code> will resolve to.</p>
+   * @public
+   */
+  type: IdNamespaceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes
+   *          this role to access the resources defined in this <code>IdNamespace</code> on your behalf
+   *          as part of a workflow run.</p>
+   * @public
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The timestamp of when the ID namespace was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the ID namespace was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 }
 
 /**

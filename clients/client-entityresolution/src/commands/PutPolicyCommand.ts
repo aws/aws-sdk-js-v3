@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { GetMatchingJobInput, GetMatchingJobOutput } from "../models/models_0";
-import { de_GetMatchingJobCommand, se_GetMatchingJobCommand } from "../protocols/Aws_restJson1";
+import { PutPolicyInput, PutPolicyOutput } from "../models/models_0";
+import { de_PutPolicyCommand, se_PutPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,65 +16,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetMatchingJobCommand}.
+ * The input for {@link PutPolicyCommand}.
  */
-export interface GetMatchingJobCommandInput extends GetMatchingJobInput {}
+export interface PutPolicyCommandInput extends PutPolicyInput {}
 /**
  * @public
  *
- * The output of {@link GetMatchingJobCommand}.
+ * The output of {@link PutPolicyCommand}.
  */
-export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __MetadataBearer {}
+export interface PutPolicyCommandOutput extends PutPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the status, metrics, and errors (if there are any) that are associated with a
- *          job.</p>
+ * <p>Updates the resource-based policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, GetMatchingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, GetMatchingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, PutPolicyCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, PutPolicyCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // GetMatchingJobInput
- *   workflowName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
+ * const input = { // PutPolicyInput
+ *   arn: "STRING_VALUE", // required
+ *   token: "STRING_VALUE",
+ *   policy: "STRING_VALUE", // required
  * };
- * const command = new GetMatchingJobCommand(input);
+ * const command = new PutPolicyCommand(input);
  * const response = await client.send(command);
- * // { // GetMatchingJobOutput
- * //   jobId: "STRING_VALUE", // required
- * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "QUEUED", // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   endTime: new Date("TIMESTAMP"),
- * //   metrics: { // JobMetrics
- * //     inputRecords: Number("int"),
- * //     totalRecordsProcessed: Number("int"),
- * //     recordsNotProcessed: Number("int"),
- * //     matchIDs: Number("int"),
- * //   },
- * //   errorDetails: { // ErrorDetails
- * //     errorMessage: "STRING_VALUE",
- * //   },
- * //   outputSourceConfig: [ // JobOutputSourceConfig
- * //     { // JobOutputSource
- * //       roleArn: "STRING_VALUE", // required
- * //       outputS3Path: "STRING_VALUE", // required
- * //       KMSArn: "STRING_VALUE",
- * //     },
- * //   ],
+ * // { // PutPolicyOutput
+ * //   arn: "STRING_VALUE", // required
+ * //   token: "STRING_VALUE", // required
+ * //   policy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetMatchingJobCommandInput - {@link GetMatchingJobCommandInput}
- * @returns {@link GetMatchingJobCommandOutput}
- * @see {@link GetMatchingJobCommandInput} for command's `input` shape.
- * @see {@link GetMatchingJobCommandOutput} for command's `response` shape.
+ * @param PutPolicyCommandInput - {@link PutPolicyCommandInput}
+ * @returns {@link PutPolicyCommandOutput}
+ * @see {@link PutPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutPolicyCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
  *             403</code>
+ *          </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
+ *          running, etc. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -101,10 +90,10 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  *
  * @public
  */
-export class GetMatchingJobCommand extends $Command
+export class PutPolicyCommand extends $Command
   .classBuilder<
-    GetMatchingJobCommandInput,
-    GetMatchingJobCommandOutput,
+    PutPolicyCommandInput,
+    PutPolicyCommandOutput,
     EntityResolutionClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,9 +107,9 @@ export class GetMatchingJobCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSVeniceService", "GetMatchingJob", {})
-  .n("EntityResolutionClient", "GetMatchingJobCommand")
+  .s("AWSVeniceService", "PutPolicy", {})
+  .n("EntityResolutionClient", "PutPolicyCommand")
   .f(void 0, void 0)
-  .ser(se_GetMatchingJobCommand)
-  .de(de_GetMatchingJobCommand)
+  .ser(se_PutPolicyCommand)
+  .de(de_PutPolicyCommand)
   .build() {}

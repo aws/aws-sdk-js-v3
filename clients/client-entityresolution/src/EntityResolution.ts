@@ -3,10 +3,20 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AddPolicyStatementCommand,
+  AddPolicyStatementCommandInput,
+  AddPolicyStatementCommandOutput,
+} from "./commands/AddPolicyStatementCommand";
+import {
   CreateIdMappingWorkflowCommand,
   CreateIdMappingWorkflowCommandInput,
   CreateIdMappingWorkflowCommandOutput,
 } from "./commands/CreateIdMappingWorkflowCommand";
+import {
+  CreateIdNamespaceCommand,
+  CreateIdNamespaceCommandInput,
+  CreateIdNamespaceCommandOutput,
+} from "./commands/CreateIdNamespaceCommand";
 import {
   CreateMatchingWorkflowCommand,
   CreateMatchingWorkflowCommandInput,
@@ -23,10 +33,20 @@ import {
   DeleteIdMappingWorkflowCommandOutput,
 } from "./commands/DeleteIdMappingWorkflowCommand";
 import {
+  DeleteIdNamespaceCommand,
+  DeleteIdNamespaceCommandInput,
+  DeleteIdNamespaceCommandOutput,
+} from "./commands/DeleteIdNamespaceCommand";
+import {
   DeleteMatchingWorkflowCommand,
   DeleteMatchingWorkflowCommandInput,
   DeleteMatchingWorkflowCommandOutput,
 } from "./commands/DeleteMatchingWorkflowCommand";
+import {
+  DeletePolicyStatementCommand,
+  DeletePolicyStatementCommandInput,
+  DeletePolicyStatementCommandOutput,
+} from "./commands/DeletePolicyStatementCommand";
 import {
   DeleteSchemaMappingCommand,
   DeleteSchemaMappingCommandInput,
@@ -42,6 +62,11 @@ import {
   GetIdMappingWorkflowCommandInput,
   GetIdMappingWorkflowCommandOutput,
 } from "./commands/GetIdMappingWorkflowCommand";
+import {
+  GetIdNamespaceCommand,
+  GetIdNamespaceCommandInput,
+  GetIdNamespaceCommandOutput,
+} from "./commands/GetIdNamespaceCommand";
 import { GetMatchIdCommand, GetMatchIdCommandInput, GetMatchIdCommandOutput } from "./commands/GetMatchIdCommand";
 import {
   GetMatchingJobCommand,
@@ -53,6 +78,7 @@ import {
   GetMatchingWorkflowCommandInput,
   GetMatchingWorkflowCommandOutput,
 } from "./commands/GetMatchingWorkflowCommand";
+import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetProviderServiceCommand,
   GetProviderServiceCommandInput,
@@ -73,6 +99,11 @@ import {
   ListIdMappingWorkflowsCommandInput,
   ListIdMappingWorkflowsCommandOutput,
 } from "./commands/ListIdMappingWorkflowsCommand";
+import {
+  ListIdNamespacesCommand,
+  ListIdNamespacesCommandInput,
+  ListIdNamespacesCommandOutput,
+} from "./commands/ListIdNamespacesCommand";
 import {
   ListMatchingJobsCommand,
   ListMatchingJobsCommandInput,
@@ -98,6 +129,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import {
   StartIdMappingJobCommand,
   StartIdMappingJobCommandInput,
@@ -120,6 +152,11 @@ import {
   UpdateIdMappingWorkflowCommandOutput,
 } from "./commands/UpdateIdMappingWorkflowCommand";
 import {
+  UpdateIdNamespaceCommand,
+  UpdateIdNamespaceCommandInput,
+  UpdateIdNamespaceCommandOutput,
+} from "./commands/UpdateIdNamespaceCommand";
+import {
   UpdateMatchingWorkflowCommand,
   UpdateMatchingWorkflowCommandInput,
   UpdateMatchingWorkflowCommandOutput,
@@ -132,36 +169,62 @@ import {
 import { EntityResolutionClient, EntityResolutionClientConfig } from "./EntityResolutionClient";
 
 const commands = {
+  AddPolicyStatementCommand,
   CreateIdMappingWorkflowCommand,
+  CreateIdNamespaceCommand,
   CreateMatchingWorkflowCommand,
   CreateSchemaMappingCommand,
   DeleteIdMappingWorkflowCommand,
+  DeleteIdNamespaceCommand,
   DeleteMatchingWorkflowCommand,
+  DeletePolicyStatementCommand,
   DeleteSchemaMappingCommand,
   GetIdMappingJobCommand,
   GetIdMappingWorkflowCommand,
+  GetIdNamespaceCommand,
   GetMatchIdCommand,
   GetMatchingJobCommand,
   GetMatchingWorkflowCommand,
+  GetPolicyCommand,
   GetProviderServiceCommand,
   GetSchemaMappingCommand,
   ListIdMappingJobsCommand,
   ListIdMappingWorkflowsCommand,
+  ListIdNamespacesCommand,
   ListMatchingJobsCommand,
   ListMatchingWorkflowsCommand,
   ListProviderServicesCommand,
   ListSchemaMappingsCommand,
   ListTagsForResourceCommand,
+  PutPolicyCommand,
   StartIdMappingJobCommand,
   StartMatchingJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateIdMappingWorkflowCommand,
+  UpdateIdNamespaceCommand,
   UpdateMatchingWorkflowCommand,
   UpdateSchemaMappingCommand,
 };
 
 export interface EntityResolution {
+  /**
+   * @see {@link AddPolicyStatementCommand}
+   */
+  addPolicyStatement(
+    args: AddPolicyStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddPolicyStatementCommandOutput>;
+  addPolicyStatement(
+    args: AddPolicyStatementCommandInput,
+    cb: (err: any, data?: AddPolicyStatementCommandOutput) => void
+  ): void;
+  addPolicyStatement(
+    args: AddPolicyStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddPolicyStatementCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateIdMappingWorkflowCommand}
    */
@@ -177,6 +240,23 @@ export interface EntityResolution {
     args: CreateIdMappingWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIdMappingWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIdNamespaceCommand}
+   */
+  createIdNamespace(
+    args: CreateIdNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIdNamespaceCommandOutput>;
+  createIdNamespace(
+    args: CreateIdNamespaceCommandInput,
+    cb: (err: any, data?: CreateIdNamespaceCommandOutput) => void
+  ): void;
+  createIdNamespace(
+    args: CreateIdNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIdNamespaceCommandOutput) => void
   ): void;
 
   /**
@@ -231,6 +311,23 @@ export interface EntityResolution {
   ): void;
 
   /**
+   * @see {@link DeleteIdNamespaceCommand}
+   */
+  deleteIdNamespace(
+    args: DeleteIdNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIdNamespaceCommandOutput>;
+  deleteIdNamespace(
+    args: DeleteIdNamespaceCommandInput,
+    cb: (err: any, data?: DeleteIdNamespaceCommandOutput) => void
+  ): void;
+  deleteIdNamespace(
+    args: DeleteIdNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIdNamespaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteMatchingWorkflowCommand}
    */
   deleteMatchingWorkflow(
@@ -245,6 +342,23 @@ export interface EntityResolution {
     args: DeleteMatchingWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteMatchingWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePolicyStatementCommand}
+   */
+  deletePolicyStatement(
+    args: DeletePolicyStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyStatementCommandOutput>;
+  deletePolicyStatement(
+    args: DeletePolicyStatementCommandInput,
+    cb: (err: any, data?: DeletePolicyStatementCommandOutput) => void
+  ): void;
+  deletePolicyStatement(
+    args: DeletePolicyStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePolicyStatementCommandOutput) => void
   ): void;
 
   /**
@@ -296,6 +410,20 @@ export interface EntityResolution {
   ): void;
 
   /**
+   * @see {@link GetIdNamespaceCommand}
+   */
+  getIdNamespace(
+    args: GetIdNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdNamespaceCommandOutput>;
+  getIdNamespace(args: GetIdNamespaceCommandInput, cb: (err: any, data?: GetIdNamespaceCommandOutput) => void): void;
+  getIdNamespace(
+    args: GetIdNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdNamespaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMatchIdCommand}
    */
   getMatchId(args: GetMatchIdCommandInput, options?: __HttpHandlerOptions): Promise<GetMatchIdCommandOutput>;
@@ -335,6 +463,17 @@ export interface EntityResolution {
     args: GetMatchingWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMatchingWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicyCommand}
+   */
+  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
+  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -404,6 +543,24 @@ export interface EntityResolution {
     args: ListIdMappingWorkflowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIdMappingWorkflowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIdNamespacesCommand}
+   */
+  listIdNamespaces(): Promise<ListIdNamespacesCommandOutput>;
+  listIdNamespaces(
+    args: ListIdNamespacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIdNamespacesCommandOutput>;
+  listIdNamespaces(
+    args: ListIdNamespacesCommandInput,
+    cb: (err: any, data?: ListIdNamespacesCommandOutput) => void
+  ): void;
+  listIdNamespaces(
+    args: ListIdNamespacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIdNamespacesCommandOutput) => void
   ): void;
 
   /**
@@ -495,6 +652,17 @@ export interface EntityResolution {
   ): void;
 
   /**
+   * @see {@link PutPolicyCommand}
+   */
+  putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
+  putPolicy(args: PutPolicyCommandInput, cb: (err: any, data?: PutPolicyCommandOutput) => void): void;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartIdMappingJobCommand}
    */
   startIdMappingJob(
@@ -565,6 +733,23 @@ export interface EntityResolution {
     args: UpdateIdMappingWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIdMappingWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIdNamespaceCommand}
+   */
+  updateIdNamespace(
+    args: UpdateIdNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIdNamespaceCommandOutput>;
+  updateIdNamespace(
+    args: UpdateIdNamespaceCommandInput,
+    cb: (err: any, data?: UpdateIdNamespaceCommandOutput) => void
+  ): void;
+  updateIdNamespace(
+    args: UpdateIdNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIdNamespaceCommandOutput) => void
   ): void;
 
   /**

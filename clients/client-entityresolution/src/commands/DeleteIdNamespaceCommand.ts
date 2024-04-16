@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { DeleteIdMappingWorkflowInput, DeleteIdMappingWorkflowOutput } from "../models/models_0";
-import { de_DeleteIdMappingWorkflowCommand, se_DeleteIdMappingWorkflowCommand } from "../protocols/Aws_restJson1";
+import { DeleteIdNamespaceInput, DeleteIdNamespaceOutput } from "../models/models_0";
+import { de_DeleteIdNamespaceCommand, se_DeleteIdNamespaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,51 +16,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteIdMappingWorkflowCommand}.
+ * The input for {@link DeleteIdNamespaceCommand}.
  */
-export interface DeleteIdMappingWorkflowCommandInput extends DeleteIdMappingWorkflowInput {}
+export interface DeleteIdNamespaceCommandInput extends DeleteIdNamespaceInput {}
 /**
  * @public
  *
- * The output of {@link DeleteIdMappingWorkflowCommand}.
+ * The output of {@link DeleteIdNamespaceCommand}.
  */
-export interface DeleteIdMappingWorkflowCommandOutput extends DeleteIdMappingWorkflowOutput, __MetadataBearer {}
+export interface DeleteIdNamespaceCommandOutput extends DeleteIdNamespaceOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the <code>IdMappingWorkflow</code> with a given name. This operation will
- *          succeed even if a workflow with the given name does not exist.</p>
+ * <p>Deletes the <code>IdNamespace</code> with a given name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, DeleteIdMappingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, DeleteIdMappingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, DeleteIdNamespaceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, DeleteIdNamespaceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // DeleteIdMappingWorkflowInput
- *   workflowName: "STRING_VALUE", // required
+ * const input = { // DeleteIdNamespaceInput
+ *   idNamespaceName: "STRING_VALUE", // required
  * };
- * const command = new DeleteIdMappingWorkflowCommand(input);
+ * const command = new DeleteIdNamespaceCommand(input);
  * const response = await client.send(command);
- * // { // DeleteIdMappingWorkflowOutput
+ * // { // DeleteIdNamespaceOutput
  * //   message: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param DeleteIdMappingWorkflowCommandInput - {@link DeleteIdMappingWorkflowCommandInput}
- * @returns {@link DeleteIdMappingWorkflowCommandOutput}
- * @see {@link DeleteIdMappingWorkflowCommandInput} for command's `input` shape.
- * @see {@link DeleteIdMappingWorkflowCommandOutput} for command's `response` shape.
+ * @param DeleteIdNamespaceCommandInput - {@link DeleteIdNamespaceCommandInput}
+ * @returns {@link DeleteIdNamespaceCommandOutput}
+ * @see {@link DeleteIdNamespaceCommandInput} for command's `input` shape.
+ * @see {@link DeleteIdNamespaceCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
  *             403</code>
- *          </p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. <code>HTTP Status Code: 400</code>
  *          </p>
  *
  * @throws {@link InternalServerException} (server fault)
@@ -83,10 +76,10 @@ export interface DeleteIdMappingWorkflowCommandOutput extends DeleteIdMappingWor
  *
  * @public
  */
-export class DeleteIdMappingWorkflowCommand extends $Command
+export class DeleteIdNamespaceCommand extends $Command
   .classBuilder<
-    DeleteIdMappingWorkflowCommandInput,
-    DeleteIdMappingWorkflowCommandOutput,
+    DeleteIdNamespaceCommandInput,
+    DeleteIdNamespaceCommandOutput,
     EntityResolutionClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,9 +93,9 @@ export class DeleteIdMappingWorkflowCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSVeniceService", "DeleteIdMappingWorkflow", {})
-  .n("EntityResolutionClient", "DeleteIdMappingWorkflowCommand")
+  .s("AWSVeniceService", "DeleteIdNamespace", {})
+  .n("EntityResolutionClient", "DeleteIdNamespaceCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteIdMappingWorkflowCommand)
-  .de(de_DeleteIdMappingWorkflowCommand)
+  .ser(se_DeleteIdNamespaceCommand)
+  .de(de_DeleteIdNamespaceCommand)
   .build() {}

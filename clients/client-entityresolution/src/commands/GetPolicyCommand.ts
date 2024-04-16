@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { GetMatchingJobInput, GetMatchingJobOutput } from "../models/models_0";
-import { de_GetMatchingJobCommand, se_GetMatchingJobCommand } from "../protocols/Aws_restJson1";
+import { GetPolicyInput, GetPolicyOutput } from "../models/models_0";
+import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,60 +16,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetMatchingJobCommand}.
+ * The input for {@link GetPolicyCommand}.
  */
-export interface GetMatchingJobCommandInput extends GetMatchingJobInput {}
+export interface GetPolicyCommandInput extends GetPolicyInput {}
 /**
  * @public
  *
- * The output of {@link GetMatchingJobCommand}.
+ * The output of {@link GetPolicyCommand}.
  */
-export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __MetadataBearer {}
+export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the status, metrics, and errors (if there are any) that are associated with a
- *          job.</p>
+ * <p>Returns the resource-based policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, GetMatchingJobCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, GetMatchingJobCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, GetPolicyCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, GetPolicyCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // GetMatchingJobInput
- *   workflowName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
+ * const input = { // GetPolicyInput
+ *   arn: "STRING_VALUE", // required
  * };
- * const command = new GetMatchingJobCommand(input);
+ * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
- * // { // GetMatchingJobOutput
- * //   jobId: "STRING_VALUE", // required
- * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "QUEUED", // required
- * //   startTime: new Date("TIMESTAMP"), // required
- * //   endTime: new Date("TIMESTAMP"),
- * //   metrics: { // JobMetrics
- * //     inputRecords: Number("int"),
- * //     totalRecordsProcessed: Number("int"),
- * //     recordsNotProcessed: Number("int"),
- * //     matchIDs: Number("int"),
- * //   },
- * //   errorDetails: { // ErrorDetails
- * //     errorMessage: "STRING_VALUE",
- * //   },
- * //   outputSourceConfig: [ // JobOutputSourceConfig
- * //     { // JobOutputSource
- * //       roleArn: "STRING_VALUE", // required
- * //       outputS3Path: "STRING_VALUE", // required
- * //       KMSArn: "STRING_VALUE",
- * //     },
- * //   ],
+ * // { // GetPolicyOutput
+ * //   arn: "STRING_VALUE", // required
+ * //   token: "STRING_VALUE", // required
+ * //   policy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetMatchingJobCommandInput - {@link GetMatchingJobCommandInput}
- * @returns {@link GetMatchingJobCommandOutput}
- * @see {@link GetMatchingJobCommandInput} for command's `input` shape.
- * @see {@link GetMatchingJobCommandOutput} for command's `response` shape.
+ * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
+ * @returns {@link GetPolicyCommandOutput}
+ * @see {@link GetPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetPolicyCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -101,10 +82,10 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  *
  * @public
  */
-export class GetMatchingJobCommand extends $Command
+export class GetPolicyCommand extends $Command
   .classBuilder<
-    GetMatchingJobCommandInput,
-    GetMatchingJobCommandOutput,
+    GetPolicyCommandInput,
+    GetPolicyCommandOutput,
     EntityResolutionClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,9 +99,9 @@ export class GetMatchingJobCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSVeniceService", "GetMatchingJob", {})
-  .n("EntityResolutionClient", "GetMatchingJobCommand")
+  .s("AWSVeniceService", "GetPolicy", {})
+  .n("EntityResolutionClient", "GetPolicyCommand")
   .f(void 0, void 0)
-  .ser(se_GetMatchingJobCommand)
-  .de(de_GetMatchingJobCommand)
+  .ser(se_GetPolicyCommand)
+  .de(de_GetPolicyCommand)
   .build() {}

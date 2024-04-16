@@ -40,11 +40,13 @@ export interface GetMatchIdCommandOutput extends GetMatchIdOutput, __MetadataBea
  *   record: { // RecordAttributeMap // required
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   applyNormalization: true || false,
  * };
  * const command = new GetMatchIdCommand(input);
  * const response = await client.send(command);
  * // { // GetMatchIdOutput
  * //   matchId: "STRING_VALUE",
+ * //   matchRule: "STRING_VALUE",
  * // };
  *
  * ```

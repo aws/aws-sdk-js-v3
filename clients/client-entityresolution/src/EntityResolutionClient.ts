@@ -53,10 +53,12 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { AddPolicyStatementCommandInput, AddPolicyStatementCommandOutput } from "./commands/AddPolicyStatementCommand";
 import {
   CreateIdMappingWorkflowCommandInput,
   CreateIdMappingWorkflowCommandOutput,
 } from "./commands/CreateIdMappingWorkflowCommand";
+import { CreateIdNamespaceCommandInput, CreateIdNamespaceCommandOutput } from "./commands/CreateIdNamespaceCommand";
 import {
   CreateMatchingWorkflowCommandInput,
   CreateMatchingWorkflowCommandOutput,
@@ -69,10 +71,15 @@ import {
   DeleteIdMappingWorkflowCommandInput,
   DeleteIdMappingWorkflowCommandOutput,
 } from "./commands/DeleteIdMappingWorkflowCommand";
+import { DeleteIdNamespaceCommandInput, DeleteIdNamespaceCommandOutput } from "./commands/DeleteIdNamespaceCommand";
 import {
   DeleteMatchingWorkflowCommandInput,
   DeleteMatchingWorkflowCommandOutput,
 } from "./commands/DeleteMatchingWorkflowCommand";
+import {
+  DeletePolicyStatementCommandInput,
+  DeletePolicyStatementCommandOutput,
+} from "./commands/DeletePolicyStatementCommand";
 import {
   DeleteSchemaMappingCommandInput,
   DeleteSchemaMappingCommandOutput,
@@ -82,12 +89,14 @@ import {
   GetIdMappingWorkflowCommandInput,
   GetIdMappingWorkflowCommandOutput,
 } from "./commands/GetIdMappingWorkflowCommand";
+import { GetIdNamespaceCommandInput, GetIdNamespaceCommandOutput } from "./commands/GetIdNamespaceCommand";
 import { GetMatchIdCommandInput, GetMatchIdCommandOutput } from "./commands/GetMatchIdCommand";
 import { GetMatchingJobCommandInput, GetMatchingJobCommandOutput } from "./commands/GetMatchingJobCommand";
 import {
   GetMatchingWorkflowCommandInput,
   GetMatchingWorkflowCommandOutput,
 } from "./commands/GetMatchingWorkflowCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetProviderServiceCommandInput, GetProviderServiceCommandOutput } from "./commands/GetProviderServiceCommand";
 import { GetSchemaMappingCommandInput, GetSchemaMappingCommandOutput } from "./commands/GetSchemaMappingCommand";
 import { ListIdMappingJobsCommandInput, ListIdMappingJobsCommandOutput } from "./commands/ListIdMappingJobsCommand";
@@ -95,6 +104,7 @@ import {
   ListIdMappingWorkflowsCommandInput,
   ListIdMappingWorkflowsCommandOutput,
 } from "./commands/ListIdMappingWorkflowsCommand";
+import { ListIdNamespacesCommandInput, ListIdNamespacesCommandOutput } from "./commands/ListIdNamespacesCommand";
 import { ListMatchingJobsCommandInput, ListMatchingJobsCommandOutput } from "./commands/ListMatchingJobsCommand";
 import {
   ListMatchingWorkflowsCommandInput,
@@ -109,6 +119,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { StartIdMappingJobCommandInput, StartIdMappingJobCommandOutput } from "./commands/StartIdMappingJobCommand";
 import { StartMatchingJobCommandInput, StartMatchingJobCommandOutput } from "./commands/StartMatchingJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -117,6 +128,7 @@ import {
   UpdateIdMappingWorkflowCommandInput,
   UpdateIdMappingWorkflowCommandOutput,
 } from "./commands/UpdateIdMappingWorkflowCommand";
+import { UpdateIdNamespaceCommandInput, UpdateIdNamespaceCommandOutput } from "./commands/UpdateIdNamespaceCommand";
 import {
   UpdateMatchingWorkflowCommandInput,
   UpdateMatchingWorkflowCommandOutput,
@@ -140,31 +152,40 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AddPolicyStatementCommandInput
   | CreateIdMappingWorkflowCommandInput
+  | CreateIdNamespaceCommandInput
   | CreateMatchingWorkflowCommandInput
   | CreateSchemaMappingCommandInput
   | DeleteIdMappingWorkflowCommandInput
+  | DeleteIdNamespaceCommandInput
   | DeleteMatchingWorkflowCommandInput
+  | DeletePolicyStatementCommandInput
   | DeleteSchemaMappingCommandInput
   | GetIdMappingJobCommandInput
   | GetIdMappingWorkflowCommandInput
+  | GetIdNamespaceCommandInput
   | GetMatchIdCommandInput
   | GetMatchingJobCommandInput
   | GetMatchingWorkflowCommandInput
+  | GetPolicyCommandInput
   | GetProviderServiceCommandInput
   | GetSchemaMappingCommandInput
   | ListIdMappingJobsCommandInput
   | ListIdMappingWorkflowsCommandInput
+  | ListIdNamespacesCommandInput
   | ListMatchingJobsCommandInput
   | ListMatchingWorkflowsCommandInput
   | ListProviderServicesCommandInput
   | ListSchemaMappingsCommandInput
   | ListTagsForResourceCommandInput
+  | PutPolicyCommandInput
   | StartIdMappingJobCommandInput
   | StartMatchingJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateIdMappingWorkflowCommandInput
+  | UpdateIdNamespaceCommandInput
   | UpdateMatchingWorkflowCommandInput
   | UpdateSchemaMappingCommandInput;
 
@@ -172,31 +193,40 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AddPolicyStatementCommandOutput
   | CreateIdMappingWorkflowCommandOutput
+  | CreateIdNamespaceCommandOutput
   | CreateMatchingWorkflowCommandOutput
   | CreateSchemaMappingCommandOutput
   | DeleteIdMappingWorkflowCommandOutput
+  | DeleteIdNamespaceCommandOutput
   | DeleteMatchingWorkflowCommandOutput
+  | DeletePolicyStatementCommandOutput
   | DeleteSchemaMappingCommandOutput
   | GetIdMappingJobCommandOutput
   | GetIdMappingWorkflowCommandOutput
+  | GetIdNamespaceCommandOutput
   | GetMatchIdCommandOutput
   | GetMatchingJobCommandOutput
   | GetMatchingWorkflowCommandOutput
+  | GetPolicyCommandOutput
   | GetProviderServiceCommandOutput
   | GetSchemaMappingCommandOutput
   | ListIdMappingJobsCommandOutput
   | ListIdMappingWorkflowsCommandOutput
+  | ListIdNamespacesCommandOutput
   | ListMatchingJobsCommandOutput
   | ListMatchingWorkflowsCommandOutput
   | ListProviderServicesCommandOutput
   | ListSchemaMappingsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutPolicyCommandOutput
   | StartIdMappingJobCommandOutput
   | StartMatchingJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateIdMappingWorkflowCommandOutput
+  | UpdateIdNamespaceCommandOutput
   | UpdateMatchingWorkflowCommandOutput
   | UpdateSchemaMappingCommandOutput;
 

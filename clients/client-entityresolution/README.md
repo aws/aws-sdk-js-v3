@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EntityResolutionClient` and
-the commands you need, for example `ListIdMappingJobsCommand`:
+the commands you need, for example `ListIdNamespacesCommand`:
 
 ```js
 // ES5 example
-const { EntityResolutionClient, ListIdMappingJobsCommand } = require("@aws-sdk/client-entityresolution");
+const { EntityResolutionClient, ListIdNamespacesCommand } = require("@aws-sdk/client-entityresolution");
 ```
 
 ```ts
 // ES6+ example
-import { EntityResolutionClient, ListIdMappingJobsCommand } from "@aws-sdk/client-entityresolution";
+import { EntityResolutionClient, ListIdNamespacesCommand } from "@aws-sdk/client-entityresolution";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new EntityResolutionClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListIdMappingJobsCommand(params);
+const command = new ListIdNamespacesCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.EntityResolution({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listIdMappingJobs(params);
+  const data = await client.listIdNamespaces(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .listIdMappingJobs(params)
+  .listIdNamespaces(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.listIdMappingJobs(params, (err, data) => {
+client.listIdNamespaces(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -215,10 +215,26 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AddPolicyStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/AddPolicyStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/AddPolicyStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/AddPolicyStatementCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateIdMappingWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/CreateIdMappingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateIdMappingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateIdMappingWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateIdNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/CreateIdNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateIdNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateIdNamespaceCommandOutput/)
 
 </details>
 <details>
@@ -247,10 +263,26 @@ DeleteIdMappingWorkflow
 </details>
 <details>
 <summary>
+DeleteIdNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/DeleteIdNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteIdNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteIdNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteMatchingWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/DeleteMatchingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteMatchingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteMatchingWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePolicyStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/DeletePolicyStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeletePolicyStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeletePolicyStatementCommandOutput/)
 
 </details>
 <details>
@@ -279,6 +311,14 @@ GetIdMappingWorkflow
 </details>
 <details>
 <summary>
+GetIdNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetIdNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetIdNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetIdNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetMatchId
 </summary>
 
@@ -299,6 +339,14 @@ GetMatchingWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetMatchingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetMatchingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetMatchingWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetPolicyCommandOutput/)
 
 </details>
 <details>
@@ -331,6 +379,14 @@ ListIdMappingWorkflows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListIdMappingWorkflowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListIdMappingWorkflowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListIdMappingWorkflowsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListIdNamespaces
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListIdNamespacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListIdNamespacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListIdNamespacesCommandOutput/)
 
 </details>
 <details>
@@ -375,6 +431,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+PutPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/PutPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/PutPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/PutPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartIdMappingJob
 </summary>
 
@@ -411,6 +475,14 @@ UpdateIdMappingWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/UpdateIdMappingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateIdMappingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateIdMappingWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateIdNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/UpdateIdNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateIdNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateIdNamespaceCommandOutput/)
 
 </details>
 <details>

@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
-import { GetIdMappingWorkflowInput, GetIdMappingWorkflowOutput } from "../models/models_0";
-import { de_GetIdMappingWorkflowCommand, se_GetIdMappingWorkflowCommand } from "../protocols/Aws_restJson1";
+import { GetIdNamespaceInput, GetIdNamespaceOutput } from "../models/models_0";
+import { de_GetIdNamespaceCommand, se_GetIdNamespaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,59 +16,52 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetIdMappingWorkflowCommand}.
+ * The input for {@link GetIdNamespaceCommand}.
  */
-export interface GetIdMappingWorkflowCommandInput extends GetIdMappingWorkflowInput {}
+export interface GetIdNamespaceCommandInput extends GetIdNamespaceInput {}
 /**
  * @public
  *
- * The output of {@link GetIdMappingWorkflowCommand}.
+ * The output of {@link GetIdNamespaceCommand}.
  */
-export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowOutput, __MetadataBearer {}
+export interface GetIdNamespaceCommandOutput extends GetIdNamespaceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the <code>IdMappingWorkflow</code> with a given name, if it exists.</p>
+ * <p>Returns the <code>IdNamespace</code> with a given name, if it exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EntityResolutionClient, GetIdMappingWorkflowCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
- * // const { EntityResolutionClient, GetIdMappingWorkflowCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * import { EntityResolutionClient, GetIdNamespaceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, GetIdNamespaceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
  * const client = new EntityResolutionClient(config);
- * const input = { // GetIdMappingWorkflowInput
- *   workflowName: "STRING_VALUE", // required
+ * const input = { // GetIdNamespaceInput
+ *   idNamespaceName: "STRING_VALUE", // required
  * };
- * const command = new GetIdMappingWorkflowCommand(input);
+ * const command = new GetIdNamespaceCommand(input);
  * const response = await client.send(command);
- * // { // GetIdMappingWorkflowOutput
- * //   workflowName: "STRING_VALUE", // required
- * //   workflowArn: "STRING_VALUE", // required
+ * // { // GetIdNamespaceOutput
+ * //   idNamespaceName: "STRING_VALUE", // required
+ * //   idNamespaceArn: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   inputSourceConfig: [ // IdMappingWorkflowInputSourceConfig // required
- * //     { // IdMappingWorkflowInputSource
+ * //   inputSourceConfig: [ // IdNamespaceInputSourceConfig
+ * //     { // IdNamespaceInputSource
  * //       inputSourceARN: "STRING_VALUE", // required
  * //       schemaName: "STRING_VALUE",
- * //       type: "SOURCE" || "TARGET",
  * //     },
  * //   ],
- * //   outputSourceConfig: [ // IdMappingWorkflowOutputSourceConfig
- * //     { // IdMappingWorkflowOutputSource
- * //       outputS3Path: "STRING_VALUE", // required
- * //       KMSArn: "STRING_VALUE",
- * //     },
- * //   ],
- * //   idMappingTechniques: { // IdMappingTechniques
- * //     idMappingType: "PROVIDER", // required
- * //     providerProperties: { // ProviderProperties
- * //       providerServiceArn: "STRING_VALUE", // required
- * //       providerConfiguration: "DOCUMENT_VALUE",
- * //       intermediateSourceConfiguration: { // IntermediateSourceConfiguration
- * //         intermediateS3Path: "STRING_VALUE", // required
+ * //   idMappingWorkflowProperties: [ // IdNamespaceIdMappingWorkflowPropertiesList
+ * //     { // IdNamespaceIdMappingWorkflowProperties
+ * //       idMappingType: "PROVIDER", // required
+ * //       providerProperties: { // NamespaceProviderProperties
+ * //         providerServiceArn: "STRING_VALUE", // required
+ * //         providerConfiguration: "DOCUMENT_VALUE",
  * //       },
  * //     },
- * //   },
+ * //   ],
+ * //   type: "SOURCE" || "TARGET", // required
+ * //   roleArn: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
- * //   roleArn: "STRING_VALUE", // required
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -76,10 +69,10 @@ export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowO
  *
  * ```
  *
- * @param GetIdMappingWorkflowCommandInput - {@link GetIdMappingWorkflowCommandInput}
- * @returns {@link GetIdMappingWorkflowCommandOutput}
- * @see {@link GetIdMappingWorkflowCommandInput} for command's `input` shape.
- * @see {@link GetIdMappingWorkflowCommandOutput} for command's `response` shape.
+ * @param GetIdNamespaceCommandInput - {@link GetIdNamespaceCommandInput}
+ * @returns {@link GetIdNamespaceCommandOutput}
+ * @see {@link GetIdNamespaceCommandInput} for command's `input` shape.
+ * @see {@link GetIdNamespaceCommandOutput} for command's `response` shape.
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -111,10 +104,10 @@ export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowO
  *
  * @public
  */
-export class GetIdMappingWorkflowCommand extends $Command
+export class GetIdNamespaceCommand extends $Command
   .classBuilder<
-    GetIdMappingWorkflowCommandInput,
-    GetIdMappingWorkflowCommandOutput,
+    GetIdNamespaceCommandInput,
+    GetIdNamespaceCommandOutput,
     EntityResolutionClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -128,9 +121,9 @@ export class GetIdMappingWorkflowCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSVeniceService", "GetIdMappingWorkflow", {})
-  .n("EntityResolutionClient", "GetIdMappingWorkflowCommand")
+  .s("AWSVeniceService", "GetIdNamespace", {})
+  .n("EntityResolutionClient", "GetIdNamespaceCommand")
   .f(void 0, void 0)
-  .ser(se_GetIdMappingWorkflowCommand)
-  .de(de_GetIdMappingWorkflowCommand)
+  .ser(se_GetIdNamespaceCommand)
+  .de(de_GetIdNamespaceCommand)
   .build() {}

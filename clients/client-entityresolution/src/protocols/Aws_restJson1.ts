@@ -31,10 +31,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { AddPolicyStatementCommandInput, AddPolicyStatementCommandOutput } from "../commands/AddPolicyStatementCommand";
 import {
   CreateIdMappingWorkflowCommandInput,
   CreateIdMappingWorkflowCommandOutput,
 } from "../commands/CreateIdMappingWorkflowCommand";
+import { CreateIdNamespaceCommandInput, CreateIdNamespaceCommandOutput } from "../commands/CreateIdNamespaceCommand";
 import {
   CreateMatchingWorkflowCommandInput,
   CreateMatchingWorkflowCommandOutput,
@@ -47,10 +49,15 @@ import {
   DeleteIdMappingWorkflowCommandInput,
   DeleteIdMappingWorkflowCommandOutput,
 } from "../commands/DeleteIdMappingWorkflowCommand";
+import { DeleteIdNamespaceCommandInput, DeleteIdNamespaceCommandOutput } from "../commands/DeleteIdNamespaceCommand";
 import {
   DeleteMatchingWorkflowCommandInput,
   DeleteMatchingWorkflowCommandOutput,
 } from "../commands/DeleteMatchingWorkflowCommand";
+import {
+  DeletePolicyStatementCommandInput,
+  DeletePolicyStatementCommandOutput,
+} from "../commands/DeletePolicyStatementCommand";
 import {
   DeleteSchemaMappingCommandInput,
   DeleteSchemaMappingCommandOutput,
@@ -60,12 +67,14 @@ import {
   GetIdMappingWorkflowCommandInput,
   GetIdMappingWorkflowCommandOutput,
 } from "../commands/GetIdMappingWorkflowCommand";
+import { GetIdNamespaceCommandInput, GetIdNamespaceCommandOutput } from "../commands/GetIdNamespaceCommand";
 import { GetMatchIdCommandInput, GetMatchIdCommandOutput } from "../commands/GetMatchIdCommand";
 import { GetMatchingJobCommandInput, GetMatchingJobCommandOutput } from "../commands/GetMatchingJobCommand";
 import {
   GetMatchingWorkflowCommandInput,
   GetMatchingWorkflowCommandOutput,
 } from "../commands/GetMatchingWorkflowCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "../commands/GetPolicyCommand";
 import { GetProviderServiceCommandInput, GetProviderServiceCommandOutput } from "../commands/GetProviderServiceCommand";
 import { GetSchemaMappingCommandInput, GetSchemaMappingCommandOutput } from "../commands/GetSchemaMappingCommand";
 import { ListIdMappingJobsCommandInput, ListIdMappingJobsCommandOutput } from "../commands/ListIdMappingJobsCommand";
@@ -73,6 +82,7 @@ import {
   ListIdMappingWorkflowsCommandInput,
   ListIdMappingWorkflowsCommandOutput,
 } from "../commands/ListIdMappingWorkflowsCommand";
+import { ListIdNamespacesCommandInput, ListIdNamespacesCommandOutput } from "../commands/ListIdNamespacesCommand";
 import { ListMatchingJobsCommandInput, ListMatchingJobsCommandOutput } from "../commands/ListMatchingJobsCommand";
 import {
   ListMatchingWorkflowsCommandInput,
@@ -87,6 +97,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutPolicyCommandInput, PutPolicyCommandOutput } from "../commands/PutPolicyCommand";
 import { StartIdMappingJobCommandInput, StartIdMappingJobCommandOutput } from "../commands/StartIdMappingJobCommand";
 import { StartMatchingJobCommandInput, StartMatchingJobCommandOutput } from "../commands/StartMatchingJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -95,6 +106,7 @@ import {
   UpdateIdMappingWorkflowCommandInput,
   UpdateIdMappingWorkflowCommandOutput,
 } from "../commands/UpdateIdMappingWorkflowCommand";
+import { UpdateIdNamespaceCommandInput, UpdateIdNamespaceCommandOutput } from "../commands/UpdateIdNamespaceCommand";
 import {
   UpdateMatchingWorkflowCommandInput,
   UpdateMatchingWorkflowCommandOutput,
@@ -108,18 +120,24 @@ import {
   AccessDeniedException,
   ConflictException,
   ExceedsLimitException,
+  IdMappingJobOutputSource,
   IdMappingTechniques,
   IdMappingWorkflowInputSource,
   IdMappingWorkflowOutputSource,
   IdMappingWorkflowSummary,
+  IdNamespaceIdMappingWorkflowProperties,
+  IdNamespaceInputSource,
+  IdNamespaceSummary,
   IncrementalRunConfig,
   InputSource,
   IntermediateSourceConfiguration,
   InternalServerException,
   JobSummary,
   MatchingWorkflowSummary,
+  NamespaceProviderProperties,
   OutputAttribute,
   OutputSource,
+  ProviderIdNameSpaceConfiguration,
   ProviderProperties,
   ResolutionTechniques,
   ResourceNotFoundException,
@@ -130,6 +148,33 @@ import {
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1AddPolicyStatementCommand
+ */
+export const se_AddPolicyStatementCommand = async (
+  input: AddPolicyStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/policies/{arn}/{statementId}");
+  b.p("arn", () => input.arn!, "{arn}", false);
+  b.p("statementId", () => input.statementId!, "{statementId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      action: (_) => _json(_),
+      condition: [],
+      effect: [],
+      principal: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateIdMappingWorkflowCommand
@@ -153,6 +198,34 @@ export const se_CreateIdMappingWorkflowCommand = async (
       roleArn: [],
       tags: (_) => _json(_),
       workflowName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateIdNamespaceCommand
+ */
+export const se_CreateIdNamespaceCommand = async (
+  input: CreateIdNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/idnamespaces");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      idMappingWorkflowProperties: (_) => se_IdNamespaceIdMappingWorkflowPropertiesList(_, context),
+      idNamespaceName: [],
+      inputSourceConfig: (_) => _json(_),
+      roleArn: [],
+      tags: (_) => _json(_),
+      type: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -230,6 +303,22 @@ export const se_DeleteIdMappingWorkflowCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteIdNamespaceCommand
+ */
+export const se_DeleteIdNamespaceCommand = async (
+  input: DeleteIdNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idnamespaces/{idNamespaceName}");
+  b.p("idNamespaceName", () => input.idNamespaceName!, "{idNamespaceName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteMatchingWorkflowCommand
  */
 export const se_DeleteMatchingWorkflowCommand = async (
@@ -240,6 +329,23 @@ export const se_DeleteMatchingWorkflowCommand = async (
   const headers: any = {};
   b.bp("/matchingworkflows/{workflowName}");
   b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeletePolicyStatementCommand
+ */
+export const se_DeletePolicyStatementCommand = async (
+  input: DeletePolicyStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/policies/{arn}/{statementId}");
+  b.p("arn", () => input.arn!, "{arn}", false);
+  b.p("statementId", () => input.statementId!, "{statementId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -295,6 +401,22 @@ export const se_GetIdMappingWorkflowCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetIdNamespaceCommand
+ */
+export const se_GetIdNamespaceCommand = async (
+  input: GetIdNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idnamespaces/{idNamespaceName}");
+  b.p("idNamespaceName", () => input.idNamespaceName!, "{idNamespaceName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetMatchIdCommand
  */
 export const se_GetMatchIdCommand = async (
@@ -310,6 +432,7 @@ export const se_GetMatchIdCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      applyNormalization: [],
       record: (_) => _json(_),
     })
   );
@@ -345,6 +468,22 @@ export const se_GetMatchingWorkflowCommand = async (
   const headers: any = {};
   b.bp("/matchingworkflows/{workflowName}");
   b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetPolicyCommand
+ */
+export const se_GetPolicyCommand = async (
+  input: GetPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/policies/{arn}");
+  b.p("arn", () => input.arn!, "{arn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -413,6 +552,25 @@ export const se_ListIdMappingWorkflowsCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/idmappingworkflows");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListIdNamespacesCommand
+ */
+export const se_ListIdNamespacesCommand = async (
+  input: ListIdNamespacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idnamespaces");
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -517,6 +675,30 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PutPolicyCommand
+ */
+export const se_PutPolicyCommand = async (
+  input: PutPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/policies/{arn}");
+  b.p("arn", () => input.arn!, "{arn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      policy: [],
+      token: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartIdMappingJobCommand
  */
 export const se_StartIdMappingJobCommand = async (
@@ -524,10 +706,17 @@ export const se_StartIdMappingJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   b.bp("/idmappingworkflows/{workflowName}/jobs");
   b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
+  body = JSON.stringify(
+    take(input, {
+      outputSourceConfig: (_) => _json(_),
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -621,6 +810,32 @@ export const se_UpdateIdMappingWorkflowCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateIdNamespaceCommand
+ */
+export const se_UpdateIdNamespaceCommand = async (
+  input: UpdateIdNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/idnamespaces/{idNamespaceName}");
+  b.p("idNamespaceName", () => input.idNamespaceName!, "{idNamespaceName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      idMappingWorkflowProperties: (_) => se_IdNamespaceIdMappingWorkflowPropertiesList(_, context),
+      inputSourceConfig: (_) => _json(_),
+      roleArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateMatchingWorkflowCommand
  */
 export const se_UpdateMatchingWorkflowCommand = async (
@@ -673,6 +888,29 @@ export const se_UpdateSchemaMappingCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AddPolicyStatementCommand
+ */
+export const de_AddPolicyStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddPolicyStatementCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    policy: __expectString,
+    token: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateIdMappingWorkflowCommand
  */
 export const de_CreateIdMappingWorkflowCommand = async (
@@ -694,6 +932,36 @@ export const de_CreateIdMappingWorkflowCommand = async (
     roleArn: __expectString,
     workflowArn: __expectString,
     workflowName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateIdNamespaceCommand
+ */
+export const de_CreateIdNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIdNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    idMappingWorkflowProperties: (_) => de_IdNamespaceIdMappingWorkflowPropertiesList(_, context),
+    idNamespaceArn: __expectString,
+    idNamespaceName: __expectString,
+    inputSourceConfig: _json,
+    roleArn: __expectString,
+    tags: _json,
+    type: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
   return contents;
@@ -773,6 +1041,27 @@ export const de_DeleteIdMappingWorkflowCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteIdNamespaceCommand
+ */
+export const de_DeleteIdNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteMatchingWorkflowCommand
  */
 export const de_DeleteMatchingWorkflowCommand = async (
@@ -788,6 +1077,29 @@ export const de_DeleteMatchingWorkflowCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePolicyStatementCommand
+ */
+export const de_DeletePolicyStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePolicyStatementCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    policy: __expectString,
+    token: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -833,6 +1145,7 @@ export const de_GetIdMappingJobCommand = async (
     errorDetails: _json,
     jobId: __expectString,
     metrics: _json,
+    outputSourceConfig: _json,
     startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
   });
@@ -871,6 +1184,36 @@ export const de_GetIdMappingWorkflowCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetIdNamespaceCommand
+ */
+export const de_GetIdNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    idMappingWorkflowProperties: (_) => de_IdNamespaceIdMappingWorkflowPropertiesList(_, context),
+    idNamespaceArn: __expectString,
+    idNamespaceName: __expectString,
+    inputSourceConfig: _json,
+    roleArn: __expectString,
+    tags: _json,
+    type: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetMatchIdCommand
  */
 export const de_GetMatchIdCommand = async (
@@ -886,6 +1229,7 @@ export const de_GetMatchIdCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     matchId: __expectString,
+    matchRule: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -910,6 +1254,7 @@ export const de_GetMatchingJobCommand = async (
     errorDetails: _json,
     jobId: __expectString,
     metrics: _json,
+    outputSourceConfig: _json,
     startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
   });
@@ -949,6 +1294,29 @@ export const de_GetMatchingWorkflowCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetPolicyCommand
+ */
+export const de_GetPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    policy: __expectString,
+    token: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetProviderServiceCommand
  */
 export const de_GetProviderServiceCommand = async (
@@ -964,10 +1332,13 @@ export const de_GetProviderServiceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     anonymizedOutput: __expectBoolean,
+    providerComponentSchema: _json,
     providerConfigurationDefinition: (_) => de_Document(_, context),
     providerEndpointConfiguration: (_) => _json(__expectUnion(_)),
     providerEntityOutputDefinition: (_) => de_Document(_, context),
+    providerIdNameSpaceConfiguration: (_) => de_ProviderIdNameSpaceConfiguration(_, context),
     providerIntermediateDataAccessConfiguration: _json,
+    providerJobConfiguration: (_) => de_Document(_, context),
     providerName: __expectString,
     providerServiceArn: __expectString,
     providerServiceDisplayName: __expectString,
@@ -1045,6 +1416,28 @@ export const de_ListIdMappingWorkflowsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     workflowSummaries: (_) => de_IdMappingWorkflowList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIdNamespacesCommand
+ */
+export const de_ListIdNamespacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdNamespacesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idNamespaceSummaries: (_) => de_IdNamespaceList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1160,6 +1553,29 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutPolicyCommand
+ */
+export const de_PutPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    policy: __expectString,
+    token: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartIdMappingJobCommand
  */
 export const de_StartIdMappingJobCommand = async (
@@ -1175,6 +1591,7 @@ export const de_StartIdMappingJobCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     jobId: __expectString,
+    outputSourceConfig: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1263,6 +1680,35 @@ export const de_UpdateIdMappingWorkflowCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateIdNamespaceCommand
+ */
+export const de_UpdateIdNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIdNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    idMappingWorkflowProperties: (_) => de_IdNamespaceIdMappingWorkflowPropertiesList(_, context),
+    idNamespaceArn: __expectString,
+    idNamespaceName: __expectString,
+    inputSourceConfig: _json,
+    roleArn: __expectString,
+    type: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateMatchingWorkflowCommand
  */
 export const de_UpdateMatchingWorkflowCommand = async (
@@ -1329,21 +1775,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConflictException":
     case "com.amazonaws.entityresolution#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ExceedsLimitException":
-    case "com.amazonaws.entityresolution#ExceedsLimitException":
-      throw await de_ExceedsLimitExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.entityresolution#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.entityresolution#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.entityresolution#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.entityresolution#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.entityresolution#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ExceedsLimitException":
+    case "com.amazonaws.entityresolution#ExceedsLimitException":
+      throw await de_ExceedsLimitExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1488,6 +1934,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_IdMappingJobOutputSource omitted.
+
+// se_IdMappingJobOutputSourceConfig omitted.
+
 /**
  * serializeAws_restJson1IdMappingTechniques
  */
@@ -1506,6 +1956,37 @@ const se_IdMappingTechniques = (input: IdMappingTechniques, context: __SerdeCont
 
 // se_IdMappingWorkflowOutputSourceConfig omitted.
 
+/**
+ * serializeAws_restJson1IdNamespaceIdMappingWorkflowProperties
+ */
+const se_IdNamespaceIdMappingWorkflowProperties = (
+  input: IdNamespaceIdMappingWorkflowProperties,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    idMappingType: [],
+    providerProperties: (_) => se_NamespaceProviderProperties(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1IdNamespaceIdMappingWorkflowPropertiesList
+ */
+const se_IdNamespaceIdMappingWorkflowPropertiesList = (
+  input: IdNamespaceIdMappingWorkflowProperties[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_IdNamespaceIdMappingWorkflowProperties(entry, context);
+    });
+};
+
+// se_IdNamespaceInputSource omitted.
+
+// se_IdNamespaceInputSourceConfig omitted.
+
 // se_IncrementalRunConfig omitted.
 
 // se_InputSource omitted.
@@ -1515,6 +1996,16 @@ const se_IdMappingTechniques = (input: IdMappingTechniques, context: __SerdeCont
 // se_IntermediateSourceConfiguration omitted.
 
 // se_MatchingKeys omitted.
+
+/**
+ * serializeAws_restJson1NamespaceProviderProperties
+ */
+const se_NamespaceProviderProperties = (input: NamespaceProviderProperties, context: __SerdeContext): any => {
+  return take(input, {
+    providerConfiguration: (_) => se_Document(_, context),
+    providerServiceArn: [],
+  });
+};
 
 // se_OutputAttribute omitted.
 
@@ -1558,6 +2049,10 @@ const se_ResolutionTechniques = (input: ResolutionTechniques, context: __SerdeCo
 
 // se_SchemaInputAttributes omitted.
 
+// se_StatementActionList omitted.
+
+// se_StatementPrincipalList omitted.
+
 // se_TagMap omitted.
 
 /**
@@ -1572,6 +2067,10 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 // de_ErrorDetails omitted.
 
 // de_IdMappingJobMetrics omitted.
+
+// de_IdMappingJobOutputSource omitted.
+
+// de_IdMappingJobOutputSourceConfig omitted.
 
 /**
  * deserializeAws_restJson1IdMappingTechniques
@@ -1615,6 +2114,64 @@ const de_IdMappingWorkflowSummary = (output: any, context: __SerdeContext): IdMa
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1IdNamespaceIdMappingWorkflowProperties
+ */
+const de_IdNamespaceIdMappingWorkflowProperties = (
+  output: any,
+  context: __SerdeContext
+): IdNamespaceIdMappingWorkflowProperties => {
+  return take(output, {
+    idMappingType: __expectString,
+    providerProperties: (_: any) => de_NamespaceProviderProperties(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IdNamespaceIdMappingWorkflowPropertiesList
+ */
+const de_IdNamespaceIdMappingWorkflowPropertiesList = (
+  output: any,
+  context: __SerdeContext
+): IdNamespaceIdMappingWorkflowProperties[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IdNamespaceIdMappingWorkflowProperties(entry, context);
+    });
+  return retVal;
+};
+
+// de_IdNamespaceInputSource omitted.
+
+// de_IdNamespaceInputSourceConfig omitted.
+
+/**
+ * deserializeAws_restJson1IdNamespaceList
+ */
+const de_IdNamespaceList = (output: any, context: __SerdeContext): IdNamespaceSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IdNamespaceSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1IdNamespaceSummary
+ */
+const de_IdNamespaceSummary = (output: any, context: __SerdeContext): IdNamespaceSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    idNamespaceArn: __expectString,
+    idNamespaceName: __expectString,
+    type: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_IncrementalRunConfig omitted.
 
 // de_InputSource omitted.
@@ -1636,6 +2193,10 @@ const de_JobList = (output: any, context: __SerdeContext): JobSummary[] => {
 };
 
 // de_JobMetrics omitted.
+
+// de_JobOutputSource omitted.
+
+// de_JobOutputSourceConfig omitted.
 
 /**
  * deserializeAws_restJson1JobSummary
@@ -1676,6 +2237,16 @@ const de_MatchingWorkflowSummary = (output: any, context: __SerdeContext): Match
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1NamespaceProviderProperties
+ */
+const de_NamespaceProviderProperties = (output: any, context: __SerdeContext): NamespaceProviderProperties => {
+  return take(output, {
+    providerConfiguration: (_: any) => de_Document(_, context),
+    providerServiceArn: __expectString,
+  }) as any;
+};
+
 // de_OutputAttribute omitted.
 
 // de_OutputAttributes omitted.
@@ -1684,7 +2255,23 @@ const de_MatchingWorkflowSummary = (output: any, context: __SerdeContext): Match
 
 // de_OutputSourceConfig omitted.
 
+// de_ProviderComponentSchema omitted.
+
 // de_ProviderEndpointConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1ProviderIdNameSpaceConfiguration
+ */
+const de_ProviderIdNameSpaceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ProviderIdNameSpaceConfiguration => {
+  return take(output, {
+    description: __expectString,
+    providerSourceConfigurationDefinition: (_: any) => de_Document(_, context),
+    providerTargetConfigurationDefinition: (_: any) => de_Document(_, context),
+  }) as any;
+};
 
 // de_ProviderIntermediateDataAccessConfiguration omitted.
 
@@ -1700,6 +2287,10 @@ const de_ProviderProperties = (output: any, context: __SerdeContext): ProviderPr
     providerServiceArn: __expectString,
   }) as any;
 };
+
+// de_ProviderSchemaAttribute omitted.
+
+// de_ProviderSchemaAttributes omitted.
 
 // de_ProviderServiceList omitted.
 
@@ -1728,6 +2319,8 @@ const de_ResolutionTechniques = (output: any, context: __SerdeContext): Resoluti
 
 // de_SchemaInputAttributes omitted.
 
+// de_SchemaList omitted.
+
 /**
  * deserializeAws_restJson1SchemaMappingList
  */
@@ -1752,6 +2345,8 @@ const de_SchemaMappingSummary = (output: any, context: __SerdeContext): SchemaMa
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_Schemas omitted.
 
 // de_TagMap omitted.
 

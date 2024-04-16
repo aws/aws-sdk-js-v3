@@ -47,6 +47,12 @@ export interface GetProviderServiceCommandOutput extends GetProviderServiceOutpu
  * //   providerServiceType: "ASSIGNMENT" || "ID_MAPPING", // required
  * //   providerServiceArn: "STRING_VALUE", // required
  * //   providerConfigurationDefinition: "DOCUMENT_VALUE",
+ * //   providerIdNameSpaceConfiguration: { // ProviderIdNameSpaceConfiguration
+ * //     description: "STRING_VALUE",
+ * //     providerTargetConfigurationDefinition: "DOCUMENT_VALUE",
+ * //     providerSourceConfigurationDefinition: "DOCUMENT_VALUE",
+ * //   },
+ * //   providerJobConfiguration: "DOCUMENT_VALUE",
  * //   providerEndpointConfiguration: { // ProviderEndpointConfiguration Union: only one key present
  * //     marketplaceConfiguration: { // ProviderMarketplaceConfiguration
  * //       dataSetId: "STRING_VALUE", // required
@@ -63,6 +69,21 @@ export interface GetProviderServiceCommandOutput extends GetProviderServiceOutpu
  * //     ],
  * //     requiredBucketActions: [ // RequiredBucketActionsList
  * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   providerComponentSchema: { // ProviderComponentSchema
+ * //     schemas: [ // Schemas
+ * //       [ // SchemaList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     ],
+ * //     providerSchemaAttributes: [ // ProviderSchemaAttributes
+ * //       { // ProviderSchemaAttribute
+ * //         fieldName: "STRING_VALUE", // required
+ * //         type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID", // required
+ * //         subType: "STRING_VALUE",
+ * //         hashing: true || false,
+ * //       },
  * //     ],
  * //   },
  * // };

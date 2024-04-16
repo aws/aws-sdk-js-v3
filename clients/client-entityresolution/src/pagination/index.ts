@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListIdMappingJobsPaginator";
 export * from "./ListIdMappingWorkflowsPaginator";
+export * from "./ListIdNamespacesPaginator";
 export * from "./ListMatchingJobsPaginator";
 export * from "./ListMatchingWorkflowsPaginator";
 export * from "./ListProviderServicesPaginator";
