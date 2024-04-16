@@ -84,7 +84,7 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>

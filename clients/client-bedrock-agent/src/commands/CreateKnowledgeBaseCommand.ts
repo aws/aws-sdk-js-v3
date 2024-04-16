@@ -36,7 +36,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *                <p>Provide the <code>name</code> and an optional <code>description</code>.</p>
  *             </li>
  *             <li>
- *                <p>Provide the ARN with permissions to create a knowledge base in the <code>roleArn</code> field.</p>
+ *                <p>Provide the Amazon Resource Name (ARN) with permissions to create a knowledge base in the <code>roleArn</code> field.</p>
  *             </li>
  *             <li>
  *                <p>Provide the embedding model to use in the <code>embeddingModelArn</code> field in the <code>knowledgeBaseConfiguration</code> object.</p>

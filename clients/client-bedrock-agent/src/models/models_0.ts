@@ -34,7 +34,7 @@ export type ActionGroupExecutor = ActionGroupExecutor.LambdaMember | ActionGroup
  */
 export namespace ActionGroupExecutor {
   /**
-   * <p>The ARN of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
   export interface LambdaMember {
@@ -221,7 +221,7 @@ export interface CreateAgentActionGroupRequest {
   parentActionGroupSignature?: ActionGroupSignature;
 
   /**
-   * <p>The ARN of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
@@ -301,7 +301,7 @@ export interface AgentActionGroup {
   parentActionSignature?: ActionGroupSignature;
 
   /**
-   * <p>The ARN of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
@@ -351,7 +351,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -649,7 +649,7 @@ export interface UpdateAgentActionGroupRequest {
   parentActionGroupSignature?: ActionGroupSignature;
 
   /**
-   * <p>The ARN of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
@@ -878,7 +878,7 @@ export interface Agent {
   agentName: string | undefined;
 
   /**
-   * <p>The ARN of the agent.</p>
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
    * @public
    */
   agentArn: string | undefined;
@@ -951,13 +951,13 @@ export interface Agent {
   idleSessionTTLInSeconds: number | undefined;
 
   /**
-   * <p>The ARN of the IAM role with permissions to call API operations on the agent. The ARN must begin with <code>AmazonBedrockExecutionRoleForAgents_</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the agent.</p>
    * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key that encrypts the agent.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key that encrypts the agent.</p>
    * @public
    */
   customerEncryptionKeyArn?: string;
@@ -1076,7 +1076,7 @@ export interface AgentAlias {
   agentAliasName: string | undefined;
 
   /**
-   * <p>The ARN of the alias of the agent.</p>
+   * <p>The Amazon Resource Name (ARN) of the alias of the agent.</p>
    * @public
    */
   agentAliasArn: string | undefined;
@@ -1325,13 +1325,13 @@ export interface CreateAgentRequest {
   idleSessionTTLInSeconds?: number;
 
   /**
-   * <p>The ARN of the IAM role with permissions to create the agent. The ARN must begin with <code>AmazonBedrockExecutionRoleForAgents_</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the agent.</p>
    * @public
    */
-  agentResourceRoleArn: string | undefined;
+  agentResourceRoleArn?: string;
 
   /**
-   * <p>The ARN of the KMS key with which to encrypt the agent.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the agent.</p>
    * @public
    */
   customerEncryptionKeyArn?: string;
@@ -1574,13 +1574,13 @@ export interface UpdateAgentRequest {
   idleSessionTTLInSeconds?: number;
 
   /**
-   * <p>The ARN of the IAM role with permissions to update the agent. The ARN must begin with <code>AmazonBedrockExecutionRoleForAgents_</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the agent.</p>
    * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key with which to encrypt the agent.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the agent.</p>
    * @public
    */
   customerEncryptionKeyArn?: string;
@@ -1621,7 +1621,7 @@ export interface AgentVersion {
   agentName: string | undefined;
 
   /**
-   * <p>The ARN of the agent that the version belongs to.</p>
+   * <p>The Amazon Resource Name (ARN) of the agent that the version belongs to.</p>
    * @public
    */
   agentArn: string | undefined;
@@ -1664,13 +1664,13 @@ export interface AgentVersion {
   idleSessionTTLInSeconds: number | undefined;
 
   /**
-   * <p>The ARN of the IAM role with permissions to invoke API operations on the agent. The ARN must begin with <code>AmazonBedrockExecutionRoleForAgents_</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the agent.</p>
    * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key that encrypts the agent.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key that encrypts the agent.</p>
    * @public
    */
   customerEncryptionKeyArn?: string;
@@ -1961,7 +1961,7 @@ export interface UpdateAgentAliasResponse {
  */
 export interface S3DataSourceConfiguration {
   /**
-   * <p>The ARN of the bucket that contains the data source.</p>
+   * <p>The Amazon Resource Name (ARN) of the bucket that contains the data source.</p>
    * @public
    */
   bucketArn: string | undefined;
@@ -2010,7 +2010,7 @@ export interface DataSourceConfiguration {
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * <p>The ARN of the KMS key used to encrypt the resource.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the resource.</p>
    * @public
    */
   kmsKeyArn?: string;
@@ -2935,7 +2935,7 @@ export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof Knowledg
  */
 export interface VectorKnowledgeBaseConfiguration {
   /**
-   * <p>The ARN of the model used to create vector embeddings for the knowledge base.</p>
+   * <p>The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.</p>
    * @public
    */
   embeddingModelArn: string | undefined;
@@ -2989,7 +2989,7 @@ export interface OpenSearchServerlessFieldMapping {
  */
 export interface OpenSearchServerlessConfiguration {
   /**
-   * <p>The ARN of the OpenSearch Service vector store.</p>
+   * <p>The Amazon Resource Name (ARN) of the OpenSearch Service vector store.</p>
    * @public
    */
   collectionArn: string | undefined;
@@ -3037,7 +3037,7 @@ export interface PineconeConfiguration {
   connectionString: string | undefined;
 
   /**
-   * <p>The ARN of the secret that you created in Secrets Manager that is linked to your Pinecone API key.</p>
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Pinecone API key.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
@@ -3091,13 +3091,13 @@ export interface RdsFieldMapping {
  */
 export interface RdsConfiguration {
   /**
-   * <p>The ARN of the vector store.</p>
+   * <p>The Amazon Resource Name (ARN) of the vector store.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The ARN of the secret that you created in Secrets Manager that is linked to your Amazon RDS database.</p>
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Amazon RDS database.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
@@ -3163,7 +3163,7 @@ export interface RedisEnterpriseCloudConfiguration {
   vectorIndexName: string | undefined;
 
   /**
-   * <p>The ARN of the secret that you created in Secrets Manager that is linked to your Redis Enterprise Cloud database.</p>
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that is linked to your Redis Enterprise Cloud database.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
@@ -3251,7 +3251,7 @@ export interface CreateKnowledgeBaseRequest {
   description?: string;
 
   /**
-   * <p>The ARN of the IAM role with permissions to create the knowledge base.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -3310,7 +3310,7 @@ export interface KnowledgeBase {
   name: string | undefined;
 
   /**
-   * <p>The ARN of the knowledge base.</p>
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
    * @public
    */
   knowledgeBaseArn: string | undefined;
@@ -3322,7 +3322,7 @@ export interface KnowledgeBase {
   description?: string;
 
   /**
-   * <p>The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with <code>AmazonBedrockExecutionRoleForKnowledgeBase_</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -3689,7 +3689,7 @@ export interface UpdateKnowledgeBaseRequest {
   description?: string;
 
   /**
-   * <p>Specifies a different Amazon Resource Name (ARN) of the IAM role with permissions to modify the knowledge base.</p>
+   * <p>Specifies a different Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -3723,7 +3723,7 @@ export interface UpdateKnowledgeBaseResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource for which to list tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -3745,7 +3745,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource to tag.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -3767,7 +3767,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource from which to remove tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
    * @public
    */
   resourceArn: string | undefined;

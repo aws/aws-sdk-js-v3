@@ -39,10 +39,10 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>agentResourceRoleArn</code> – The ARN of the role with permissions to create an agent.</p>
+ *                         <code>agentResourceRoleArn</code> – The Amazon Resource Name (ARN) of the role with permissions to invoke API operations on an agent.</p>
  *                   </li>
  *                   <li>
- *                      <p>(Optional) <code>customerEncryptionKeyArn</code> – The ARN of a KMS key to encrypt the creation of the agent.</p>
+ *                      <p>(Optional) <code>customerEncryptionKeyArn</code> – The Amazon Resource Name (ARN) of a KMS key to encrypt the creation of the agent.</p>
  *                   </li>
  *                   <li>
  *                      <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeAgent</code> request begins a new session.</p>
@@ -69,7 +69,7 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *   foundationModel: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   idleSessionTTLInSeconds: Number("int"),
- *   agentResourceRoleArn: "STRING_VALUE", // required
+ *   agentResourceRoleArn: "STRING_VALUE",
  *   customerEncryptionKeyArn: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
