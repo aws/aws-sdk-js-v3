@@ -27,7 +27,7 @@ export interface UpdateMetricConfigurationCommandInput extends UpdateMetricConfi
 export interface UpdateMetricConfigurationCommandOutput extends UpdateMetricConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Update the metric configuration.</p>
+ * <p>Update the summary metric configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

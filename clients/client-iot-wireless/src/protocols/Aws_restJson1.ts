@@ -446,6 +446,7 @@ import {
   LoRaWANJoinResourceTypeEventConfiguration,
   LoRaWANMulticast,
   LoRaWANMulticastSession,
+  LoRaWANPublicGatewayMetadata,
   LoRaWANSendDataToDevice,
   LoRaWANServiceProfile,
   LoRaWANUpdateGatewayTaskCreate,
@@ -5813,6 +5814,7 @@ const de_LoRaWANDeviceMetadata = (output: any, context: __SerdeContext): LoRaWAN
     FPort: __expectInt32,
     Frequency: __expectInt32,
     Gateways: (_: any) => de_LoRaWANGatewayMetadataList(_, context),
+    PublicGateways: (_: any) => de_LoRaWANPublicGatewayMetadataList(_, context),
     Timestamp: __expectString,
   }) as any;
 };
@@ -5892,6 +5894,32 @@ const de_LoRaWANMulticastSession = (output: any, context: __SerdeContext): LoRaW
     SessionStartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     SessionTimeout: __expectInt32,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LoRaWANPublicGatewayMetadata
+ */
+const de_LoRaWANPublicGatewayMetadata = (output: any, context: __SerdeContext): LoRaWANPublicGatewayMetadata => {
+  return take(output, {
+    DlAllowed: __expectBoolean,
+    Id: __expectString,
+    ProviderNetId: __expectString,
+    RfRegion: __expectString,
+    Rssi: __limitedParseDouble,
+    Snr: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LoRaWANPublicGatewayMetadataList
+ */
+const de_LoRaWANPublicGatewayMetadataList = (output: any, context: __SerdeContext): LoRaWANPublicGatewayMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LoRaWANPublicGatewayMetadata(entry, context);
+    });
+  return retVal;
 };
 
 // de_LoRaWANSendDataToDevice omitted.

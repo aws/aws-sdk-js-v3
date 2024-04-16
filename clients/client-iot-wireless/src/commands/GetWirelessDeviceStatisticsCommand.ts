@@ -60,6 +60,16 @@ export interface GetWirelessDeviceStatisticsCommandOutput
  * //         Rssi: Number("double"),
  * //       },
  * //     ],
+ * //     PublicGateways: [ // LoRaWANPublicGatewayMetadataList
+ * //       { // LoRaWANPublicGatewayMetadata
+ * //         ProviderNetId: "STRING_VALUE",
+ * //         Id: "STRING_VALUE",
+ * //         Rssi: Number("double"),
+ * //         Snr: Number("double"),
+ * //         RfRegion: "STRING_VALUE",
+ * //         DlAllowed: true || false,
+ * //       },
+ * //     ],
  * //   },
  * //   Sidewalk: { // SidewalkDeviceMetadata
  * //     Rssi: Number("int"),

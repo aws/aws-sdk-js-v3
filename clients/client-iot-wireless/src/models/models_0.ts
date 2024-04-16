@@ -245,10 +245,12 @@ export interface AssociateAwsAccountWithPartnerAccountRequest {
   Sidewalk: SidewalkAccountInfo | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client request.
-   *         </p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -1405,10 +1407,12 @@ export interface CreateDestinationRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client request.
-   *         </p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -1582,10 +1586,12 @@ export interface CreateDeviceProfileRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client request.
-   *         </p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -1668,10 +1674,12 @@ export interface CreateFuotaTaskRequest {
   Description?: string;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client
-   *             request.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -1798,10 +1806,12 @@ export interface CreateMulticastGroupRequest {
   Description?: string;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client request.
-   *         </p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -1905,7 +1915,8 @@ export interface TraceContent {
   /**
    * <p>
    *             <code>FrameInfo</code> of your multicast group resources for the trace content. Use
-   *         FrameInfo to debug the multicast communication between your multicast groups and the network server.</p>
+   *             FrameInfo to debug the multicast communication between your multicast groups and the
+   *             network server.</p>
    * @public
    */
   MulticastFrameInfo?: MulticastFrameInfo;
@@ -1955,10 +1966,12 @@ export interface CreateNetworkAnalyzerConfigurationRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client
-   *             request.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -2048,10 +2061,12 @@ export interface CreateServiceProfileRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client request.
-   *         </p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -2147,7 +2162,8 @@ export interface OtaaV1_0_x {
   AppKey?: string;
 
   /**
-   * <p>The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.</p>
+   * <p>The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or
+   *             v1.0.3.</p>
    * @public
    */
   AppEui?: string;
@@ -2313,10 +2329,12 @@ export interface CreateWirelessDeviceRequest {
   DestinationName: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client request.
-   *         </p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -2445,10 +2463,12 @@ export interface CreateWirelessGatewayRequest {
   Tags?: Tag[];
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client request.
-   *         </p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -2626,10 +2646,12 @@ export interface CreateWirelessGatewayTaskDefinitionRequest {
   Update?: UpdateWirelessGatewayTaskCreate;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client request.
-   *         </p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -4179,12 +4201,12 @@ export type SummaryMetricConfigurationStatus =
   (typeof SummaryMetricConfigurationStatus)[keyof typeof SummaryMetricConfigurationStatus];
 
 /**
- * <p>The configuration of summary metric.</p>
+ * <p>The configuration of summary metrics.</p>
  * @public
  */
 export interface SummaryMetricConfiguration {
   /**
-   * <p>The configuration of summary metric.</p>
+   * <p>The status of the configuration of summary metrics.</p>
    * @public
    */
   Status?: SummaryMetricConfigurationStatus;
@@ -4195,7 +4217,7 @@ export interface SummaryMetricConfiguration {
  */
 export interface GetMetricConfigurationResponse {
   /**
-   * <p>The account's configuration status for summary metric aggregation.</p>
+   * <p>The configuration status of the AWS account for summary metric aggregation.</p>
    * @public
    */
   SummaryMetric?: SummaryMetricConfiguration;
@@ -4244,12 +4266,12 @@ export const MetricName = {
 export type MetricName = (typeof MetricName)[keyof typeof MetricName];
 
 /**
- * <p>The metric query object.</p>
+ * <p>The summary metric query object.</p>
  * @public
  */
 export interface SummaryMetricQuery {
   /**
-   * <p>The id of the query.</p>
+   * <p>The id of the summary metric query.</p>
    * @public
    */
   QueryId?: string;
@@ -4261,25 +4283,25 @@ export interface SummaryMetricQuery {
   MetricName?: MetricName;
 
   /**
-   * <p>The dimensions of the metric.</p>
+   * <p>The dimensions of the summary metric.</p>
    * @public
    */
   Dimensions?: Dimension[];
 
   /**
-   * <p>The aggregation period of the metric.</p>
+   * <p>The aggregation period of the summary metric.</p>
    * @public
    */
   AggregationPeriod?: AggregationPeriod;
 
   /**
-   * <p>The start timestamp for summary metric query.</p>
+   * <p>The start timestamp for the summary metric query.</p>
    * @public
    */
   StartTimestamp?: Date;
 
   /**
-   * <p>The end timestamp for summary metric query.</p>
+   * <p>The end timestamp for the summary metric query.</p>
    * @public
    */
   EndTimestamp?: Date;
@@ -4290,7 +4312,7 @@ export interface SummaryMetricQuery {
  */
 export interface GetMetricsRequest {
   /**
-   * <p>The list of queries to retrieve summary metrics.</p>
+   * <p>The list of queries to retrieve the summary metrics.</p>
    * @public
    */
   SummaryMetricQueries?: SummaryMetricQuery[];
@@ -4316,67 +4338,73 @@ export type MetricQueryStatus = (typeof MetricQueryStatus)[keyof typeof MetricQu
  */
 export interface MetricQueryValue {
   /**
-   * <p>The minimum of the values of the all data points collected during the period.</p>
+   * <p>The minimum of the values of all data points collected during the aggregation
+   *             period.</p>
    * @public
    */
   Min?: number;
 
   /**
-   * <p>The maximum of the values of the all data points collected during the period.</p>
+   * <p>The maximum of the values of all the data points collected during the aggregation
+   *             period.</p>
    * @public
    */
   Max?: number;
 
   /**
-   * <p>The sum of the values of the all data points collected during the period.</p>
+   * <p>The sum of the values of all data points collected during the aggregation
+   *             period.</p>
    * @public
    */
   Sum?: number;
 
   /**
-   * <p>The average of the values of the all data points collected during the period.</p>
+   * <p>The average of the values of all data points collected during the aggregation
+   *             period.</p>
    * @public
    */
   Avg?: number;
 
   /**
-   * <p>The standard deviation of the values of the all data points collected during the period.</p>
+   * <p>The standard deviation of the values of all data points collected during the
+   *             aggregation period.</p>
    * @public
    */
   Std?: number;
 
   /**
-   * <p>The 90th percentile of the values of the all data points collected during the period.</p>
+   * <p>The 90th percentile of the values of all data points collected during the aggregation
+   *             period.</p>
    * @public
    */
   P90?: number;
 }
 
 /**
- * <p>The result of metrics aggregation operation.</p>
+ * <p>The result of the summary metrics aggregation operation.</p>
  * @public
  */
 export interface SummaryMetricQueryResult {
   /**
-   * <p>The id of the query.</p>
+   * <p>The ID of the summary metric results query operation.</p>
    * @public
    */
   QueryId?: string;
 
   /**
-   * <p>The status of the metric query.</p>
+   * <p>The status of the summary metric query result.</p>
    * @public
    */
   QueryStatus?: MetricQueryStatus;
 
   /**
-   * <p>The error message for the summary metric query.</p>
+   * <p>The error message for the summary metric query result.</p>
    * @public
    */
   Error?: string;
 
   /**
-   * <p>The name of the metric.</p>
+   * <p>The name of the summary metric query result.</p>
    * @public
    */
   MetricName?: MetricName;
@@ -4394,13 +4422,13 @@ export interface SummaryMetricQueryResult {
   AggregationPeriod?: AggregationPeriod;
 
   /**
-   * <p>The start timestamp for summary metric query.</p>
+   * <p>The start timestamp for the summary metric query.</p>
    * @public
    */
   StartTimestamp?: Date;
 
   /**
-   * <p>The end timestamp for summary metric query.</p>
+   * <p>The end timestamp for the summary metric query.</p>
    * @public
    */
   EndTimestamp?: Date;
@@ -4412,7 +4440,7 @@ export interface SummaryMetricQueryResult {
   Timestamps?: Date[];
 
   /**
-   * <p>The list of aggregated metrics.</p>
+   * <p>The list of aggregated summary metric query results.</p>
    * @public
    */
   Values?: MetricQueryValue[];
@@ -4429,7 +4457,7 @@ export interface SummaryMetricQueryResult {
  */
 export interface GetMetricsResponse {
   /**
-   * <p>The list of retrieved metrics.</p>
+   * <p>The list of summary metrics that were retrieved.</p>
    * @public
    */
   SummaryMetricQueryResults?: SummaryMetricQueryResult[];
@@ -5719,6 +5747,48 @@ export interface LoRaWANGatewayMetadata {
 }
 
 /**
+ * <p>LoRaWAN public gateway metadata.</p>
+ * @public
+ */
+export interface LoRaWANPublicGatewayMetadata {
+  /**
+   * <p>The ID of the LoRaWAN public network provider.</p>
+   * @public
+   */
+  ProviderNetId?: string;
+
+  /**
+   * <p>The ID of the gateways that are operated by the network provider.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The RSSI (received signal strength indicator) value.</p>
+   * @public
+   */
+  Rssi?: number;
+
+  /**
+   * <p>The SNR (signal to noise ratio) value.</p>
+   * @public
+   */
+  Snr?: number;
+
+  /**
+   * <p>The frequency band (RFRegion) value.</p>
+   * @public
+   */
+  RfRegion?: string;
+
+  /**
+   * <p>Boolean that indicates whether downlink is allowed using the network.</p>
+   * @public
+   */
+  DlAllowed?: boolean;
+}
+
+/**
  * <p>LoRaWAN device metatdata.</p>
  * @public
  */
@@ -5758,6 +5828,12 @@ export interface LoRaWANDeviceMetadata {
    * @public
    */
   Gateways?: LoRaWANGatewayMetadata[];
+
+  /**
+   * <p>Information about the LoRaWAN public network accessed by the device.</p>
+   * @public
+   */
+  PublicGateways?: LoRaWANPublicGatewayMetadata[];
 }
 
 /**
@@ -6574,31 +6650,6 @@ export interface ListPartnerAccountsResponse {
    * @public
    */
   Sidewalk?: SidewalkAccountInfoWithFingerprint[];
-}
-
-/**
- * @public
- */
-export interface ListPositionConfigurationsRequest {
-  /**
-   * <p>Resource type for which position configurations are listed.</p>
-   * @public
-   */
-  ResourceType?: PositionResourceType;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <b>null</b> to receive the first set of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**

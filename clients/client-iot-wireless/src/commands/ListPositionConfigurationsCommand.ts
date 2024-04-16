@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListPositionConfigurationsRequest } from "../models/models_0";
-import { ListPositionConfigurationsResponse } from "../models/models_1";
+import { ListPositionConfigurationsRequest, ListPositionConfigurationsResponse } from "../models/models_1";
 import { de_ListPositionConfigurationsCommand, se_ListPositionConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -47,6 +47,31 @@ import {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface ListPositionConfigurationsRequest {
+  /**
+   * <p>Resource type for which position configurations are listed.</p>
+   * @public
+   */
+  ResourceType?: PositionResourceType;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
  * <p>The wrapper for a position configuration.</p>
  * @public
  */
@@ -1156,10 +1181,12 @@ export interface StartSingleWirelessDeviceImportTaskRequest {
   DestinationName: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client
-   *             request.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -1233,10 +1260,12 @@ export interface StartWirelessDeviceImportTaskRequest {
   DestinationName: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. If you try to create a new
-   *             resource with the same token as a resource that already exists, an exception occurs. If
-   *             you omit this value, AWS SDKs will automatically generate a unique client
-   *             request.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to implement
+   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
+   *             with the same token and the same parameters, the request will complete successfully. However, if
+   *             you try to create a new resource using the same token but different parameters, an HTTP 409
+   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
+   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string;
@@ -1661,14 +1690,14 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
 
   /**
    * <p>Multicast group resources to add to the network analyzer configuration. Provide the
-   *             <code>MulticastGroupId</code> of the resource to add in the input array.</p>
+   *                 <code>MulticastGroupId</code> of the resource to add in the input array.</p>
    * @public
    */
   MulticastGroupsToAdd?: string[];
 
   /**
-   * <p>Multicast group resources to remove from the network analyzer configuration. Provide the
-   *             <code>MulticastGroupId</code> of the resources to remove in the input array.</p>
+   * <p>Multicast group resources to remove from the network analyzer configuration. Provide
+   *             the <code>MulticastGroupId</code> of the resources to remove in the input array.</p>
    * @public
    */
   MulticastGroupsToRemove?: string[];

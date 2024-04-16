@@ -27,7 +27,7 @@ export interface GetMetricConfigurationCommandInput extends GetMetricConfigurati
 export interface GetMetricConfigurationCommandOutput extends GetMetricConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Get the metric configuration status for this account.</p>
+ * <p>Get the metric configuration status for this AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

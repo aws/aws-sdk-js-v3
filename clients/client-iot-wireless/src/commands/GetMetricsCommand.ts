@@ -27,7 +27,7 @@ export interface GetMetricsCommandInput extends GetMetricsRequest {}
 export interface GetMetricsCommandOutput extends GetMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Get metrics.</p>
+ * <p>Get the summary metrics for this AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
