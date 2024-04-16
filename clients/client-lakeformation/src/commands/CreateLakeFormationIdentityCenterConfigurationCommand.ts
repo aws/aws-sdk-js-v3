@@ -52,6 +52,11 @@ export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   ShareRecipients: [ // DataLakePrincipalList
+ *     { // DataLakePrincipal
+ *       DataLakePrincipalIdentifier: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateLakeFormationIdentityCenterConfigurationCommand(input);
  * const response = await client.send(command);

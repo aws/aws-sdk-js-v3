@@ -1153,6 +1153,15 @@ export interface CreateLakeFormationIdentityCenterConfigurationRequest {
    * @public
    */
   ExternalFiltering?: ExternalFilteringConfiguration;
+
+  /**
+   * <p>A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational unit ARNs
+   *          that are allowed to access data managed by Lake Formation. </p>
+   *          <p>If the <code>ShareRecipients</code> list includes valid values, a resource share is created with the principals you want to have access to the resources.</p>
+   *          <p>If the <code>ShareRecipients</code> value is null or the list is empty, no resource share is created.</p>
+   * @public
+   */
+  ShareRecipients?: DataLakePrincipal[];
 }
 
 /**
@@ -1160,7 +1169,7 @@ export interface CreateLakeFormationIdentityCenterConfigurationRequest {
  */
 export interface CreateLakeFormationIdentityCenterConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the integrated application.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lake Formation application integrated with IAM Identity Center.</p>
    * @public
    */
   ApplicationArn?: string;
@@ -1443,7 +1452,7 @@ export interface DescribeLakeFormationIdentityCenterConfigurationResponse {
   InstanceArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the integrated application.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lake Formation application integrated with IAM Identity Center.</p>
    * @public
    */
   ApplicationArn?: string;
@@ -1453,6 +1462,21 @@ export interface DescribeLakeFormationIdentityCenterConfigurationResponse {
    * @public
    */
   ExternalFiltering?: ExternalFilteringConfiguration;
+
+  /**
+   * <p>A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational unit ARNs that
+   *          are allowed to access data managed by Lake Formation. </p>
+   *          <p>If the <code>ShareRecipients</code> list includes valid values, a resource share is created with the principals you want to have access to the resources as the <code>ShareRecipients</code>.</p>
+   *          <p>If the <code>ShareRecipients</code> value is null or the list is empty, no resource share is created.</p>
+   * @public
+   */
+  ShareRecipients?: DataLakePrincipal[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the RAM share.</p>
+   * @public
+   */
+  ResourceShare?: string;
 }
 
 /**
@@ -3691,6 +3715,18 @@ export interface UpdateLakeFormationIdentityCenterConfigurationRequest {
    * @public
    */
   CatalogId?: string;
+
+  /**
+   * <p>A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational unit ARNs that
+   *          are allowed to access to access data managed by Lake Formation. </p>
+   *          <p>If the <code>ShareRecipients</code> list includes valid values, then the resource share is updated with the principals you want to have access to the resources.</p>
+   *          <p>If the <code>ShareRecipients</code> value is null, both the list of share recipients and
+   *          the resource share remain unchanged.</p>
+   *          <p>If the <code>ShareRecipients</code> value is an empty list, then the existing share
+   *          recipients list will be cleared, and the resource share will be deleted.</p>
+   * @public
+   */
+  ShareRecipients?: DataLakePrincipal[];
 
   /**
    * <p>Allows to enable or disable the IAM Identity Center connection.</p>

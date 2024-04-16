@@ -45,6 +45,11 @@ export interface UpdateLakeFormationIdentityCenterConfigurationCommandOutput
  * const client = new LakeFormationClient(config);
  * const input = { // UpdateLakeFormationIdentityCenterConfigurationRequest
  *   CatalogId: "STRING_VALUE",
+ *   ShareRecipients: [ // DataLakePrincipalList
+ *     { // DataLakePrincipal
+ *       DataLakePrincipalIdentifier: "STRING_VALUE",
+ *     },
+ *   ],
  *   ApplicationStatus: "ENABLED" || "DISABLED",
  *   ExternalFiltering: { // ExternalFilteringConfiguration
  *     Status: "ENABLED" || "DISABLED", // required

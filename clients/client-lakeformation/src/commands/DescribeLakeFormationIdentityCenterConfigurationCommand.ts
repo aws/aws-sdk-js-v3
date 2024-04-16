@@ -58,6 +58,12 @@ export interface DescribeLakeFormationIdentityCenterConfigurationCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   ShareRecipients: [ // DataLakePrincipalList
+ * //     { // DataLakePrincipal
+ * //       DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ResourceShare: "STRING_VALUE",
  * // };
  *
  * ```

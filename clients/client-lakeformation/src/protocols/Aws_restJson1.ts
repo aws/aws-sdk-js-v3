@@ -401,6 +401,7 @@ export const se_CreateLakeFormationIdentityCenterConfigurationCommand = async (
       CatalogId: [],
       ExternalFiltering: (_) => _json(_),
       InstanceArn: [],
+      ShareRecipients: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1456,6 +1457,7 @@ export const se_UpdateLakeFormationIdentityCenterConfigurationCommand = async (
       ApplicationStatus: [],
       CatalogId: [],
       ExternalFiltering: (_) => _json(_),
+      ShareRecipients: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1881,6 +1883,8 @@ export const de_DescribeLakeFormationIdentityCenterConfigurationCommand = async 
     CatalogId: __expectString,
     ExternalFiltering: _json,
     InstanceArn: __expectString,
+    ResourceShare: __expectString,
+    ShareRecipients: _json,
   });
   Object.assign(contents, doc);
   return contents;
