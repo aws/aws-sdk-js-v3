@@ -2,6 +2,11 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import {
+  CancelCapacityTaskCommand,
+  CancelCapacityTaskCommandInput,
+  CancelCapacityTaskCommandOutput,
+} from "./commands/CancelCapacityTaskCommand";
 import { CancelOrderCommand, CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
 import { CreateOrderCommand, CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import {
@@ -16,6 +21,11 @@ import {
   DeleteOutpostCommandOutput,
 } from "./commands/DeleteOutpostCommand";
 import { DeleteSiteCommand, DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
+import {
+  GetCapacityTaskCommand,
+  GetCapacityTaskCommandInput,
+  GetCapacityTaskCommandOutput,
+} from "./commands/GetCapacityTaskCommand";
 import {
   GetCatalogItemCommand,
   GetCatalogItemCommandInput,
@@ -34,12 +44,22 @@ import {
   GetOutpostInstanceTypesCommandOutput,
 } from "./commands/GetOutpostInstanceTypesCommand";
 import {
+  GetOutpostSupportedInstanceTypesCommand,
+  GetOutpostSupportedInstanceTypesCommandInput,
+  GetOutpostSupportedInstanceTypesCommandOutput,
+} from "./commands/GetOutpostSupportedInstanceTypesCommand";
+import {
   GetSiteAddressCommand,
   GetSiteAddressCommandInput,
   GetSiteAddressCommandOutput,
 } from "./commands/GetSiteAddressCommand";
 import { GetSiteCommand, GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
 import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
+import {
+  ListCapacityTasksCommand,
+  ListCapacityTasksCommandInput,
+  ListCapacityTasksCommandOutput,
+} from "./commands/ListCapacityTasksCommand";
 import {
   ListCatalogItemsCommand,
   ListCatalogItemsCommandInput,
@@ -57,6 +77,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartCapacityTaskCommand,
+  StartCapacityTaskCommandInput,
+  StartCapacityTaskCommandOutput,
+} from "./commands/StartCapacityTaskCommand";
 import {
   StartConnectionCommand,
   StartConnectionCommandInput,
@@ -87,25 +112,30 @@ import {
 import { OutpostsClient, OutpostsClientConfig } from "./OutpostsClient";
 
 const commands = {
+  CancelCapacityTaskCommand,
   CancelOrderCommand,
   CreateOrderCommand,
   CreateOutpostCommand,
   CreateSiteCommand,
   DeleteOutpostCommand,
   DeleteSiteCommand,
+  GetCapacityTaskCommand,
   GetCatalogItemCommand,
   GetConnectionCommand,
   GetOrderCommand,
   GetOutpostCommand,
   GetOutpostInstanceTypesCommand,
+  GetOutpostSupportedInstanceTypesCommand,
   GetSiteCommand,
   GetSiteAddressCommand,
   ListAssetsCommand,
+  ListCapacityTasksCommand,
   ListCatalogItemsCommand,
   ListOrdersCommand,
   ListOutpostsCommand,
   ListSitesCommand,
   ListTagsForResourceCommand,
+  StartCapacityTaskCommand,
   StartConnectionCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -116,6 +146,23 @@ const commands = {
 };
 
 export interface Outposts {
+  /**
+   * @see {@link CancelCapacityTaskCommand}
+   */
+  cancelCapacityTask(
+    args: CancelCapacityTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelCapacityTaskCommandOutput>;
+  cancelCapacityTask(
+    args: CancelCapacityTaskCommandInput,
+    cb: (err: any, data?: CancelCapacityTaskCommandOutput) => void
+  ): void;
+  cancelCapacityTask(
+    args: CancelCapacityTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelCapacityTaskCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CancelOrderCommand}
    */
@@ -183,6 +230,20 @@ export interface Outposts {
   ): void;
 
   /**
+   * @see {@link GetCapacityTaskCommand}
+   */
+  getCapacityTask(
+    args: GetCapacityTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityTaskCommandOutput>;
+  getCapacityTask(args: GetCapacityTaskCommandInput, cb: (err: any, data?: GetCapacityTaskCommandOutput) => void): void;
+  getCapacityTask(
+    args: GetCapacityTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCatalogItemCommand}
    */
   getCatalogItem(
@@ -247,6 +308,23 @@ export interface Outposts {
   ): void;
 
   /**
+   * @see {@link GetOutpostSupportedInstanceTypesCommand}
+   */
+  getOutpostSupportedInstanceTypes(
+    args: GetOutpostSupportedInstanceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOutpostSupportedInstanceTypesCommandOutput>;
+  getOutpostSupportedInstanceTypes(
+    args: GetOutpostSupportedInstanceTypesCommandInput,
+    cb: (err: any, data?: GetOutpostSupportedInstanceTypesCommandOutput) => void
+  ): void;
+  getOutpostSupportedInstanceTypes(
+    args: GetOutpostSupportedInstanceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOutpostSupportedInstanceTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSiteCommand}
    */
   getSite(args: GetSiteCommandInput, options?: __HttpHandlerOptions): Promise<GetSiteCommandOutput>;
@@ -280,6 +358,24 @@ export interface Outposts {
     args: ListAssetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCapacityTasksCommand}
+   */
+  listCapacityTasks(): Promise<ListCapacityTasksCommandOutput>;
+  listCapacityTasks(
+    args: ListCapacityTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCapacityTasksCommandOutput>;
+  listCapacityTasks(
+    args: ListCapacityTasksCommandInput,
+    cb: (err: any, data?: ListCapacityTasksCommandOutput) => void
+  ): void;
+  listCapacityTasks(
+    args: ListCapacityTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCapacityTasksCommandOutput) => void
   ): void;
 
   /**
@@ -351,6 +447,23 @@ export interface Outposts {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCapacityTaskCommand}
+   */
+  startCapacityTask(
+    args: StartCapacityTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCapacityTaskCommandOutput>;
+  startCapacityTask(
+    args: StartCapacityTaskCommandInput,
+    cb: (err: any, data?: StartCapacityTaskCommandOutput) => void
+  ): void;
+  startCapacityTask(
+    args: StartCapacityTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCapacityTaskCommandOutput) => void
   ): void;
 
   /**

@@ -6,6 +6,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -25,12 +26,14 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { CancelCapacityTaskCommandInput, CancelCapacityTaskCommandOutput } from "../commands/CancelCapacityTaskCommand";
 import { CancelOrderCommandInput, CancelOrderCommandOutput } from "../commands/CancelOrderCommand";
 import { CreateOrderCommandInput, CreateOrderCommandOutput } from "../commands/CreateOrderCommand";
 import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "../commands/CreateOutpostCommand";
 import { CreateSiteCommandInput, CreateSiteCommandOutput } from "../commands/CreateSiteCommand";
 import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "../commands/DeleteOutpostCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "../commands/DeleteSiteCommand";
+import { GetCapacityTaskCommandInput, GetCapacityTaskCommandOutput } from "../commands/GetCapacityTaskCommand";
 import { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "../commands/GetCatalogItemCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
 import { GetOrderCommandInput, GetOrderCommandOutput } from "../commands/GetOrderCommand";
@@ -39,9 +42,14 @@ import {
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput,
 } from "../commands/GetOutpostInstanceTypesCommand";
+import {
+  GetOutpostSupportedInstanceTypesCommandInput,
+  GetOutpostSupportedInstanceTypesCommandOutput,
+} from "../commands/GetOutpostSupportedInstanceTypesCommand";
 import { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "../commands/GetSiteAddressCommand";
 import { GetSiteCommandInput, GetSiteCommandOutput } from "../commands/GetSiteCommand";
 import { ListAssetsCommandInput, ListAssetsCommandOutput } from "../commands/ListAssetsCommand";
+import { ListCapacityTasksCommandInput, ListCapacityTasksCommandOutput } from "../commands/ListCapacityTasksCommand";
 import { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "../commands/ListCatalogItemsCommand";
 import { ListOrdersCommandInput, ListOrdersCommandOutput } from "../commands/ListOrdersCommand";
 import { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "../commands/ListOutpostsCommand";
@@ -50,6 +58,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { StartCapacityTaskCommandInput, StartCapacityTaskCommandOutput } from "../commands/StartCapacityTaskCommand";
 import { StartConnectionCommandInput, StartConnectionCommandOutput } from "../commands/StartConnectionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -65,8 +74,10 @@ import {
   Address,
   AssetInfo,
   AssetLocation,
+  CapacityTaskSummary,
   CatalogItem,
   ConflictException,
+  InstanceTypeCapacity,
   InternalServerException,
   LineItemRequest,
   NotFoundException,
@@ -77,6 +88,23 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { OutpostsServiceException as __BaseException } from "../models/OutpostsServiceException";
+
+/**
+ * serializeAws_restJson1CancelCapacityTaskCommand
+ */
+export const se_CancelCapacityTaskCommand = async (
+  input: CancelCapacityTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}");
+  b.p("CapacityTaskId", () => input.CapacityTaskId!, "{CapacityTaskId}", false);
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CancelOrderCommand
@@ -208,6 +236,23 @@ export const se_DeleteSiteCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetCapacityTaskCommand
+ */
+export const se_GetCapacityTaskCommand = async (
+  input: GetCapacityTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}");
+  b.p("CapacityTaskId", () => input.CapacityTaskId!, "{CapacityTaskId}", false);
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetCatalogItemCommand
  */
 export const se_GetCatalogItemCommand = async (
@@ -292,6 +337,27 @@ export const se_GetOutpostInstanceTypesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetOutpostSupportedInstanceTypesCommand
+ */
+export const se_GetOutpostSupportedInstanceTypesCommand = async (
+  input: GetOutpostSupportedInstanceTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/outposts/{OutpostIdentifier}/supportedInstanceTypes");
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
+  const query: any = map({
+    [_OI]: [, __expectNonNull(input[_OI]!, `OrderId`)],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetSiteCommand
  */
 export const se_GetSiteCommand = async (
@@ -342,6 +408,30 @@ export const se_ListAssetsCommand = async (
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
     [_SF]: [() => input.StatusFilter !== void 0, () => (input[_SF]! || []).map((_entry) => _entry as any)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCapacityTasksCommand
+ */
+export const se_ListCapacityTasksCommand = async (
+  input: ListCapacityTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/capacity/tasks");
+  const query: any = map({
+    [_OIF]: [, input[_OIF]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_CTSF]: [
+      () => input.CapacityTaskStatusFilter !== void 0,
+      () => (input[_CTSF]! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -459,6 +549,31 @@ export const se_ListTagsForResourceCommand = async (
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartCapacityTaskCommand
+ */
+export const se_StartCapacityTaskCommand = async (
+  input: StartCapacityTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/outposts/{OutpostIdentifier}/capacity");
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DryRun: [],
+      InstancePools: (_) => _json(_),
+      OrderId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -638,6 +753,23 @@ export const se_UpdateSiteRackPhysicalPropertiesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CancelCapacityTaskCommand
+ */
+export const de_CancelCapacityTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelCapacityTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CancelOrderCommand
  */
 export const de_CancelOrderCommand = async (
@@ -752,6 +884,36 @@ export const de_DeleteSiteCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetCapacityTaskCommand
+ */
+export const de_GetCapacityTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCapacityTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CapacityTaskId: __expectString,
+    CapacityTaskStatus: __expectString,
+    CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DryRun: __expectBoolean,
+    Failed: _json,
+    LastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrderId: __expectString,
+    OutpostId: __expectString,
+    RequestedInstancePools: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetCatalogItemCommand
  */
 export const de_GetCatalogItemCommand = async (
@@ -861,6 +1023,28 @@ export const de_GetOutpostInstanceTypesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetOutpostSupportedInstanceTypesCommand
+ */
+export const de_GetOutpostSupportedInstanceTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOutpostSupportedInstanceTypesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InstanceTypes: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSiteCommand
  */
 export const de_GetSiteCommand = async (
@@ -920,6 +1104,28 @@ export const de_ListAssetsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Assets: (_) => de_AssetListDefinition(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCapacityTasksCommand
+ */
+export const de_ListCapacityTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCapacityTasksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CapacityTasks: (_) => de_CapacityTaskList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1030,6 +1236,36 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartCapacityTaskCommand
+ */
+export const de_StartCapacityTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCapacityTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CapacityTaskId: __expectString,
+    CapacityTaskStatus: __expectString,
+    CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DryRun: __expectBoolean,
+    Failed: _json,
+    LastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrderId: __expectString,
+    OutpostId: __expectString,
+    RequestedInstancePools: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1330,11 +1566,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Address omitted.
 
+// se_InstanceTypeCapacity omitted.
+
 // se_LineItemRequest omitted.
 
 // se_LineItemRequestListDefinition omitted.
 
 // se_RackPhysicalProperties omitted.
+
+// se_RequestedInstancePools omitted.
 
 // se_TagMap omitted.
 
@@ -1371,6 +1611,35 @@ const de_AssetListDefinition = (output: any, context: __SerdeContext): AssetInfo
 const de_AssetLocation = (output: any, context: __SerdeContext): AssetLocation => {
   return take(output, {
     RackElevation: __limitedParseFloat32,
+  }) as any;
+};
+
+// de_CapacityTaskFailure omitted.
+
+/**
+ * deserializeAws_restJson1CapacityTaskList
+ */
+const de_CapacityTaskList = (output: any, context: __SerdeContext): CapacityTaskSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CapacityTaskSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CapacityTaskSummary
+ */
+const de_CapacityTaskSummary = (output: any, context: __SerdeContext): CapacityTaskSummary => {
+  return take(output, {
+    CapacityTaskId: __expectString,
+    CapacityTaskStatus: __expectString,
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrderId: __expectString,
+    OutpostId: __expectString,
   }) as any;
 };
 
@@ -1412,6 +1681,8 @@ const de_CatalogItemListDefinition = (output: any, context: __SerdeContext): Cat
 // de_EC2CapacityListDefinition omitted.
 
 // de_InstanceFamilies omitted.
+
+// de_InstanceTypeCapacity omitted.
 
 // de_InstanceTypeItem omitted.
 
@@ -1479,6 +1750,8 @@ const de_OrderSummaryListDefinition = (output: any, context: __SerdeContext): Or
 
 // de_RackPhysicalProperties omitted.
 
+// de_RequestedInstancePools omitted.
+
 // de_ShipmentInformation omitted.
 
 // de_Site omitted.
@@ -1513,6 +1786,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
 const _AT = "AddressType";
 const _AZF = "AvailabilityZoneFilter";
 const _AZIF = "AvailabilityZoneIdFilter";
+const _CTSF = "CapacityTaskStatusFilter";
 const _ECFF = "EC2FamilyFilter";
 const _HIF = "HostIdFilter";
 const _ICF = "ItemClassFilter";
@@ -1522,6 +1796,7 @@ const _NT = "NextToken";
 const _OACCF = "OperatingAddressCountryCodeFilter";
 const _OACF = "OperatingAddressCityFilter";
 const _OASORF = "OperatingAddressStateOrRegionFilter";
+const _OI = "OrderId";
 const _OIF = "OutpostIdentifierFilter";
 const _SF = "StatusFilter";
 const _SSF = "SupportedStorageFilter";

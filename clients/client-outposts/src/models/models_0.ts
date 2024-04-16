@@ -245,18 +245,24 @@ export type AssetState = (typeof AssetState)[keyof typeof AssetState];
 /**
  * @public
  */
-export interface CancelOrderInput {
+export interface CancelCapacityTaskInput {
   /**
-   * <p> The ID of the order. </p>
+   * <p>ID of the capacity task that you want to cancel.</p>
    * @public
    */
-  OrderId: string | undefined;
+  CapacityTaskId: string | undefined;
+
+  /**
+   * <p>ID or ARN of the Outpost associated with the capacity task that you want to cancel.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
 }
 
 /**
  * @public
  */
-export interface CancelOrderOutput {}
+export interface CancelCapacityTaskOutput {}
 
 /**
  * @public
@@ -371,6 +377,118 @@ export class ValidationException extends __BaseException {
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface CancelOrderInput {
+  /**
+   * <p> The ID of the order. </p>
+   * @public
+   */
+  OrderId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelOrderOutput {}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityTaskFailureType = {
+  UNSUPPORTED_CAPACITY_CONFIGURATION: "UNSUPPORTED_CAPACITY_CONFIGURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityTaskFailureType = (typeof CapacityTaskFailureType)[keyof typeof CapacityTaskFailureType];
+
+/**
+ * <p>The capacity tasks that failed.</p>
+ * @public
+ */
+export interface CapacityTaskFailure {
+  /**
+   * <p>The reason that the specified capacity task failed.</p>
+   * @public
+   */
+  Reason: string | undefined;
+
+  /**
+   * <p>The type of failure.</p>
+   * @public
+   */
+  Type?: CapacityTaskFailureType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityTaskStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  REQUESTED: "REQUESTED",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityTaskStatus = (typeof CapacityTaskStatus)[keyof typeof CapacityTaskStatus];
+
+/**
+ * <p>The summary of the capacity task.</p>
+ * @public
+ */
+export interface CapacityTaskSummary {
+  /**
+   * <p>The ID of the specified capacity task.</p>
+   * @public
+   */
+  CapacityTaskId?: string;
+
+  /**
+   * <p>The ID of the Outpost associated with the specified capacity task.</p>
+   * @public
+   */
+  OutpostId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services Outposts order of the host associated with the capacity task.</p>
+   * @public
+   */
+  OrderId?: string;
+
+  /**
+   * <p>The status of the capacity task.</p>
+   * @public
+   */
+  CapacityTaskStatus?: CapacityTaskStatus;
+
+  /**
+   * <p>The date that the specified capacity task was created.</p>
+   * @public
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The date that the specified capacity task successfully ran.</p>
+   * @public
+   */
+  CompletionDate?: Date;
+
+  /**
+   * <p>The date that the specified capacity was last modified.</p>
+   * @public
+   */
+  LastModifiedDate?: Date;
 }
 
 /**
@@ -1407,7 +1525,7 @@ export interface CreateSiteOutput {
  */
 export interface DeleteOutpostInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
+   * <p> The ID or ARN of the Outpost. </p>
    * @public
    */
   OutpostId: string | undefined;
@@ -1433,6 +1551,126 @@ export interface DeleteSiteInput {
  * @public
  */
 export interface DeleteSiteOutput {}
+
+/**
+ * @public
+ */
+export interface GetCapacityTaskInput {
+  /**
+   * <p>ID of the capacity task.</p>
+   * @public
+   */
+  CapacityTaskId: string | undefined;
+
+  /**
+   * <p>ID or ARN of the Outpost associated with the specified capacity task.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
+}
+
+/**
+ * <p>The instance type that you specify determines the combination of CPU, memory, storage, and
+ *       networking capacity.</p>
+ * @public
+ */
+export interface InstanceTypeCapacity {
+  /**
+   * <p>The instance type of the hosts.</p>
+   * @public
+   */
+  InstanceType: string | undefined;
+
+  /**
+   * <p>The number of instances for the specified instance type.</p>
+   * @public
+   */
+  Count: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityTaskOutput {
+  /**
+   * <p>ID of the capacity task.</p>
+   * @public
+   */
+  CapacityTaskId?: string;
+
+  /**
+   * <p>ID of the Outpost associated with the specified capacity task.</p>
+   * @public
+   */
+  OutpostId?: string;
+
+  /**
+   * <p>ID of the Amazon Web Services Outposts order associated with the specified capacity task.</p>
+   * @public
+   */
+  OrderId?: string;
+
+  /**
+   * <p>List of instance pools requested in the capacity task.</p>
+   * @public
+   */
+  RequestedInstancePools?: InstanceTypeCapacity[];
+
+  /**
+   * <p>Performs a dry run to determine if you are above or below instance capacity.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Status of the capacity task.</p>
+   *          <p>A capacity task can have one of the following statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REQUESTED</code> - The capacity task was created and is awaiting the next step
+   *           by Amazon Web Services Outposts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> - The capacity task is running and cannot be
+   *           cancelled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WAITING_FOR_EVACUATION</code> - The capacity task requires capacity to run. You
+   *           must stop the recommended EC2 running instances to free up capacity for the task to
+   *           run.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CapacityTaskStatus?: CapacityTaskStatus;
+
+  /**
+   * <p>Reason why the capacity task failed.</p>
+   * @public
+   */
+  Failed?: CapacityTaskFailure;
+
+  /**
+   * <p>The date the capacity task was created.</p>
+   * @public
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The date the capacity task ran successfully.</p>
+   * @public
+   */
+  CompletionDate?: Date;
+
+  /**
+   * <p>The date the capacity task was last modified.</p>
+   * @public
+   */
+  LastModifiedDate?: Date;
+}
 
 /**
  * @public
@@ -1511,7 +1749,7 @@ export interface GetOrderOutput {
  */
 export interface GetOutpostInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
+   * <p> The ID or ARN of the Outpost. </p>
    * @public
    */
   OutpostId: string | undefined;
@@ -1533,7 +1771,7 @@ export interface GetOutpostOutput {
  */
 export interface GetOutpostInstanceTypesInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
+   * <p> The ID or ARN of the Outpost. </p>
    * @public
    */
   OutpostId: string | undefined;
@@ -1590,6 +1828,52 @@ export interface GetOutpostInstanceTypesOutput {
    * @public
    */
   OutpostArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetOutpostSupportedInstanceTypesInput {
+  /**
+   * <p>The ID or ARN of the Outpost.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services Outposts order.</p>
+   * @public
+   */
+  OrderId: string | undefined;
+
+  /**
+   * <p>The maximum page size.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetOutpostSupportedInstanceTypesOutput {
+  /**
+   * <p>Information about the instance types.</p>
+   * @public
+   */
+  InstanceTypes?: InstanceTypeItem[];
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string;
 }
 
 /**
@@ -1698,6 +1982,53 @@ export interface ListAssetsOutput {
    * @public
    */
   Assets?: AssetInfo[];
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCapacityTasksInput {
+  /**
+   * <p>Filters the results by an Outpost ID or an Outpost ARN.</p>
+   * @public
+   */
+  OutpostIdentifierFilter?: string;
+
+  /**
+   * <p>The maximum page size.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of statuses. For example,
+   *         <code>REQUESTED</code> or <code>WAITING_FOR_EVACUATION</code>.</p>
+   * @public
+   */
+  CapacityTaskStatusFilter?: CapacityTaskStatus[];
+}
+
+/**
+ * @public
+ */
+export interface ListCapacityTasksOutput {
+  /**
+   * <p>Lists all the capacity tasks.</p>
+   * @public
+   */
+  CapacityTasks?: CapacityTaskSummary[];
 
   /**
    * <p>The pagination token.</p>
@@ -2002,6 +2333,102 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface StartCapacityTaskInput {
+  /**
+   * <p>The ID or ARN of the Outposts associated with the specified capacity task.</p>
+   * @public
+   */
+  OutpostIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Outposts order associated with the specified capacity task.</p>
+   * @public
+   */
+  OrderId: string | undefined;
+
+  /**
+   * <p>The instance pools specified in the capacity task.</p>
+   * @public
+   */
+  InstancePools: InstanceTypeCapacity[] | undefined;
+
+  /**
+   * <p>You can request a dry run to determine if the instance type and instance size changes is above or below available instance
+   *       capacity. Requesting a dry run does not make any changes to your plan.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface StartCapacityTaskOutput {
+  /**
+   * <p>ID of the capacity task that you want to start.</p>
+   * @public
+   */
+  CapacityTaskId?: string;
+
+  /**
+   * <p>ID of the Outpost associated with the capacity task.</p>
+   * @public
+   */
+  OutpostId?: string;
+
+  /**
+   * <p>ID of the Amazon Web Services Outposts order of the host associated with the capacity task.</p>
+   * @public
+   */
+  OrderId?: string;
+
+  /**
+   * <p>List of the instance pools requested in the specified capacity task.</p>
+   * @public
+   */
+  RequestedInstancePools?: InstanceTypeCapacity[];
+
+  /**
+   * <p>Results of the dry run showing if the specified capacity task is above or below the
+   *       available instance capacity.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Status of the specified capacity task.</p>
+   * @public
+   */
+  CapacityTaskStatus?: CapacityTaskStatus;
+
+  /**
+   * <p>Reason that the specified capacity task failed.</p>
+   * @public
+   */
+  Failed?: CapacityTaskFailure;
+
+  /**
+   * <p>Date that the specified capacity task was created.</p>
+   * @public
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>Date that the specified capacity task ran successfully.</p>
+   * @public
+   */
+  CompletionDate?: Date;
+
+  /**
+   * <p>Date that the specified capacity task was last modified.</p>
+   * @public
+   */
+  LastModifiedDate?: Date;
+}
+
+/**
+ * @public
+ */
 export interface StartConnectionRequest {
   /**
    * <p> The serial number of the dongle. </p>
@@ -2094,7 +2521,7 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateOutpostInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
+   * <p> The ID or ARN of the Outpost. </p>
    * @public
    */
   OutpostId: string | undefined;

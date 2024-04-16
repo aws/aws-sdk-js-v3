@@ -53,12 +53,14 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CancelCapacityTaskCommandInput, CancelCapacityTaskCommandOutput } from "./commands/CancelCapacityTaskCommand";
 import { CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
 import { CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
 import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
 import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "./commands/DeleteOutpostCommand";
 import { DeleteSiteCommandInput, DeleteSiteCommandOutput } from "./commands/DeleteSiteCommand";
+import { GetCapacityTaskCommandInput, GetCapacityTaskCommandOutput } from "./commands/GetCapacityTaskCommand";
 import { GetCatalogItemCommandInput, GetCatalogItemCommandOutput } from "./commands/GetCatalogItemCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetOrderCommandInput, GetOrderCommandOutput } from "./commands/GetOrderCommand";
@@ -67,9 +69,14 @@ import {
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput,
 } from "./commands/GetOutpostInstanceTypesCommand";
+import {
+  GetOutpostSupportedInstanceTypesCommandInput,
+  GetOutpostSupportedInstanceTypesCommandOutput,
+} from "./commands/GetOutpostSupportedInstanceTypesCommand";
 import { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "./commands/GetSiteAddressCommand";
 import { GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
 import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
+import { ListCapacityTasksCommandInput, ListCapacityTasksCommandOutput } from "./commands/ListCapacityTasksCommand";
 import { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "./commands/ListCatalogItemsCommand";
 import { ListOrdersCommandInput, ListOrdersCommandOutput } from "./commands/ListOrdersCommand";
 import { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "./commands/ListOutpostsCommand";
@@ -78,6 +85,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StartCapacityTaskCommandInput, StartCapacityTaskCommandOutput } from "./commands/StartCapacityTaskCommand";
 import { StartConnectionCommandInput, StartConnectionCommandOutput } from "./commands/StartConnectionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -103,25 +111,30 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CancelCapacityTaskCommandInput
   | CancelOrderCommandInput
   | CreateOrderCommandInput
   | CreateOutpostCommandInput
   | CreateSiteCommandInput
   | DeleteOutpostCommandInput
   | DeleteSiteCommandInput
+  | GetCapacityTaskCommandInput
   | GetCatalogItemCommandInput
   | GetConnectionCommandInput
   | GetOrderCommandInput
   | GetOutpostCommandInput
   | GetOutpostInstanceTypesCommandInput
+  | GetOutpostSupportedInstanceTypesCommandInput
   | GetSiteAddressCommandInput
   | GetSiteCommandInput
   | ListAssetsCommandInput
+  | ListCapacityTasksCommandInput
   | ListCatalogItemsCommandInput
   | ListOrdersCommandInput
   | ListOutpostsCommandInput
   | ListSitesCommandInput
   | ListTagsForResourceCommandInput
+  | StartCapacityTaskCommandInput
   | StartConnectionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -134,25 +147,30 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelCapacityTaskCommandOutput
   | CancelOrderCommandOutput
   | CreateOrderCommandOutput
   | CreateOutpostCommandOutput
   | CreateSiteCommandOutput
   | DeleteOutpostCommandOutput
   | DeleteSiteCommandOutput
+  | GetCapacityTaskCommandOutput
   | GetCatalogItemCommandOutput
   | GetConnectionCommandOutput
   | GetOrderCommandOutput
   | GetOutpostCommandOutput
   | GetOutpostInstanceTypesCommandOutput
+  | GetOutpostSupportedInstanceTypesCommandOutput
   | GetSiteAddressCommandOutput
   | GetSiteCommandOutput
   | ListAssetsCommandOutput
+  | ListCapacityTasksCommandOutput
   | ListCatalogItemsCommandOutput
   | ListOrdersCommandOutput
   | ListOutpostsCommandOutput
   | ListSitesCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartCapacityTaskCommandOutput
   | StartConnectionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
