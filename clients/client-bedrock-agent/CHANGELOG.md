@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
+
+
+### Features
+
+* **client-bedrock-agent:** For Create Agent API, the agentResourceRoleArn parameter is no longer required. ([ed06b5a](https://github.com/aws/aws-sdk-js-v3/commit/ed06b5a521bf9ede433431a364ac22a6c6582979))
+
+
+
+
+
 # [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent

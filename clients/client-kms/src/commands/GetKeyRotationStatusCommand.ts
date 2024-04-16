@@ -182,6 +182,26 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * // example id: to-retrieve-the-rotation-status-for-a-cmk-1479172287408
  * ```
  *
+ * @example To retrieve the rotation status for a KMS key
+ * ```javascript
+ * // The following example retrieves detailed information about the rotation status for a KMS key, including whether automatic key rotation is enabled for the specified KMS key, the rotation period, and the next scheduled rotation date.
+ * const input = {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new GetKeyRotationStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   "KeyRotationEnabled": true,
+ *   "NextRotationDate": "2024-04-05T15:14:47.757000+00:00",
+ *   "OnDemandRotationStartDate": "2024-03-02T10:11:36.564000+00:00",
+ *   "RotationPeriodInDays": 365
+ * }
+ * *\/
+ * // example id: to-retrieve-the-rotation-status-for-a-kms-key-1712500357701
+ * ```
+ *
  */
 export class GetKeyRotationStatusCommand extends $Command
   .classBuilder<

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
+
+
+### Features
+
+* **client-mediapackagev2:** Dash v2 is a MediaPackage V2 feature to support egressing on DASH manifest format. ([3b624ea](https://github.com/aws/aws-sdk-js-v3/commit/3b624eafcbee45d6d338f01389ec4b43818918b3))
+
+
+
+
+
 # [3.554.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.553.0...v3.554.0) (2024-04-11)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
+
+
+### Features
+
+* **client-outposts:** This release adds new APIs to allow customers to configure their Outpost capacity at order-time. ([6701646](https://github.com/aws/aws-sdk-js-v3/commit/67016465bb901960dff33823cea883e932a238c7))
+
+
+
+
+
 # [3.555.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.554.0...v3.555.0) (2024-04-12)
 
 

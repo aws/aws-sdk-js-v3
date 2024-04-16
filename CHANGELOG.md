@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
+
+
+### Bug Fixes
+
+* **codegen:** add doc trait conditionally ([#6002](https://github.com/aws/aws-sdk-js-v3/issues/6002)) ([a61bf71](https://github.com/aws/aws-sdk-js-v3/commit/a61bf716fcab229b36e88ba6add46e8bcdd71c7c))
+
+
+### Features
+
+* **client-bedrock-agent:** For Create Agent API, the agentResourceRoleArn parameter is no longer required. ([ed06b5a](https://github.com/aws/aws-sdk-js-v3/commit/ed06b5a521bf9ede433431a364ac22a6c6582979))
+* **client-emr-serverless:** This release adds support for shuffle optimized disks that allow larger disk sizes and higher IOPS to efficiently run shuffle heavy workloads. ([b99376e](https://github.com/aws/aws-sdk-js-v3/commit/b99376ece2bc94a475570965d59ccedbe385efd9))
+* **client-entityresolution:** Cross Account Resource Support . ([639c711](https://github.com/aws/aws-sdk-js-v3/commit/639c7113d1dd7305c0870b9466ba11160401c31b))
+* **client-iot-wireless:** Add PublicGateways in the GetWirelessStatistics call response, indicating the LoRaWAN public network accessed by the device. ([a126088](https://github.com/aws/aws-sdk-js-v3/commit/a126088fb9a2ede2dd1c19f9f55aba02ac57e026))
+* **client-lakeformation:** This release adds Lake Formation managed RAM support for the 4 APIs - "DescribeLakeFormationIdentityCenterConfiguration", "CreateLakeFormationIdentityCenterConfiguration", "DescribeLakeFormationIdentityCenterConfiguration", and "DeleteLakeFormationIdentityCenterConfiguration" ([93b9ea7](https://github.com/aws/aws-sdk-js-v3/commit/93b9ea7967ca06aa4a76f7f7c75d7ffdc2afb277))
+* **client-m2:** Adding new ListBatchJobRestartPoints API and support for restart batch job. ([0aa8336](https://github.com/aws/aws-sdk-js-v3/commit/0aa8336fb2e92365cd34eecc4fd32c1d87d7a2de))
+* **client-mediapackagev2:** Dash v2 is a MediaPackage V2 feature to support egressing on DASH manifest format. ([3b624ea](https://github.com/aws/aws-sdk-js-v3/commit/3b624eafcbee45d6d338f01389ec4b43818918b3))
+* **client-outposts:** This release adds new APIs to allow customers to configure their Outpost capacity at order-time. ([6701646](https://github.com/aws/aws-sdk-js-v3/commit/67016465bb901960dff33823cea883e932a238c7))
+* **client-wellarchitected:** AWS Well-Architected now has a Connector for Jira to allow customers to efficiently track workload risks and improvement efforts and create closed-loop mechanisms. ([aa902b4](https://github.com/aws/aws-sdk-js-v3/commit/aa902b4f5e200d8ee82b4f1fdf7d52aaa4097c01))
+* **clients:** update client endpoints as of 2024-04-16 ([154d301](https://github.com/aws/aws-sdk-js-v3/commit/154d301bdbd857b3d3b61b7985dd4d78cca19291))
+
+
+
+
+
 # [3.555.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.554.0...v3.555.0) (2024-04-12)
 
 
