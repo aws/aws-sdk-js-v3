@@ -84,6 +84,10 @@ import {
   ListBatchJobExecutionsCommandOutput,
 } from "../commands/ListBatchJobExecutionsCommand";
 import {
+  ListBatchJobRestartPointsCommandInput,
+  ListBatchJobRestartPointsCommandOutput,
+} from "../commands/ListBatchJobRestartPointsCommand";
+import {
   ListDataSetImportHistoryCommandInput,
   ListDataSetImportHistoryCommandOutput,
 } from "../commands/ListDataSetImportHistoryCommand";
@@ -128,6 +132,7 @@ import {
   HighAvailabilityConfig,
   InternalServerException,
   JobIdentifier,
+  JobStepRestartMarker,
   MaintenanceSchedule,
   PendingMaintenance,
   PoAttributes,
@@ -135,6 +140,7 @@ import {
   PsAttributes,
   RecordLength,
   ResourceNotFoundException,
+  RestartBatchJobIdentifier,
   S3BatchJobIdentifier,
   ScriptBatchJobIdentifier,
   ServiceQuotaExceededException,
@@ -543,6 +549,23 @@ export const se_ListBatchJobExecutionsCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListBatchJobRestartPointsCommand
+ */
+export const se_ListBatchJobRestartPointsCommand = async (
+  input: ListBatchJobRestartPointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/batch-job-executions/{executionId}/steps");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("executionId", () => input.executionId!, "{executionId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1068,6 +1091,7 @@ export const de_GetBatchJobExecutionCommand = async (
     executionId: __expectString,
     jobId: __expectString,
     jobName: __expectString,
+    jobStepRestartMarker: _json,
     jobType: __expectString,
     jobUser: __expectString,
     returnCode: __expectString,
@@ -1304,6 +1328,27 @@ export const de_ListBatchJobExecutionsCommand = async (
   const doc = take(data, {
     batchJobExecutions: (_) => de_BatchJobExecutionSummaryList(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBatchJobRestartPointsCommand
+ */
+export const de_ListBatchJobRestartPointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBatchJobRestartPointsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    batchJobSteps: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1856,6 +1901,8 @@ const se_FsxStorageConfiguration = (input: FsxStorageConfiguration, context: __S
 
 // se_JobIdentifier omitted.
 
+// se_JobStepRestartMarker omitted.
+
 // se_PoAttributes omitted.
 
 // se_PrimaryKey omitted.
@@ -1863,6 +1910,8 @@ const se_FsxStorageConfiguration = (input: FsxStorageConfiguration, context: __S
 // se_PsAttributes omitted.
 
 // se_RecordLength omitted.
+
+// se_RestartBatchJobIdentifier omitted.
 
 // se_S3BatchJobIdentifier omitted.
 
@@ -1997,6 +2046,8 @@ const de_BatchJobExecutionSummaryList = (output: any, context: __SerdeContext): 
 
 // de_BatchJobIdentifier omitted.
 
+// de_BatchJobStepList omitted.
+
 // de_DatasetDetailOrgAttributes omitted.
 
 // de_DataSetImportSummary omitted.
@@ -2122,6 +2173,10 @@ const de_FsxStorageConfiguration = (output: any, context: __SerdeContext): FsxSt
 
 // de_JobIdentifier omitted.
 
+// de_JobStep omitted.
+
+// de_JobStepRestartMarker omitted.
+
 // de_LogGroupSummaries omitted.
 
 // de_LogGroupSummary omitted.
@@ -2153,6 +2208,8 @@ const de_PendingMaintenance = (output: any, context: __SerdeContext): PendingMai
 // de_PrimaryKey omitted.
 
 // de_PsDetailAttributes omitted.
+
+// de_RestartBatchJobIdentifier omitted.
 
 // de_S3BatchJobIdentifier omitted.
 

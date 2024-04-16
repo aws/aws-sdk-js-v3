@@ -103,6 +103,11 @@ import {
   ListBatchJobExecutionsCommandOutput,
 } from "./commands/ListBatchJobExecutionsCommand";
 import {
+  ListBatchJobRestartPointsCommand,
+  ListBatchJobRestartPointsCommandInput,
+  ListBatchJobRestartPointsCommandOutput,
+} from "./commands/ListBatchJobRestartPointsCommand";
+import {
   ListDataSetImportHistoryCommand,
   ListDataSetImportHistoryCommandInput,
   ListDataSetImportHistoryCommandOutput,
@@ -186,6 +191,7 @@ const commands = {
   ListApplicationVersionsCommand,
   ListBatchJobDefinitionsCommand,
   ListBatchJobExecutionsCommand,
+  ListBatchJobRestartPointsCommand,
   ListDataSetImportHistoryCommand,
   ListDataSetsCommand,
   ListDeploymentsCommand,
@@ -530,6 +536,23 @@ export interface M2 {
     args: ListBatchJobExecutionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBatchJobExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBatchJobRestartPointsCommand}
+   */
+  listBatchJobRestartPoints(
+    args: ListBatchJobRestartPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBatchJobRestartPointsCommandOutput>;
+  listBatchJobRestartPoints(
+    args: ListBatchJobRestartPointsCommandInput,
+    cb: (err: any, data?: ListBatchJobRestartPointsCommandOutput) => void
+  ): void;
+  listBatchJobRestartPoints(
+    args: ListBatchJobRestartPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBatchJobRestartPointsCommandOutput) => void
   ): void;
 
   /**

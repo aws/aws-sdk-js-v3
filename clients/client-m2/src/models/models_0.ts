@@ -243,9 +243,11 @@ export interface ValidationExceptionField {
  */
 export const ValidationExceptionReason = {
   CANNOT_PARSE: "cannotParse",
+  FEATURE_NOT_AVAILABLE: "featureNotAvailable",
   FIELD_VALIDATION_FAILED: "fieldValidationFailed",
   OTHER: "other",
   UNKNOWN_OPERATION: "unknownOperation",
+  UNSUPPORTED_ENGINE_VERSION: "unsupportedEngineVersion",
 } as const;
 
 /**
@@ -1370,6 +1372,54 @@ export interface FileBatchJobIdentifier {
 }
 
 /**
+ * <p>Provides restart step information for the most recent restart operation.</p>
+ * @public
+ */
+export interface JobStepRestartMarker {
+  /**
+   * <p>The step name that a batch job restart was from.</p>
+   * @public
+   */
+  fromStep: string | undefined;
+
+  /**
+   * <p>The procedure step name that a job was restarted from.</p>
+   * @public
+   */
+  fromProcStep?: string;
+
+  /**
+   * <p>The step name that a job was restarted to.</p>
+   * @public
+   */
+  toStep?: string;
+
+  /**
+   * <p>The procedure step name that a batch job was restarted to.</p>
+   * @public
+   */
+  toProcStep?: string;
+}
+
+/**
+ * <p>An identifier for the StartBatchJob API to show that it is a restart operation.</p>
+ * @public
+ */
+export interface RestartBatchJobIdentifier {
+  /**
+   * <p>The executionId from the StartBatchJob response when the job ran for the first time.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The restart step information for the most recent restart operation.</p>
+   * @public
+   */
+  jobStepRestartMarker: JobStepRestartMarker | undefined;
+}
+
+/**
  * <p>Identifies a specific batch job.</p>
  * @public
  */
@@ -1467,6 +1517,7 @@ export interface ScriptBatchJobIdentifier {
  */
 export type BatchJobIdentifier =
   | BatchJobIdentifier.FileBatchJobIdentifierMember
+  | BatchJobIdentifier.RestartBatchJobIdentifierMember
   | BatchJobIdentifier.S3BatchJobIdentifierMember
   | BatchJobIdentifier.ScriptBatchJobIdentifierMember
   | BatchJobIdentifier.$UnknownMember;
@@ -1483,6 +1534,7 @@ export namespace BatchJobIdentifier {
     fileBatchJobIdentifier: FileBatchJobIdentifier;
     scriptBatchJobIdentifier?: never;
     s3BatchJobIdentifier?: never;
+    restartBatchJobIdentifier?: never;
     $unknown?: never;
   }
 
@@ -1495,6 +1547,7 @@ export namespace BatchJobIdentifier {
     fileBatchJobIdentifier?: never;
     scriptBatchJobIdentifier: ScriptBatchJobIdentifier;
     s3BatchJobIdentifier?: never;
+    restartBatchJobIdentifier?: never;
     $unknown?: never;
   }
 
@@ -1506,6 +1559,19 @@ export namespace BatchJobIdentifier {
     fileBatchJobIdentifier?: never;
     scriptBatchJobIdentifier?: never;
     s3BatchJobIdentifier: S3BatchJobIdentifier;
+    restartBatchJobIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the required information for restart, including execution ID and jobsteprestartmarker.</p>
+   * @public
+   */
+  export interface RestartBatchJobIdentifierMember {
+    fileBatchJobIdentifier?: never;
+    scriptBatchJobIdentifier?: never;
+    s3BatchJobIdentifier?: never;
+    restartBatchJobIdentifier: RestartBatchJobIdentifier;
     $unknown?: never;
   }
 
@@ -1516,6 +1582,7 @@ export namespace BatchJobIdentifier {
     fileBatchJobIdentifier?: never;
     scriptBatchJobIdentifier?: never;
     s3BatchJobIdentifier?: never;
+    restartBatchJobIdentifier?: never;
     $unknown: [string, any];
   }
 
@@ -1523,6 +1590,7 @@ export namespace BatchJobIdentifier {
     fileBatchJobIdentifier: (value: FileBatchJobIdentifier) => T;
     scriptBatchJobIdentifier: (value: ScriptBatchJobIdentifier) => T;
     s3BatchJobIdentifier: (value: S3BatchJobIdentifier) => T;
+    restartBatchJobIdentifier: (value: RestartBatchJobIdentifier) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1531,6 +1599,8 @@ export namespace BatchJobIdentifier {
     if (value.scriptBatchJobIdentifier !== undefined)
       return visitor.scriptBatchJobIdentifier(value.scriptBatchJobIdentifier);
     if (value.s3BatchJobIdentifier !== undefined) return visitor.s3BatchJobIdentifier(value.s3BatchJobIdentifier);
+    if (value.restartBatchJobIdentifier !== undefined)
+      return visitor.restartBatchJobIdentifier(value.restartBatchJobIdentifier);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1560,6 +1630,7 @@ export const BatchJobExecutionStatus = {
   DISPATCH: "Dispatching",
   FAILED: "Failed",
   HOLDING: "Holding",
+  PURGED: "Purged",
   RUNNING: "Running",
   SUBMITTING: "Submitting",
   SUCCEEDED: "Succeeded",
@@ -1649,6 +1720,12 @@ export interface GetBatchJobExecutionResponse {
    * @public
    */
   batchJobIdentifier?: BatchJobIdentifier;
+
+  /**
+   * <p>The restart steps information for the most recent restart operation.</p>
+   * @public
+   */
+  jobStepRestartMarker?: JobStepRestartMarker;
 }
 
 /**
@@ -2591,6 +2668,76 @@ export interface ListBatchJobExecutionsResponse {
    * @public
    */
   nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBatchJobRestartPointsRequest {
+  /**
+   * <p>The unique identifier of the application.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier of each batch job execution.</p>
+   * @public
+   */
+  executionId: string | undefined;
+}
+
+/**
+ * <p>Provides information related to a job step.</p>
+ * @public
+ */
+export interface JobStep {
+  /**
+   * <p>The number of a step.</p>
+   * @public
+   */
+  stepNumber?: number;
+
+  /**
+   * <p>The name of a step.</p>
+   * @public
+   */
+  stepName?: string;
+
+  /**
+   * <p>The number of a procedure step.</p>
+   * @public
+   */
+  procStepNumber?: number;
+
+  /**
+   * <p>The name of a procedure step.</p>
+   * @public
+   */
+  procStepName?: string;
+
+  /**
+   * <p>The condition code of a step.</p>
+   * @public
+   */
+  stepCondCode?: string;
+
+  /**
+   * <p>Specifies if a step can be restarted or not.</p>
+   * @public
+   */
+  stepRestartable?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListBatchJobRestartPointsResponse {
+  /**
+   * <p>Returns all the batch job steps and related information for a batch job that previously ran.</p>
+   * @public
+   */
+  batchJobSteps?: JobStep[];
 }
 
 /**

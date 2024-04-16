@@ -104,6 +104,10 @@ import {
   ListBatchJobExecutionsCommandOutput,
 } from "./commands/ListBatchJobExecutionsCommand";
 import {
+  ListBatchJobRestartPointsCommandInput,
+  ListBatchJobRestartPointsCommandOutput,
+} from "./commands/ListBatchJobRestartPointsCommand";
+import {
   ListDataSetImportHistoryCommandInput,
   ListDataSetImportHistoryCommandOutput,
 } from "./commands/ListDataSetImportHistoryCommand";
@@ -157,6 +161,7 @@ export type ServiceInputTypes =
   | ListApplicationsCommandInput
   | ListBatchJobDefinitionsCommandInput
   | ListBatchJobExecutionsCommandInput
+  | ListBatchJobRestartPointsCommandInput
   | ListDataSetImportHistoryCommandInput
   | ListDataSetsCommandInput
   | ListDeploymentsCommandInput
@@ -195,6 +200,7 @@ export type ServiceOutputTypes =
   | ListApplicationsCommandOutput
   | ListBatchJobDefinitionsCommandOutput
   | ListBatchJobExecutionsCommandOutput
+  | ListBatchJobRestartPointsCommandOutput
   | ListDataSetImportHistoryCommandOutput
   | ListDataSetsCommandOutput
   | ListDeploymentsCommandOutput

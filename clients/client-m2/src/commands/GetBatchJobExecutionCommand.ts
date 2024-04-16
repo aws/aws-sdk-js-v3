@@ -68,6 +68,21 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  * //         scriptName: "STRING_VALUE",
  * //       },
  * //     },
+ * //     restartBatchJobIdentifier: { // RestartBatchJobIdentifier
+ * //       executionId: "STRING_VALUE", // required
+ * //       jobStepRestartMarker: { // JobStepRestartMarker
+ * //         fromStep: "STRING_VALUE", // required
+ * //         fromProcStep: "STRING_VALUE",
+ * //         toStep: "STRING_VALUE",
+ * //         toProcStep: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   jobStepRestartMarker: {
+ * //     fromStep: "STRING_VALUE", // required
+ * //     fromProcStep: "STRING_VALUE",
+ * //     toStep: "STRING_VALUE",
+ * //     toProcStep: "STRING_VALUE",
  * //   },
  * // };
  *

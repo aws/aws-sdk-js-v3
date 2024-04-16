@@ -369,6 +369,14 @@ ListBatchJobExecutions
 </details>
 <details>
 <summary>
+ListBatchJobRestartPoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/m2/command/ListBatchJobRestartPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/ListBatchJobRestartPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-m2/Interface/ListBatchJobRestartPointsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDataSetImportHistory
 </summary>
 

@@ -19,6 +19,7 @@ export * from "./ListApplicationVersionsCommand";
 export * from "./ListApplicationsCommand";
 export * from "./ListBatchJobDefinitionsCommand";
 export * from "./ListBatchJobExecutionsCommand";
+export * from "./ListBatchJobRestartPointsCommand";
 export * from "./ListDataSetImportHistoryCommand";
 export * from "./ListDataSetsCommand";
 export * from "./ListDeploymentsCommand";
