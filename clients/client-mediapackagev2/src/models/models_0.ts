@@ -29,6 +29,20 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const AdMarkerDash = {
+  BINARY: "BINARY",
+  XML: "XML",
+} as const;
+
+/**
+ * @public
+ */
+export type AdMarkerDash = (typeof AdMarkerDash)[keyof typeof AdMarkerDash];
+
+/**
+ * @public
+ * @enum
+ */
 export const AdMarkerHls = {
   DATERANGE: "DATERANGE",
 } as const;
@@ -191,6 +205,8 @@ export class ThrottlingException extends __BaseException {
 export const ValidationExceptionType = {
   CENC_IV_INCOMPATIBLE: "CENC_IV_INCOMPATIBLE",
   CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
+  DIRECT_MODE_WITH_TIMING_SOURCE: "DIRECT_MODE_WITH_TIMING_SOURCE",
+  DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS: "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS",
   DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE: "DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE",
   ENCRYPTION_CONTRACT_SHARED: "ENCRYPTION_CONTRACT_SHARED",
   ENCRYPTION_CONTRACT_UNENCRYPTED: "ENCRYPTION_CONTRACT_UNENCRYPTED",
@@ -203,6 +219,7 @@ export const ValidationExceptionType = {
   INVALID_POLICY: "INVALID_POLICY",
   INVALID_ROLE_ARN: "INVALID_ROLE_ARN",
   INVALID_TIME_DELAY_SECONDS: "INVALID_TIME_DELAY_SECONDS",
+  MANIFEST_DRM_SYSTEMS_INCOMPATIBLE: "MANIFEST_DRM_SYSTEMS_INCOMPATIBLE",
   MANIFEST_NAME_COLLISION: "MANIFEST_NAME_COLLISION",
   MEMBER_DOES_NOT_MATCH_PATTERN: "MEMBER_DOES_NOT_MATCH_PATTERN",
   MEMBER_INVALID: "MEMBER_INVALID",
@@ -212,11 +229,16 @@ export const ValidationExceptionType = {
   MEMBER_MIN_LENGTH: "MEMBER_MIN_LENGTH",
   MEMBER_MIN_VALUE: "MEMBER_MIN_VALUE",
   MEMBER_MISSING: "MEMBER_MISSING",
+  NONE_MODE_WITH_TIMING_SOURCE: "NONE_MODE_WITH_TIMING_SOURCE",
   NUM_MANIFESTS_HIGH: "NUM_MANIFESTS_HIGH",
   NUM_MANIFESTS_LOW: "NUM_MANIFESTS_LOW",
+  PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES: "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
   ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
   ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
   ROLE_ARN_NOT_ASSUMABLE: "ROLE_ARN_NOT_ASSUMABLE",
+  TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
+  TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
+  UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
   URL_INVALID: "URL_INVALID",
   URL_LINK_LOCAL_ADDRESS: "URL_LINK_LOCAL_ADDRESS",
   URL_LOCAL_ADDRESS: "URL_LOCAL_ADDRESS",
@@ -707,6 +729,20 @@ export const ContainerType = {
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
 /**
+ * @public
+ * @enum
+ */
+export const DashDrmSignaling = {
+  INDIVIDUAL: "INDIVIDUAL",
+  REFERENCED: "REFERENCED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashDrmSignaling = (typeof DashDrmSignaling)[keyof typeof DashDrmSignaling];
+
+/**
  * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
  * @public
  */
@@ -734,6 +770,173 @@ export interface FilterConfiguration {
    * @public
    */
   TimeDelaySeconds?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashPeriodTrigger = {
+  AVAILS: "AVAILS",
+  DRM_KEY_ROTATION: "DRM_KEY_ROTATION",
+  NONE: "NONE",
+  SOURCE_CHANGES: "SOURCE_CHANGES",
+  SOURCE_DISRUPTIONS: "SOURCE_DISRUPTIONS",
+} as const;
+
+/**
+ * @public
+ */
+export type DashPeriodTrigger = (typeof DashPeriodTrigger)[keyof typeof DashPeriodTrigger];
+
+/**
+ * <p>The SCTE configuration.</p>
+ * @public
+ */
+export interface ScteDash {
+  /**
+   * <p>Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.</p>
+   *          <p>Value description:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Binary</code> - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XML</code> - The SCTE marker is expressed fully in XML.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AdMarkerDash?: AdMarkerDash;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashSegmentTemplateFormat = {
+  NUMBER_WITH_TIMELINE: "NUMBER_WITH_TIMELINE",
+} as const;
+
+/**
+ * @public
+ */
+export type DashSegmentTemplateFormat = (typeof DashSegmentTemplateFormat)[keyof typeof DashSegmentTemplateFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashUtcTimingMode = {
+  HTTP_HEAD: "HTTP_HEAD",
+  HTTP_ISO: "HTTP_ISO",
+  HTTP_XSDATE: "HTTP_XSDATE",
+  UTC_DIRECT: "UTC_DIRECT",
+} as const;
+
+/**
+ * @public
+ */
+export type DashUtcTimingMode = (typeof DashUtcTimingMode)[keyof typeof DashUtcTimingMode];
+
+/**
+ * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+ * @public
+ */
+export interface DashUtcTiming {
+  /**
+   * <p>The UTC timing mode.</p>
+   * @public
+   */
+  TimingMode?: DashUtcTimingMode;
+
+  /**
+   * <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+   * @public
+   */
+  TimingSource?: string;
+}
+
+/**
+ * <p>Create a DASH manifest configuration.</p>
+ * @public
+ */
+export interface CreateDashManifestConfiguration {
+  /**
+   * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint.</p>
+   * @public
+   */
+  ManifestName: string | undefined;
+
+  /**
+   * <p>The total duration (in seconds) of the manifest's content.</p>
+   * @public
+   */
+  ManifestWindowSeconds?: number;
+
+  /**
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   * @public
+   */
+  FilterConfiguration?: FilterConfiguration;
+
+  /**
+   * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+   * @public
+   */
+  MinUpdatePeriodSeconds?: number;
+
+  /**
+   * <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+   * @public
+   */
+  MinBufferTimeSeconds?: number;
+
+  /**
+   * <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+   * @public
+   */
+  SuggestedPresentationDelaySeconds?: number;
+
+  /**
+   * <p>Determines the type of variable used in the <code>media</code> URL of the <code>SegmentTemplate</code> tag in the manifest. Also specifies if segment timeline information is included in <code>SegmentTimeline</code> or <code>SegmentTemplate</code>.</p>
+   *          <p>Value description:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NUMBER_WITH_TIMELINE</code> - The <code>$Number$</code> variable is used in the <code>media</code> URL. The value of this variable is the sequential number of the segment. A full <code>SegmentTimeline</code> object is presented in each <code>SegmentTemplate</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SegmentTemplateFormat?: DashSegmentTemplateFormat;
+
+  /**
+   * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Type <code>ADS</code> to indicate that AWS Elemental MediaPackage must create periods in the output manifest that correspond to SCTE-35 ad markers in the input source. Leave this value empty to indicate that the manifest is contained all in one period.
+   *          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+   * @public
+   */
+  PeriodTriggers?: DashPeriodTrigger[];
+
+  /**
+   * <p>The SCTE configuration.</p>
+   * @public
+   */
+  ScteDash?: ScteDash;
+
+  /**
+   * <p>Determines how the DASH manifest signals the DRM content.</p>
+   * @public
+   */
+  DrmSignaling?: DashDrmSignaling;
+
+  /**
+   * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+   * @public
+   */
+  UtcTiming?: DashUtcTiming;
 }
 
 /**
@@ -1261,6 +1464,12 @@ export interface CreateOriginEndpointRequest {
   LowLatencyHlsManifests?: CreateLowLatencyHlsManifestConfiguration[];
 
   /**
+   * <p>A DASH manifest configuration.</p>
+   * @public
+   */
+  DashManifests?: CreateDashManifestConfiguration[];
+
+  /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
    *          <p>
    *             <code>"Key1": "Value1",</code>
@@ -1271,6 +1480,92 @@ export interface CreateOriginEndpointRequest {
    * @public
    */
   Tags?: Record<string, string>;
+}
+
+/**
+ * <p>Retrieve the DASH manifest configuration.</p>
+ * @public
+ */
+export interface GetDashManifestConfiguration {
+  /**
+   * <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+   * @public
+   */
+  ManifestName: string | undefined;
+
+  /**
+   * <p>The egress domain URL for stream delivery from MediaPackage.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>The total duration (in seconds) of the manifest's content.</p>
+   * @public
+   */
+  ManifestWindowSeconds?: number;
+
+  /**
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   * @public
+   */
+  FilterConfiguration?: FilterConfiguration;
+
+  /**
+   * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+   * @public
+   */
+  MinUpdatePeriodSeconds?: number;
+
+  /**
+   * <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+   * @public
+   */
+  MinBufferTimeSeconds?: number;
+
+  /**
+   * <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+   * @public
+   */
+  SuggestedPresentationDelaySeconds?: number;
+
+  /**
+   * <p>Determines the type of variable used in the <code>media</code> URL of the <code>SegmentTemplate</code> tag in the manifest. Also specifies if segment timeline information is included in <code>SegmentTimeline</code> or <code>SegmentTemplate</code>.</p>
+   *          <p>Value description:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NUMBER_WITH_TIMELINE</code> - The <code>$Number$</code> variable is used in the <code>media</code> URL. The value of this variable is the sequential number of the segment. A full <code>SegmentTimeline</code> object is presented in each <code>SegmentTemplate</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SegmentTemplateFormat?: DashSegmentTemplateFormat;
+
+  /**
+   * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+   *          For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+   * @public
+   */
+  PeriodTriggers?: DashPeriodTrigger[];
+
+  /**
+   * <p>The SCTE configuration.</p>
+   * @public
+   */
+  ScteDash?: ScteDash;
+
+  /**
+   * <p>Determines how the DASH manifest signals the DRM content.</p>
+   * @public
+   */
+  DrmSignaling?: DashDrmSignaling;
+
+  /**
+   * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+   * @public
+   */
+  UtcTiming?: DashUtcTiming;
 }
 
 /**
@@ -1454,6 +1749,12 @@ export interface CreateOriginEndpointResponse {
   LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[];
 
   /**
+   * <p>A DASH manifest configuration.</p>
+   * @public
+   */
+  DashManifests?: GetDashManifestConfiguration[];
+
+  /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
@@ -1604,6 +1905,12 @@ export interface GetOriginEndpointResponse {
    * @public
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>A DASH manifest configuration.</p>
+   * @public
+   */
+  DashManifests?: GetDashManifestConfiguration[];
 }
 
 /**
@@ -1633,6 +1940,24 @@ export interface ListOriginEndpointsRequest {
    * @public
    */
   NextToken?: string;
+}
+
+/**
+ * <p>List the DASH manifest configuration.</p>
+ * @public
+ */
+export interface ListDashManifestConfiguration {
+  /**
+   * <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+   * @public
+   */
+  ManifestName: string | undefined;
+
+  /**
+   * <p>The egress domain URL for stream delivery from MediaPackage.</p>
+   * @public
+   */
+  Url?: string;
 }
 
 /**
@@ -1747,6 +2072,12 @@ export interface OriginEndpointListConfiguration {
    * @public
    */
   LowLatencyHlsManifests?: ListLowLatencyHlsManifestConfiguration[];
+
+  /**
+   * <p>A DASH manifest configuration.</p>
+   * @public
+   */
+  DashManifests?: ListDashManifestConfiguration[];
 }
 
 /**
@@ -1939,6 +2270,12 @@ export interface UpdateOriginEndpointRequest {
   LowLatencyHlsManifests?: CreateLowLatencyHlsManifestConfiguration[];
 
   /**
+   * <p>A DASH manifest configuration.</p>
+   * @public
+   */
+  DashManifests?: CreateDashManifestConfiguration[];
+
+  /**
    * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
    * @public
    */
@@ -2032,6 +2369,12 @@ export interface UpdateOriginEndpointResponse {
    * @public
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>A DASH manifest configuration.</p>
+   * @public
+   */
+  DashManifests?: GetDashManifestConfiguration[];
 }
 
 /**

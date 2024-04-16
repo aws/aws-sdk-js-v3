@@ -108,6 +108,33 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       },
  *     },
  *   ],
+ *   DashManifests: [ // CreateDashManifests
+ *     { // CreateDashManifestConfiguration
+ *       ManifestName: "STRING_VALUE", // required
+ *       ManifestWindowSeconds: Number("int"),
+ *       FilterConfiguration: {
+ *         ManifestFilter: "STRING_VALUE",
+ *         Start: new Date("TIMESTAMP"),
+ *         End: new Date("TIMESTAMP"),
+ *         TimeDelaySeconds: Number("int"),
+ *       },
+ *       MinUpdatePeriodSeconds: Number("int"),
+ *       MinBufferTimeSeconds: Number("int"),
+ *       SuggestedPresentationDelaySeconds: Number("int"),
+ *       SegmentTemplateFormat: "NUMBER_WITH_TIMELINE",
+ *       PeriodTriggers: [ // DashPeriodTriggers
+ *         "AVAILS" || "DRM_KEY_ROTATION" || "SOURCE_CHANGES" || "SOURCE_DISRUPTIONS" || "NONE",
+ *       ],
+ *       ScteDash: { // ScteDash
+ *         AdMarkerDash: "BINARY" || "XML",
+ *       },
+ *       DrmSignaling: "INDIVIDUAL" || "REFERENCED",
+ *       UtcTiming: { // DashUtcTiming
+ *         TimingMode: "HTTP_HEAD" || "HTTP_ISO" || "HTTP_XSDATE" || "UTC_DIRECT",
+ *         TimingSource: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -189,6 +216,34 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   DashManifests: [ // GetDashManifests
+ * //     { // GetDashManifestConfiguration
+ * //       ManifestName: "STRING_VALUE", // required
+ * //       Url: "STRING_VALUE", // required
+ * //       ManifestWindowSeconds: Number("int"),
+ * //       FilterConfiguration: {
+ * //         ManifestFilter: "STRING_VALUE",
+ * //         Start: new Date("TIMESTAMP"),
+ * //         End: new Date("TIMESTAMP"),
+ * //         TimeDelaySeconds: Number("int"),
+ * //       },
+ * //       MinUpdatePeriodSeconds: Number("int"),
+ * //       MinBufferTimeSeconds: Number("int"),
+ * //       SuggestedPresentationDelaySeconds: Number("int"),
+ * //       SegmentTemplateFormat: "NUMBER_WITH_TIMELINE",
+ * //       PeriodTriggers: [ // DashPeriodTriggers
+ * //         "AVAILS" || "DRM_KEY_ROTATION" || "SOURCE_CHANGES" || "SOURCE_DISRUPTIONS" || "NONE",
+ * //       ],
+ * //       ScteDash: { // ScteDash
+ * //         AdMarkerDash: "BINARY" || "XML",
+ * //       },
+ * //       DrmSignaling: "INDIVIDUAL" || "REFERENCED",
+ * //       UtcTiming: { // DashUtcTiming
+ * //         TimingMode: "HTTP_HEAD" || "HTTP_ISO" || "HTTP_XSDATE" || "UTC_DIRECT",
+ * //         TimingSource: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

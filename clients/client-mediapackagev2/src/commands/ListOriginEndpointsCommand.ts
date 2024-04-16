@@ -67,6 +67,12 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * //           Url: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DashManifests: [ // ListDashManifests
+ * //         { // ListDashManifestConfiguration
+ * //           ManifestName: "STRING_VALUE", // required
+ * //           Url: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
