@@ -50,6 +50,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *         cpu: "STRING_VALUE", // required
  *         memory: "STRING_VALUE", // required
  *         disk: "STRING_VALUE",
+ *         diskType: "STRING_VALUE",
  *       },
  *     },
  *   },
@@ -142,6 +143,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //           cpu: "STRING_VALUE", // required
  * //           memory: "STRING_VALUE", // required
  * //           disk: "STRING_VALUE",
+ * //           diskType: "STRING_VALUE",
  * //         },
  * //       },
  * //     },

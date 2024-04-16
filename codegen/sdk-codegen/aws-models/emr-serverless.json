@@ -1537,6 +1537,12 @@
         "smithy.api#pattern": "^[1-9][0-9]*(\\s)?(GB|gb|gB|Gb)$"
       }
     },
+    "com.amazonaws.emrserverless#DiskType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^(SHUFFLE_OPTIMIZED|[Ss]huffle_[Oo]ptimized|STANDARD|[Ss]tandard)$"
+      }
+    },
     "com.amazonaws.emrserverless#Duration": {
       "type": "long",
       "traits": {
@@ -3519,6 +3525,12 @@
           "target": "com.amazonaws.emrserverless#DiskSize",
           "traits": {
             "smithy.api#documentation": "<p>The disk requirements for every worker instance of the worker type.</p>"
+          }
+        },
+        "diskType": {
+          "target": "com.amazonaws.emrserverless#DiskType",
+          "traits": {
+            "smithy.api#documentation": "<p>The disk type for every worker instance of the work type. Shuffle optimized disks have higher performance characteristics and are better for shuffle heavy workloads. Default is <code>STANDARD</code>.</p>"
           }
         }
       },

@@ -93,6 +93,12 @@ export interface WorkerResourceConfig {
    * @public
    */
   disk?: string;
+
+  /**
+   * <p>The disk type for every worker instance of the work type. Shuffle optimized disks have higher performance characteristics and are better for shuffle heavy workloads. Default is <code>STANDARD</code>.</p>
+   * @public
+   */
+  diskType?: string;
 }
 
 /**

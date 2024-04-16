@@ -50,6 +50,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *         cpu: "STRING_VALUE", // required
  *         memory: "STRING_VALUE", // required
  *         disk: "STRING_VALUE",
+ *         diskType: "STRING_VALUE",
  *       },
  *     },
  *   },
