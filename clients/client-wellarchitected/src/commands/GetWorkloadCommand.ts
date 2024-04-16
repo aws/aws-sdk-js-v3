@@ -96,6 +96,12 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * //     PrioritizedRiskCounts: {
  * //       "<keys>": Number("int"),
  * //     },
+ * //     JiraConfiguration: { // WorkloadJiraConfigurationOutput
+ * //       IssueManagementStatus: "ENABLED" || "DISABLED" || "INHERIT",
+ * //       IssueManagementType: "AUTO" || "MANUAL",
+ * //       JiraProjectKey: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

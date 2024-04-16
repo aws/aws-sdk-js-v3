@@ -27,7 +27,7 @@ export interface ListLensReviewImprovementsCommandInput extends ListLensReviewIm
 export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewImprovementsOutput, __MetadataBearer {}
 
 /**
- * <p>List lens review improvements.</p>
+ * <p>List the improvements of a particular lens review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +64,10 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  * //           ImprovementPlanUrl: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       JiraConfiguration: { // JiraConfiguration
+ * //         JiraIssueUrl: "STRING_VALUE",
+ * //         LastSyncedTime: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

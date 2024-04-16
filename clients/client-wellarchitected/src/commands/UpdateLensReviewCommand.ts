@@ -41,6 +41,16 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  *   PillarNotes: { // PillarNotes
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   JiraConfiguration: { // JiraSelectedQuestionConfiguration
+ *     SelectedPillars: [ // SelectedPillars
+ *       { // SelectedPillar
+ *         PillarId: "STRING_VALUE",
+ *         SelectedQuestionIds: [ // SelectedQuestionIds
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateLensReviewCommand(input);
  * const response = await client.send(command);
@@ -65,6 +75,16 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * //         },
  * //       },
  * //     ],
+ * //     JiraConfiguration: { // JiraSelectedQuestionConfiguration
+ * //       SelectedPillars: [ // SelectedPillars
+ * //         { // SelectedPillar
+ * //           PillarId: "STRING_VALUE",
+ * //           SelectedQuestionIds: [ // SelectedQuestionIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //     UpdatedAt: new Date("TIMESTAMP"),
  * //     Notes: "STRING_VALUE",
  * //     RiskCounts: {

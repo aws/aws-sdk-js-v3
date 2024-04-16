@@ -74,6 +74,7 @@ import {
   GetConsolidatedReportCommandInput,
   GetConsolidatedReportCommandOutput,
 } from "../commands/GetConsolidatedReportCommand";
+import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "../commands/GetGlobalSettingsCommand";
 import { GetLensCommandInput, GetLensCommandOutput } from "../commands/GetLensCommand";
 import { GetLensReviewCommandInput, GetLensReviewCommandOutput } from "../commands/GetLensReviewCommand";
 import {
@@ -142,6 +143,7 @@ import {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "../commands/UpdateGlobalSettingsCommand";
+import { UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput } from "../commands/UpdateIntegrationCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "../commands/UpdateLensReviewCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
 import {
@@ -176,13 +178,19 @@ import {
 } from "../commands/UpgradeReviewTemplateLensReviewCommand";
 import {
   AccessDeniedException,
+  AccountJiraConfigurationInput,
+  Answer,
+  AnswerSummary,
   CheckDetail,
   CheckSummary,
   ChoiceUpdate,
   ConflictException,
   ConsolidatedReportMetric,
   DefinitionType,
+  ImprovementSummary,
   InternalServerException,
+  JiraConfiguration,
+  JiraSelectedQuestionConfiguration,
   LensReview,
   LensReviewSummary,
   LensSummary,
@@ -196,11 +204,13 @@ import {
   ReviewTemplate,
   ReviewTemplateLensReview,
   ReviewTemplateSummary,
+  SelectedPillar,
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
   Workload,
   WorkloadDiscoveryConfig,
+  WorkloadJiraConfigurationInput,
   WorkloadSummary,
 } from "../models/models_0";
 import { WellArchitectedServiceException as __BaseException } from "../models/WellArchitectedServiceException";
@@ -450,6 +460,7 @@ export const se_CreateWorkloadCommand = async (
       Environment: [],
       Industry: [],
       IndustryType: [],
+      JiraConfiguration: (_) => _json(_),
       Lenses: (_) => _json(_),
       NonAwsRegions: (_) => _json(_),
       Notes: [],
@@ -751,6 +762,24 @@ export const se_GetConsolidatedReportCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetGlobalSettingsCommand
+ */
+export const se_GetGlobalSettingsCommand = async (
+  input: GetGlobalSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/global-settings");
+  let body: any;
+  body = "";
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1499,10 +1528,35 @@ export const se_UpdateGlobalSettingsCommand = async (
   body = JSON.stringify(
     take(input, {
       DiscoveryIntegrationStatus: [],
+      JiraConfiguration: (_) => _json(_),
       OrganizationSharingStatus: [],
     })
   );
   b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateIntegrationCommand
+ */
+export const se_UpdateIntegrationCommand = async (
+  input: UpdateIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workloads/{WorkloadId}/updateIntegration");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      IntegratingService: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1523,6 +1577,7 @@ export const se_UpdateLensReviewCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      JiraConfiguration: (_) => _json(_),
       LensNotes: [],
       PillarNotes: (_) => _json(_),
     })
@@ -1686,6 +1741,7 @@ export const se_UpdateWorkloadCommand = async (
       Industry: [],
       IndustryType: [],
       IsReviewOwnerUpdateAcknowledged: [],
+      JiraConfiguration: (_) => _json(_),
       NonAwsRegions: (_) => _json(_),
       Notes: [],
       PillarPriorities: (_) => _json(_),
@@ -2231,7 +2287,7 @@ export const de_GetAnswerCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Answer: _json,
+    Answer: (_) => de_Answer(_, context),
     LensAlias: __expectString,
     LensArn: __expectString,
     MilestoneNumber: __expectInt32,
@@ -2259,6 +2315,29 @@ export const de_GetConsolidatedReportCommand = async (
     Base64String: __expectString,
     Metrics: (_) => de_ConsolidatedReportMetrics(_, context),
     NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetGlobalSettingsCommand
+ */
+export const de_GetGlobalSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGlobalSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DiscoveryIntegrationStatus: __expectString,
+    JiraConfiguration: _json,
+    OrganizationSharingStatus: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2545,7 +2624,7 @@ export const de_ListAnswersCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    AnswerSummaries: _json,
+    AnswerSummaries: (_) => de_AnswerSummaries(_, context),
     LensAlias: __expectString,
     LensArn: __expectString,
     MilestoneNumber: __expectInt32,
@@ -2637,7 +2716,7 @@ export const de_ListLensReviewImprovementsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    ImprovementSummaries: _json,
+    ImprovementSummaries: (_) => de_ImprovementSummaries(_, context),
     LensAlias: __expectString,
     LensArn: __expectString,
     MilestoneNumber: __expectInt32,
@@ -3011,7 +3090,7 @@ export const de_UpdateAnswerCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Answer: _json,
+    Answer: (_) => de_Answer(_, context),
     LensAlias: __expectString,
     LensArn: __expectString,
     WorkloadId: __expectString,
@@ -3027,6 +3106,23 @@ export const de_UpdateGlobalSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGlobalSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateIntegrationCommand
+ */
+export const de_UpdateIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3446,9 +3542,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AccountJiraConfigurationInput omitted.
+
 // se_ChoiceUpdate omitted.
 
 // se_ChoiceUpdates omitted.
+
+// se_JiraSelectedQuestionConfiguration omitted.
 
 // se_LensAliases omitted.
 
@@ -3468,7 +3568,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_SelectedChoices omitted.
 
+// se_SelectedPillar omitted.
+
+// se_SelectedPillars omitted.
+
 // se_SelectedProfileChoiceIds omitted.
+
+// se_SelectedQuestionIds omitted.
 
 // se_TagMap omitted.
 
@@ -3480,6 +3586,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_WorkloadDiscoveryConfig omitted.
 
+// se_WorkloadJiraConfigurationInput omitted.
+
 // se_WorkloadLenses omitted.
 
 // se_WorkloadNonAwsRegions omitted.
@@ -3490,17 +3598,67 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_WorkloadResourceDefinition omitted.
 
+// de_AccountJiraConfigurationOutput omitted.
+
 // de_AccountSummary omitted.
 
 // de_AdditionalResources omitted.
 
 // de_AdditionalResourcesList omitted.
 
-// de_Answer omitted.
+/**
+ * deserializeAws_restJson1Answer
+ */
+const de_Answer = (output: any, context: __SerdeContext): Answer => {
+  return take(output, {
+    ChoiceAnswers: _json,
+    Choices: _json,
+    HelpfulResourceDisplayText: __expectString,
+    HelpfulResourceUrl: __expectString,
+    ImprovementPlanUrl: __expectString,
+    IsApplicable: __expectBoolean,
+    JiraConfiguration: (_: any) => de_JiraConfiguration(_, context),
+    Notes: __expectString,
+    PillarId: __expectString,
+    QuestionDescription: __expectString,
+    QuestionId: __expectString,
+    QuestionTitle: __expectString,
+    Reason: __expectString,
+    Risk: __expectString,
+    SelectedChoices: _json,
+  }) as any;
+};
 
-// de_AnswerSummaries omitted.
+/**
+ * deserializeAws_restJson1AnswerSummaries
+ */
+const de_AnswerSummaries = (output: any, context: __SerdeContext): AnswerSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnswerSummary(entry, context);
+    });
+  return retVal;
+};
 
-// de_AnswerSummary omitted.
+/**
+ * deserializeAws_restJson1AnswerSummary
+ */
+const de_AnswerSummary = (output: any, context: __SerdeContext): AnswerSummary => {
+  return take(output, {
+    ChoiceAnswerSummaries: _json,
+    Choices: _json,
+    IsApplicable: __expectBoolean,
+    JiraConfiguration: (_: any) => de_JiraConfiguration(_, context),
+    PillarId: __expectString,
+    QuestionId: __expectString,
+    QuestionTitle: __expectString,
+    QuestionType: __expectString,
+    Reason: __expectString,
+    Risk: __expectString,
+    SelectedChoices: _json,
+  }) as any;
+};
 
 // de_BestPractice omitted.
 
@@ -3616,9 +3774,44 @@ const de_ConsolidatedReportMetrics = (output: any, context: __SerdeContext): Con
   return retVal;
 };
 
-// de_ImprovementSummaries omitted.
+/**
+ * deserializeAws_restJson1ImprovementSummaries
+ */
+const de_ImprovementSummaries = (output: any, context: __SerdeContext): ImprovementSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImprovementSummary(entry, context);
+    });
+  return retVal;
+};
 
-// de_ImprovementSummary omitted.
+/**
+ * deserializeAws_restJson1ImprovementSummary
+ */
+const de_ImprovementSummary = (output: any, context: __SerdeContext): ImprovementSummary => {
+  return take(output, {
+    ImprovementPlanUrl: __expectString,
+    ImprovementPlans: _json,
+    JiraConfiguration: (_: any) => de_JiraConfiguration(_, context),
+    PillarId: __expectString,
+    QuestionId: __expectString,
+    QuestionTitle: __expectString,
+    Risk: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1JiraConfiguration
+ */
+const de_JiraConfiguration = (output: any, context: __SerdeContext): JiraConfiguration => {
+  return take(output, {
+    JiraIssueUrl: __expectString,
+    LastSyncedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_JiraSelectedQuestionConfiguration omitted.
 
 // de_Lens omitted.
 
@@ -3631,6 +3824,7 @@ const de_ConsolidatedReportMetrics = (output: any, context: __SerdeContext): Con
  */
 const de_LensReview = (output: any, context: __SerdeContext): LensReview => {
   return take(output, {
+    JiraConfiguration: _json,
     LensAlias: __expectString,
     LensArn: __expectString,
     LensName: __expectString,
@@ -3936,6 +4130,12 @@ const de_ReviewTemplateSummary = (output: any, context: __SerdeContext): ReviewT
 
 // de_SelectedChoices omitted.
 
+// de_SelectedPillar omitted.
+
+// de_SelectedPillars omitted.
+
+// de_SelectedQuestionIds omitted.
+
 // de_ShareInvitation omitted.
 
 // de_ShareInvitationSummaries omitted.
@@ -3974,6 +4174,7 @@ const de_Workload = (output: any, context: __SerdeContext): Workload => {
     Industry: __expectString,
     IndustryType: __expectString,
     IsReviewOwnerUpdateAcknowledged: __expectBoolean,
+    JiraConfiguration: _json,
     Lenses: _json,
     NonAwsRegions: _json,
     Notes: __expectString,
@@ -4000,6 +4201,8 @@ const de_Workload = (output: any, context: __SerdeContext): Workload => {
 // de_WorkloadAwsRegions omitted.
 
 // de_WorkloadDiscoveryConfig omitted.
+
+// de_WorkloadJiraConfigurationOutput omitted.
 
 // de_WorkloadLenses omitted.
 

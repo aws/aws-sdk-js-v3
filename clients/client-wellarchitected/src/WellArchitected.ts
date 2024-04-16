@@ -110,6 +110,11 @@ import {
   GetConsolidatedReportCommandInput,
   GetConsolidatedReportCommandOutput,
 } from "./commands/GetConsolidatedReportCommand";
+import {
+  GetGlobalSettingsCommand,
+  GetGlobalSettingsCommandInput,
+  GetGlobalSettingsCommandOutput,
+} from "./commands/GetGlobalSettingsCommand";
 import { GetLensCommand, GetLensCommandInput, GetLensCommandOutput } from "./commands/GetLensCommand";
 import {
   GetLensReviewCommand,
@@ -258,6 +263,11 @@ import {
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
 import {
+  UpdateIntegrationCommand,
+  UpdateIntegrationCommandInput,
+  UpdateIntegrationCommandOutput,
+} from "./commands/UpdateIntegrationCommand";
+import {
   UpdateLensReviewCommand,
   UpdateLensReviewCommandInput,
   UpdateLensReviewCommandOutput,
@@ -339,6 +349,7 @@ const commands = {
   ExportLensCommand,
   GetAnswerCommand,
   GetConsolidatedReportCommand,
+  GetGlobalSettingsCommand,
   GetLensCommand,
   GetLensReviewCommand,
   GetLensReviewReportCommand,
@@ -374,6 +385,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAnswerCommand,
   UpdateGlobalSettingsCommand,
+  UpdateIntegrationCommand,
   UpdateLensReviewCommand,
   UpdateProfileCommand,
   UpdateReviewTemplateCommand,
@@ -746,6 +758,24 @@ export interface WellArchitected {
     args: GetConsolidatedReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetConsolidatedReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGlobalSettingsCommand}
+   */
+  getGlobalSettings(): Promise<GetGlobalSettingsCommandOutput>;
+  getGlobalSettings(
+    args: GetGlobalSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGlobalSettingsCommandOutput>;
+  getGlobalSettings(
+    args: GetGlobalSettingsCommandInput,
+    cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
+  ): void;
+  getGlobalSettings(
+    args: GetGlobalSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -1263,6 +1293,23 @@ export interface WellArchitected {
     args: UpdateGlobalSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIntegrationCommand}
+   */
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIntegrationCommandOutput>;
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
+  ): void;
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
   ): void;
 
   /**

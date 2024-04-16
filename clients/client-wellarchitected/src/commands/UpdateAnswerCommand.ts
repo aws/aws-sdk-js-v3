@@ -107,6 +107,10 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  * //     Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
  * //     Notes: "STRING_VALUE",
  * //     Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ * //     JiraConfiguration: { // JiraConfiguration
+ * //       JiraIssueUrl: "STRING_VALUE",
+ * //       LastSyncedTime: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *

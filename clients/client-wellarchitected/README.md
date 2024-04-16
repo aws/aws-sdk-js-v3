@@ -403,6 +403,14 @@ GetConsolidatedReport
 </details>
 <details>
 <summary>
+GetGlobalSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetGlobalSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetLens
 </summary>
 
@@ -679,6 +687,14 @@ UpdateGlobalSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateGlobalSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateIntegrationCommandOutput/)
 
 </details>
 <details>

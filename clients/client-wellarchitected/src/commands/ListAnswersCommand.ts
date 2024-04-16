@@ -95,6 +95,10 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
  * //       Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
  * //       Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
  * //       QuestionType: "PRIORITIZED" || "NON_PRIORITIZED",
+ * //       JiraConfiguration: { // JiraConfiguration
+ * //         JiraIssueUrl: "STRING_VALUE",
+ * //         LastSyncedTime: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

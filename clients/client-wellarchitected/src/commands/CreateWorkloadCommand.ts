@@ -112,6 +112,11 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *   ReviewTemplateArns: [ // ReviewTemplateArns
  *     "STRING_VALUE",
  *   ],
+ *   JiraConfiguration: { // WorkloadJiraConfigurationInput
+ *     IssueManagementStatus: "ENABLED" || "DISABLED" || "INHERIT",
+ *     IssueManagementType: "AUTO" || "MANUAL",
+ *     JiraProjectKey: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateWorkloadCommand(input);
  * const response = await client.send(command);

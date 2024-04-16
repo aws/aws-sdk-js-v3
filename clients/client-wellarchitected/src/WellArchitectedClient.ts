@@ -101,6 +101,7 @@ import {
   GetConsolidatedReportCommandInput,
   GetConsolidatedReportCommandOutput,
 } from "./commands/GetConsolidatedReportCommand";
+import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "./commands/GetGlobalSettingsCommand";
 import { GetLensCommandInput, GetLensCommandOutput } from "./commands/GetLensCommand";
 import { GetLensReviewCommandInput, GetLensReviewCommandOutput } from "./commands/GetLensReviewCommand";
 import {
@@ -169,6 +170,7 @@ import {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
+import { UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput } from "./commands/UpdateIntegrationCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "./commands/UpdateLensReviewCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import {
@@ -240,6 +242,7 @@ export type ServiceInputTypes =
   | ExportLensCommandInput
   | GetAnswerCommandInput
   | GetConsolidatedReportCommandInput
+  | GetGlobalSettingsCommandInput
   | GetLensCommandInput
   | GetLensReviewCommandInput
   | GetLensReviewReportCommandInput
@@ -275,6 +278,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAnswerCommandInput
   | UpdateGlobalSettingsCommandInput
+  | UpdateIntegrationCommandInput
   | UpdateLensReviewCommandInput
   | UpdateProfileCommandInput
   | UpdateReviewTemplateAnswerCommandInput
@@ -315,6 +319,7 @@ export type ServiceOutputTypes =
   | ExportLensCommandOutput
   | GetAnswerCommandOutput
   | GetConsolidatedReportCommandOutput
+  | GetGlobalSettingsCommandOutput
   | GetLensCommandOutput
   | GetLensReviewCommandOutput
   | GetLensReviewReportCommandOutput
@@ -350,6 +355,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAnswerCommandOutput
   | UpdateGlobalSettingsCommandOutput
+  | UpdateIntegrationCommandOutput
   | UpdateLensReviewCommandOutput
   | UpdateProfileCommandOutput
   | UpdateReviewTemplateAnswerCommandOutput

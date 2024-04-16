@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpgradeProfileVersionInput } from "../models/models_0";
-import { de_UpgradeProfileVersionCommand, se_UpgradeProfileVersionCommand } from "../protocols/Aws_restJson1";
+import { UpdateIntegrationInput } from "../models/models_0";
+import { de_UpdateIntegrationCommand, se_UpdateIntegrationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -16,40 +16,39 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpgradeProfileVersionCommand}.
+ * The input for {@link UpdateIntegrationCommand}.
  */
-export interface UpgradeProfileVersionCommandInput extends UpgradeProfileVersionInput {}
+export interface UpdateIntegrationCommandInput extends UpdateIntegrationInput {}
 /**
  * @public
  *
- * The output of {@link UpgradeProfileVersionCommand}.
+ * The output of {@link UpdateIntegrationCommand}.
  */
-export interface UpgradeProfileVersionCommandOutput extends __MetadataBearer {}
+export interface UpdateIntegrationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Upgrade a profile.</p>
+ * <p>Update integration features.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UpgradeProfileVersionCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UpgradeProfileVersionCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, UpdateIntegrationCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, UpdateIntegrationCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const input = { // UpgradeProfileVersionInput
+ * const input = { // UpdateIntegrationInput
  *   WorkloadId: "STRING_VALUE", // required
- *   ProfileArn: "STRING_VALUE", // required
- *   MilestoneName: "STRING_VALUE",
- *   ClientRequestToken: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   IntegratingService: "JIRA", // required
  * };
- * const command = new UpgradeProfileVersionCommand(input);
+ * const command = new UpdateIntegrationCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpgradeProfileVersionCommandInput - {@link UpgradeProfileVersionCommandInput}
- * @returns {@link UpgradeProfileVersionCommandOutput}
- * @see {@link UpgradeProfileVersionCommandInput} for command's `input` shape.
- * @see {@link UpgradeProfileVersionCommandOutput} for command's `response` shape.
+ * @param UpdateIntegrationCommandInput - {@link UpdateIntegrationCommandInput}
+ * @returns {@link UpdateIntegrationCommandOutput}
+ * @see {@link UpdateIntegrationCommandInput} for command's `input` shape.
+ * @see {@link UpdateIntegrationCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -64,9 +63,6 @@ export interface UpgradeProfileVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The user has reached their resource quota.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
  *
@@ -78,10 +74,10 @@ export interface UpgradeProfileVersionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpgradeProfileVersionCommand extends $Command
+export class UpdateIntegrationCommand extends $Command
   .classBuilder<
-    UpgradeProfileVersionCommandInput,
-    UpgradeProfileVersionCommandOutput,
+    UpdateIntegrationCommandInput,
+    UpdateIntegrationCommandOutput,
     WellArchitectedClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,9 +91,9 @@ export class UpgradeProfileVersionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("WellArchitectedApiServiceLambda", "UpgradeProfileVersion", {})
-  .n("WellArchitectedClient", "UpgradeProfileVersionCommand")
+  .s("WellArchitectedApiServiceLambda", "UpdateIntegration", {})
+  .n("WellArchitectedClient", "UpdateIntegrationCommand")
   .f(void 0, void 0)
-  .ser(se_UpgradeProfileVersionCommand)
-  .de(de_UpgradeProfileVersionCommand)
+  .ser(se_UpdateIntegrationCommand)
+  .de(de_UpdateIntegrationCommand)
   .build() {}

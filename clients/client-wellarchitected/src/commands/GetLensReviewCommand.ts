@@ -63,6 +63,16 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * //         },
  * //       },
  * //     ],
+ * //     JiraConfiguration: { // JiraSelectedQuestionConfiguration
+ * //       SelectedPillars: [ // SelectedPillars
+ * //         { // SelectedPillar
+ * //           PillarId: "STRING_VALUE",
+ * //           SelectedQuestionIds: [ // SelectedQuestionIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //     UpdatedAt: new Date("TIMESTAMP"),
  * //     Notes: "STRING_VALUE",
  * //     RiskCounts: {

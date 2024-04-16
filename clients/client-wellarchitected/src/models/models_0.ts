@@ -33,6 +33,134 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const IntegrationStatusInput = {
+  NOT_CONFIGURED: "NOT_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationStatusInput = (typeof IntegrationStatusInput)[keyof typeof IntegrationStatusInput];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountJiraIssueManagementStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountJiraIssueManagementStatus =
+  (typeof AccountJiraIssueManagementStatus)[keyof typeof AccountJiraIssueManagementStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IssueManagementType = {
+  AUTO: "AUTO",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type IssueManagementType = (typeof IssueManagementType)[keyof typeof IssueManagementType];
+
+/**
+ * <p>Account-level: Input for the Jira configuration.</p>
+ * @public
+ */
+export interface AccountJiraConfigurationInput {
+  /**
+   * <p>Account-level: Jira issue management status.</p>
+   * @public
+   */
+  IssueManagementStatus?: AccountJiraIssueManagementStatus;
+
+  /**
+   * <p>Account-level: Jira issue management type.</p>
+   * @public
+   */
+  IssueManagementType?: IssueManagementType;
+
+  /**
+   * <p>Account-level: Jira project key to sync workloads to.</p>
+   * @public
+   */
+  JiraProjectKey?: string;
+
+  /**
+   * <p>Account-level: Configuration status of the Jira integration.</p>
+   * @public
+   */
+  IntegrationStatus?: IntegrationStatusInput;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationStatus = {
+  CONFIGURED: "CONFIGURED",
+  NOT_CONFIGURED: "NOT_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+/**
+ * <p>Account-level: Output configuration of the Jira integration.</p>
+ * @public
+ */
+export interface AccountJiraConfigurationOutput {
+  /**
+   * <p>Account-level: Configuration status of the Jira integration.</p>
+   * @public
+   */
+  IntegrationStatus?: IntegrationStatus;
+
+  /**
+   * <p>Account-level: Jira issue management status.</p>
+   * @public
+   */
+  IssueManagementStatus?: AccountJiraIssueManagementStatus;
+
+  /**
+   * <p>Account-level: Jira issue management type.</p>
+   * @public
+   */
+  IssueManagementType?: IssueManagementType;
+
+  /**
+   * <p>Account-level: Jira subdomain URL.</p>
+   * @public
+   */
+  Subdomain?: string;
+
+  /**
+   * <p>Account-level: Jira project key to sync workloads to.</p>
+   * @public
+   */
+  JiraProjectKey?: string;
+
+  /**
+   * <p>Account-level: Status message on configuration of the Jira integration.</p>
+   * @public
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const CheckStatus = {
   ERROR: "ERROR",
   FETCH_FAILED: "FETCH_FAILED",
@@ -206,6 +334,24 @@ export interface Choice {
 }
 
 /**
+ * <p>Configuration of the Jira integration.</p>
+ * @public
+ */
+export interface JiraConfiguration {
+  /**
+   * <p>The URL of the associated Jira issue.</p>
+   * @public
+   */
+  JiraIssueUrl?: string;
+
+  /**
+   * <p>The date and time recorded.</p>
+   * @public
+   */
+  LastSyncedTime?: Date;
+}
+
+/**
  * @public
  * @enum
  */
@@ -336,6 +482,12 @@ export interface Answer {
    * @public
    */
   Reason?: AnswerReason;
+
+  /**
+   * <p>Configuration of the Jira integration.</p>
+   * @public
+   */
+  JiraConfiguration?: JiraConfiguration;
 }
 
 /**
@@ -442,6 +594,12 @@ export interface AnswerSummary {
    * @public
    */
   QuestionType?: QuestionType;
+
+  /**
+   * <p>Configuration of the Jira integration.</p>
+   * @public
+   */
+  JiraConfiguration?: JiraConfiguration;
 }
 
 /**
@@ -1621,6 +1779,46 @@ export const WorkloadEnvironment = {
 export type WorkloadEnvironment = (typeof WorkloadEnvironment)[keyof typeof WorkloadEnvironment];
 
 /**
+ * @public
+ * @enum
+ */
+export const WorkloadIssueManagementStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  INHERIT: "INHERIT",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkloadIssueManagementStatus =
+  (typeof WorkloadIssueManagementStatus)[keyof typeof WorkloadIssueManagementStatus];
+
+/**
+ * <p>Workload-level: Input for the Jira configuration.</p>
+ * @public
+ */
+export interface WorkloadJiraConfigurationInput {
+  /**
+   * <p>Workload-level: Jira issue management status.</p>
+   * @public
+   */
+  IssueManagementStatus?: WorkloadIssueManagementStatus;
+
+  /**
+   * <p>Workload-level: Jira issue management type.</p>
+   * @public
+   */
+  IssueManagementType?: IssueManagementType;
+
+  /**
+   * <p>Workload-level: Jira project key to sync workloads to.</p>
+   * @public
+   */
+  JiraProjectKey?: string;
+}
+
+/**
  * <p>Input for workload creation.</p>
  * @public
  */
@@ -1893,6 +2091,12 @@ export interface CreateWorkloadInput {
    * @public
    */
   ReviewTemplateArns?: string[];
+
+  /**
+   * <p>Jira configuration settings when creating a workload.</p>
+   * @public
+   */
+  JiraConfiguration?: WorkloadJiraConfigurationInput;
 }
 
 /**
@@ -2510,6 +2714,43 @@ export interface GetConsolidatedReportOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const OrganizationSharingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationSharingStatus = (typeof OrganizationSharingStatus)[keyof typeof OrganizationSharingStatus];
+
+/**
+ * @public
+ */
+export interface GetGlobalSettingsOutput {
+  /**
+   * <p>Amazon Web Services Organizations sharing status.</p>
+   * @public
+   */
+  OrganizationSharingStatus?: OrganizationSharingStatus;
+
+  /**
+   * <p>Discovery integration status.</p>
+   * @public
+   */
+  DiscoveryIntegrationStatus?: DiscoveryIntegrationStatus;
+
+  /**
+   * <p>Jira configuration status.</p>
+   * @public
+   */
+  JiraConfiguration?: AccountJiraConfigurationOutput;
+}
+
+/**
+ * @public
  */
 export interface GetLensInput {
   /**
@@ -2621,6 +2862,37 @@ export interface GetLensReviewInput {
    * @public
    */
   MilestoneNumber?: number;
+}
+
+/**
+ * <p>The selected pillar.</p>
+ * @public
+ */
+export interface SelectedPillar {
+  /**
+   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
+   *          <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * @public
+   */
+  PillarId?: string;
+
+  /**
+   * <p>Selected question IDs in the selected pillar.</p>
+   * @public
+   */
+  SelectedQuestionIds?: string[];
+}
+
+/**
+ * <p>Selected questions in the workload.</p>
+ * @public
+ */
+export interface JiraSelectedQuestionConfiguration {
+  /**
+   * <p>Selected pillars in the workload.</p>
+   * @public
+   */
+  SelectedPillars?: SelectedPillar[];
 }
 
 /**
@@ -2743,6 +3015,12 @@ export interface LensReview {
    * @public
    */
   PillarReviewSummaries?: PillarReviewSummary[];
+
+  /**
+   * <p>Jira configuration status of the Lens review.</p>
+   * @public
+   */
+  JiraConfiguration?: JiraSelectedQuestionConfiguration;
 
   /**
    * <p>The date and time recorded.</p>
@@ -3080,6 +3358,36 @@ export const WorkloadImprovementStatus = {
 export type WorkloadImprovementStatus = (typeof WorkloadImprovementStatus)[keyof typeof WorkloadImprovementStatus];
 
 /**
+ * <p>Workload-level: Output configuration of the Jira integration.</p>
+ * @public
+ */
+export interface WorkloadJiraConfigurationOutput {
+  /**
+   * <p>Workload-level: Jira issue management status.</p>
+   * @public
+   */
+  IssueManagementStatus?: WorkloadIssueManagementStatus;
+
+  /**
+   * <p>Workload-level: Jira issue management type.</p>
+   * @public
+   */
+  IssueManagementType?: IssueManagementType;
+
+  /**
+   * <p>Workload-level: Jira project key to sync workloads to.</p>
+   * @public
+   */
+  JiraProjectKey?: string;
+
+  /**
+   * <p>Workload-level: Status message on configuration of the Jira integration.</p>
+   * @public
+   */
+  StatusMessage?: string;
+}
+
+/**
  * <p>A workload return object.</p>
  * @public
  */
@@ -3395,6 +3703,12 @@ export interface Workload {
    * @public
    */
   PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
+
+  /**
+   * <p>Jira configuration for a specific workload.</p>
+   * @public
+   */
+  JiraConfiguration?: WorkloadJiraConfigurationOutput;
 }
 
 /**
@@ -4314,7 +4628,26 @@ export interface ImprovementSummary {
    * @public
    */
   ImprovementPlans?: ChoiceImprovementPlan[];
+
+  /**
+   * <p>Configuration of the Jira integration.</p>
+   * @public
+   */
+  JiraConfiguration?: JiraConfiguration;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegratingService = {
+  JIRA: "JIRA",
+} as const;
+
+/**
+ * @public
+ */
+export type IntegratingService = (typeof IntegratingService)[keyof typeof IntegratingService];
 
 /**
  * <p>A lens review summary of a workload.</p>
@@ -6302,20 +6635,6 @@ export interface ListWorkloadSharesOutput {
 }
 
 /**
- * @public
- * @enum
- */
-export const OrganizationSharingStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type OrganizationSharingStatus = (typeof OrganizationSharingStatus)[keyof typeof OrganizationSharingStatus];
-
-/**
  * <p>The share invitation.</p>
  * @public
  */
@@ -6545,6 +6864,44 @@ export interface UpdateGlobalSettingsInput {
    * @public
    */
   DiscoveryIntegrationStatus?: DiscoveryIntegrationStatus;
+
+  /**
+   * <p>The status of Jira integration settings.</p>
+   * @public
+   */
+  JiraConfiguration?: AccountJiraConfigurationInput;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIntegrationInput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * @public
+   */
+  WorkloadId: string | undefined;
+
+  /**
+   * <p>A unique case-sensitive string used to ensure that this request is idempotent
+   *             (executes only once).</p>
+   *          <p>You should not reuse the same token for other requests. If you retry a request with
+   *             the same client request token and the same parameters after the original request has completed
+   *             successfully, the result of the original request is returned.</p>
+   *          <important>
+   *             <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs
+   *                 automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI,
+   *                 you must provide this token or the request will fail.</p>
+   *          </important>
+   * @public
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Which integrated service to update.</p>
+   * @public
+   */
+  IntegratingService: IntegratingService | undefined;
 }
 
 /**
@@ -6584,6 +6941,12 @@ export interface UpdateLensReviewInput {
    * @public
    */
   PillarNotes?: Record<string, string>;
+
+  /**
+   * <p>Configuration of the Jira integration.</p>
+   * @public
+   */
+  JiraConfiguration?: JiraSelectedQuestionConfiguration;
 }
 
 /**
@@ -7121,6 +7484,12 @@ export interface UpdateWorkloadInput {
    * @public
    */
   Applications?: string[];
+
+  /**
+   * <p>Configuration of the Jira integration.</p>
+   * @public
+   */
+  JiraConfiguration?: WorkloadJiraConfigurationInput;
 }
 
 /**

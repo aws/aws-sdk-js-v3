@@ -64,6 +64,9 @@ export interface UpgradeLensReviewCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The user has reached their resource quota.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
  *

@@ -27,7 +27,7 @@ export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsIn
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates whether the Amazon Web Services account is opted into organization sharing and discovery integration features.</p>
+ * <p>Update whether the Amazon Web Services account is opted into organization sharing and discovery integration features.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,6 +37,12 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * const input = { // UpdateGlobalSettingsInput
  *   OrganizationSharingStatus: "ENABLED" || "DISABLED",
  *   DiscoveryIntegrationStatus: "ENABLED" || "DISABLED",
+ *   JiraConfiguration: { // AccountJiraConfigurationInput
+ *     IssueManagementStatus: "ENABLED" || "DISABLED",
+ *     IssueManagementType: "AUTO" || "MANUAL",
+ *     JiraProjectKey: "STRING_VALUE",
+ *     IntegrationStatus: "NOT_CONFIGURED",
+ *   },
  * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);

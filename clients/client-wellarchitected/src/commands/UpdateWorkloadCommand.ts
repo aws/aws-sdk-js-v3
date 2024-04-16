@@ -67,6 +67,11 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  *   Applications: [ // WorkloadApplications
  *     "STRING_VALUE",
  *   ],
+ *   JiraConfiguration: { // WorkloadJiraConfigurationInput
+ *     IssueManagementStatus: "ENABLED" || "DISABLED" || "INHERIT",
+ *     IssueManagementType: "AUTO" || "MANUAL",
+ *     JiraProjectKey: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateWorkloadCommand(input);
  * const response = await client.send(command);
@@ -126,6 +131,12 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * //     ],
  * //     PrioritizedRiskCounts: {
  * //       "<keys>": Number("int"),
+ * //     },
+ * //     JiraConfiguration: { // WorkloadJiraConfigurationOutput
+ * //       IssueManagementStatus: "ENABLED" || "DISABLED" || "INHERIT",
+ * //       IssueManagementType: "AUTO" || "MANUAL",
+ * //       JiraProjectKey: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
  * //     },
  * //   },
  * // };
