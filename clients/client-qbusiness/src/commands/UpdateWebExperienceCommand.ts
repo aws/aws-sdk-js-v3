@@ -27,7 +27,7 @@ export interface UpdateWebExperienceCommandInput extends UpdateWebExperienceRequ
 export interface UpdateWebExperienceCommandOutput extends UpdateWebExperienceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon Q web experience. </p>
+ * <p>Updates an Amazon Q Business web experience. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,7 +71,7 @@ export interface UpdateWebExperienceCommandOutput extends UpdateWebExperienceRes
  *             resource. Fix any inconsistences with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -83,7 +83,7 @@ export interface UpdateWebExperienceCommandOutput extends UpdateWebExperienceRes
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}

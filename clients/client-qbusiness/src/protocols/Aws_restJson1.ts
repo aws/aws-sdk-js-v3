@@ -136,10 +136,12 @@ import {
   AttributeFilter,
   BasicAuthConfiguration,
   BlockedPhrasesConfigurationUpdate,
+  ChatModeConfiguration,
   ConflictException,
   ContentBlockerRule,
   ContentRetrievalRule,
   Conversation,
+  CreatorModeConfiguration,
   DataSource,
   DataSourceSyncJob,
   DataSourceVpcConfiguration,
@@ -175,6 +177,7 @@ import {
   OAuth2ClientCredentialConfiguration,
   Plugin,
   PluginAuthConfiguration,
+  PluginConfiguration,
   Principal,
   PrincipalGroup,
   PrincipalUser,
@@ -266,7 +269,7 @@ export const se_ChatSyncCommand = async (
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({
     [_s]: [, ""],
-    [_uI]: [, __expectNonNull(input[_uI]!, `userId`)],
+    [_uI]: [, input[_uI]!],
     [_uG]: [() => input.userGroups !== void 0, () => (input[_uG]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
@@ -275,6 +278,8 @@ export const se_ChatSyncCommand = async (
       actionExecution: (_) => se_ActionExecution(_, context),
       attachments: (_) => se_AttachmentsInput(_, context),
       attributeFilter: (_) => se_AttributeFilter(_, context),
+      chatMode: [],
+      chatModeConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       conversationId: [],
       parentMessageId: [],
@@ -305,6 +310,7 @@ export const se_CreateApplicationCommand = async (
       description: [],
       displayName: [],
       encryptionConfiguration: (_) => _json(_),
+      identityCenterInstanceArn: [],
       roleArn: [],
       tags: (_) => _json(_),
     })
@@ -470,6 +476,7 @@ export const se_CreateWebExperienceCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      roleArn: [],
       samplePromptsControlMode: [],
       subtitle: [],
       tags: (_) => _json(_),
@@ -526,7 +533,7 @@ export const se_DeleteConversationCommand = async (
   b.p("conversationId", () => input.conversationId!, "{conversationId}", false);
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({
-    [_uI]: [, __expectNonNull(input[_uI]!, `userId`)],
+    [_uI]: [, input[_uI]!],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -848,7 +855,7 @@ export const se_ListConversationsCommand = async (
   b.bp("/applications/{applicationId}/conversations");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({
-    [_uI]: [, __expectNonNull(input[_uI]!, `userId`)],
+    [_uI]: [, input[_uI]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -984,7 +991,7 @@ export const se_ListMessagesCommand = async (
   b.p("conversationId", () => input.conversationId!, "{conversationId}", false);
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({
-    [_uI]: [, __expectNonNull(input[_uI]!, `userId`)],
+    [_uI]: [, input[_uI]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -1085,7 +1092,7 @@ export const se_PutFeedbackCommand = async (
   b.p("conversationId", () => input.conversationId!, "{conversationId}", false);
   b.p("messageId", () => input.messageId!, "{messageId}", false);
   const query: any = map({
-    [_uI]: [, __expectNonNull(input[_uI]!, `userId`)],
+    [_uI]: [, input[_uI]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1250,6 +1257,7 @@ export const se_UpdateChatControlsConfigurationCommand = async (
     take(input, {
       blockedPhrasesConfigurationUpdate: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      creatorModeConfiguration: (_) => _json(_),
       responseScope: [],
       topicConfigurationsToCreateOrUpdate: (_) => _json(_),
       topicConfigurationsToDelete: (_) => _json(_),
@@ -1834,6 +1842,7 @@ export const de_GetApplicationCommand = async (
     displayName: __expectString,
     encryptionConfiguration: _json,
     error: _json,
+    identityCenterApplicationArn: __expectString,
     roleArn: __expectString,
     status: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1858,6 +1867,7 @@ export const de_GetChatControlsConfigurationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     blockedPhrases: _json,
+    creatorModeConfiguration: _json,
     nextToken: __expectString,
     responseScope: __expectString,
     topicConfigurations: _json,
@@ -2057,6 +2067,7 @@ export const de_GetWebExperienceCommand = async (
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     defaultEndpoint: __expectString,
     error: _json,
+    roleArn: __expectString,
     samplePromptsControlMode: __expectString,
     status: __expectString,
     subtitle: __expectString,
@@ -2892,9 +2903,13 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
 
 // se_BlockedPhrasesConfigurationUpdate omitted.
 
+// se_ChatModeConfiguration omitted.
+
 // se_ContentBlockerRule omitted.
 
 // se_ContentRetrievalRule omitted.
+
+// se_CreatorModeConfiguration omitted.
 
 /**
  * serializeAws_restJson1DataSourceConfiguration
@@ -3107,6 +3122,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_PluginAuthConfiguration omitted.
 
+// se_PluginConfiguration omitted.
+
 // se_Principal omitted.
 
 // se_PrincipalGroup omitted.
@@ -3296,6 +3313,8 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 };
 
 // de_AppliedAttachmentsConfiguration omitted.
+
+// de_AppliedCreatorModeConfiguration omitted.
 
 // de_AttachmentOutput omitted.
 

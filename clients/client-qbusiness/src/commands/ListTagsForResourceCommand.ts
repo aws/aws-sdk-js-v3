@@ -27,7 +27,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of tags associated with a specified resource. Amazon Q applications
+ * <p>Gets a list of tags associated with a specified resource. Amazon Q Business applications
  *             and data sources can have tags associated with them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,7 +62,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             permission policies and user accounts and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -74,7 +74,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}

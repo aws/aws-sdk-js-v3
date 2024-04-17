@@ -27,18 +27,18 @@ export interface BatchPutDocumentCommandInput extends BatchPutDocumentRequest {}
 export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse, __MetadataBearer {}
 
 /**
- * <p>Adds one or more documents to an Amazon Q index.</p>
+ * <p>Adds one or more documents to an Amazon Q Business index.</p>
  *          <p>You use this API to:</p>
  *          <ul>
  *             <li>
  *                <p>ingest your structured and unstructured documents and documents stored in an
- *                         Amazon S3 bucket into an Amazon Q index.</p>
+ *                         Amazon S3 bucket into an Amazon Q Business index.</p>
  *             </li>
  *             <li>
- *                <p>add custom attributes to documents in an Amazon Q index.</p>
+ *                <p>add custom attributes to documents in an Amazon Q Business index.</p>
  *             </li>
  *             <li>
- *                <p>attach an access control list to the documents added to an Amazon Q
+ *                <p>attach an access control list to the documents added to an Amazon Q Business
  *                     index.</p>
  *             </li>
  *          </ul>
@@ -188,7 +188,7 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *             resource. Fix any inconsistences with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -196,14 +196,14 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *             resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the set limits for your Amazon Q service. </p>
+ *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}

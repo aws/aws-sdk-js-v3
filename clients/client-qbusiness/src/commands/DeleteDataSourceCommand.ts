@@ -27,7 +27,7 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Q data source connector. While the data source is being
+ * <p>Deletes an Amazon Q Business data source connector. While the data source is being
  *             deleted, the <code>Status</code> field returned by a call to the
  *                 <code>DescribeDataSource</code> API is set to <code>DELETING</code>. </p>
  * @example
@@ -62,7 +62,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  *             resource. Fix any inconsistences with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -74,7 +74,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}

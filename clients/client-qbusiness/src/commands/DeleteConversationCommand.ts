@@ -27,7 +27,7 @@ export interface DeleteConversationCommandInput extends DeleteConversationReques
 export interface DeleteConversationCommandOutput extends DeleteConversationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Q web experience conversation.</p>
+ * <p>Deletes an Amazon Q Business web experience conversation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,7 +37,7 @@ export interface DeleteConversationCommandOutput extends DeleteConversationRespo
  * const input = { // DeleteConversationRequest
  *   conversationId: "STRING_VALUE", // required
  *   applicationId: "STRING_VALUE", // required
- *   userId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE",
  * };
  * const command = new DeleteConversationCommand(input);
  * const response = await client.send(command);
@@ -56,7 +56,7 @@ export interface DeleteConversationCommandOutput extends DeleteConversationRespo
  *             permission policies and user accounts and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link LicenseNotFoundException} (client fault)
@@ -72,7 +72,7 @@ export interface DeleteConversationCommandOutput extends DeleteConversationRespo
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}

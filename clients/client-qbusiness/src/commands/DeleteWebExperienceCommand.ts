@@ -27,7 +27,7 @@ export interface DeleteWebExperienceCommandInput extends DeleteWebExperienceRequ
 export interface DeleteWebExperienceCommandOutput extends DeleteWebExperienceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Q web experience.</p>
+ * <p>Deletes an Amazon Q Business web experience.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +59,7 @@ export interface DeleteWebExperienceCommandOutput extends DeleteWebExperienceRes
  *             resource. Fix any inconsistences with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -71,7 +71,7 @@ export interface DeleteWebExperienceCommandOutput extends DeleteWebExperienceRes
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}

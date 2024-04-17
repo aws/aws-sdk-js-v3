@@ -27,7 +27,7 @@ export interface CreateIndexCommandInput extends CreateIndexRequest {}
 export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Q index.</p>
+ * <p>Creates an Amazon Q Business index.</p>
  *          <p>To determine if index creation has completed, check the <code>Status</code> field
  *             returned from a call to <code>DescribeIndex</code>. The <code>Status</code> field is set
  *             to <code>ACTIVE</code> when the index is ready to use.</p>
@@ -81,7 +81,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *             resource. Fix any inconsistences with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -89,14 +89,14 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *             resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the set limits for your Amazon Q service. </p>
+ *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}

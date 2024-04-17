@@ -27,7 +27,7 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data source connector for an Amazon Q application.</p>
+ * <p>Creates a data source connector for an Amazon Q Business application.</p>
  *          <p>
  *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if
  *             the data source was successfully created. Otherwise, an exception is raised.</p>
@@ -150,7 +150,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             resource. Fix any inconsistences with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -158,14 +158,14 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the set limits for your Amazon Q service. </p>
+ *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to throttling. Reduce the number of requests and try
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}

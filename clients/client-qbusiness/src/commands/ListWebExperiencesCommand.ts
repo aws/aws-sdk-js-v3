@@ -27,7 +27,7 @@ export interface ListWebExperiencesCommandInput extends ListWebExperiencesReques
 export interface ListWebExperiencesCommandOutput extends ListWebExperiencesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists one or more Amazon Q Web Experiences.</p>
+ * <p>Lists one or more Amazon Q Business Web Experiences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +67,7 @@ export interface ListWebExperiencesCommandOutput extends ListWebExperiencesRespo
  *             permission policies and user accounts and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q service. Wait
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
  *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -79,7 +79,7 @@ export interface ListWebExperiencesCommandOutput extends ListWebExperiencesRespo
  *             again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q service. Provide the
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
  *             correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}
