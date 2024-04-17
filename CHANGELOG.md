@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.557.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.556.0...v3.557.0) (2024-04-17)
+
+
+### Features
+
+* **client-ec2:** Documentation updates for Elastic Compute Cloud (EC2). ([08bd27c](https://github.com/aws/aws-sdk-js-v3/commit/08bd27c46fa8739c1c50e5ba4c78a121e89c1685))
+* **client-qbusiness:** This release adds support for IAM Identity Center (IDC) as the identity gateway for Q Business. It also allows users to provide an explicit intent for Q Business to identify how the Chat request should be handled. ([a8de200](https://github.com/aws/aws-sdk-js-v3/commit/a8de200f16425015c2be05bf20b16af8e765939f))
+* **clients:** update client endpoints as of 2024-04-17 ([7423a23](https://github.com/aws/aws-sdk-js-v3/commit/7423a239027465d4693c1e5ad6972d08add90b05))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 

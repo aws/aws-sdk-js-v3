@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.557.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.556.0...v3.557.0) (2024-04-17)
+
+
+### Features
+
+* **client-ec2:** Documentation updates for Elastic Compute Cloud (EC2). ([08bd27c](https://github.com/aws/aws-sdk-js-v3/commit/08bd27c46fa8739c1c50e5ba4c78a121e89c1685))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
