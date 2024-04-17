@@ -34,6 +34,15 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  *                 <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters
  *             the <code>cancelled_running</code> state and the instances continue to run until they
  *             are interrupted or you terminate them manually.</p>
+ *          <p class="title">
+ *             <b>Restrictions</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>You can delete up to 100 fleets in a single request. If you exceed the specified
+ *                number, no fleets are deleted.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

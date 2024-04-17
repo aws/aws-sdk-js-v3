@@ -2897,7 +2897,7 @@ export interface RunInstancesRequest {
   /**
    * <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
    *          <p>If you specify a network interface, you must specify any security groups as part of
-   *             the network interface.</p>
+   *             the network interface instead of using this parameter.</p>
    * @public
    */
   SecurityGroupIds?: string[];
@@ -2905,7 +2905,7 @@ export interface RunInstancesRequest {
   /**
    * <p>[Default VPC] The names of the security groups.</p>
    *          <p>If you specify a network interface, you must specify any security groups as part of
-   *             the network interface.</p>
+   *             the network interface instead of using this parameter.</p>
    *          <p>Default: Amazon EC2 uses the default security group.</p>
    * @public
    */
@@ -2914,7 +2914,7 @@ export interface RunInstancesRequest {
   /**
    * <p>The ID of the subnet to launch the instance into.</p>
    *          <p>If you specify a network interface, you must specify any subnets as part of the
-   *             network interface.</p>
+   *             network interface instead of using this parameter.</p>
    * @public
    */
   SubnetId?: string;
@@ -2996,9 +2996,7 @@ export interface RunInstancesRequest {
   InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
 
   /**
-   * <p>The network interfaces to associate with the instance. If you specify a network
-   *             interface, you must specify any security groups and subnets as part of the network
-   *             interface.</p>
+   * <p>The network interfaces to associate with the instance.</p>
    * @public
    */
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
@@ -3017,29 +3015,19 @@ export interface RunInstancesRequest {
   PrivateIpAddress?: string;
 
   /**
-   * <p>Deprecated.</p>
+   * <p>An elastic GPU to associate with the instance.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
-   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
-   *                 G4dn, or G5 instances.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    * @public
    */
   ElasticGpuSpecification?: ElasticGpuSpecification[];
 
   /**
-   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
-   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
-   *             your Deep Learning (DL) inference workloads.</p>
-   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   * <p>An elastic inference accelerator to associate with the instance.</p>
    *          <note>
-   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
-   *             Elastic Inference (EI), and will help current customers migrate their workloads to
-   *             options that offer better price and performance. After April 15, 2023, new customers
-   *             will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
-   *             Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
-   *             the past 30-day period are considered current customers and will be able to continue
-   *             using the service.</p>
+   *             <p>Amazon Elastic Inference (EI) is no longer available to new customers. For more
+   *             information, see <a href="http://aws.amazon.com/machine-learning/elastic-inference/faqs/">Amazon Elastic Inference FAQs</a>.</p>
    *          </note>
    * @public
    */
@@ -3909,7 +3897,8 @@ export interface SearchTransitGatewayRoutesRequest {
   Filters: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of routes to return.</p>
+   * <p>The maximum number of routes to return. If a value is not provided, the default is
+   *          1000.</p>
    * @public
    */
   MaxResults?: number;

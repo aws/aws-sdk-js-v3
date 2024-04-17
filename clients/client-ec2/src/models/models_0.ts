@@ -7527,6 +7527,7 @@ export interface CancelSpotFleetRequestsRequest {
 
   /**
    * <p>The IDs of the Spot Fleet requests.</p>
+   *          <p>Constraint: You can specify up to 100 IDs in a single request.</p>
    * @public
    */
   SpotFleetRequestIds: string[] | undefined;

@@ -8237,6 +8237,8 @@ export interface DeleteFleetsRequest {
 
   /**
    * <p>The IDs of the EC2 Fleets.</p>
+   *          <p>Constraints: In a single request, you can specify up to 25 <code>instant</code> fleet
+   *          IDs and up to 100 <code>maintain</code> or <code>request</code> fleet IDs. </p>
    * @public
    */
   FleetIds: string[] | undefined;

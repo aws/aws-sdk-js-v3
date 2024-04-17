@@ -3761,14 +3761,14 @@ export interface CreateFleetError {
 
   /**
    * <p>The error code that indicates why the instance could not be launched. For more
-   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
+   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
    * @public
    */
   ErrorCode?: string;
 
   /**
    * <p>The error message that describes why the instance could not be launched. For more
-   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
+   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
    * @public
    */
   ErrorMessage?: string;
@@ -7357,8 +7357,7 @@ export interface RequestLaunchTemplateData {
   BlockDeviceMappings?: LaunchTemplateBlockDeviceMappingRequest[];
 
   /**
-   * <p>One or more network interfaces. If you specify a network interface, you must specify
-   *             any security groups and subnets as part of the network interface.</p>
+   * <p>The network interfaces for the instance.</p>
    * @public
    */
   NetworkInterfaces?: LaunchTemplateInstanceNetworkInterfaceSpecificationRequest[];
@@ -7513,14 +7512,18 @@ export interface RequestLaunchTemplateData {
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[];
 
   /**
-   * <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+   * <p>The IDs of the security groups.</p>
+   *          <p>If you specify a network interface, you must specify any security groups as part of
+   *             the network interface instead of using this parameter.</p>
    * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * <p>One or more security group names. For a nondefault VPC, you must use security group
+   * <p>The names of the security groups. For a nondefault VPC, you must use security group
    *             IDs instead.</p>
+   *          <p>If you specify a network interface, you must specify any security groups as part of
+   *             the network interface instead of using this parameter.</p>
    * @public
    */
   SecurityGroups?: string[];

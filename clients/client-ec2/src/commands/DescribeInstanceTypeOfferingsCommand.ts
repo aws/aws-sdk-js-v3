@@ -29,8 +29,8 @@ export interface DescribeInstanceTypeOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of all instance types offered. The results can be filtered by location (Region or Availability
- *    Zone). If no location is specified, the instance types offered in the current Region are returned.</p>
+ * <p>Lists the instance types that are offered for the specified location. If no location is specified, the default
+ *    is to list the instance types that are offered in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

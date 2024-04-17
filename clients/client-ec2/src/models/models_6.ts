@@ -5519,11 +5519,10 @@ export interface ModifyInstanceMetadataDefaultsRequest {
   HttpTokens?: MetadataDefaultHttpTokensState;
 
   /**
-   * <p>The maximum number of hops that the metadata token can travel.</p>
-   *          <p>Minimum: <code>1</code>
-   *          </p>
-   *          <p>Maximum: <code>64</code>
-   *          </p>
+   * <p>The maximum number of hops that the metadata token can travel. To indicate no
+   *             preference, specify <code>-1</code>.</p>
+   *          <p>Possible values: Integers from <code>1</code> to <code>64</code>, and <code>-1</code>
+   *             to indicate no preference</p>
    * @public
    */
   HttpPutResponseHopLimit?: number;

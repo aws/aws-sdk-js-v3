@@ -3347,6 +3347,27 @@ export interface DescribeInstanceTypeOfferingsRequest {
 
   /**
    * <p>The location type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone. When you specify a location filter, it must be
+   *      an Availability Zone for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The AZ ID. When you specify a location filter, it must be
+   *     an AZ ID for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost</code> - The Outpost ARN. When you specify a location filter, it must be an Outpost ARN
+   *     for the current Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> - The current Region. If you specify a location filter, it must match the current Region.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LocationType?: LocationType;
@@ -3356,13 +3377,12 @@ export interface DescribeInstanceTypeOfferingsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>location</code> - This depends on the location type. For example, if the location type is
-   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   *                   <code>instance-type</code> - The instance type. For a list of possible values, see
+   *      <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-type</code> - The instance type. For example,
-   *      <code>c5.2xlarge</code>.</p>
+   *                   <code>location</code> - The location. For a list of possible identifiers, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Zones</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3414,7 +3434,7 @@ export interface InstanceTypeOffering {
  */
 export interface DescribeInstanceTypeOfferingsResult {
   /**
-   * <p>The instance types offered.</p>
+   * <p>The instance types offered in the location.</p>
    * @public
    */
   InstanceTypeOfferings?: InstanceTypeOffering[];
@@ -3440,7 +3460,7 @@ export interface DescribeInstanceTypesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance types.</p>
    * @public
    */
   InstanceTypes?: _InstanceType[];
@@ -4813,7 +4833,7 @@ export interface InstanceTypeInfo {
  */
 export interface DescribeInstanceTypesResult {
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance type.</p>
    * @public
    */
   InstanceTypes?: InstanceTypeInfo[];
@@ -11296,6 +11316,8 @@ export interface SpotFleetTagSpecification {
 export interface SpotFleetLaunchSpecification {
   /**
    * <p>The security groups.</p>
+   *          <p>If you specify a network interface, you must specify any security groups as part of
+   *         the network interface instead of using this parameter.</p>
    * @public
    */
   SecurityGroups?: GroupIdentifier[];
@@ -11360,11 +11382,11 @@ export interface SpotFleetLaunchSpecification {
   Monitoring?: SpotFleetMonitoring;
 
   /**
-   * <p>One or more network interfaces. If you specify a network interface, you must specify
-   *           subnet IDs and security group IDs using the network interface.</p>
+   * <p>The network interfaces.</p>
    *          <note>
    *             <p>
-   *                <code>SpotFleetLaunchSpecification</code> currently does not support Elastic Fabric Adapter (EFA). To specify an EFA, you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
+   *                <code>SpotFleetLaunchSpecification</code> does not support Elastic Fabric Adapter (EFA).
+   *              You must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a> instead.</p>
    *          </note>
    * @public
    */
@@ -11396,7 +11418,9 @@ export interface SpotFleetLaunchSpecification {
 
   /**
    * <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate
-   *           them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
+   *          them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
+   *          <p>If you specify a network interface, you must specify any subnets as part of the
+   *          network interface instead of using this parameter.</p>
    * @public
    */
   SubnetId?: string;

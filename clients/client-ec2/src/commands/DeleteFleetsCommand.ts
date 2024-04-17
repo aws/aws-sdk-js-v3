@@ -34,21 +34,28 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  *          state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances
  *          continue to run until they are interrupted or you terminate them manually.</p>
  *          <p>For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet is
- *          deleted. A deleted <code>instant</code> fleet with running instances is not
- *          supported.</p>
+ *          deleted. Up to 1000 instances can be terminated in a single request to delete
+ *             <code>instant</code> fleets. A deleted <code>instant</code> fleet with running instances
+ *          is not supported.</p>
  *          <p class="title">
  *             <b>Restrictions</b>
  *          </p>
  *          <ul>
  *             <li>
- *                <p>You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed this
- *                number, no <code>instant</code> fleets are deleted and an error is returned. There is no
- *                restriction on the number of fleets of type <code>maintain</code> or <code>request</code> that can be deleted
- *                in a single request.</p>
+ *                <p>You can delete up to 25 fleets of type <code>instant</code> in a single
+ *                request.</p>
  *             </li>
  *             <li>
- *                <p>Up to 1000 instances can be terminated in a single request to delete
- *                <code>instant</code> fleets.</p>
+ *                <p>You can delete up to 100 fleets of type <code>maintain</code> or
+ *                   <code>request</code> in a single request.</p>
+ *             </li>
+ *             <li>
+ *                <p>You can delete up to 125 fleets in a single request, provided you do not exceed
+ *                the quota for each fleet type, as specified above.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you exceed the specified number of fleets to delete, no fleets are
+ *                deleted.</p>
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2
