@@ -305,13 +305,6 @@ final class AwsProtocolUtils {
             HttpMessageTestCase testCase,
             TypeScriptSettings settings
     ) {
-        // TODO: Remove when requestCompression has been implemented.
-        if (testCase.getId().startsWith("SDKAppliedContentEncoding_")
-            || testCase.getId().startsWith("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_")
-            || testCase.getId().startsWith("SDKAppendedGzipAfterProvidedEncoding_")) {
-            return true;
-        }
-
         if (testCase.getTags().contains("defaults")) {
             return true;
         }
