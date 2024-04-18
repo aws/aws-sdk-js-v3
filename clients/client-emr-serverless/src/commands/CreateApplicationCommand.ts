@@ -125,6 +125,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *         ],
  *       },
  *     },
+ *     prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
+ *       remoteWriteUrl: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new CreateApplicationCommand(input);

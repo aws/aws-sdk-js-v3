@@ -74,6 +74,7 @@ import {
   MaximumAllowedResources,
   MonitoringConfiguration,
   NetworkConfiguration,
+  PrometheusMonitoringConfiguration,
   ResourceNotFoundException,
   ResourceUtilization,
   S3MonitoringConfiguration,
@@ -897,6 +898,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_NetworkConfiguration omitted.
 
+// se_PrometheusMonitoringConfiguration omitted.
+
 // se_S3MonitoringConfiguration omitted.
 
 // se_SecurityGroupIds omitted.
@@ -1094,6 +1097,8 @@ const de_JobRunSummary = (output: any, context: __SerdeContext): JobRunSummary =
 // de_MonitoringConfiguration omitted.
 
 // de_NetworkConfiguration omitted.
+
+// de_PrometheusMonitoringConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ResourceUtilization

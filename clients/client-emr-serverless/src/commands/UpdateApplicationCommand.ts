@@ -123,6 +123,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *         ],
  *       },
  *     },
+ *     prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
+ *       remoteWriteUrl: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateApplicationCommand(input);
@@ -221,6 +224,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //       },
+ * //       prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
+ * //         remoteWriteUrl: "STRING_VALUE",
  * //       },
  * //     },
  * //   },

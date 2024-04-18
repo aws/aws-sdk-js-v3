@@ -138,6 +138,9 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //           ],
  * //         },
  * //       },
+ * //       prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
+ * //         remoteWriteUrl: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };

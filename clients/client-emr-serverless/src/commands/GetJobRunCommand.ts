@@ -91,6 +91,9 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //             ],
  * //           },
  * //         },
+ * //         prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
+ * //           remoteWriteUrl: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     jobDriver: { // JobDriver Union: only one key present

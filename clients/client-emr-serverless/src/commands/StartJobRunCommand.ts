@@ -90,6 +90,9 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *           ],
  *         },
  *       },
+ *       prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
+ *         remoteWriteUrl: "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   tags: { // TagMap

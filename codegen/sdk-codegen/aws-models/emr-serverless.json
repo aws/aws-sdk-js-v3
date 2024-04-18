@@ -1296,6 +1296,26 @@
         "smithy.api#documentation": "<p>A configuration specification to be used to override existing configurations.</p>"
       }
     },
+    "com.amazonaws.emrserverless#ConfigurationPropertyKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^.*\\S.*$"
+      }
+    },
+    "com.amazonaws.emrserverless#ConfigurationPropertyValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^.*\\S.*$"
+      }
+    },
     "com.amazonaws.emrserverless#ConflictException": {
       "type": "structure",
       "members": {
@@ -2671,6 +2691,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs\n         to send log information to CloudWatch.</p>"
           }
+        },
+        "prometheusMonitoringConfiguration": {
+          "target": "com.amazonaws.emrserverless#PrometheusMonitoringConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The monitoring configuration object you can configure to send metrics to Amazon Managed Service for Prometheus for a job run.</p>"
+          }
         }
       },
       "traits": {
@@ -2705,6 +2731,30 @@
           "max": 1024
         },
         "smithy.api#pattern": "^[A-Za-z0-9_=-]+$"
+      }
+    },
+    "com.amazonaws.emrserverless#PrometheusMonitoringConfiguration": {
+      "type": "structure",
+      "members": {
+        "remoteWriteUrl": {
+          "target": "com.amazonaws.emrserverless#PrometheusUrlString",
+          "traits": {
+            "smithy.api#documentation": "<p>The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The monitoring configuration object you can configure to send metrics to Amazon Managed Service for Prometheus for a job run.</p>"
+      }
+    },
+    "com.amazonaws.emrserverless#PrometheusUrlString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10280
+        },
+        "smithy.api#pattern": "^https://aps-workspaces.([a-z]{2}-[a-z-]{1,20}-[1-9]).amazonaws(.[0-9A-Za-z]{2,4})+/workspaces/[-_.0-9A-Za-z]{1,100}/api/v1/remote_write$"
       }
     },
     "com.amazonaws.emrserverless#Query": {
@@ -2835,10 +2885,10 @@
     "com.amazonaws.emrserverless#SensitivePropertiesMap": {
       "type": "map",
       "key": {
-        "target": "com.amazonaws.emrserverless#String1024"
+        "target": "com.amazonaws.emrserverless#ConfigurationPropertyKey"
       },
       "value": {
-        "target": "com.amazonaws.emrserverless#String1024"
+        "target": "com.amazonaws.emrserverless#ConfigurationPropertyValue"
       },
       "traits": {
         "smithy.api#length": {
@@ -3530,7 +3580,7 @@
         "diskType": {
           "target": "com.amazonaws.emrserverless#DiskType",
           "traits": {
-            "smithy.api#documentation": "<p>The disk type for every worker instance of the work type. Shuffle optimized disks have higher performance characteristics and are better for shuffle heavy workloads. Default is <code>STANDARD</code>.</p>"
+            "smithy.api#documentation": "<p>The disk type for every worker instance of the work type. Shuffle optimized disks have higher performance \n         characteristics and are better for shuffle heavy workloads. Default is <code>STANDARD</code>.</p>"
           }
         }
       },
