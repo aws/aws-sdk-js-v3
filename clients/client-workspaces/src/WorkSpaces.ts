@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AcceptAccountLinkInvitationCommand,
+  AcceptAccountLinkInvitationCommandInput,
+  AcceptAccountLinkInvitationCommandOutput,
+} from "./commands/AcceptAccountLinkInvitationCommand";
+import {
   AssociateConnectionAliasCommand,
   AssociateConnectionAliasCommandInput,
   AssociateConnectionAliasCommandOutput,
@@ -27,6 +32,11 @@ import {
   CopyWorkspaceImageCommandInput,
   CopyWorkspaceImageCommandOutput,
 } from "./commands/CopyWorkspaceImageCommand";
+import {
+  CreateAccountLinkInvitationCommand,
+  CreateAccountLinkInvitationCommandInput,
+  CreateAccountLinkInvitationCommandOutput,
+} from "./commands/CreateAccountLinkInvitationCommand";
 import {
   CreateConnectClientAddInCommand,
   CreateConnectClientAddInCommandInput,
@@ -68,6 +78,11 @@ import {
   CreateWorkspacesCommandInput,
   CreateWorkspacesCommandOutput,
 } from "./commands/CreateWorkspacesCommand";
+import {
+  DeleteAccountLinkInvitationCommand,
+  DeleteAccountLinkInvitationCommandInput,
+  DeleteAccountLinkInvitationCommandOutput,
+} from "./commands/DeleteAccountLinkInvitationCommand";
 import {
   DeleteClientBrandingCommand,
   DeleteClientBrandingCommandInput,
@@ -230,6 +245,11 @@ import {
   DisassociateWorkspaceApplicationCommandOutput,
 } from "./commands/DisassociateWorkspaceApplicationCommand";
 import {
+  GetAccountLinkCommand,
+  GetAccountLinkCommandInput,
+  GetAccountLinkCommandOutput,
+} from "./commands/GetAccountLinkCommand";
+import {
   ImportClientBrandingCommand,
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
@@ -239,6 +259,11 @@ import {
   ImportWorkspaceImageCommandInput,
   ImportWorkspaceImageCommandOutput,
 } from "./commands/ImportWorkspaceImageCommand";
+import {
+  ListAccountLinksCommand,
+  ListAccountLinksCommandInput,
+  ListAccountLinksCommandOutput,
+} from "./commands/ListAccountLinksCommand";
 import {
   ListAvailableManagementCidrRangesCommand,
   ListAvailableManagementCidrRangesCommandInput,
@@ -310,6 +335,11 @@ import {
   RegisterWorkspaceDirectoryCommandOutput,
 } from "./commands/RegisterWorkspaceDirectoryCommand";
 import {
+  RejectAccountLinkInvitationCommand,
+  RejectAccountLinkInvitationCommandInput,
+  RejectAccountLinkInvitationCommandOutput,
+} from "./commands/RejectAccountLinkInvitationCommand";
+import {
   RestoreWorkspaceCommand,
   RestoreWorkspaceCommandInput,
   RestoreWorkspaceCommandOutput,
@@ -362,11 +392,13 @@ import {
 import { WorkSpacesClient, WorkSpacesClientConfig } from "./WorkSpacesClient";
 
 const commands = {
+  AcceptAccountLinkInvitationCommand,
   AssociateConnectionAliasCommand,
   AssociateIpGroupsCommand,
   AssociateWorkspaceApplicationCommand,
   AuthorizeIpRulesCommand,
   CopyWorkspaceImageCommand,
+  CreateAccountLinkInvitationCommand,
   CreateConnectClientAddInCommand,
   CreateConnectionAliasCommand,
   CreateIpGroupCommand,
@@ -376,6 +408,7 @@ const commands = {
   CreateWorkspaceBundleCommand,
   CreateWorkspaceImageCommand,
   CreateWorkspacesCommand,
+  DeleteAccountLinkInvitationCommand,
   DeleteClientBrandingCommand,
   DeleteConnectClientAddInCommand,
   DeleteConnectionAliasCommand,
@@ -409,8 +442,10 @@ const commands = {
   DisassociateConnectionAliasCommand,
   DisassociateIpGroupsCommand,
   DisassociateWorkspaceApplicationCommand,
+  GetAccountLinkCommand,
   ImportClientBrandingCommand,
   ImportWorkspaceImageCommand,
+  ListAccountLinksCommand,
   ListAvailableManagementCidrRangesCommand,
   MigrateWorkspaceCommand,
   ModifyAccountCommand,
@@ -425,6 +460,7 @@ const commands = {
   RebootWorkspacesCommand,
   RebuildWorkspacesCommand,
   RegisterWorkspaceDirectoryCommand,
+  RejectAccountLinkInvitationCommand,
   RestoreWorkspaceCommand,
   RevokeIpRulesCommand,
   StartWorkspacesCommand,
@@ -438,6 +474,23 @@ const commands = {
 };
 
 export interface WorkSpaces {
+  /**
+   * @see {@link AcceptAccountLinkInvitationCommand}
+   */
+  acceptAccountLinkInvitation(
+    args: AcceptAccountLinkInvitationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAccountLinkInvitationCommandOutput>;
+  acceptAccountLinkInvitation(
+    args: AcceptAccountLinkInvitationCommandInput,
+    cb: (err: any, data?: AcceptAccountLinkInvitationCommandOutput) => void
+  ): void;
+  acceptAccountLinkInvitation(
+    args: AcceptAccountLinkInvitationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAccountLinkInvitationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AssociateConnectionAliasCommand}
    */
@@ -521,6 +574,23 @@ export interface WorkSpaces {
     args: CopyWorkspaceImageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopyWorkspaceImageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccountLinkInvitationCommand}
+   */
+  createAccountLinkInvitation(
+    args: CreateAccountLinkInvitationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccountLinkInvitationCommandOutput>;
+  createAccountLinkInvitation(
+    args: CreateAccountLinkInvitationCommandInput,
+    cb: (err: any, data?: CreateAccountLinkInvitationCommandOutput) => void
+  ): void;
+  createAccountLinkInvitation(
+    args: CreateAccountLinkInvitationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccountLinkInvitationCommandOutput) => void
   ): void;
 
   /**
@@ -662,6 +732,23 @@ export interface WorkSpaces {
     args: CreateWorkspacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkspacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccountLinkInvitationCommand}
+   */
+  deleteAccountLinkInvitation(
+    args: DeleteAccountLinkInvitationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountLinkInvitationCommandOutput>;
+  deleteAccountLinkInvitation(
+    args: DeleteAccountLinkInvitationCommandInput,
+    cb: (err: any, data?: DeleteAccountLinkInvitationCommandOutput) => void
+  ): void;
+  deleteAccountLinkInvitation(
+    args: DeleteAccountLinkInvitationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountLinkInvitationCommandOutput) => void
   ): void;
 
   /**
@@ -1216,6 +1303,21 @@ export interface WorkSpaces {
   ): void;
 
   /**
+   * @see {@link GetAccountLinkCommand}
+   */
+  getAccountLink(): Promise<GetAccountLinkCommandOutput>;
+  getAccountLink(
+    args: GetAccountLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountLinkCommandOutput>;
+  getAccountLink(args: GetAccountLinkCommandInput, cb: (err: any, data?: GetAccountLinkCommandOutput) => void): void;
+  getAccountLink(
+    args: GetAccountLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountLinkCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ImportClientBrandingCommand}
    */
   importClientBranding(
@@ -1247,6 +1349,24 @@ export interface WorkSpaces {
     args: ImportWorkspaceImageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportWorkspaceImageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccountLinksCommand}
+   */
+  listAccountLinks(): Promise<ListAccountLinksCommandOutput>;
+  listAccountLinks(
+    args: ListAccountLinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountLinksCommandOutput>;
+  listAccountLinks(
+    args: ListAccountLinksCommandInput,
+    cb: (err: any, data?: ListAccountLinksCommandOutput) => void
+  ): void;
+  listAccountLinks(
+    args: ListAccountLinksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccountLinksCommandOutput) => void
   ): void;
 
   /**
@@ -1480,6 +1600,23 @@ export interface WorkSpaces {
     args: RegisterWorkspaceDirectoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterWorkspaceDirectoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectAccountLinkInvitationCommand}
+   */
+  rejectAccountLinkInvitation(
+    args: RejectAccountLinkInvitationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectAccountLinkInvitationCommandOutput>;
+  rejectAccountLinkInvitation(
+    args: RejectAccountLinkInvitationCommandInput,
+    cb: (err: any, data?: RejectAccountLinkInvitationCommandOutput) => void
+  ): void;
+  rejectAccountLinkInvitation(
+    args: RejectAccountLinkInvitationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectAccountLinkInvitationCommandOutput) => void
   ): void;
 
   /**

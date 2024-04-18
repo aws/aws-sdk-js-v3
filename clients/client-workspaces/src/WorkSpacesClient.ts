@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AcceptAccountLinkInvitationCommandInput,
+  AcceptAccountLinkInvitationCommandOutput,
+} from "./commands/AcceptAccountLinkInvitationCommand";
+import {
   AssociateConnectionAliasCommandInput,
   AssociateConnectionAliasCommandOutput,
 } from "./commands/AssociateConnectionAliasCommand";
@@ -64,6 +68,10 @@ import {
 } from "./commands/AssociateWorkspaceApplicationCommand";
 import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "./commands/AuthorizeIpRulesCommand";
 import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "./commands/CopyWorkspaceImageCommand";
+import {
+  CreateAccountLinkInvitationCommandInput,
+  CreateAccountLinkInvitationCommandOutput,
+} from "./commands/CreateAccountLinkInvitationCommand";
 import {
   CreateConnectClientAddInCommandInput,
   CreateConnectClientAddInCommandOutput,
@@ -91,6 +99,10 @@ import {
   CreateWorkspaceImageCommandOutput,
 } from "./commands/CreateWorkspaceImageCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "./commands/CreateWorkspacesCommand";
+import {
+  DeleteAccountLinkInvitationCommandInput,
+  DeleteAccountLinkInvitationCommandOutput,
+} from "./commands/DeleteAccountLinkInvitationCommand";
 import {
   DeleteClientBrandingCommandInput,
   DeleteClientBrandingCommandOutput,
@@ -205,6 +217,7 @@ import {
   DisassociateWorkspaceApplicationCommandInput,
   DisassociateWorkspaceApplicationCommandOutput,
 } from "./commands/DisassociateWorkspaceApplicationCommand";
+import { GetAccountLinkCommandInput, GetAccountLinkCommandOutput } from "./commands/GetAccountLinkCommand";
 import {
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
@@ -213,6 +226,7 @@ import {
   ImportWorkspaceImageCommandInput,
   ImportWorkspaceImageCommandOutput,
 } from "./commands/ImportWorkspaceImageCommand";
+import { ListAccountLinksCommandInput, ListAccountLinksCommandOutput } from "./commands/ListAccountLinksCommand";
 import {
   ListAvailableManagementCidrRangesCommandInput,
   ListAvailableManagementCidrRangesCommandOutput,
@@ -257,6 +271,10 @@ import {
   RegisterWorkspaceDirectoryCommandInput,
   RegisterWorkspaceDirectoryCommandOutput,
 } from "./commands/RegisterWorkspaceDirectoryCommand";
+import {
+  RejectAccountLinkInvitationCommandInput,
+  RejectAccountLinkInvitationCommandOutput,
+} from "./commands/RejectAccountLinkInvitationCommand";
 import { RestoreWorkspaceCommandInput, RestoreWorkspaceCommandOutput } from "./commands/RestoreWorkspaceCommand";
 import { RevokeIpRulesCommandInput, RevokeIpRulesCommandOutput } from "./commands/RevokeIpRulesCommand";
 import { StartWorkspacesCommandInput, StartWorkspacesCommandOutput } from "./commands/StartWorkspacesCommand";
@@ -300,11 +318,13 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptAccountLinkInvitationCommandInput
   | AssociateConnectionAliasCommandInput
   | AssociateIpGroupsCommandInput
   | AssociateWorkspaceApplicationCommandInput
   | AuthorizeIpRulesCommandInput
   | CopyWorkspaceImageCommandInput
+  | CreateAccountLinkInvitationCommandInput
   | CreateConnectClientAddInCommandInput
   | CreateConnectionAliasCommandInput
   | CreateIpGroupCommandInput
@@ -314,6 +334,7 @@ export type ServiceInputTypes =
   | CreateWorkspaceBundleCommandInput
   | CreateWorkspaceImageCommandInput
   | CreateWorkspacesCommandInput
+  | DeleteAccountLinkInvitationCommandInput
   | DeleteClientBrandingCommandInput
   | DeleteConnectClientAddInCommandInput
   | DeleteConnectionAliasCommandInput
@@ -347,8 +368,10 @@ export type ServiceInputTypes =
   | DisassociateConnectionAliasCommandInput
   | DisassociateIpGroupsCommandInput
   | DisassociateWorkspaceApplicationCommandInput
+  | GetAccountLinkCommandInput
   | ImportClientBrandingCommandInput
   | ImportWorkspaceImageCommandInput
+  | ListAccountLinksCommandInput
   | ListAvailableManagementCidrRangesCommandInput
   | MigrateWorkspaceCommandInput
   | ModifyAccountCommandInput
@@ -363,6 +386,7 @@ export type ServiceInputTypes =
   | RebootWorkspacesCommandInput
   | RebuildWorkspacesCommandInput
   | RegisterWorkspaceDirectoryCommandInput
+  | RejectAccountLinkInvitationCommandInput
   | RestoreWorkspaceCommandInput
   | RevokeIpRulesCommandInput
   | StartWorkspacesCommandInput
@@ -378,11 +402,13 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptAccountLinkInvitationCommandOutput
   | AssociateConnectionAliasCommandOutput
   | AssociateIpGroupsCommandOutput
   | AssociateWorkspaceApplicationCommandOutput
   | AuthorizeIpRulesCommandOutput
   | CopyWorkspaceImageCommandOutput
+  | CreateAccountLinkInvitationCommandOutput
   | CreateConnectClientAddInCommandOutput
   | CreateConnectionAliasCommandOutput
   | CreateIpGroupCommandOutput
@@ -392,6 +418,7 @@ export type ServiceOutputTypes =
   | CreateWorkspaceBundleCommandOutput
   | CreateWorkspaceImageCommandOutput
   | CreateWorkspacesCommandOutput
+  | DeleteAccountLinkInvitationCommandOutput
   | DeleteClientBrandingCommandOutput
   | DeleteConnectClientAddInCommandOutput
   | DeleteConnectionAliasCommandOutput
@@ -425,8 +452,10 @@ export type ServiceOutputTypes =
   | DisassociateConnectionAliasCommandOutput
   | DisassociateIpGroupsCommandOutput
   | DisassociateWorkspaceApplicationCommandOutput
+  | GetAccountLinkCommandOutput
   | ImportClientBrandingCommandOutput
   | ImportWorkspaceImageCommandOutput
+  | ListAccountLinksCommandOutput
   | ListAvailableManagementCidrRangesCommandOutput
   | MigrateWorkspaceCommandOutput
   | ModifyAccountCommandOutput
@@ -441,6 +470,7 @@ export type ServiceOutputTypes =
   | RebootWorkspacesCommandOutput
   | RebuildWorkspacesCommandOutput
   | RegisterWorkspaceDirectoryCommandOutput
+  | RejectAccountLinkInvitationCommandOutput
   | RestoreWorkspaceCommandOutput
   | RevokeIpRulesCommandOutput
   | StartWorkspacesCommandOutput

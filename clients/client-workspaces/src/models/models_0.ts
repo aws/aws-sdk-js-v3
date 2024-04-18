@@ -4,6 +4,81 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServiceException";
 
 /**
+ * @public
+ */
+export interface AcceptAccountLinkInvitationRequest {
+  /**
+   * <p>The identifier of the account link.</p>
+   * @public
+   */
+  LinkId: string | undefined;
+
+  /**
+   * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>
+   * @public
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AccountLinkStatusEnum = {
+  LINKED: "LINKED",
+  LINKING_FAILED: "LINKING_FAILED",
+  LINK_NOT_FOUND: "LINK_NOT_FOUND",
+  PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT: "PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type AccountLinkStatusEnum = (typeof AccountLinkStatusEnum)[keyof typeof AccountLinkStatusEnum];
+
+/**
+ * <p>Information about about the account link.</p>
+ * @public
+ */
+export interface AccountLink {
+  /**
+   * <p>The identifier of the account link.</p>
+   * @public
+   */
+  AccountLinkId?: string;
+
+  /**
+   * <p>The status of the account link.</p>
+   * @public
+   */
+  AccountLinkStatus?: AccountLinkStatusEnum;
+
+  /**
+   * <p>The identifier of the source account.</p>
+   * @public
+   */
+  SourceAccountId?: string;
+
+  /**
+   * <p>The identifier of the target account.</p>
+   * @public
+   */
+  TargetAccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface AcceptAccountLinkInvitationResult {
+  /**
+   * <p>Information about the account link.</p>
+   * @public
+   */
+  AccountLink?: AccountLink;
+}
+
+/**
  * <p>The user is not authorized to access a resource.</p>
  * @public
  */
@@ -20,6 +95,94 @@ export class AccessDeniedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
+ * <p>The <code>TargetAccountId</code> is already linked or invited.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * <p>Unexpected server error occured.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>The resource could not be found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that could not be found.</p>
+   * @public
+   */
+  ResourceId?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.ResourceId = opts.ResourceId;
+  }
+}
+
+/**
+ * <p>You either haven't provided a <code>TargetAccountId</code> or
+ *          are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
 
@@ -380,33 +543,6 @@ export class ResourceAssociatedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceAssociatedException.prototype);
-  }
-}
-
-/**
- * <p>The resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that could not be found.</p>
-   * @public
-   */
-  ResourceId?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.ResourceId = opts.ResourceId;
   }
 }
 
@@ -1300,6 +1436,34 @@ export class ResourceUnavailableException extends __BaseException {
     Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
     this.ResourceId = opts.ResourceId;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreateAccountLinkInvitationRequest {
+  /**
+   * <p>The identifier of the target account.</p>
+   * @public
+   */
+  TargetAccountId: string | undefined;
+
+  /**
+   * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>
+   * @public
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccountLinkInvitationResult {
+  /**
+   * <p>Information about the account link.</p>
+   * @public
+   */
+  AccountLink?: AccountLink;
 }
 
 /**
@@ -2466,6 +2630,21 @@ export interface CreateWorkspacesResult {
  * @public
  * @enum
  */
+export const DedicatedTenancyAccountType = {
+  SOURCE_ACCOUNT: "SOURCE_ACCOUNT",
+  TARGET_ACCOUNT: "TARGET_ACCOUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type DedicatedTenancyAccountType =
+  (typeof DedicatedTenancyAccountType)[keyof typeof DedicatedTenancyAccountType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DedicatedTenancySupportEnum = {
   ENABLED: "ENABLED",
 } as const;
@@ -2704,6 +2883,34 @@ export type DeletableSamlProperty = (typeof DeletableSamlProperty)[keyof typeof 
 /**
  * @public
  */
+export interface DeleteAccountLinkInvitationRequest {
+  /**
+   * <p>The identifier of the account link.</p>
+   * @public
+   */
+  LinkId: string | undefined;
+
+  /**
+   * <p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>
+   * @public
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountLinkInvitationResult {
+  /**
+   * <p>Information about the account link.</p>
+   * @public
+   */
+  AccountLink?: AccountLink;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClientBrandingRequest {
   /**
    * <p>The directory identifier of the WorkSpace for which you want to delete client
@@ -2917,6 +3124,12 @@ export interface DescribeAccountResult {
    * @public
    */
   DedicatedTenancyManagementCidrRange?: string;
+
+  /**
+   * <p>The type of linked account.</p>
+   * @public
+   */
+  DedicatedTenancyAccountType?: DedicatedTenancyAccountType;
 }
 
 /**
@@ -4683,6 +4896,34 @@ export interface FailedWorkspaceChangeRequest {
 }
 
 /**
+ * @public
+ */
+export interface GetAccountLinkRequest {
+  /**
+   * <p>The identifier of the account to link.</p>
+   * @public
+   */
+  LinkId?: string;
+
+  /**
+   * <p>The identifier of the account link</p>
+   * @public
+   */
+  LinkedAccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetAccountLinkResult {
+  /**
+   * <p>The account link of the account link to retrieve.</p>
+   * @public
+   */
+  AccountLink?: AccountLink;
+}
+
+/**
  * <p>The client branding attributes to import for iOS device types. These attributes are
  *          displayed on the iOS client login screen.</p>
  *          <important>
@@ -4962,6 +5203,46 @@ export interface ImportWorkspaceImageResult {
    * @public
    */
   ImageId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAccountLinksRequest {
+  /**
+   * <p>Filters the account based on their link status.</p>
+   * @public
+   */
+  LinkStatusFilter?: AccountLinkStatusEnum[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of accounts to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAccountLinksResult {
+  /**
+   * <p>Information about the account links.</p>
+   * @public
+   */
+  AccountLinks?: AccountLink[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
 }
 
 /**
@@ -5577,6 +5858,34 @@ export class WorkspacesDefaultRoleNotFoundException extends __BaseException {
     });
     Object.setPrototypeOf(this, WorkspacesDefaultRoleNotFoundException.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface RejectAccountLinkInvitationRequest {
+  /**
+   * <p>The identifier of the account link</p>
+   * @public
+   */
+  LinkId: string | undefined;
+
+  /**
+   * <p>The client token of the account link invitation to reject.</p>
+   * @public
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface RejectAccountLinkInvitationResult {
+  /**
+   * <p>Information about the account link.</p>
+   * @public
+   */
+  AccountLink?: AccountLink;
 }
 
 /**

@@ -21,6 +21,10 @@ import {
 } from "@smithy/types";
 
 import {
+  AcceptAccountLinkInvitationCommandInput,
+  AcceptAccountLinkInvitationCommandOutput,
+} from "../commands/AcceptAccountLinkInvitationCommand";
+import {
   AssociateConnectionAliasCommandInput,
   AssociateConnectionAliasCommandOutput,
 } from "../commands/AssociateConnectionAliasCommand";
@@ -31,6 +35,10 @@ import {
 } from "../commands/AssociateWorkspaceApplicationCommand";
 import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "../commands/AuthorizeIpRulesCommand";
 import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "../commands/CopyWorkspaceImageCommand";
+import {
+  CreateAccountLinkInvitationCommandInput,
+  CreateAccountLinkInvitationCommandOutput,
+} from "../commands/CreateAccountLinkInvitationCommand";
 import {
   CreateConnectClientAddInCommandInput,
   CreateConnectClientAddInCommandOutput,
@@ -58,6 +66,10 @@ import {
   CreateWorkspaceImageCommandOutput,
 } from "../commands/CreateWorkspaceImageCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "../commands/CreateWorkspacesCommand";
+import {
+  DeleteAccountLinkInvitationCommandInput,
+  DeleteAccountLinkInvitationCommandOutput,
+} from "../commands/DeleteAccountLinkInvitationCommand";
 import {
   DeleteClientBrandingCommandInput,
   DeleteClientBrandingCommandOutput,
@@ -172,6 +184,7 @@ import {
   DisassociateWorkspaceApplicationCommandInput,
   DisassociateWorkspaceApplicationCommandOutput,
 } from "../commands/DisassociateWorkspaceApplicationCommand";
+import { GetAccountLinkCommandInput, GetAccountLinkCommandOutput } from "../commands/GetAccountLinkCommand";
 import {
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
@@ -180,6 +193,7 @@ import {
   ImportWorkspaceImageCommandInput,
   ImportWorkspaceImageCommandOutput,
 } from "../commands/ImportWorkspaceImageCommand";
+import { ListAccountLinksCommandInput, ListAccountLinksCommandOutput } from "../commands/ListAccountLinksCommand";
 import {
   ListAvailableManagementCidrRangesCommandInput,
   ListAvailableManagementCidrRangesCommandOutput,
@@ -224,6 +238,10 @@ import {
   RegisterWorkspaceDirectoryCommandInput,
   RegisterWorkspaceDirectoryCommandOutput,
 } from "../commands/RegisterWorkspaceDirectoryCommand";
+import {
+  RejectAccountLinkInvitationCommandInput,
+  RejectAccountLinkInvitationCommandOutput,
+} from "../commands/RejectAccountLinkInvitationCommand";
 import { RestoreWorkspaceCommandInput, RestoreWorkspaceCommandOutput } from "../commands/RestoreWorkspaceCommand";
 import { RevokeIpRulesCommandInput, RevokeIpRulesCommandOutput } from "../commands/RevokeIpRulesCommand";
 import { StartWorkspacesCommandInput, StartWorkspacesCommandOutput } from "../commands/StartWorkspacesCommand";
@@ -253,7 +271,9 @@ import {
   UpdateWorkspaceImagePermissionCommandOutput,
 } from "../commands/UpdateWorkspaceImagePermissionCommand";
 import {
+  AcceptAccountLinkInvitationRequest,
   AccessDeniedException,
+  AccountLinkStatusEnum,
   AccountModification,
   Application,
   ApplicationAssociatedResourceType,
@@ -272,8 +292,10 @@ import {
   Compute,
   ComputeNotCompatibleException,
   ComputeType,
+  ConflictException,
   ConnectionAliasPermission,
   CopyWorkspaceImageRequest,
+  CreateAccountLinkInvitationRequest,
   CreateConnectClientAddInRequest,
   CreateConnectionAliasRequest,
   CreateIpGroupRequest,
@@ -290,6 +312,7 @@ import {
   DefaultImportClientBrandingAttributes,
   DeletableCertificateBasedAuthProperty,
   DeletableSamlProperty,
+  DeleteAccountLinkInvitationRequest,
   DeleteClientBrandingRequest,
   DeleteConnectClientAddInRequest,
   DeleteConnectionAliasRequest,
@@ -336,15 +359,18 @@ import {
   DisassociateIpGroupsRequest,
   DisassociateWorkspaceApplicationRequest,
   DisassociateWorkspaceApplicationResult,
+  GetAccountLinkRequest,
   ImageAssociatedResourceType,
   ImageResourceAssociation,
   ImportClientBrandingRequest,
   ImportWorkspaceImageRequest,
   IncompatibleApplicationsException,
+  InternalServerException,
   InvalidParameterValuesException,
   InvalidResourceStateException,
   IosImportClientBrandingAttributes,
   IpRuleItem,
+  ListAccountLinksRequest,
   ListAvailableManagementCidrRangesRequest,
   MigrateWorkspaceRequest,
   ModifyAccountRequest,
@@ -366,6 +392,7 @@ import {
   RebuildRequest,
   RebuildWorkspacesRequest,
   RegisterWorkspaceDirectoryRequest,
+  RejectAccountLinkInvitationRequest,
   ResourceAlreadyExistsException,
   ResourceAssociatedException,
   ResourceCreationFailedException,
@@ -396,6 +423,7 @@ import {
   UpdateWorkspaceBundleRequest,
   UpdateWorkspaceImagePermissionRequest,
   UserStorage,
+  ValidationException,
   Workspace,
   WorkspaceAccessProperties,
   WorkSpaceApplication,
@@ -411,6 +439,19 @@ import {
   WorkspacesDefaultRoleNotFoundException,
 } from "../models/models_0";
 import { WorkSpacesServiceException as __BaseException } from "../models/WorkSpacesServiceException";
+
+/**
+ * serializeAws_json1_1AcceptAccountLinkInvitationCommand
+ */
+export const se_AcceptAccountLinkInvitationCommand = async (
+  input: AcceptAccountLinkInvitationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AcceptAccountLinkInvitation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_1AssociateConnectionAliasCommand
@@ -472,6 +513,19 @@ export const se_CopyWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CopyWorkspaceImage");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateAccountLinkInvitationCommand
+ */
+export const se_CreateAccountLinkInvitationCommand = async (
+  input: CreateAccountLinkInvitationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAccountLinkInvitation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -589,6 +643,19 @@ export const se_CreateWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWorkspaces");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteAccountLinkInvitationCommand
+ */
+export const se_DeleteAccountLinkInvitationCommand = async (
+  input: DeleteAccountLinkInvitationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteAccountLinkInvitation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1024,6 +1091,19 @@ export const se_DisassociateWorkspaceApplicationCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetAccountLinkCommand
+ */
+export const se_GetAccountLinkCommand = async (
+  input: GetAccountLinkCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAccountLink");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ImportClientBrandingCommand
  */
 export const se_ImportClientBrandingCommand = async (
@@ -1044,6 +1124,19 @@ export const se_ImportWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ImportWorkspaceImage");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListAccountLinksCommand
+ */
+export const se_ListAccountLinksCommand = async (
+  input: ListAccountLinksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAccountLinks");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1232,6 +1325,19 @@ export const se_RegisterWorkspaceDirectoryCommand = async (
 };
 
 /**
+ * serializeAws_json1_1RejectAccountLinkInvitationCommand
+ */
+export const se_RejectAccountLinkInvitationCommand = async (
+  input: RejectAccountLinkInvitationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RejectAccountLinkInvitation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1RestoreWorkspaceCommand
  */
 export const se_RestoreWorkspaceCommand = async (
@@ -1362,6 +1468,26 @@ export const se_UpdateWorkspaceImagePermissionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1AcceptAccountLinkInvitationCommand
+ */
+export const de_AcceptAccountLinkInvitationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptAccountLinkInvitationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AcceptAccountLinkInvitationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1AssociateConnectionAliasCommand
  */
 export const de_AssociateConnectionAliasCommand = async (
@@ -1455,6 +1581,26 @@ export const de_CopyWorkspaceImageCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: CopyWorkspaceImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAccountLinkInvitationCommand
+ */
+export const de_CreateAccountLinkInvitationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccountLinkInvitationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAccountLinkInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1635,6 +1781,26 @@ export const de_CreateWorkspacesCommand = async (
   let contents: any = {};
   contents = de_CreateWorkspacesResult(data, context);
   const response: CreateWorkspacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAccountLinkInvitationCommand
+ */
+export const de_DeleteAccountLinkInvitationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountLinkInvitationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAccountLinkInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2302,6 +2468,26 @@ export const de_DisassociateWorkspaceApplicationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetAccountLinkCommand
+ */
+export const de_GetAccountLinkCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountLinkCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetAccountLinkCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ImportClientBrandingCommand
  */
 export const de_ImportClientBrandingCommand = async (
@@ -2335,6 +2521,26 @@ export const de_ImportWorkspaceImageCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ImportWorkspaceImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAccountLinksCommand
+ */
+export const de_ListAccountLinksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountLinksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAccountLinksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2622,6 +2828,26 @@ export const de_RegisterWorkspaceDirectoryCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1RejectAccountLinkInvitationCommand
+ */
+export const de_RejectAccountLinkInvitationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectAccountLinkInvitationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RejectAccountLinkInvitationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1RestoreWorkspaceCommand
  */
 export const de_RestoreWorkspaceCommand = async (
@@ -2834,6 +3060,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.workspaces#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.workspaces#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.workspaces#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
       throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
@@ -2846,9 +3084,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceAssociatedException":
     case "com.amazonaws.workspaces#ResourceAssociatedException":
       throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.workspaces#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
@@ -2947,6 +3182,19 @@ const de_ComputeNotCompatibleExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1IncompatibleApplicationsExceptionRes
  */
 const de_IncompatibleApplicationsExceptionRes = async (
@@ -2956,6 +3204,22 @@ const de_IncompatibleApplicationsExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new IncompatibleApplicationsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServerException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3187,6 +3451,19 @@ const de_UnsupportedWorkspaceConfigurationExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1WorkspacesDefaultRoleNotFoundExceptionRes
  */
 const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
@@ -3201,6 +3478,8 @@ const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
   });
   return __decorateServiceException(exception, body);
 };
+
+// se_AcceptAccountLinkInvitationRequest omitted.
 
 // se_ApplicationAssociatedResourceTypeList omitted.
 
@@ -3233,6 +3512,8 @@ const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
 // se_ConnectionAliasPermission omitted.
 
 // se_CopyWorkspaceImageRequest omitted.
+
+// se_CreateAccountLinkInvitationRequest omitted.
 
 // se_CreateConnectClientAddInRequest omitted.
 
@@ -3271,6 +3552,8 @@ const se_DefaultImportClientBrandingAttributes = (
 // se_DeletableCertificateBasedAuthPropertiesList omitted.
 
 // se_DeletableSamlPropertiesList omitted.
+
+// se_DeleteAccountLinkInvitationRequest omitted.
 
 // se_DeleteClientBrandingRequest omitted.
 
@@ -3340,6 +3623,8 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_DisassociateWorkspaceApplicationRequest omitted.
 
+// se_GetAccountLinkRequest omitted.
+
 // se_ImageAssociatedResourceTypeList omitted.
 
 /**
@@ -3385,6 +3670,10 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_IpRuleList omitted.
 
+// se_LinkStatusFilterList omitted.
+
+// se_ListAccountLinksRequest omitted.
+
 // se_ListAvailableManagementCidrRangesRequest omitted.
 
 // se_LoginMessage omitted.
@@ -3426,6 +3715,8 @@ const se_IosImportClientBrandingAttributes = (
 // se_RebuildWorkspacesRequest omitted.
 
 // se_RegisterWorkspaceDirectoryRequest omitted.
+
+// se_RejectAccountLinkInvitationRequest omitted.
 
 // se_ResourceIdList omitted.
 
@@ -3499,7 +3790,13 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_WorkspaceRequestList omitted.
 
+// de_AcceptAccountLinkInvitationResult omitted.
+
 // de_AccessDeniedException omitted.
+
+// de_AccountLink omitted.
+
+// de_AccountLinkList omitted.
 
 /**
  * deserializeAws_json1_1AccountModification
@@ -3632,6 +3929,8 @@ const de_BundleResourceAssociationList = (output: any, context: __SerdeContext):
 
 // de_ComputeType omitted.
 
+// de_ConflictException omitted.
+
 // de_ConnectClientAddIn omitted.
 
 // de_ConnectClientAddInList omitted.
@@ -3649,6 +3948,8 @@ const de_BundleResourceAssociationList = (output: any, context: __SerdeContext):
 // de_ConnectionAliasPermissions omitted.
 
 // de_CopyWorkspaceImageResult omitted.
+
+// de_CreateAccountLinkInvitationResult omitted.
 
 // de_CreateConnectClientAddInResult omitted.
 
@@ -3712,6 +4013,8 @@ const de_DataReplicationSettings = (output: any, context: __SerdeContext): DataR
 // de_DefaultClientBrandingAttributes omitted.
 
 // de_DefaultWorkspaceCreationProperties omitted.
+
+// de_DeleteAccountLinkInvitationResult omitted.
 
 // de_DeleteClientBrandingResult omitted.
 
@@ -3930,6 +4233,8 @@ const de_DisassociateWorkspaceApplicationResult = (
 
 // de_FailedWorkspaceChangeRequest omitted.
 
+// de_GetAccountLinkResult omitted.
+
 // de_ImagePermission omitted.
 
 // de_ImagePermissions omitted.
@@ -3967,6 +4272,8 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 
 // de_IncompatibleApplicationsException omitted.
 
+// de_InternalServerException omitted.
+
 // de_InvalidParameterValuesException omitted.
 
 // de_InvalidResourceStateException omitted.
@@ -3978,6 +4285,8 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 // de_IpRuleItem omitted.
 
 // de_IpRuleList omitted.
+
+// de_ListAccountLinksResult omitted.
 
 // de_ListAvailableManagementCidrRangesResult omitted.
 
@@ -4028,6 +4337,8 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 // de_RebuildWorkspacesResult omitted.
 
 // de_RegisterWorkspaceDirectoryResult omitted.
+
+// de_RejectAccountLinkInvitationResult omitted.
 
 // de_RelatedWorkspaceProperties omitted.
 
@@ -4132,6 +4443,8 @@ const de_StandbyWorkspacesPropertiesList = (output: any, context: __SerdeContext
 // de_UpdateWorkspaceImagePermissionResult omitted.
 
 // de_UserStorage omitted.
+
+// de_ValidationException omitted.
 
 /**
  * deserializeAws_json1_1Workspace

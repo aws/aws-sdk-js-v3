@@ -40,16 +40,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WorkSpacesClient` and
-the commands you need, for example `ListAvailableManagementCidrRangesCommand`:
+the commands you need, for example `ListAccountLinksCommand`:
 
 ```js
 // ES5 example
-const { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } = require("@aws-sdk/client-workspaces");
+const { WorkSpacesClient, ListAccountLinksCommand } = require("@aws-sdk/client-workspaces");
 ```
 
 ```ts
 // ES6+ example
-import { WorkSpacesClient, ListAvailableManagementCidrRangesCommand } from "@aws-sdk/client-workspaces";
+import { WorkSpacesClient, ListAccountLinksCommand } from "@aws-sdk/client-workspaces";
 ```
 
 ### Usage
@@ -68,7 +68,7 @@ const client = new WorkSpacesClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListAvailableManagementCidrRangesCommand(params);
+const command = new ListAccountLinksCommand(params);
 ```
 
 #### Async/await
@@ -147,7 +147,7 @@ const client = new AWS.WorkSpaces({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listAvailableManagementCidrRanges(params);
+  const data = await client.listAccountLinks(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -155,7 +155,7 @@ try {
 
 // Promises.
 client
-  .listAvailableManagementCidrRanges(params)
+  .listAccountLinks(params)
   .then((data) => {
     // process data.
   })
@@ -164,7 +164,7 @@ client
   });
 
 // callbacks.
-client.listAvailableManagementCidrRanges(params, (err, data) => {
+client.listAccountLinks(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -222,6 +222,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AcceptAccountLinkInvitation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/AcceptAccountLinkInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/AcceptAccountLinkInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/AcceptAccountLinkInvitationCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateConnectionAlias
 </summary>
 
@@ -258,6 +266,14 @@ CopyWorkspaceImage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/CopyWorkspaceImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/CopyWorkspaceImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/CopyWorkspaceImageCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateAccountLinkInvitation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/CreateAccountLinkInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/CreateAccountLinkInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/CreateAccountLinkInvitationCommandOutput/)
 
 </details>
 <details>
@@ -330,6 +346,14 @@ CreateWorkspaces
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/CreateWorkspacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/CreateWorkspacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/CreateWorkspacesCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteAccountLinkInvitation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/DeleteAccountLinkInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/DeleteAccountLinkInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/DeleteAccountLinkInvitationCommandOutput/)
 
 </details>
 <details>
@@ -598,6 +622,14 @@ DisassociateWorkspaceApplication
 </details>
 <details>
 <summary>
+GetAccountLink
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/GetAccountLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/GetAccountLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/GetAccountLinkCommandOutput/)
+
+</details>
+<details>
+<summary>
 ImportClientBranding
 </summary>
 
@@ -610,6 +642,14 @@ ImportWorkspaceImage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ImportWorkspaceImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ImportWorkspaceImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ImportWorkspaceImageCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAccountLinks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ListAccountLinksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ListAccountLinksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ListAccountLinksCommandOutput/)
 
 </details>
 <details>
@@ -722,6 +762,14 @@ RegisterWorkspaceDirectory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/RegisterWorkspaceDirectoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/RegisterWorkspaceDirectoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/RegisterWorkspaceDirectoryCommandOutput/)
+
+</details>
+<details>
+<summary>
+RejectAccountLinkInvitation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/RejectAccountLinkInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/RejectAccountLinkInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/RejectAccountLinkInvitationCommandOutput/)
 
 </details>
 <details>

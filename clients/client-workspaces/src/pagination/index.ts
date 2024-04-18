@@ -9,3 +9,4 @@ export * from "./DescribeWorkspaceDirectoriesPaginator";
 export * from "./DescribeWorkspacesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListAccountLinksPaginator";
