@@ -26,6 +26,10 @@ import {
 
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "../commands/CreateProfileCommand";
 import { CreateTrustAnchorCommandInput, CreateTrustAnchorCommandOutput } from "../commands/CreateTrustAnchorCommand";
+import {
+  DeleteAttributeMappingCommandInput,
+  DeleteAttributeMappingCommandOutput,
+} from "../commands/DeleteAttributeMappingCommand";
 import { DeleteCrlCommandInput, DeleteCrlCommandOutput } from "../commands/DeleteCrlCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteTrustAnchorCommandInput, DeleteTrustAnchorCommandOutput } from "../commands/DeleteTrustAnchorCommand";
@@ -49,6 +53,10 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { ListTrustAnchorsCommandInput, ListTrustAnchorsCommandOutput } from "../commands/ListTrustAnchorsCommand";
 import {
+  PutAttributeMappingCommandInput,
+  PutAttributeMappingCommandOutput,
+} from "../commands/PutAttributeMappingCommand";
+import {
   PutNotificationSettingsCommandInput,
   PutNotificationSettingsCommandOutput,
 } from "../commands/PutNotificationSettingsCommand";
@@ -66,6 +74,7 @@ import {
   CredentialSummary,
   CrlDetail,
   InstanceProperty,
+  MappingRule,
   NotificationSetting,
   NotificationSettingKey,
   ProfileDetail,
@@ -133,6 +142,26 @@ export const se_CreateTrustAnchorCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAttributeMappingCommand
+ */
+export const se_DeleteAttributeMappingCommand = async (
+  input: DeleteAttributeMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/profiles/{profileId}/mappings");
+  b.p("profileId", () => input.profileId!, "{profileId}", false);
+  const query: any = map({
+    [_cF]: [, __expectNonNull(input[_cF]!, `certificateField`)],
+    [_s]: [() => input.specifiers !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -462,6 +491,30 @@ export const se_ListTrustAnchorsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PutAttributeMappingCommand
+ */
+export const se_PutAttributeMappingCommand = async (
+  input: PutAttributeMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/profiles/{profileId}/mappings");
+  b.p("profileId", () => input.profileId!, "{profileId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      certificateField: [],
+      mappingRules: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutNotificationSettingsCommand
  */
 export const se_PutNotificationSettingsCommand = async (
@@ -665,6 +718,27 @@ export const de_CreateTrustAnchorCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     trustAnchor: (_) => de_TrustAnchorDetail(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAttributeMappingCommand
+ */
+export const de_DeleteAttributeMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAttributeMappingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    profile: (_) => de_ProfileDetail(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1074,6 +1148,27 @@ export const de_ListTrustAnchorsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutAttributeMappingCommand
+ */
+export const de_PutAttributeMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAttributeMappingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    profile: (_) => de_ProfileDetail(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutNotificationSettingsCommand
  */
 export const de_PutNotificationSettingsCommand = async (
@@ -1324,6 +1419,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ManagedPolicyList omitted.
 
+// se_MappingRule omitted.
+
+// se_MappingRules omitted.
+
 // se_NotificationSetting omitted.
 
 // se_NotificationSettingKey omitted.
@@ -1343,6 +1442,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagKeyList omitted.
 
 // se_TagList omitted.
+
+// de_AttributeMapping omitted.
+
+// de_AttributeMappings omitted.
 
 /**
  * deserializeAws_restJson1CredentialSummaries
@@ -1425,6 +1528,10 @@ const de_InstanceProperty = (output: any, context: __SerdeContext): InstanceProp
 
 // de_ManagedPolicyList omitted.
 
+// de_MappingRule omitted.
+
+// de_MappingRules omitted.
+
 // de_NotificationSettingDetail omitted.
 
 // de_NotificationSettingDetails omitted.
@@ -1434,6 +1541,7 @@ const de_InstanceProperty = (output: any, context: __SerdeContext): InstanceProp
  */
 const de_ProfileDetail = (output: any, context: __SerdeContext): ProfileDetail => {
   return take(output, {
+    attributeMappings: _json,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,
     durationSeconds: __expectInt32,
@@ -1562,6 +1670,8 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _cF = "certificateField";
 const _nT = "nextToken";
 const _pS = "pageSize";
 const _rA = "resourceArn";
+const _s = "specifiers";

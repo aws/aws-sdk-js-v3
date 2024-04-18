@@ -55,6 +55,10 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
 import { CreateTrustAnchorCommandInput, CreateTrustAnchorCommandOutput } from "./commands/CreateTrustAnchorCommand";
+import {
+  DeleteAttributeMappingCommandInput,
+  DeleteAttributeMappingCommandOutput,
+} from "./commands/DeleteAttributeMappingCommand";
 import { DeleteCrlCommandInput, DeleteCrlCommandOutput } from "./commands/DeleteCrlCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
 import { DeleteTrustAnchorCommandInput, DeleteTrustAnchorCommandOutput } from "./commands/DeleteTrustAnchorCommand";
@@ -77,6 +81,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTrustAnchorsCommandInput, ListTrustAnchorsCommandOutput } from "./commands/ListTrustAnchorsCommand";
+import {
+  PutAttributeMappingCommandInput,
+  PutAttributeMappingCommandOutput,
+} from "./commands/PutAttributeMappingCommand";
 import {
   PutNotificationSettingsCommandInput,
   PutNotificationSettingsCommandOutput,
@@ -107,6 +115,7 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateProfileCommandInput
   | CreateTrustAnchorCommandInput
+  | DeleteAttributeMappingCommandInput
   | DeleteCrlCommandInput
   | DeleteProfileCommandInput
   | DeleteTrustAnchorCommandInput
@@ -126,6 +135,7 @@ export type ServiceInputTypes =
   | ListSubjectsCommandInput
   | ListTagsForResourceCommandInput
   | ListTrustAnchorsCommandInput
+  | PutAttributeMappingCommandInput
   | PutNotificationSettingsCommandInput
   | ResetNotificationSettingsCommandInput
   | TagResourceCommandInput
@@ -140,6 +150,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateProfileCommandOutput
   | CreateTrustAnchorCommandOutput
+  | DeleteAttributeMappingCommandOutput
   | DeleteCrlCommandOutput
   | DeleteProfileCommandOutput
   | DeleteTrustAnchorCommandOutput
@@ -159,6 +170,7 @@ export type ServiceOutputTypes =
   | ListSubjectsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTrustAnchorsCommandOutput
+  | PutAttributeMappingCommandOutput
   | PutNotificationSettingsCommandOutput
   | ResetNotificationSettingsCommandOutput
   | TagResourceCommandOutput

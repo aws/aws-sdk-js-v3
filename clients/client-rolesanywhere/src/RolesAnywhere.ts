@@ -12,6 +12,11 @@ import {
   CreateTrustAnchorCommandInput,
   CreateTrustAnchorCommandOutput,
 } from "./commands/CreateTrustAnchorCommand";
+import {
+  DeleteAttributeMappingCommand,
+  DeleteAttributeMappingCommandInput,
+  DeleteAttributeMappingCommandOutput,
+} from "./commands/DeleteAttributeMappingCommand";
 import { DeleteCrlCommand, DeleteCrlCommandInput, DeleteCrlCommandOutput } from "./commands/DeleteCrlCommand";
 import {
   DeleteProfileCommand,
@@ -76,6 +81,11 @@ import {
   ListTrustAnchorsCommandOutput,
 } from "./commands/ListTrustAnchorsCommand";
 import {
+  PutAttributeMappingCommand,
+  PutAttributeMappingCommandInput,
+  PutAttributeMappingCommandOutput,
+} from "./commands/PutAttributeMappingCommand";
+import {
   PutNotificationSettingsCommand,
   PutNotificationSettingsCommandInput,
   PutNotificationSettingsCommandOutput,
@@ -107,6 +117,7 @@ import { RolesAnywhereClient, RolesAnywhereClientConfig } from "./RolesAnywhereC
 const commands = {
   CreateProfileCommand,
   CreateTrustAnchorCommand,
+  DeleteAttributeMappingCommand,
   DeleteCrlCommand,
   DeleteProfileCommand,
   DeleteTrustAnchorCommand,
@@ -126,6 +137,7 @@ const commands = {
   ListSubjectsCommand,
   ListTagsForResourceCommand,
   ListTrustAnchorsCommand,
+  PutAttributeMappingCommand,
   PutNotificationSettingsCommand,
   ResetNotificationSettingsCommand,
   TagResourceCommand,
@@ -162,6 +174,23 @@ export interface RolesAnywhere {
     args: CreateTrustAnchorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTrustAnchorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAttributeMappingCommand}
+   */
+  deleteAttributeMapping(
+    args: DeleteAttributeMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAttributeMappingCommandOutput>;
+  deleteAttributeMapping(
+    args: DeleteAttributeMappingCommandInput,
+    cb: (err: any, data?: DeleteAttributeMappingCommandOutput) => void
+  ): void;
+  deleteAttributeMapping(
+    args: DeleteAttributeMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAttributeMappingCommandOutput) => void
   ): void;
 
   /**
@@ -411,6 +440,23 @@ export interface RolesAnywhere {
     args: ListTrustAnchorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTrustAnchorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAttributeMappingCommand}
+   */
+  putAttributeMapping(
+    args: PutAttributeMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAttributeMappingCommandOutput>;
+  putAttributeMapping(
+    args: PutAttributeMappingCommandInput,
+    cb: (err: any, data?: PutAttributeMappingCommandOutput) => void
+  ): void;
+  putAttributeMapping(
+    args: PutAttributeMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAttributeMappingCommandOutput) => void
   ): void;
 
   /**

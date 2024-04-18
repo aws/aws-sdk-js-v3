@@ -24,6 +24,51 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CertificateField = {
+  x509Issuer: "x509Issuer",
+  x509SAN: "x509SAN",
+  x509Subject: "x509Subject",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateField = (typeof CertificateField)[keyof typeof CertificateField];
+
+/**
+ * <p>A single mapping entry for each supported specifier or sub-field.</p>
+ * @public
+ */
+export interface MappingRule {
+  /**
+   * <p>Specifier within a certificate field, such as CN, OU, or UID from the Subject field.</p>
+   * @public
+   */
+  specifier: string | undefined;
+}
+
+/**
+ * <p>A mapping applied to the authenticating end-entity certificate.</p>
+ * @public
+ */
+export interface AttributeMapping {
+  /**
+   * <p>Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.</p>
+   * @public
+   */
+  certificateField?: CertificateField;
+
+  /**
+   * <p>A list of mapping entries for every supported specifier or sub-field.</p>
+   * @public
+   */
+  mappingRules?: MappingRule[];
+}
+
+/**
  * <p>A label that consists of a key and value you define. </p>
  * @public
  */
@@ -174,6 +219,12 @@ export interface ProfileDetail {
    * @public
    */
   durationSeconds?: number;
+
+  /**
+   * <p>A mapping applied to the authenticating end-entity certificate.</p>
+   * @public
+   */
+  attributeMappings?: AttributeMapping[];
 }
 
 /**
@@ -738,6 +789,40 @@ export interface UpdateCrlRequest {
 /**
  * @public
  */
+export interface DeleteAttributeMappingRequest {
+  /**
+   * <p>The unique identifier of the profile.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.</p>
+   * @public
+   */
+  certificateField: CertificateField | undefined;
+
+  /**
+   * <p>A list of specifiers of a certificate field; for example, CN, OU, UID from a Subject.</p>
+   * @public
+   */
+  specifiers?: string[];
+}
+
+/**
+ * @public
+ */
+export interface DeleteAttributeMappingResponse {
+  /**
+   * <p>The state of the profile after a read or write operation.</p>
+   * @public
+   */
+  profile: ProfileDetail | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ScalarProfileRequest {
   /**
    * <p>The unique identifier of the profile.</p>
@@ -1002,6 +1087,40 @@ export interface NotificationSettingKey {
    * @public
    */
   channel?: NotificationChannel;
+}
+
+/**
+ * @public
+ */
+export interface PutAttributeMappingRequest {
+  /**
+   * <p>The unique identifier of the profile.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.</p>
+   * @public
+   */
+  certificateField: CertificateField | undefined;
+
+  /**
+   * <p>A list of mapping entries for every supported specifier or sub-field.</p>
+   * @public
+   */
+  mappingRules: MappingRule[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAttributeMappingResponse {
+  /**
+   * <p>The state of the profile after a read or write operation.</p>
+   * @public
+   */
+  profile: ProfileDetail | undefined;
 }
 
 /**

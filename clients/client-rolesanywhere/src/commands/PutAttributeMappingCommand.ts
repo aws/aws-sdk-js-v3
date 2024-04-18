@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
-import { de_DisableProfileCommand, se_DisableProfileCommand } from "../protocols/Aws_restJson1";
+import { PutAttributeMappingRequest, PutAttributeMappingResponse } from "../models/models_0";
+import { de_PutAttributeMappingCommand, se_PutAttributeMappingCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -16,34 +16,37 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DisableProfileCommand}.
+ * The input for {@link PutAttributeMappingCommand}.
  */
-export interface DisableProfileCommandInput extends ScalarProfileRequest {}
+export interface PutAttributeMappingCommandInput extends PutAttributeMappingRequest {}
 /**
  * @public
  *
- * The output of {@link DisableProfileCommand}.
+ * The output of {@link PutAttributeMappingCommand}.
  */
-export interface DisableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
+export interface PutAttributeMappingCommandOutput extends PutAttributeMappingResponse, __MetadataBearer {}
 
 /**
- * <p>Disables a profile. When disabled, temporary credential requests with this profile fail.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DisableProfile</code>.
- *          </p>
+ * <p>Put an entry in the attribute mapping rules that will be enforced by a given profile.
+ *       A mapping specifies a certificate field and one or more specifiers that have contextual meanings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, DisableProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, DisableProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, PutAttributeMappingCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
+ * // const { RolesAnywhereClient, PutAttributeMappingCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
- * const input = { // ScalarProfileRequest
+ * const input = { // PutAttributeMappingRequest
  *   profileId: "STRING_VALUE", // required
+ *   certificateField: "STRING_VALUE", // required
+ *   mappingRules: [ // MappingRules // required
+ *     { // MappingRule
+ *       specifier: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
- * const command = new DisableProfileCommand(input);
+ * const command = new PutAttributeMappingCommand(input);
  * const response = await client.send(command);
- * // { // ProfileDetailResponse
+ * // { // PutAttributeMappingResponse
  * //   profile: { // ProfileDetail
  * //     profileId: "STRING_VALUE",
  * //     profileArn: "STRING_VALUE",
@@ -76,10 +79,10 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
  *
  * ```
  *
- * @param DisableProfileCommandInput - {@link DisableProfileCommandInput}
- * @returns {@link DisableProfileCommandOutput}
- * @see {@link DisableProfileCommandInput} for command's `input` shape.
- * @see {@link DisableProfileCommandOutput} for command's `response` shape.
+ * @param PutAttributeMappingCommandInput - {@link PutAttributeMappingCommandInput}
+ * @returns {@link PutAttributeMappingCommandOutput}
+ * @see {@link PutAttributeMappingCommandInput} for command's `input` shape.
+ * @see {@link PutAttributeMappingCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -88,15 +91,18 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  * @public
  */
-export class DisableProfileCommand extends $Command
+export class PutAttributeMappingCommand extends $Command
   .classBuilder<
-    DisableProfileCommandInput,
-    DisableProfileCommandOutput,
+    PutAttributeMappingCommandInput,
+    PutAttributeMappingCommandOutput,
     RolesAnywhereClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,9 +116,9 @@ export class DisableProfileCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("RolesAnywhere", "DisableProfile", {})
-  .n("RolesAnywhereClient", "DisableProfileCommand")
+  .s("RolesAnywhere", "PutAttributeMapping", {})
+  .n("RolesAnywhereClient", "PutAttributeMappingCommand")
   .f(void 0, void 0)
-  .ser(se_DisableProfileCommand)
-  .de(de_DisableProfileCommand)
+  .ser(se_PutAttributeMappingCommand)
+  .de(de_PutAttributeMappingCommand)
   .build() {}

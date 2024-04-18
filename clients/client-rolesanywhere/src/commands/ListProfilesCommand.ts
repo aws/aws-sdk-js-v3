@@ -64,6 +64,16 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       durationSeconds: Number("int"),
+ * //       attributeMappings: [ // AttributeMappings
+ * //         { // AttributeMapping
+ * //           certificateField: "STRING_VALUE",
+ * //           mappingRules: [ // MappingRules
+ * //             { // MappingRule
+ * //               specifier: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

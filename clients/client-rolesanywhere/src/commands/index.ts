@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./CreateProfileCommand";
 export * from "./CreateTrustAnchorCommand";
+export * from "./DeleteAttributeMappingCommand";
 export * from "./DeleteCrlCommand";
 export * from "./DeleteProfileCommand";
 export * from "./DeleteTrustAnchorCommand";
@@ -20,6 +21,7 @@ export * from "./ListProfilesCommand";
 export * from "./ListSubjectsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTrustAnchorsCommand";
+export * from "./PutAttributeMappingCommand";
 export * from "./PutNotificationSettingsCommand";
 export * from "./ResetNotificationSettingsCommand";
 export * from "./TagResourceCommand";

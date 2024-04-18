@@ -235,6 +235,14 @@ CreateTrustAnchor
 </details>
 <details>
 <summary>
+DeleteAttributeMapping
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/DeleteAttributeMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DeleteAttributeMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DeleteAttributeMappingCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteCrl
 </summary>
 
@@ -383,6 +391,14 @@ ListTrustAnchors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/ListTrustAnchorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListTrustAnchorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListTrustAnchorsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutAttributeMapping
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/PutAttributeMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/PutAttributeMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/PutAttributeMappingCommandOutput/)
 
 </details>
 <details>

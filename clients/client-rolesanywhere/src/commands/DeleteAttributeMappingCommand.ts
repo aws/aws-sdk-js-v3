@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
-import { de_DisableProfileCommand, se_DisableProfileCommand } from "../protocols/Aws_restJson1";
+import { DeleteAttributeMappingRequest, DeleteAttributeMappingResponse } from "../models/models_0";
+import { de_DeleteAttributeMappingCommand, se_DeleteAttributeMappingCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -16,34 +16,34 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DisableProfileCommand}.
+ * The input for {@link DeleteAttributeMappingCommand}.
  */
-export interface DisableProfileCommandInput extends ScalarProfileRequest {}
+export interface DeleteAttributeMappingCommandInput extends DeleteAttributeMappingRequest {}
 /**
  * @public
  *
- * The output of {@link DisableProfileCommand}.
+ * The output of {@link DeleteAttributeMappingCommand}.
  */
-export interface DisableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
+export interface DeleteAttributeMappingCommandOutput extends DeleteAttributeMappingResponse, __MetadataBearer {}
 
 /**
- * <p>Disables a profile. When disabled, temporary credential requests with this profile fail.</p>
- *          <p>
- *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DisableProfile</code>.
- *          </p>
+ * <p>Delete an entry from the attribute mapping rules enforced by a given profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, DisableProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, DisableProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, DeleteAttributeMappingCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
+ * // const { RolesAnywhereClient, DeleteAttributeMappingCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
- * const input = { // ScalarProfileRequest
+ * const input = { // DeleteAttributeMappingRequest
  *   profileId: "STRING_VALUE", // required
+ *   certificateField: "STRING_VALUE", // required
+ *   specifiers: [ // SpecifierList
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new DisableProfileCommand(input);
+ * const command = new DeleteAttributeMappingCommand(input);
  * const response = await client.send(command);
- * // { // ProfileDetailResponse
+ * // { // DeleteAttributeMappingResponse
  * //   profile: { // ProfileDetail
  * //     profileId: "STRING_VALUE",
  * //     profileArn: "STRING_VALUE",
@@ -76,10 +76,10 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
  *
  * ```
  *
- * @param DisableProfileCommandInput - {@link DisableProfileCommandInput}
- * @returns {@link DisableProfileCommandOutput}
- * @see {@link DisableProfileCommandInput} for command's `input` shape.
- * @see {@link DisableProfileCommandOutput} for command's `response` shape.
+ * @param DeleteAttributeMappingCommandInput - {@link DeleteAttributeMappingCommandInput}
+ * @returns {@link DeleteAttributeMappingCommandOutput}
+ * @see {@link DeleteAttributeMappingCommandInput} for command's `input` shape.
+ * @see {@link DeleteAttributeMappingCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -88,15 +88,18 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  * @public
  */
-export class DisableProfileCommand extends $Command
+export class DeleteAttributeMappingCommand extends $Command
   .classBuilder<
-    DisableProfileCommandInput,
-    DisableProfileCommandOutput,
+    DeleteAttributeMappingCommandInput,
+    DeleteAttributeMappingCommandOutput,
     RolesAnywhereClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,9 +113,9 @@ export class DisableProfileCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("RolesAnywhere", "DisableProfile", {})
-  .n("RolesAnywhereClient", "DisableProfileCommand")
+  .s("RolesAnywhere", "DeleteAttributeMapping", {})
+  .n("RolesAnywhereClient", "DeleteAttributeMappingCommand")
   .f(void 0, void 0)
-  .ser(se_DisableProfileCommand)
-  .de(de_DisableProfileCommand)
+  .ser(se_DeleteAttributeMappingCommand)
+  .de(de_DeleteAttributeMappingCommand)
   .build() {}
