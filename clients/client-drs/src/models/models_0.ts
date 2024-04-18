@@ -1034,6 +1034,7 @@ export const VolumeStatus = {
   CONTAINS_MARKETPLACE_PRODUCT_CODES: "CONTAINS_MARKETPLACE_PRODUCT_CODES",
   MISSING_VOLUME_ATTRIBUTES: "MISSING_VOLUME_ATTRIBUTES",
   MISSING_VOLUME_ATTRIBUTES_AND_PRECHECK_UNAVAILABLE: "MISSING_VOLUME_ATTRIBUTES_AND_PRECHECK_UNAVAILABLE",
+  PENDING: "PENDING",
   REGULAR: "REGULAR",
 } as const;
 
@@ -1130,6 +1131,12 @@ export interface DataReplicationInfo {
    * @public
    */
   stagingAvailabilityZone?: string;
+
+  /**
+   * <p>The ARN of the staging Outpost</p>
+   * @public
+   */
+  stagingOutpostArn?: string;
 }
 
 /**
@@ -1276,6 +1283,12 @@ export interface SourceCloudProperties {
    * @public
    */
   originAvailabilityZone?: string;
+
+  /**
+   * <p>The ARN of the source Outpost</p>
+   * @public
+   */
+  sourceOutpostArn?: string;
 }
 
 /**
@@ -2811,6 +2824,12 @@ export interface RecoveryInstanceDataReplicationInfo {
    * @public
    */
   stagingAvailabilityZone?: string;
+
+  /**
+   * <p>The ARN of the staging Outpost</p>
+   * @public
+   */
+  stagingOutpostArn?: string;
 }
 
 /**
@@ -3111,6 +3130,12 @@ export interface RecoveryInstance {
    * @public
    */
   agentVersion?: string;
+
+  /**
+   * <p>The ARN of the source Outpost</p>
+   * @public
+   */
+  sourceOutpostArn?: string;
 }
 
 /**

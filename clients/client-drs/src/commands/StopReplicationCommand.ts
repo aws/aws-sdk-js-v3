@@ -81,6 +81,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * //         rawError: "STRING_VALUE",
  * //       },
  * //       stagingAvailabilityZone: "STRING_VALUE",
+ * //       stagingOutpostArn: "STRING_VALUE",
  * //     },
  * //     lifeCycle: { // LifeCycle
  * //       addedToServiceDateTime: "STRING_VALUE",
@@ -142,6 +143,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * //       originAccountID: "STRING_VALUE",
  * //       originRegion: "STRING_VALUE",
  * //       originAvailabilityZone: "STRING_VALUE",
+ * //       sourceOutpostArn: "STRING_VALUE",
  * //     },
  * //     replicationDirection: "STRING_VALUE",
  * //     reversedDirectionSourceServerArn: "STRING_VALUE",

@@ -76,6 +76,7 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  * //       rawError: "STRING_VALUE",
  * //     },
  * //     stagingAvailabilityZone: "STRING_VALUE",
+ * //     stagingOutpostArn: "STRING_VALUE",
  * //   },
  * //   lifeCycle: { // LifeCycle
  * //     addedToServiceDateTime: "STRING_VALUE",
@@ -137,6 +138,7 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  * //     originAccountID: "STRING_VALUE",
  * //     originRegion: "STRING_VALUE",
  * //     originAvailabilityZone: "STRING_VALUE",
+ * //     sourceOutpostArn: "STRING_VALUE",
  * //   },
  * //   replicationDirection: "STRING_VALUE",
  * //   reversedDirectionSourceServerArn: "STRING_VALUE",

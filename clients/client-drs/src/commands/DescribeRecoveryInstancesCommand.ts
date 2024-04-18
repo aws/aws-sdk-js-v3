@@ -104,6 +104,7 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * //           rawError: "STRING_VALUE",
  * //         },
  * //         stagingAvailabilityZone: "STRING_VALUE",
+ * //         stagingOutpostArn: "STRING_VALUE",
  * //       },
  * //       recoveryInstanceProperties: { // RecoveryInstanceProperties
  * //         lastUpdatedDateTime: "STRING_VALUE",
@@ -145,6 +146,7 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * //       originEnvironment: "STRING_VALUE",
  * //       originAvailabilityZone: "STRING_VALUE",
  * //       agentVersion: "STRING_VALUE",
+ * //       sourceOutpostArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
