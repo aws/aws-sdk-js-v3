@@ -396,6 +396,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 Lon: Number("double"),
  * //               },
  * //               IpAddressV4: "STRING_VALUE",
+ * //               IpAddressV6: "STRING_VALUE",
  * //               Organization: { // Organization
  * //                 Asn: "STRING_VALUE",
  * //                 AsnOrg: "STRING_VALUE",
@@ -428,6 +429,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             Protocol: "STRING_VALUE",
  * //             LocalIpDetails: { // LocalIpDetails
  * //               IpAddressV4: "STRING_VALUE",
+ * //               IpAddressV6: "STRING_VALUE",
  * //             },
  * //             RemoteIpDetails: {
  * //               City: {
@@ -442,6 +444,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 Lon: Number("double"),
  * //               },
  * //               IpAddressV4: "STRING_VALUE",
+ * //               IpAddressV6: "STRING_VALUE",
  * //               Organization: {
  * //                 Asn: "STRING_VALUE",
  * //                 AsnOrg: "STRING_VALUE",
@@ -464,6 +467,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 },
  * //                 LocalIpDetails: {
  * //                   IpAddressV4: "STRING_VALUE",
+ * //                   IpAddressV6: "STRING_VALUE",
  * //                 },
  * //                 RemoteIpDetails: {
  * //                   City: {
@@ -478,6 +482,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                     Lon: Number("double"),
  * //                   },
  * //                   IpAddressV4: "STRING_VALUE",
+ * //                   IpAddressV6: "STRING_VALUE",
  * //                   Organization: {
  * //                     Asn: "STRING_VALUE",
  * //                     AsnOrg: "STRING_VALUE",
@@ -508,6 +513,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 Lon: Number("double"),
  * //               },
  * //               IpAddressV4: "STRING_VALUE",
+ * //               IpAddressV6: "STRING_VALUE",
  * //               Organization: {
  * //                 Asn: "STRING_VALUE",
  * //                 AsnOrg: "STRING_VALUE",
@@ -536,6 +542,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 Lon: Number("double"),
  * //               },
  * //               IpAddressV4: "STRING_VALUE",
+ * //               IpAddressV6: "STRING_VALUE",
  * //               Organization: {
  * //                 Asn: "STRING_VALUE",
  * //                 AsnOrg: "STRING_VALUE",

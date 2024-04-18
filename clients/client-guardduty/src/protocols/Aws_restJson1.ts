@@ -5111,6 +5111,7 @@ const de_LineageObject = (output: any, context: __SerdeContext): LineageObject =
 const de_LocalIpDetails = (output: any, context: __SerdeContext): LocalIpDetails => {
   return take(output, {
     IpAddressV4: [, __expectString, `ipAddressV4`],
+    IpAddressV6: [, __expectString, `ipAddressV6`],
   }) as any;
 };
 
@@ -5805,6 +5806,7 @@ const de_RemoteIpDetails = (output: any, context: __SerdeContext): RemoteIpDetai
     Country: [, (_: any) => de_Country(_, context), `country`],
     GeoLocation: [, (_: any) => de_GeoLocation(_, context), `geoLocation`],
     IpAddressV4: [, __expectString, `ipAddressV4`],
+    IpAddressV6: [, __expectString, `ipAddressV6`],
     Organization: [, (_: any) => de_Organization(_, context), `organization`],
   }) as any;
 };

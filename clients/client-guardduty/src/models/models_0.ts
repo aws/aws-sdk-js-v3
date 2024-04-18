@@ -565,6 +565,12 @@ export interface RemoteIpDetails {
   IpAddressV4?: string;
 
   /**
+   * <p>The IPv6 remote address of the connection.</p>
+   * @public
+   */
+  IpAddressV6?: string;
+
+  /**
    * <p>The ISP organization information of the remote IP address.</p>
    * @public
    */
@@ -842,6 +848,12 @@ export interface LocalIpDetails {
    * @public
    */
   IpAddressV4?: string;
+
+  /**
+   * <p>The IPv6 local address of the connection.</p>
+   * @public
+   */
+  IpAddressV6?: string;
 }
 
 /**
@@ -2608,6 +2620,9 @@ export interface CreateFilterRequest {
    *                <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p>
    *             </li>
    *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV6</p>
+   *             </li>
+   *             <li>
    *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p>
    *             </li>
    *             <li>
@@ -2644,6 +2659,9 @@ export interface CreateFilterRequest {
    *                <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p>
    *             </li>
    *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV6</p>
+   *             </li>
+   *             <li>
    *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p>
    *             </li>
    *             <li>
@@ -2659,6 +2677,9 @@ export interface CreateFilterRequest {
    *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p>
    *             </li>
    *             <li>
+   *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV6</p>
+   *             </li>
+   *             <li>
    *                <p>service.action.kubernetesApiCallAction.namespace</p>
    *             </li>
    *             <li>
@@ -2672,6 +2693,9 @@ export interface CreateFilterRequest {
    *             </li>
    *             <li>
    *                <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.localIpDetails.ipAddressV6</p>
    *             </li>
    *             <li>
    *                <p>service.action.networkConnectionAction.protocol</p>
@@ -7661,6 +7685,7 @@ export const AccountDetailFilterSensitiveLog = (obj: AccountDetail): any => ({
 export const RemoteIpDetailsFilterSensitiveLog = (obj: RemoteIpDetails): any => ({
   ...obj,
   ...(obj.IpAddressV4 && { IpAddressV4: SENSITIVE_STRING }),
+  ...(obj.IpAddressV6 && { IpAddressV6: SENSITIVE_STRING }),
 });
 
 /**
@@ -7685,6 +7710,7 @@ export const KubernetesApiCallActionFilterSensitiveLog = (obj: KubernetesApiCall
 export const LocalIpDetailsFilterSensitiveLog = (obj: LocalIpDetails): any => ({
   ...obj,
   ...(obj.IpAddressV4 && { IpAddressV4: SENSITIVE_STRING }),
+  ...(obj.IpAddressV6 && { IpAddressV6: SENSITIVE_STRING }),
 });
 
 /**
