@@ -3497,7 +3497,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
 /**
  * Tests requests with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -3888,7 +3888,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
 /**
  * Tests responses with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, {
