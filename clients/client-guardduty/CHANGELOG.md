@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.558.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.557.0...v3.558.0) (2024-04-18)
+
+
+### Features
+
+* **client-guardduty:** Added IPv6Address fields for local and remote IP addresses ([52b987d](https://github.com/aws/aws-sdk-js-v3/commit/52b987d9e671ffe7925c4441c654b00547919ecf))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

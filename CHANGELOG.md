@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.558.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.557.0...v3.558.0) (2024-04-18)
+
+
+### Features
+
+* **client-drs:** Outpost ARN added to Source Server and Recovery Instance ([366c96e](https://github.com/aws/aws-sdk-js-v3/commit/366c96e278eb2e700dec377528e44ff8408b6ff6))
+* **client-emr-serverless:** This release adds the capability to publish detailed Spark engine metrics to Amazon Managed Service for Prometheus (AMP) for  enhanced monitoring for Spark jobs. ([ee86a1b](https://github.com/aws/aws-sdk-js-v3/commit/ee86a1b1b4abadacacfcd66e77b29c0f9e5ef394))
+* **client-guardduty:** Added IPv6Address fields for local and remote IP addresses ([52b987d](https://github.com/aws/aws-sdk-js-v3/commit/52b987d9e671ffe7925c4441c654b00547919ecf))
+* **client-quicksight:** This release adds support for the Cross Sheet Filter and Control features, and support for warnings in asset imports for any permitted errors encountered during execution ([b7bcec5](https://github.com/aws/aws-sdk-js-v3/commit/b7bcec5d2adc7b3cb99c43605b2cd0a52ad42c68))
+* **client-rolesanywhere:** This release introduces the PutAttributeMapping and DeleteAttributeMapping APIs. IAM Roles Anywhere now provides the capability to define a set of mapping rules, allowing customers to specify which data is extracted from their X.509 end-entity certificates. ([2660570](https://github.com/aws/aws-sdk-js-v3/commit/2660570ccdb2a4bdc2b3ff9a5cd079273f767a8d))
+* **client-sagemaker:** Removed deprecated enum values and updated API documentation. ([032d94c](https://github.com/aws/aws-sdk-js-v3/commit/032d94c2de9f6c2d67a5d9e2f56d9ce5f950b94a))
+* **client-workspaces:** Adds new APIs for managing and sharing WorkSpaces BYOL configuration across accounts. ([0fa2ea7](https://github.com/aws/aws-sdk-js-v3/commit/0fa2ea7677d387e6313af68e1730066885b023ff))
+* **clients:** update client endpoints as of 2024-04-18 ([95b1c44](https://github.com/aws/aws-sdk-js-v3/commit/95b1c44b439f1151e9cfce7d1bb9303e568ed15d))
+
+
+
+
+
 # [3.557.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.556.0...v3.557.0) (2024-04-17)
 
 
