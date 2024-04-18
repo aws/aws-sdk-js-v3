@@ -2816,7 +2816,7 @@ export interface FeatureDefinition {
    *          <p>The name:</p>
    *          <ul>
    *             <li>
-   *                <p>Must start and end with an alphanumeric character.</p>
+   *                <p>Must start with an alphanumeric character.</p>
    *             </li>
    *             <li>
    *                <p>Can only include alphanumeric characters, underscores, and hyphens. Spaces are not
@@ -3233,7 +3233,7 @@ export interface CreateFeatureGroupRequest {
    *          <p>The name:</p>
    *          <ul>
    *             <li>
-   *                <p>Must start and end with an alphanumeric character.</p>
+   *                <p>Must start with an alphanumeric character.</p>
    *             </li>
    *             <li>
    *                <p>Can only include alphanumeric characters, underscores, and hyphens. Spaces are not
@@ -3255,7 +3255,7 @@ export interface CreateFeatureGroupRequest {
    *          <p>This name:</p>
    *          <ul>
    *             <li>
-   *                <p>Must start and end with an alphanumeric character.</p>
+   *                <p>Must start with an alphanumeric character.</p>
    *             </li>
    *             <li>
    *                <p>Can only contains alphanumeric characters, hyphens, underscores. Spaces are not

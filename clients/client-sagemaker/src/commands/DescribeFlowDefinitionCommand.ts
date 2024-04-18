@@ -45,7 +45,7 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  * //   FlowDefinitionStatus: "Initializing" || "Active" || "Failed" || "Deleting", // required
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   HumanLoopRequestSource: { // HumanLoopRequestSource
- * //     AwsManagedHumanLoopRequestSource: "AWS/Rekognition/DetectModerationLabels/Image/V3" || "AWS/Textract/AnalyzeDocument/Forms/V1" || "AWS/Textract/AnalyzeExpense" || "AWS/Handshake/VerifyIdentity" || "AWS/Bedrock/ModelEvaluation", // required
+ * //     AwsManagedHumanLoopRequestSource: "AWS/Rekognition/DetectModerationLabels/Image/V3" || "AWS/Textract/AnalyzeDocument/Forms/V1", // required
  * //   },
  * //   HumanLoopActivationConfig: { // HumanLoopActivationConfig
  * //     HumanLoopActivationConditionsConfig: { // HumanLoopActivationConditionsConfig

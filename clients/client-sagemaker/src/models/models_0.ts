@@ -7206,11 +7206,8 @@ export interface Autotune {
  * @enum
  */
 export const AwsManagedHumanLoopRequestSource = {
-  BEDROCK_MODEL_EVALUATION: "AWS/Bedrock/ModelEvaluation",
-  HANDSHAKE_VERIFY_IDENTITY: "AWS/Handshake/VerifyIdentity",
   REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3: "AWS/Rekognition/DetectModerationLabels/Image/V3",
   TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1: "AWS/Textract/AnalyzeDocument/Forms/V1",
-  TEXTRACT_ANALYZE_EXPENSE: "AWS/Textract/AnalyzeExpense",
 } as const;
 
 /**
@@ -8810,19 +8807,26 @@ export const ClusterInstanceType = {
 export type ClusterInstanceType = (typeof ClusterInstanceType)[keyof typeof ClusterInstanceType];
 
 /**
- * <p>The LifeCycle configuration for a SageMaker HyperPod cluster.</p>
+ * <p>The lifecycle configuration for a SageMaker HyperPod cluster.</p>
  * @public
  */
 export interface ClusterLifeCycleConfig {
   /**
-   * <p>An Amazon S3 bucket path where your LifeCycle scripts are stored.</p>
+   * <p>An Amazon S3 bucket path where your lifecycle scripts are stored.</p>
+   *          <important>
+   *             <p>Make sure that the S3 bucket path starts with <code>s3://sagemaker-</code>. The
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod">IAM role for SageMaker HyperPod</a> has the managed <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-cluster.html">
+   *                   <code>AmazonSageMakerClusterInstanceRolePolicy</code>
+   *                </a> attached, which
+   *             allows access to S3 buckets with the specific prefix <code>sagemaker-</code>.</p>
+   *          </important>
    * @public
    */
   SourceS3Uri: string | undefined;
 
   /**
-   * <p>The directory of the LifeCycle script under <code>SourceS3Uri</code>. This LifeCycle
-   *          script runs during cluster creation.</p>
+   * <p>The file name of the entrypoint script of lifecycle scripts under
+   *             <code>SourceS3Uri</code>. This entrypoint script runs during cluster creation.</p>
    * @public
    */
   OnCreate: string | undefined;
