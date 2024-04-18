@@ -1785,6 +1785,677 @@ export interface CategoryFilterConfiguration {
 }
 
 /**
+ * <p>A control to display info icons for filters and parameters.</p>
+ * @public
+ */
+export interface SheetControlInfoIconLabelOptions {
+  /**
+   * <p>The visibility configuration of info icon label options.</p>
+   * @public
+   */
+  Visibility?: Visibility;
+
+  /**
+   * <p> The text content of info icon.</p>
+   * @public
+   */
+  InfoIconText?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FontDecoration = {
+  NONE: "NONE",
+  UNDERLINE: "UNDERLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type FontDecoration = (typeof FontDecoration)[keyof typeof FontDecoration];
+
+/**
+ * @public
+ * @enum
+ */
+export const RelativeFontSize = {
+  EXTRA_LARGE: "EXTRA_LARGE",
+  EXTRA_SMALL: "EXTRA_SMALL",
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+} as const;
+
+/**
+ * @public
+ */
+export type RelativeFontSize = (typeof RelativeFontSize)[keyof typeof RelativeFontSize];
+
+/**
+ * <p>The option that determines the text display size.</p>
+ * @public
+ */
+export interface FontSize {
+  /**
+   * <p>The lexical name for the text size, proportional to its surrounding context.</p>
+   * @public
+   */
+  Relative?: RelativeFontSize;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FontStyle = {
+  ITALIC: "ITALIC",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type FontStyle = (typeof FontStyle)[keyof typeof FontStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const FontWeightName = {
+  BOLD: "BOLD",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type FontWeightName = (typeof FontWeightName)[keyof typeof FontWeightName];
+
+/**
+ * <p>The option that determines the text display weight, or boldness.</p>
+ * @public
+ */
+export interface FontWeight {
+  /**
+   * <p>The lexical name for the level of boldness of the text display.</p>
+   * @public
+   */
+  Name?: FontWeightName;
+}
+
+/**
+ * <p>Configures the display properties of the given text.</p>
+ * @public
+ */
+export interface FontConfiguration {
+  /**
+   * <p>The option that determines the text display size.</p>
+   * @public
+   */
+  FontSize?: FontSize;
+
+  /**
+   * <p>Determines the appearance of decorative lines on the text.</p>
+   * @public
+   */
+  FontDecoration?: FontDecoration;
+
+  /**
+   * <p>Determines the color of the text.</p>
+   * @public
+   */
+  FontColor?: string;
+
+  /**
+   * <p>The option that determines the text display weight, or boldness.</p>
+   * @public
+   */
+  FontWeight?: FontWeight;
+
+  /**
+   * <p>Determines the text display face that is inherited by the given font family.</p>
+   * @public
+   */
+  FontStyle?: FontStyle;
+}
+
+/**
+ * <p>The share label options for the labels.</p>
+ * @public
+ */
+export interface LabelOptions {
+  /**
+   * <p>Determines whether or not the label is visible.</p>
+   * @public
+   */
+  Visibility?: Visibility;
+
+  /**
+   * <p>The font configuration of the label.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration;
+
+  /**
+   * <p>The text for the label.</p>
+   * @public
+   */
+  CustomLabel?: string;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface DateTimePickerControlDisplayOptions {
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions;
+
+  /**
+   * <p>Customize how dates are formatted in controls.</p>
+   * @public
+   */
+  DateTimeFormat?: string;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SheetControlDateTimePickerType = {
+  DATE_RANGE: "DATE_RANGE",
+  SINGLE_VALUED: "SINGLE_VALUED",
+} as const;
+
+/**
+ * @public
+ */
+export type SheetControlDateTimePickerType =
+  (typeof SheetControlDateTimePickerType)[keyof typeof SheetControlDateTimePickerType];
+
+/**
+ * <p>The default options that correspond to the filter control type of a <code>DateTimePicker</code>.</p>
+ * @public
+ */
+export interface DefaultDateTimePickerControlOptions {
+  /**
+   * <p>The date time picker type of the <code>DefaultDateTimePickerControlOptions</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DATE_RANGE</code>: The filter condition is a date time range.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: SheetControlDateTimePickerType;
+
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: DateTimePickerControlDisplayOptions;
+}
+
+/**
+ * <p>The configuration of the <code>Select all</code> options in a list control.</p>
+ * @public
+ */
+export interface ListControlSelectAllOptions {
+  /**
+   * <p>The visibility configuration of the <code>Select all</code> options in a list control.</p>
+   * @public
+   */
+  Visibility?: Visibility;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface DropDownControlDisplayOptions {
+  /**
+   * <p>The configuration of the <code>Select all</code> options in a
+   *             dropdown control.</p>
+   * @public
+   */
+  SelectAllOptions?: ListControlSelectAllOptions;
+
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+}
+
+/**
+ * <p>A list of selectable values that are used in a control.</p>
+ * @public
+ */
+export interface FilterSelectableValues {
+  /**
+   * <p>The values that are used in the <code>FilterSelectableValues</code>.</p>
+   * @public
+   */
+  Values?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SheetControlListType = {
+  MULTI_SELECT: "MULTI_SELECT",
+  SINGLE_SELECT: "SINGLE_SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type SheetControlListType = (typeof SheetControlListType)[keyof typeof SheetControlListType];
+
+/**
+ * <p>The default options that correspond to the <code>Dropdown</code> filter control type.</p>
+ * @public
+ */
+export interface DefaultFilterDropDownControlOptions {
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: DropDownControlDisplayOptions;
+
+  /**
+   * <p>The type of the <code>FilterDropDownControl</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: SheetControlListType;
+
+  /**
+   * <p>A list of selectable values that are used in a control.</p>
+   * @public
+   */
+  SelectableValues?: FilterSelectableValues;
+}
+
+/**
+ * <p>The configuration of the search options in a list control.</p>
+ * @public
+ */
+export interface ListControlSearchOptions {
+  /**
+   * <p>The visibility configuration of the search options in a list control.</p>
+   * @public
+   */
+  Visibility?: Visibility;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface ListControlDisplayOptions {
+  /**
+   * <p>The configuration of the search options in a list control.</p>
+   * @public
+   */
+  SearchOptions?: ListControlSearchOptions;
+
+  /**
+   * <p>The configuration of the <code>Select all</code> options in a list control.</p>
+   * @public
+   */
+  SelectAllOptions?: ListControlSelectAllOptions;
+
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+}
+
+/**
+ * <p>The default options that correspond to the <code>List</code> filter control type.</p>
+ * @public
+ */
+export interface DefaultFilterListControlOptions {
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: ListControlDisplayOptions;
+
+  /**
+   * <p>The type of the <code>DefaultFilterListControlOptions</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: SheetControlListType;
+
+  /**
+   * <p>A list of selectable values that are used in a control.</p>
+   * @public
+   */
+  SelectableValues?: FilterSelectableValues;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface RelativeDateTimeControlDisplayOptions {
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions;
+
+  /**
+   * <p>Customize how dates are formatted in controls.</p>
+   * @public
+   */
+  DateTimeFormat?: string;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+}
+
+/**
+ * <p>The default options that correspond to the <code>RelativeDateTime</code> filter control type.</p>
+ * @public
+ */
+export interface DefaultRelativeDateTimeControlOptions {
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: RelativeDateTimeControlDisplayOptions;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface SliderControlDisplayOptions {
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SheetControlSliderType = {
+  RANGE: "RANGE",
+  SINGLE_POINT: "SINGLE_POINT",
+} as const;
+
+/**
+ * @public
+ */
+export type SheetControlSliderType = (typeof SheetControlSliderType)[keyof typeof SheetControlSliderType];
+
+/**
+ * <p>The default options that correspond to the <code>Slider</code> filter control type.</p>
+ * @public
+ */
+export interface DefaultSliderControlOptions {
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: SliderControlDisplayOptions;
+
+  /**
+   * <p>The type of the <code>DefaultSliderControlOptions</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RANGE</code>: Filter data that is in a specified range.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: SheetControlSliderType;
+
+  /**
+   * <p>The larger value that is displayed at the right of the slider.</p>
+   * @public
+   */
+  MaximumValue: number | undefined;
+
+  /**
+   * <p>The smaller value that is displayed at the left of the slider.</p>
+   * @public
+   */
+  MinimumValue: number | undefined;
+
+  /**
+   * <p>The number of increments that the slider bar is divided into.</p>
+   * @public
+   */
+  StepSize: number | undefined;
+}
+
+/**
+ * <p>The configuration of the placeholder options in a text control.</p>
+ * @public
+ */
+export interface TextControlPlaceholderOptions {
+  /**
+   * <p>The visibility configuration of the placeholder options in a text control.</p>
+   * @public
+   */
+  Visibility?: Visibility;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface TextAreaControlDisplayOptions {
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions;
+
+  /**
+   * <p>The configuration of the placeholder options in a text area control.</p>
+   * @public
+   */
+  PlaceholderOptions?: TextControlPlaceholderOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+}
+
+/**
+ * <p>The default options that correspond to the <code>TextArea</code> filter control type.</p>
+ * @public
+ */
+export interface DefaultTextAreaControlOptions {
+  /**
+   * <p>The delimiter that is used to separate the lines in text.</p>
+   * @public
+   */
+  Delimiter?: string;
+
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: TextAreaControlDisplayOptions;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface TextFieldControlDisplayOptions {
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions;
+
+  /**
+   * <p>The configuration of the placeholder options in a text field control.</p>
+   * @public
+   */
+  PlaceholderOptions?: TextControlPlaceholderOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+}
+
+/**
+ * <p>The default options that correspond to the <code>TextField</code> filter control type.</p>
+ * @public
+ */
+export interface DefaultTextFieldControlOptions {
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: TextFieldControlDisplayOptions;
+}
+
+/**
+ * <p>The option that corresponds to the control type of the filter.</p>
+ * @public
+ */
+export interface DefaultFilterControlOptions {
+  /**
+   * <p>The default options that correspond to the filter control type of a <code>DateTimePicker</code>.</p>
+   * @public
+   */
+  DefaultDateTimePickerOptions?: DefaultDateTimePickerControlOptions;
+
+  /**
+   * <p>The default options that correspond to the <code>List</code> filter control type.</p>
+   * @public
+   */
+  DefaultListOptions?: DefaultFilterListControlOptions;
+
+  /**
+   * <p>The default options that correspond to the <code>Dropdown</code> filter control type.</p>
+   * @public
+   */
+  DefaultDropdownOptions?: DefaultFilterDropDownControlOptions;
+
+  /**
+   * <p>The default options that correspond to the <code>TextField</code> filter control type.</p>
+   * @public
+   */
+  DefaultTextFieldOptions?: DefaultTextFieldControlOptions;
+
+  /**
+   * <p>The default options that correspond to the <code>TextArea</code> filter control type.</p>
+   * @public
+   */
+  DefaultTextAreaOptions?: DefaultTextAreaControlOptions;
+
+  /**
+   * <p>The default options that correspond to the <code>Slider</code> filter control type.</p>
+   * @public
+   */
+  DefaultSliderOptions?: DefaultSliderControlOptions;
+
+  /**
+   * <p>The default options that correspond to the <code>RelativeDateTime</code> filter control type.</p>
+   * @public
+   */
+  DefaultRelativeDateTimeOptions?: DefaultRelativeDateTimeControlOptions;
+}
+
+/**
+ * <p>The default configuration for all dependent controls of the filter.</p>
+ * @public
+ */
+export interface DefaultFilterControlConfiguration {
+  /**
+   * <p>The title of the <code>DefaultFilterControlConfiguration</code>. This title is shared by all controls that are tied to this filter.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The control option for the <code>DefaultFilterControlConfiguration</code>.</p>
+   * @public
+   */
+  ControlOptions: DefaultFilterControlOptions | undefined;
+}
+
+/**
  * <p>A <code>CategoryFilter</code> filters text values.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  * @public
@@ -1807,6 +2478,12 @@ export interface CategoryFilter {
    * @public
    */
   Configuration: CategoryFilterConfiguration | undefined;
+
+  /**
+   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
 
 /**
@@ -1911,6 +2588,12 @@ export interface NumericEqualityFilter {
    * @public
    */
   NullOption: FilterNullOption | undefined;
+
+  /**
+   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
 
 /**
@@ -2010,6 +2693,12 @@ export interface NumericRangeFilter {
    * @public
    */
   NullOption: FilterNullOption | undefined;
+
+  /**
+   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
 
 /**
@@ -2243,6 +2932,12 @@ export interface RelativeDatesFilter {
    * @public
    */
   ExcludePeriodConfiguration?: ExcludePeriodConfiguration;
+
+  /**
+   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
 
 /**
@@ -2306,6 +3001,12 @@ export interface TimeEqualityFilter {
    * @public
    */
   RollingDate?: RollingDateConfiguration;
+
+  /**
+   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
 
 /**
@@ -2405,6 +3106,12 @@ export interface TimeRangeFilter {
    * @public
    */
   TimeGranularity?: TimeGranularity;
+
+  /**
+   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
 
 /**
@@ -2447,6 +3154,12 @@ export interface TopBottomFilter {
    * @public
    */
   ParameterName?: string;
+
+  /**
+   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
 
 /**
@@ -3107,204 +3820,58 @@ export interface ParameterDeclaration {
 }
 
 /**
- * <p>A control to display info icons for filters and parameters.</p>
+ * <p>The source controls that are used in a <code>CascadingControlConfiguration</code>.</p>
  * @public
  */
-export interface SheetControlInfoIconLabelOptions {
+export interface CascadingControlSource {
   /**
-   * <p>The visibility configuration of info icon label options.</p>
+   * <p>The source sheet control ID of a <code>CascadingControlSource</code>.</p>
    * @public
    */
-  Visibility?: Visibility;
+  SourceSheetControlId?: string;
 
   /**
-   * <p> The text content of info icon.</p>
+   * <p>The column identifier that determines which column to look up for the source sheet control.</p>
    * @public
    */
-  InfoIconText?: string;
+  ColumnToMatch?: ColumnIdentifier;
 }
 
 /**
- * @public
- * @enum
- */
-export const FontDecoration = {
-  NONE: "NONE",
-  UNDERLINE: "UNDERLINE",
-} as const;
-
-/**
+ * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
  * @public
  */
-export type FontDecoration = (typeof FontDecoration)[keyof typeof FontDecoration];
-
-/**
- * @public
- * @enum
- */
-export const RelativeFontSize = {
-  EXTRA_LARGE: "EXTRA_LARGE",
-  EXTRA_SMALL: "EXTRA_SMALL",
-  LARGE: "LARGE",
-  MEDIUM: "MEDIUM",
-  SMALL: "SMALL",
-} as const;
-
-/**
- * @public
- */
-export type RelativeFontSize = (typeof RelativeFontSize)[keyof typeof RelativeFontSize];
-
-/**
- * <p>The option that determines the text display size.</p>
- * @public
- */
-export interface FontSize {
+export interface CascadingControlConfiguration {
   /**
-   * <p>The lexical name for the text size, proportional to its surrounding context.</p>
+   * <p>A list of source controls that determine the values that are used in the current control.</p>
    * @public
    */
-  Relative?: RelativeFontSize;
+  SourceControls?: CascadingControlSource[];
 }
 
 /**
- * @public
- * @enum
- */
-export const FontStyle = {
-  ITALIC: "ITALIC",
-  NORMAL: "NORMAL",
-} as const;
-
-/**
+ * <p>A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet</p>
  * @public
  */
-export type FontStyle = (typeof FontStyle)[keyof typeof FontStyle];
-
-/**
- * @public
- * @enum
- */
-export const FontWeightName = {
-  BOLD: "BOLD",
-  NORMAL: "NORMAL",
-} as const;
-
-/**
- * @public
- */
-export type FontWeightName = (typeof FontWeightName)[keyof typeof FontWeightName];
-
-/**
- * <p>The option that determines the text display weight, or boldness.</p>
- * @public
- */
-export interface FontWeight {
+export interface FilterCrossSheetControl {
   /**
-   * <p>The lexical name for the level of boldness of the text display.</p>
+   * <p>The ID of the <code>FilterCrossSheetControl</code>.</p>
    * @public
    */
-  Name?: FontWeightName;
+  FilterControlId: string | undefined;
+
+  /**
+   * <p>The source filter ID of the <code>FilterCrossSheetControl</code>.</p>
+   * @public
+   */
+  SourceFilterId: string | undefined;
+
+  /**
+   * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
+   * @public
+   */
+  CascadingControlConfiguration?: CascadingControlConfiguration;
 }
-
-/**
- * <p>Configures the display properties of the given text.</p>
- * @public
- */
-export interface FontConfiguration {
-  /**
-   * <p>The option that determines the text display size.</p>
-   * @public
-   */
-  FontSize?: FontSize;
-
-  /**
-   * <p>Determines the appearance of decorative lines on the text.</p>
-   * @public
-   */
-  FontDecoration?: FontDecoration;
-
-  /**
-   * <p>Determines the color of the text.</p>
-   * @public
-   */
-  FontColor?: string;
-
-  /**
-   * <p>The option that determines the text display weight, or boldness.</p>
-   * @public
-   */
-  FontWeight?: FontWeight;
-
-  /**
-   * <p>Determines the text display face that is inherited by the given font family.</p>
-   * @public
-   */
-  FontStyle?: FontStyle;
-}
-
-/**
- * <p>The share label options for the labels.</p>
- * @public
- */
-export interface LabelOptions {
-  /**
-   * <p>Determines whether or not the label is visible.</p>
-   * @public
-   */
-  Visibility?: Visibility;
-
-  /**
-   * <p>The font configuration of the label.</p>
-   * @public
-   */
-  FontConfiguration?: FontConfiguration;
-
-  /**
-   * <p>The text for the label.</p>
-   * @public
-   */
-  CustomLabel?: string;
-}
-
-/**
- * <p>The display options of a control.</p>
- * @public
- */
-export interface DateTimePickerControlDisplayOptions {
-  /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
-   * @public
-   */
-  TitleOptions?: LabelOptions;
-
-  /**
-   * <p>Customize how dates are formatted in controls.</p>
-   * @public
-   */
-  DateTimeFormat?: string;
-
-  /**
-   * <p>The configuration of info icon label options.</p>
-   * @public
-   */
-  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
-}
-
-/**
- * @public
- * @enum
- */
-export const SheetControlDateTimePickerType = {
-  DATE_RANGE: "DATE_RANGE",
-  SINGLE_VALUED: "SINGLE_VALUED",
-} as const;
-
-/**
- * @public
- */
-export type SheetControlDateTimePickerType =
-  (typeof SheetControlDateTimePickerType)[keyof typeof SheetControlDateTimePickerType];
 
 /**
  * <p>A control from a date filter that is used to specify date and time.</p>
@@ -3336,114 +3903,21 @@ export interface FilterDateTimePickerControl {
   DisplayOptions?: DateTimePickerControlDisplayOptions;
 
   /**
-   * <p>The date time picker type of a <code>FilterDateTimePickerControl</code>. Choose one of the following options:</p>
+   * <p>The type of the <code>FilterDropDownControl</code>. Choose one of the following options:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p>
+   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DATE_RANGE</code>: The filter condition is a date time range.</p>
+   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
    *             </li>
    *          </ul>
    * @public
    */
   Type?: SheetControlDateTimePickerType;
 }
-
-/**
- * <p>The source controls that are used in a <code>CascadingControlConfiguration</code>.</p>
- * @public
- */
-export interface CascadingControlSource {
-  /**
-   * <p>The source sheet control ID of a <code>CascadingControlSource</code>.</p>
-   * @public
-   */
-  SourceSheetControlId?: string;
-
-  /**
-   * <p>The column identifier that determines which column to look up for the source sheet control.</p>
-   * @public
-   */
-  ColumnToMatch?: ColumnIdentifier;
-}
-
-/**
- * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
- * @public
- */
-export interface CascadingControlConfiguration {
-  /**
-   * <p>A list of source controls that determine the values that are used in the current control.</p>
-   * @public
-   */
-  SourceControls?: CascadingControlSource[];
-}
-
-/**
- * <p>The configuration of the <code>Select all</code> options in a list control.</p>
- * @public
- */
-export interface ListControlSelectAllOptions {
-  /**
-   * <p>The visibility configuration of the <code>Select all</code> options in a list control.</p>
-   * @public
-   */
-  Visibility?: Visibility;
-}
-
-/**
- * <p>The display options of a control.</p>
- * @public
- */
-export interface DropDownControlDisplayOptions {
-  /**
-   * <p>The configuration of the <code>Select all</code> options in a
-   *             dropdown control.</p>
-   * @public
-   */
-  SelectAllOptions?: ListControlSelectAllOptions;
-
-  /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
-   * @public
-   */
-  TitleOptions?: LabelOptions;
-
-  /**
-   * <p>The configuration of info icon label options.</p>
-   * @public
-   */
-  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
-}
-
-/**
- * <p>A list of selectable values that are used in a control.</p>
- * @public
- */
-export interface FilterSelectableValues {
-  /**
-   * <p>The values that are used in the <code>FilterSelectableValues</code>.</p>
-   * @public
-   */
-  Values?: string[];
-}
-
-/**
- * @public
- * @enum
- */
-export const SheetControlListType = {
-  MULTI_SELECT: "MULTI_SELECT",
-  SINGLE_SELECT: "SINGLE_SELECT",
-} as const;
-
-/**
- * @public
- */
-export type SheetControlListType = (typeof SheetControlListType)[keyof typeof SheetControlListType];
 
 /**
  * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
@@ -3504,48 +3978,6 @@ export interface FilterDropDownControl {
 }
 
 /**
- * <p>The configuration of the search options in a list control.</p>
- * @public
- */
-export interface ListControlSearchOptions {
-  /**
-   * <p>The visibility configuration of the search options in a list control.</p>
-   * @public
-   */
-  Visibility?: Visibility;
-}
-
-/**
- * <p>The display options of a control.</p>
- * @public
- */
-export interface ListControlDisplayOptions {
-  /**
-   * <p>The configuration of the search options in a list control.</p>
-   * @public
-   */
-  SearchOptions?: ListControlSearchOptions;
-
-  /**
-   * <p>The configuration of the <code>Select all</code> options in a list control.</p>
-   * @public
-   */
-  SelectAllOptions?: ListControlSelectAllOptions;
-
-  /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
-   * @public
-   */
-  TitleOptions?: LabelOptions;
-
-  /**
-   * <p>The configuration of info icon label options.</p>
-   * @public
-   */
-  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
-}
-
-/**
  * <p>A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.</p>
  * @public
  */
@@ -3575,7 +4007,7 @@ export interface FilterListControl {
   DisplayOptions?: ListControlDisplayOptions;
 
   /**
-   * <p>The type of <code>FilterListControl</code>. Choose one of the following options:</p>
+   * <p>The type of the <code>FilterListControl</code>. Choose one of the following options:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3601,30 +4033,6 @@ export interface FilterListControl {
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration;
-}
-
-/**
- * <p>The display options of a control.</p>
- * @public
- */
-export interface RelativeDateTimeControlDisplayOptions {
-  /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
-   * @public
-   */
-  TitleOptions?: LabelOptions;
-
-  /**
-   * <p>Customize how dates are formatted in controls.</p>
-   * @public
-   */
-  DateTimeFormat?: string;
-
-  /**
-   * <p>The configuration of info icon label options.</p>
-   * @public
-   */
-  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -3658,38 +4066,6 @@ export interface FilterRelativeDateTimeControl {
 }
 
 /**
- * <p>The display options of a control.</p>
- * @public
- */
-export interface SliderControlDisplayOptions {
-  /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
-   * @public
-   */
-  TitleOptions?: LabelOptions;
-
-  /**
-   * <p>The configuration of info icon label options.</p>
-   * @public
-   */
-  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
-}
-
-/**
- * @public
- * @enum
- */
-export const SheetControlSliderType = {
-  RANGE: "RANGE",
-  SINGLE_POINT: "SINGLE_POINT",
-} as const;
-
-/**
- * @public
- */
-export type SheetControlSliderType = (typeof SheetControlSliderType)[keyof typeof SheetControlSliderType];
-
-/**
  * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
  * @public
  */
@@ -3719,7 +4095,7 @@ export interface FilterSliderControl {
   DisplayOptions?: SliderControlDisplayOptions;
 
   /**
-   * <p>The type of <code>FilterSliderControl</code>. Choose one of the following options:</p>
+   * <p>The type of the <code>FilterSliderControl</code>. Choose one of the following options:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3735,13 +4111,13 @@ export interface FilterSliderControl {
   Type?: SheetControlSliderType;
 
   /**
-   * <p>The smaller value that is displayed at the left of the slider.</p>
+   * <p>The larger value that is displayed at the right of the slider.</p>
    * @public
    */
   MaximumValue: number | undefined;
 
   /**
-   * <p>The larger value that is displayed at the right of the slider.</p>
+   * <p>The smaller value that is displayed at the left of the slider.</p>
    * @public
    */
   MinimumValue: number | undefined;
@@ -3751,42 +4127,6 @@ export interface FilterSliderControl {
    * @public
    */
   StepSize: number | undefined;
-}
-
-/**
- * <p>The configuration of the placeholder options in a text control.</p>
- * @public
- */
-export interface TextControlPlaceholderOptions {
-  /**
-   * <p>The visibility configuration of the placeholder options in a text control.</p>
-   * @public
-   */
-  Visibility?: Visibility;
-}
-
-/**
- * <p>The display options of a control.</p>
- * @public
- */
-export interface TextAreaControlDisplayOptions {
-  /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
-   * @public
-   */
-  TitleOptions?: LabelOptions;
-
-  /**
-   * <p>The configuration of the placeholder options in a text area control.</p>
-   * @public
-   */
-  PlaceholderOptions?: TextControlPlaceholderOptions;
-
-  /**
-   * <p>The configuration of info icon label options.</p>
-   * @public
-   */
-  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -3823,30 +4163,6 @@ export interface FilterTextAreaControl {
    * @public
    */
   DisplayOptions?: TextAreaControlDisplayOptions;
-}
-
-/**
- * <p>The display options of a control.</p>
- * @public
- */
-export interface TextFieldControlDisplayOptions {
-  /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
-   * @public
-   */
-  TitleOptions?: LabelOptions;
-
-  /**
-   * <p>The configuration of the placeholder options in a text field control.</p>
-   * @public
-   */
-  PlaceholderOptions?: TextControlPlaceholderOptions;
-
-  /**
-   * <p>The configuration of info icon label options.</p>
-   * @public
-   */
-  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -3926,6 +4242,12 @@ export interface FilterControl {
    * @public
    */
   RelativeDateTime?: FilterRelativeDateTimeControl;
+
+  /**
+   * <p>A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet</p>
+   * @public
+   */
+  CrossSheet?: FilterCrossSheetControl;
 }
 
 /**
@@ -4583,13 +4905,13 @@ export interface ParameterSliderControl {
   DisplayOptions?: SliderControlDisplayOptions;
 
   /**
-   * <p>The smaller value that is displayed at the left of the slider.</p>
+   * <p>The larger value that is displayed at the right of the slider.</p>
    * @public
    */
   MaximumValue: number | undefined;
 
   /**
-   * <p>The larger value that is displayed at the right of the slider.</p>
+   * <p>The smaller value that is displayed at the left of the slider.</p>
    * @public
    */
   MinimumValue: number | undefined;
@@ -7213,324 +7535,6 @@ export interface DataPathType {
 }
 
 /**
- * <p>The data path that needs to be sorted.</p>
- * @public
- */
-export interface DataPathValue {
-  /**
-   * <p>The field ID of the field that needs to be sorted.</p>
-   * @public
-   */
-  FieldId?: string;
-
-  /**
-   * <p>The actual value of the field that needs to be sorted.</p>
-   * @public
-   */
-  FieldValue?: string;
-
-  /**
-   * <p>The type configuration of the field.</p>
-   * @public
-   */
-  DataPathType?: DataPathType;
-}
-
-/**
- * <p>The color map that determines the color options for a particular element.</p>
- * @public
- */
-export interface DataPathColor {
-  /**
-   * <p>The element that the color needs to be applied to.</p>
-   * @public
-   */
-  Element: DataPathValue | undefined;
-
-  /**
-   * <p>The color that needs to be applied to the element.</p>
-   * @public
-   */
-  Color: string | undefined;
-
-  /**
-   * <p>The time granularity of the field that the color needs to be applied to.</p>
-   * @public
-   */
-  TimeGranularity?: TimeGranularity;
-}
-
-/**
- * <p>The visual display options for the visual palette.</p>
- * @public
- */
-export interface VisualPalette {
-  /**
-   * <p>The chart color options for the visual palette.</p>
-   * @public
-   */
-  ChartColor?: string;
-
-  /**
-   * <p>The color map options for the visual palette.</p>
-   * @public
-   */
-  ColorMap?: DataPathColor[];
-}
-
-/**
- * <p>The configuration of a <code>BarChartVisual</code>.</p>
- * @public
- */
-export interface BarChartConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: BarChartFieldWells;
-
-  /**
-   * <p>The sort configuration of a <code>BarChartVisual</code>.</p>
-   * @public
-   */
-  SortConfiguration?: BarChartSortConfiguration;
-
-  /**
-   * <p>The orientation of the bars in a bar chart visual. There are two valid values in this structure:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HORIZONTAL</code>: Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VERTICAL</code>: Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Orientation?: BarChartOrientation;
-
-  /**
-   * <p>Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.</p>
-   * @public
-   */
-  BarsArrangement?: BarsArrangement;
-
-  /**
-   * <p>The palette (chart color) display setup of the visual.</p>
-   * @public
-   */
-  VisualPalette?: VisualPalette;
-
-  /**
-   * <p>The small multiples setup for the visual.</p>
-   * @public
-   */
-  SmallMultiplesOptions?: SmallMultiplesOptions;
-
-  /**
-   * <p>The label display options (grid line, range, scale, axis step) for bar chart category.</p>
-   * @public
-   */
-  CategoryAxis?: AxisDisplayOptions;
-
-  /**
-   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart.</p>
-   * @public
-   */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label display options (grid line, range, scale, axis step) for a bar chart value.</p>
-   * @public
-   */
-  ValueAxis?: AxisDisplayOptions;
-
-  /**
-   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart value.</p>
-   * @public
-   */
-  ValueLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.</p>
-   * @public
-   */
-  ColorLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   * @public
-   */
-  Legend?: LegendOptions;
-
-  /**
-   * <p>The options that determine if visual data labels are displayed.</p>
-   * @public
-   */
-  DataLabels?: DataLabelOptions;
-
-  /**
-   * <p>The tooltip display setup of the visual.</p>
-   * @public
-   */
-  Tooltip?: TooltipOptions;
-
-  /**
-   * <p>The reference line setup of the visual.</p>
-   * @public
-   */
-  ReferenceLines?: ReferenceLine[];
-
-  /**
-   * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
-   * @public
-   */
-  ContributionAnalysisDefaults?: ContributionAnalysisDefault[];
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions;
-}
-
-/**
- * <p>The numeric equality type drill down filter.</p>
- * @public
- */
-export interface CategoryDrillDownFilter {
-  /**
-   * <p>The column that the filter is applied to.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>A list of the string inputs that are the values of the category drill down filter.</p>
-   * @public
-   */
-  CategoryValues: string[] | undefined;
-}
-
-/**
- * <p>The category drill down filter.</p>
- * @public
- */
-export interface NumericEqualityDrillDownFilter {
-  /**
-   * <p>The column that the filter is applied to.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The value of the double input numeric drill down filter.</p>
-   * @public
-   */
-  Value: number | undefined;
-}
-
-/**
- * <p>The time range drill down filter.</p>
- * @public
- */
-export interface TimeRangeDrillDownFilter {
-  /**
-   * <p>The column that the filter is applied to.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The minimum value for the filter value range.</p>
-   * @public
-   */
-  RangeMinimum: Date | undefined;
-
-  /**
-   * <p>The maximum value for the filter value range.</p>
-   * @public
-   */
-  RangeMaximum: Date | undefined;
-
-  /**
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
-   * @public
-   */
-  TimeGranularity: TimeGranularity | undefined;
-}
-
-/**
- * <p>The drill down filter for the column hierarchies.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface DrillDownFilter {
-  /**
-   * <p>The numeric equality type drill down filter. This filter is used for number type columns.</p>
-   * @public
-   */
-  NumericEqualityFilter?: NumericEqualityDrillDownFilter;
-
-  /**
-   * <p>The category type drill down filter. This filter is used for string type columns.</p>
-   * @public
-   */
-  CategoryFilter?: CategoryDrillDownFilter;
-
-  /**
-   * <p>The time range drill down filter. This filter is used for date time columns.</p>
-   * @public
-   */
-  TimeRangeFilter?: TimeRangeDrillDownFilter;
-}
-
-/**
- * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
- * @public
- */
-export interface DateTimeHierarchy {
-  /**
-   * <p>The hierarchy ID of the <code>DateTime</code> hierarchy.</p>
-   * @public
-   */
-  HierarchyId: string | undefined;
-
-  /**
-   * <p>The option that determines the drill down filters for the
-   *                 <code>DateTime</code> hierarchy.</p>
-   * @public
-   */
-  DrillDownFilters?: DrillDownFilter[];
-}
-
-/**
- * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
- * @public
- */
-export interface ExplicitHierarchy {
-  /**
-   * <p>The hierarchy ID of the explicit hierarchy.</p>
-   * @public
-   */
-  HierarchyId: string | undefined;
-
-  /**
-   * <p>The list of columns that define the explicit hierarchy.</p>
-   * @public
-   */
-  Columns: ColumnIdentifier[] | undefined;
-
-  /**
-   * <p>The option that determines the drill down filters for the explicit hierarchy.</p>
-   * @public
-   */
-  DrillDownFilters?: DrillDownFilter[];
-}
-
-/**
  * @internal
  */
 export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => ({
@@ -8196,41 +8200,5 @@ export const ReferenceLineFilterSensitiveLog = (obj: ReferenceLine): any => ({
   }),
   ...(obj.LabelConfiguration && {
     LabelConfiguration: ReferenceLineLabelConfigurationFilterSensitiveLog(obj.LabelConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const DataPathValueFilterSensitiveLog = (obj: DataPathValue): any => ({
-  ...obj,
-  ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DataPathColorFilterSensitiveLog = (obj: DataPathColor): any => ({
-  ...obj,
-  ...(obj.Element && { Element: DataPathValueFilterSensitiveLog(obj.Element) }),
-});
-
-/**
- * @internal
- */
-export const VisualPaletteFilterSensitiveLog = (obj: VisualPalette): any => ({
-  ...obj,
-  ...(obj.ColorMap && { ColorMap: obj.ColorMap.map((item) => DataPathColorFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BarChartConfigurationFilterSensitiveLog = (obj: BarChartConfiguration): any => ({
-  ...obj,
-  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
-  ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
-  ...(obj.ReferenceLines && {
-    ReferenceLines: obj.ReferenceLines.map((item) => ReferenceLineFilterSensitiveLog(item)),
   }),
 });

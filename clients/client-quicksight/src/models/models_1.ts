@@ -2,55 +2,37 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
-  AnalysisDefaults,
-  AssetOptions,
   AxisBinding,
   AxisDisplayOptions,
-  BarChartConfiguration,
+  BarChartFieldWells,
+  BarChartOrientation,
+  BarChartSortConfiguration,
   BarsArrangement,
-  CalculatedField,
-  CalculatedFieldFilterSensitiveLog,
   ChartAxisLabelOptions,
-  ColumnConfiguration,
-  ColumnConfigurationFilterSensitiveLog,
   ColumnIdentifier,
   ColumnSort,
   ContributionAnalysisDefault,
   DataLabelOptions,
   DataLabelOptionsFilterSensitiveLog,
   DataLabelPosition,
-  DataPathValue,
-  DataPathValueFilterSensitiveLog,
-  DataSetIdentifierDeclaration,
-  DateTimeHierarchy,
+  DataPathType,
   DimensionField,
-  DrillDownFilter,
-  ExplicitHierarchy,
   FieldSort,
   FieldSortOptions,
-  FilterControl,
-  FilterGroup,
   FontConfiguration,
   FormatConfiguration,
   FormatConfigurationFilterSensitiveLog,
   HorizontalTextAlignment,
   ItemsLimitConfiguration,
-  Layout,
   LegendOptions,
   MeasureField,
   MeasureFieldFilterSensitiveLog,
   NumberDisplayFormatConfiguration,
   NumberDisplayFormatConfigurationFilterSensitiveLog,
-  ParameterControl,
-  ParameterDeclaration,
-  ParameterDeclarationFilterSensitiveLog,
   PercentageDisplayFormatConfiguration,
   PercentageDisplayFormatConfigurationFilterSensitiveLog,
   ReferenceLine,
   ReferenceLineFilterSensitiveLog,
-  SheetContentType,
-  SheetControlLayout,
-  SheetTextBox,
   SmallMultiplesOptions,
   SortDirection,
   TimeGranularity,
@@ -59,10 +41,326 @@ import {
   Visibility,
   VisualCustomAction,
   VisualInteractionOptions,
-  VisualPalette,
-  VisualPaletteFilterSensitiveLog,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * <p>The data path that needs to be sorted.</p>
+ * @public
+ */
+export interface DataPathValue {
+  /**
+   * <p>The field ID of the field that needs to be sorted.</p>
+   * @public
+   */
+  FieldId?: string;
+
+  /**
+   * <p>The actual value of the field that needs to be sorted.</p>
+   * @public
+   */
+  FieldValue?: string;
+
+  /**
+   * <p>The type configuration of the field.</p>
+   * @public
+   */
+  DataPathType?: DataPathType;
+}
+
+/**
+ * <p>The color map that determines the color options for a particular element.</p>
+ * @public
+ */
+export interface DataPathColor {
+  /**
+   * <p>The element that the color needs to be applied to.</p>
+   * @public
+   */
+  Element: DataPathValue | undefined;
+
+  /**
+   * <p>The color that needs to be applied to the element.</p>
+   * @public
+   */
+  Color: string | undefined;
+
+  /**
+   * <p>The time granularity of the field that the color needs to be applied to.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity;
+}
+
+/**
+ * <p>The visual display options for the visual palette.</p>
+ * @public
+ */
+export interface VisualPalette {
+  /**
+   * <p>The chart color options for the visual palette.</p>
+   * @public
+   */
+  ChartColor?: string;
+
+  /**
+   * <p>The color map options for the visual palette.</p>
+   * @public
+   */
+  ColorMap?: DataPathColor[];
+}
+
+/**
+ * <p>The configuration of a <code>BarChartVisual</code>.</p>
+ * @public
+ */
+export interface BarChartConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   * @public
+   */
+  FieldWells?: BarChartFieldWells;
+
+  /**
+   * <p>The sort configuration of a <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  SortConfiguration?: BarChartSortConfiguration;
+
+  /**
+   * <p>The orientation of the bars in a bar chart visual. There are two valid values in this structure:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HORIZONTAL</code>: Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERTICAL</code>: Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Orientation?: BarChartOrientation;
+
+  /**
+   * <p>Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.</p>
+   * @public
+   */
+  BarsArrangement?: BarsArrangement;
+
+  /**
+   * <p>The palette (chart color) display setup of the visual.</p>
+   * @public
+   */
+  VisualPalette?: VisualPalette;
+
+  /**
+   * <p>The small multiples setup for the visual.</p>
+   * @public
+   */
+  SmallMultiplesOptions?: SmallMultiplesOptions;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) for bar chart category.</p>
+   * @public
+   */
+  CategoryAxis?: AxisDisplayOptions;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart.</p>
+   * @public
+   */
+  CategoryLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) for a bar chart value.</p>
+   * @public
+   */
+  ValueAxis?: AxisDisplayOptions;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart value.</p>
+   * @public
+   */
+  ValueLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.</p>
+   * @public
+   */
+  ColorLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The legend display setup of the visual.</p>
+   * @public
+   */
+  Legend?: LegendOptions;
+
+  /**
+   * <p>The options that determine if visual data labels are displayed.</p>
+   * @public
+   */
+  DataLabels?: DataLabelOptions;
+
+  /**
+   * <p>The tooltip display setup of the visual.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions;
+
+  /**
+   * <p>The reference line setup of the visual.</p>
+   * @public
+   */
+  ReferenceLines?: ReferenceLine[];
+
+  /**
+   * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
+   * @public
+   */
+  ContributionAnalysisDefaults?: ContributionAnalysisDefault[];
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions;
+}
+
+/**
+ * <p>The category drill down filter.</p>
+ * @public
+ */
+export interface CategoryDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>A list of the string inputs that are the values of the category drill down filter.</p>
+   * @public
+   */
+  CategoryValues: string[] | undefined;
+}
+
+/**
+ * <p>The numeric equality type drill down filter.</p>
+ * @public
+ */
+export interface NumericEqualityDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The value of the double input numeric drill down filter.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>The time range drill down filter.</p>
+ * @public
+ */
+export interface TimeRangeDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The minimum value for the filter value range.</p>
+   * @public
+   */
+  RangeMinimum: Date | undefined;
+
+  /**
+   * <p>The maximum value for the filter value range.</p>
+   * @public
+   */
+  RangeMaximum: Date | undefined;
+
+  /**
+   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * @public
+   */
+  TimeGranularity: TimeGranularity | undefined;
+}
+
+/**
+ * <p>The drill down filter for the column hierarchies.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface DrillDownFilter {
+  /**
+   * <p>The numeric equality type drill down filter. This filter is used for number type columns.</p>
+   * @public
+   */
+  NumericEqualityFilter?: NumericEqualityDrillDownFilter;
+
+  /**
+   * <p>The category type drill down filter. This filter is used for string type columns.</p>
+   * @public
+   */
+  CategoryFilter?: CategoryDrillDownFilter;
+
+  /**
+   * <p>The time range drill down filter. This filter is used for date time columns.</p>
+   * @public
+   */
+  TimeRangeFilter?: TimeRangeDrillDownFilter;
+}
+
+/**
+ * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
+ * @public
+ */
+export interface DateTimeHierarchy {
+  /**
+   * <p>The hierarchy ID of the <code>DateTime</code> hierarchy.</p>
+   * @public
+   */
+  HierarchyId: string | undefined;
+
+  /**
+   * <p>The option that determines the drill down filters for the
+   *                 <code>DateTime</code> hierarchy.</p>
+   * @public
+   */
+  DrillDownFilters?: DrillDownFilter[];
+}
+
+/**
+ * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
+ * @public
+ */
+export interface ExplicitHierarchy {
+  /**
+   * <p>The hierarchy ID of the explicit hierarchy.</p>
+   * @public
+   */
+  HierarchyId: string | undefined;
+
+  /**
+   * <p>The list of columns that define the explicit hierarchy.</p>
+   * @public
+   */
+  Columns: ColumnIdentifier[] | undefined;
+
+  /**
+   * <p>The option that determines the drill down filters for the explicit hierarchy.</p>
+   * @public
+   */
+  DrillDownFilters?: DrillDownFilter[];
+}
 
 /**
  * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
@@ -7491,504 +7789,40 @@ export const WordCloudWordOrientation = {
 export type WordCloudWordOrientation = (typeof WordCloudWordOrientation)[keyof typeof WordCloudWordOrientation];
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const WordCloudWordPadding = {
-  LARGE: "LARGE",
-  MEDIUM: "MEDIUM",
-  NONE: "NONE",
-  SMALL: "SMALL",
-} as const;
+export const DataPathValueFilterSensitiveLog = (obj: DataPathValue): any => ({
+  ...obj,
+  ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type WordCloudWordPadding = (typeof WordCloudWordPadding)[keyof typeof WordCloudWordPadding];
+export const DataPathColorFilterSensitiveLog = (obj: DataPathColor): any => ({
+  ...obj,
+  ...(obj.Element && { Element: DataPathValueFilterSensitiveLog(obj.Element) }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const WordCloudWordScaling = {
-  EMPHASIZE: "EMPHASIZE",
-  NORMAL: "NORMAL",
-} as const;
+export const VisualPaletteFilterSensitiveLog = (obj: VisualPalette): any => ({
+  ...obj,
+  ...(obj.ColorMap && { ColorMap: obj.ColorMap.map((item) => DataPathColorFilterSensitiveLog(item)) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type WordCloudWordScaling = (typeof WordCloudWordScaling)[keyof typeof WordCloudWordScaling];
-
-/**
- * <p>The word cloud options for a word cloud visual.</p>
- * @public
- */
-export interface WordCloudOptions {
-  /**
-   * <p>The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.</p>
-   * @public
-   */
-  WordOrientation?: WordCloudWordOrientation;
-
-  /**
-   * <p>The word scaling options (emphasize, normal) for the words in a word cloud.</p>
-   * @public
-   */
-  WordScaling?: WordCloudWordScaling;
-
-  /**
-   * <p>The cloud layout options (fluid, normal) of a word cloud.</p>
-   * @public
-   */
-  CloudLayout?: WordCloudCloudLayout;
-
-  /**
-   * <p>The word casing options (lower_case, existing_case) for the words in a word cloud.</p>
-   * @public
-   */
-  WordCasing?: WordCloudWordCasing;
-
-  /**
-   * <p>The word padding options (none, small, medium, large) for the words in a word cloud.</p>
-   * @public
-   */
-  WordPadding?: WordCloudWordPadding;
-
-  /**
-   * <p>The length limit of each word from 1-100.</p>
-   * @public
-   */
-  MaximumStringLength?: number;
-}
-
-/**
- * <p>The configuration of a word cloud visual.</p>
- * @public
- */
-export interface WordCloudChartConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: WordCloudFieldWells;
-
-  /**
-   * <p>The sort configuration of a word cloud visual.</p>
-   * @public
-   */
-  SortConfiguration?: WordCloudSortConfiguration;
-
-  /**
-   * <p>The label options (label text, label visibility, and sort icon visibility) for the word cloud category.</p>
-   * @public
-   */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The options for a word cloud visual.</p>
-   * @public
-   */
-  WordCloudOptions?: WordCloudOptions;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions;
-}
-
-/**
- * <p>A word cloud.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- * @public
- */
-export interface WordCloudVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: WordCloudChartConfiguration;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[];
-
-  /**
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   * @public
-   */
-  ColumnHierarchies?: ColumnHierarchy[];
-}
-
-/**
- * <p>A visual displayed on a sheet in an analysis, dashboard, or template.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface Visual {
-  /**
-   * <p>A table visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  TableVisual?: TableVisual;
-
-  /**
-   * <p>A pivot table.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  PivotTableVisual?: PivotTableVisual;
-
-  /**
-   * <p>A bar chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  BarChartVisual?: BarChartVisual;
-
-  /**
-   * <p>A key performance indicator (KPI).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/kpi.html">Using KPIs</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  KPIVisual?: KPIVisual;
-
-  /**
-   * <p>A pie or donut chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html">Using pie charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  PieChartVisual?: PieChartVisual;
-
-  /**
-   * <p>A gauge chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html">Using gauge charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  GaugeChartVisual?: GaugeChartVisual;
-
-  /**
-   * <p>A line chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html">Using line charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  LineChartVisual?: LineChartVisual;
-
-  /**
-   * <p>A heat map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html">Using heat maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  HeatMapVisual?: HeatMapVisual;
-
-  /**
-   * <p>A tree map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  TreeMapVisual?: TreeMapVisual;
-
-  /**
-   * <p>A geospatial map or a points on map visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html">Creating point maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  GeospatialMapVisual?: GeospatialMapVisual;
-
-  /**
-   * <p>A filled map.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  FilledMapVisual?: FilledMapVisual;
-
-  /**
-   * <p>A funnel chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html">Using funnel charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  FunnelChartVisual?: FunnelChartVisual;
-
-  /**
-   * <p>A scatter plot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  ScatterPlotVisual?: ScatterPlotVisual;
-
-  /**
-   * <p>A combo chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html">Using combo charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  ComboChartVisual?: ComboChartVisual;
-
-  /**
-   * <p>A box plot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  BoxPlotVisual?: BoxPlotVisual;
-
-  /**
-   * <p>A waterfall chart.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  WaterfallVisual?: WaterfallVisual;
-
-  /**
-   * <p>A histogram.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html">Using histograms</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  HistogramVisual?: HistogramVisual;
-
-  /**
-   * <p>A word cloud.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  WordCloudVisual?: WordCloudVisual;
-
-  /**
-   * <p>An insight visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html">Working with insights</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  InsightVisual?: InsightVisual;
-
-  /**
-   * <p>A sankey diagram.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  SankeyDiagramVisual?: SankeyDiagramVisual;
-
-  /**
-   * <p>A visual that contains custom content.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html">Using custom visual content</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  CustomContentVisual?: CustomContentVisual;
-
-  /**
-   * <p>An empty visual.</p>
-   * @public
-   */
-  EmptyVisual?: EmptyVisual;
-
-  /**
-   * <p>A radar chart visual.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html">Using radar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  RadarChartVisual?: RadarChartVisual;
-}
-
-/**
- * <p>A sheet is an object that contains a set of visuals that
- *             are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.</p>
- * @public
- */
-export interface SheetDefinition {
-  /**
-   * <p>The unique identifier of a sheet.</p>
-   * @public
-   */
-  SheetId: string | undefined;
-
-  /**
-   * <p>The title of the sheet.</p>
-   * @public
-   */
-  Title?: string;
-
-  /**
-   * <p>A description of the sheet.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
-   *             console.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The list of parameter controls that are on a sheet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html">Using a Control with a Parameter in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  ParameterControls?: ParameterControl[];
-
-  /**
-   * <p>The list of filter controls that are on a sheet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html">Adding filter controls to analysis sheets</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  FilterControls?: FilterControl[];
-
-  /**
-   * <p>A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.</p>
-   * @public
-   */
-  Visuals?: Visual[];
-
-  /**
-   * <p>The text boxes that are on a sheet.</p>
-   * @public
-   */
-  TextBoxes?: SheetTextBox[];
-
-  /**
-   * <p>Layouts define how the components of a sheet are arranged.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  Layouts?: Layout[];
-
-  /**
-   * <p>The control layouts of the sheet.</p>
-   * @public
-   */
-  SheetControlLayouts?: SheetControlLayout[];
-
-  /**
-   * <p>The layout content type of the sheet. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PAGINATED</code>: Creates a sheet for a paginated report.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTERACTIVE</code>: Creates a sheet for an interactive dashboard.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ContentType?: SheetContentType;
-}
-
-/**
- * <p>The definition of an analysis.</p>
- * @public
- */
-export interface AnalysisDefinition {
-  /**
-   * <p>An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead
-   *             of dataset ARNs throughout analysis sub-structures.</p>
-   * @public
-   */
-  DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
-
-  /**
-   * <p>An array of sheet definitions for an analysis. Each <code>SheetDefinition</code> provides detailed information about
-   *             a sheet within this analysis.</p>
-   * @public
-   */
-  Sheets?: SheetDefinition[];
-
-  /**
-   * <p>An array of calculated field definitions for the analysis.</p>
-   * @public
-   */
-  CalculatedFields?: CalculatedField[];
-
-  /**
-   * <p>An array of parameter declarations for an analysis.</p>
-   *          <p>Parameters are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  ParameterDeclarations?: ParameterDeclaration[];
-
-  /**
-   * <p>Filter definitions for an analysis.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  FilterGroups?: FilterGroup[];
-
-  /**
-   * <p>
-   *             An array of analysis-level column configurations. Column configurations can be used to set default
-   *             formatting for a column to be used throughout an analysis.
-   *         </p>
-   * @public
-   */
-  ColumnConfigurations?: ColumnConfiguration[];
-
-  /**
-   * <p>The configuration for default analysis settings.</p>
-   * @public
-   */
-  AnalysisDefaults?: AnalysisDefaults;
-
-  /**
-   * <p>An array of option definitions for an analysis.</p>
-   * @public
-   */
-  Options?: AssetOptions;
-}
-
-/**
- * @public
- * @enum
- */
-export const AnalysisFilterAttribute = {
-  ANALYSIS_NAME: "ANALYSIS_NAME",
-  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER: "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
-} as const;
-
-/**
- * @public
- */
-export type AnalysisFilterAttribute = (typeof AnalysisFilterAttribute)[keyof typeof AnalysisFilterAttribute];
-
-/**
- * @public
- * @enum
- */
-export const FilterOperator = {
-  StringEquals: "StringEquals",
-  StringLike: "StringLike",
-} as const;
-
-/**
- * @public
- */
-export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
+export const BarChartConfigurationFilterSensitiveLog = (obj: BarChartConfiguration): any => ({
+  ...obj,
+  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
+  ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
+  ...(obj.ReferenceLines && {
+    ReferenceLines: obj.ReferenceLines.map((item) => ReferenceLineFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
@@ -9171,53 +9005,4 @@ export const WordCloudAggregatedFieldWellsFilterSensitiveLog = (obj: WordCloudAg
  */
 export const WordCloudFieldWellsFilterSensitiveLog = (obj: WordCloudFieldWells): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const WordCloudChartConfigurationFilterSensitiveLog = (obj: WordCloudChartConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WordCloudVisualFilterSensitiveLog = (obj: WordCloudVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisualFilterSensitiveLog = (obj: Visual): any => ({
-  ...obj,
-  ...(obj.KPIVisual && { KPIVisual: KPIVisualFilterSensitiveLog(obj.KPIVisual) }),
-  ...(obj.GaugeChartVisual && { GaugeChartVisual: GaugeChartVisualFilterSensitiveLog(obj.GaugeChartVisual) }),
-  ...(obj.ScatterPlotVisual && { ScatterPlotVisual: ScatterPlotVisualFilterSensitiveLog(obj.ScatterPlotVisual) }),
-  ...(obj.HistogramVisual && { HistogramVisual: HistogramVisualFilterSensitiveLog(obj.HistogramVisual) }),
-  ...(obj.InsightVisual && { InsightVisual: InsightVisualFilterSensitiveLog(obj.InsightVisual) }),
-});
-
-/**
- * @internal
- */
-export const SheetDefinitionFilterSensitiveLog = (obj: SheetDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): any => ({
-  ...obj,
-  ...(obj.CalculatedFields && {
-    CalculatedFields: obj.CalculatedFields.map((item) => CalculatedFieldFilterSensitiveLog(item)),
-  }),
-  ...(obj.ParameterDeclarations && {
-    ParameterDeclarations: obj.ParameterDeclarations.map((item) => ParameterDeclarationFilterSensitiveLog(item)),
-  }),
-  ...(obj.ColumnConfigurations && {
-    ColumnConfigurations: obj.ColumnConfigurations.map((item) => ColumnConfigurationFilterSensitiveLog(item)),
-  }),
 });

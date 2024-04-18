@@ -68,7 +68,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *       { // AssetBundleExportJobDataSourceOverrideProperties
  *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobDataSourcePropertyToOverrideList // required
- *           "Name" || "DisableSsl" || "SecretArn" || "Username" || "Password" || "Domain" || "WorkGroup" || "Host" || "Port" || "Database" || "DataSetName" || "Catalog" || "InstanceId" || "ClusterId" || "ManifestFileLocation" || "Warehouse" || "RoleArn",
+ *           "Name" || "DisableSsl" || "SecretArn" || "Username" || "Password" || "Domain" || "WorkGroup" || "Host" || "Port" || "Database" || "DataSetName" || "Catalog" || "InstanceId" || "ClusterId" || "ManifestFileLocation" || "Warehouse" || "RoleArn" || "ProductType",
  *         ],
  *       },
  *     ],

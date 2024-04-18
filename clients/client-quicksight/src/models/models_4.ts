@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
-import { AccountCustomization, ResourceStatus } from "./models_0";
-
-import { AnalysisDefinition } from "./models_1";
+import { AccountCustomization, ActiveIAMPolicyAssignment, ResourceStatus } from "./models_0";
 
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  AnalysisDefinition,
   AnalysisSearchFilter,
   AnalysisSourceEntity,
   AnalysisSummary,
@@ -22,6 +21,7 @@ import {
   AssetBundleImportSource,
   AssetBundleImportSourceFilterSensitiveLog,
   AssignmentStatus,
+  AuthorizedTargetsByService,
   ColumnGroup,
   ColumnLevelPermissionRule,
   DashboardPublishOptions,
@@ -50,7 +50,6 @@ import {
   TemplateAlias,
   TemplateSourceEntity,
   TemplateVersionDefinition,
-  ThemeAlias,
   ThemeConfiguration,
   ValidationStrategy,
   VpcConnectionProperties,
@@ -67,12 +66,15 @@ import {
   FolderSearchFilter,
   FolderSummary,
   GroupSearchFilter,
+  IAMPolicyAssignmentSummary,
   IdentityType,
+  Ingestion,
   NamespaceInfoV2,
   NetworkInterface,
   SessionTag,
   SessionTagFilterSensitiveLog,
   SnapshotConfiguration,
+  ThemeAlias,
   ThemeType,
   TopicDetails,
   TopicRefreshSchedule,
@@ -81,6 +83,327 @@ import {
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListGroupsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The namespace that you want a list of groups from.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupsResponse {
+  /**
+   * <p>The list of the groups.</p>
+   * @public
+   */
+  GroupList?: Group[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListIAMPolicyAssignmentsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains these IAM policy
+   * 			assignments.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The status of the assignments.</p>
+   * @public
+   */
+  AssignmentStatus?: AssignmentStatus;
+
+  /**
+   * <p>The namespace for the assignments.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListIAMPolicyAssignmentsResponse {
+  /**
+   * <p>Information describing the IAM policy assignments.</p>
+   * @public
+   */
+  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListIAMPolicyAssignmentsForUserRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the assignments.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the user.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The namespace of the assignment.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIAMPolicyAssignmentsForUserResponse {
+  /**
+   * <p>The active assignments for this user.</p>
+   * @public
+   */
+  ActiveAssignments?: ActiveIAMPolicyAssignment[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListIdentityPropagationConfigsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contain the identity propagation configurations of.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIdentityPropagationConfigsResponse {
+  /**
+   * <p>A list of services and their authorized targets that the Amazon QuickSight IAM Identity Center application can access.</p>
+   * @public
+   */
+  Services?: AuthorizedTargetsByService[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestionsRequest {
+  /**
+   * <p>The ID of the dataset used in the ingestion.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListIngestionsResponse {
+  /**
+   * <p>A list of the ingestions.</p>
+   * @public
+   */
+  Ingestions?: Ingestion[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListNamespacesRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces that you want to list.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A unique pagination token that can be used in a subsequent request. You will receive a pagination token in the response body of a previous <code>ListNameSpaces</code> API call if there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
 
 /**
  * @public

@@ -10,23 +10,567 @@ import {
   AssetOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
+  ChartAxisLabelOptions,
   ColumnConfiguration,
   ColumnConfigurationFilterSensitiveLog,
   DashboardBehavior,
   DataSetIdentifierDeclaration,
   Edition,
+  FilterControl,
   FilterGroup,
-  NumberScale,
+  Layout,
+  ParameterControl,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
   ResourceStatus,
+  SheetContentType,
+  SheetControlLayout,
+  SheetTextBox,
   TimeGranularity,
+  VisualCustomAction,
+  VisualInteractionOptions,
   VisualMenuOption,
 } from "./models_0";
 
-import { AnalysisDefinition, AnalysisFilterAttribute, FilterOperator, SheetDefinition } from "./models_1";
+import {
+  BarChartVisual,
+  BoxPlotVisual,
+  ColumnHierarchy,
+  ComboChartVisual,
+  CustomContentVisual,
+  EmptyVisual,
+  FilledMapVisual,
+  FunnelChartVisual,
+  GaugeChartVisual,
+  GaugeChartVisualFilterSensitiveLog,
+  GeospatialMapVisual,
+  HeatMapVisual,
+  HistogramVisual,
+  HistogramVisualFilterSensitiveLog,
+  InsightVisual,
+  InsightVisualFilterSensitiveLog,
+  KPIVisual,
+  KPIVisualFilterSensitiveLog,
+  LineChartVisual,
+  PieChartVisual,
+  PivotTableVisual,
+  RadarChartVisual,
+  SankeyDiagramVisual,
+  ScatterPlotVisual,
+  ScatterPlotVisualFilterSensitiveLog,
+  TableVisual,
+  TreeMapVisual,
+  VisualSubtitleLabelOptions,
+  VisualTitleLabelOptions,
+  WaterfallVisual,
+  WordCloudCloudLayout,
+  WordCloudFieldWells,
+  WordCloudSortConfiguration,
+  WordCloudWordCasing,
+  WordCloudWordOrientation,
+} from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordPadding = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  SMALL: "SMALL",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordPadding = (typeof WordCloudWordPadding)[keyof typeof WordCloudWordPadding];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordScaling = {
+  EMPHASIZE: "EMPHASIZE",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordScaling = (typeof WordCloudWordScaling)[keyof typeof WordCloudWordScaling];
+
+/**
+ * <p>The word cloud options for a word cloud visual.</p>
+ * @public
+ */
+export interface WordCloudOptions {
+  /**
+   * <p>The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.</p>
+   * @public
+   */
+  WordOrientation?: WordCloudWordOrientation;
+
+  /**
+   * <p>The word scaling options (emphasize, normal) for the words in a word cloud.</p>
+   * @public
+   */
+  WordScaling?: WordCloudWordScaling;
+
+  /**
+   * <p>The cloud layout options (fluid, normal) of a word cloud.</p>
+   * @public
+   */
+  CloudLayout?: WordCloudCloudLayout;
+
+  /**
+   * <p>The word casing options (lower_case, existing_case) for the words in a word cloud.</p>
+   * @public
+   */
+  WordCasing?: WordCloudWordCasing;
+
+  /**
+   * <p>The word padding options (none, small, medium, large) for the words in a word cloud.</p>
+   * @public
+   */
+  WordPadding?: WordCloudWordPadding;
+
+  /**
+   * <p>The length limit of each word from 1-100.</p>
+   * @public
+   */
+  MaximumStringLength?: number;
+}
+
+/**
+ * <p>The configuration of a word cloud visual.</p>
+ * @public
+ */
+export interface WordCloudChartConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   * @public
+   */
+  FieldWells?: WordCloudFieldWells;
+
+  /**
+   * <p>The sort configuration of a word cloud visual.</p>
+   * @public
+   */
+  SortConfiguration?: WordCloudSortConfiguration;
+
+  /**
+   * <p>The label options (label text, label visibility, and sort icon visibility) for the word cloud category.</p>
+   * @public
+   */
+  CategoryLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The options for a word cloud visual.</p>
+   * @public
+   */
+  WordCloudOptions?: WordCloudOptions;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions;
+}
+
+/**
+ * <p>A word cloud.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ * @public
+ */
+export interface WordCloudVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   * @public
+   */
+  ChartConfiguration?: WordCloudChartConfiguration;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[];
+
+  /**
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   * @public
+   */
+  ColumnHierarchies?: ColumnHierarchy[];
+}
+
+/**
+ * <p>A visual displayed on a sheet in an analysis, dashboard, or template.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface Visual {
+  /**
+   * <p>A table visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  TableVisual?: TableVisual;
+
+  /**
+   * <p>A pivot table.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  PivotTableVisual?: PivotTableVisual;
+
+  /**
+   * <p>A bar chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  BarChartVisual?: BarChartVisual;
+
+  /**
+   * <p>A key performance indicator (KPI).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/kpi.html">Using KPIs</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  KPIVisual?: KPIVisual;
+
+  /**
+   * <p>A pie or donut chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html">Using pie charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  PieChartVisual?: PieChartVisual;
+
+  /**
+   * <p>A gauge chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/gauge-chart.html">Using gauge charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  GaugeChartVisual?: GaugeChartVisual;
+
+  /**
+   * <p>A line chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html">Using line charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  LineChartVisual?: LineChartVisual;
+
+  /**
+   * <p>A heat map.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/heat-map.html">Using heat maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  HeatMapVisual?: HeatMapVisual;
+
+  /**
+   * <p>A tree map.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  TreeMapVisual?: TreeMapVisual;
+
+  /**
+   * <p>A geospatial map or a points on map visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/point-maps.html">Creating point maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  GeospatialMapVisual?: GeospatialMapVisual;
+
+  /**
+   * <p>A filled map.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filled-maps.html">Creating filled maps</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  FilledMapVisual?: FilledMapVisual;
+
+  /**
+   * <p>A funnel chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/funnel-visual-content.html">Using funnel charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  FunnelChartVisual?: FunnelChartVisual;
+
+  /**
+   * <p>A scatter plot.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/scatter-plot.html">Using scatter plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  ScatterPlotVisual?: ScatterPlotVisual;
+
+  /**
+   * <p>A combo chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html">Using combo charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  ComboChartVisual?: ComboChartVisual;
+
+  /**
+   * <p>A box plot.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  BoxPlotVisual?: BoxPlotVisual;
+
+  /**
+   * <p>A waterfall chart.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  WaterfallVisual?: WaterfallVisual;
+
+  /**
+   * <p>A histogram.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/histogram-charts.html">Using histograms</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  HistogramVisual?: HistogramVisual;
+
+  /**
+   * <p>A word cloud.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/word-cloud.html">Using word clouds</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  WordCloudVisual?: WordCloudVisual;
+
+  /**
+   * <p>An insight visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/computational-insights.html">Working with insights</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  InsightVisual?: InsightVisual;
+
+  /**
+   * <p>A sankey diagram.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sankey-diagram.html">Using Sankey diagrams</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  SankeyDiagramVisual?: SankeyDiagramVisual;
+
+  /**
+   * <p>A visual that contains custom content.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/custom-visual-content.html">Using custom visual content</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  CustomContentVisual?: CustomContentVisual;
+
+  /**
+   * <p>An empty visual.</p>
+   * @public
+   */
+  EmptyVisual?: EmptyVisual;
+
+  /**
+   * <p>A radar chart visual.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html">Using radar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  RadarChartVisual?: RadarChartVisual;
+}
+
+/**
+ * <p>A sheet is an object that contains a set of visuals that
+ *             are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.</p>
+ * @public
+ */
+export interface SheetDefinition {
+  /**
+   * <p>The unique identifier of a sheet.</p>
+   * @public
+   */
+  SheetId: string | undefined;
+
+  /**
+   * <p>The title of the sheet.</p>
+   * @public
+   */
+  Title?: string;
+
+  /**
+   * <p>A description of the sheet.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+   *             console.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The list of parameter controls that are on a sheet.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html">Using a Control with a Parameter in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  ParameterControls?: ParameterControl[];
+
+  /**
+   * <p>The list of filter controls that are on a sheet.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html">Adding filter controls to analysis sheets</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  FilterControls?: FilterControl[];
+
+  /**
+   * <p>A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.</p>
+   * @public
+   */
+  Visuals?: Visual[];
+
+  /**
+   * <p>The text boxes that are on a sheet.</p>
+   * @public
+   */
+  TextBoxes?: SheetTextBox[];
+
+  /**
+   * <p>Layouts define how the components of a sheet are arranged.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  Layouts?: Layout[];
+
+  /**
+   * <p>The control layouts of the sheet.</p>
+   * @public
+   */
+  SheetControlLayouts?: SheetControlLayout[];
+
+  /**
+   * <p>The layout content type of the sheet. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PAGINATED</code>: Creates a sheet for a paginated report.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERACTIVE</code>: Creates a sheet for an interactive dashboard.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ContentType?: SheetContentType;
+}
+
+/**
+ * <p>The definition of an analysis.</p>
+ * @public
+ */
+export interface AnalysisDefinition {
+  /**
+   * <p>An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead
+   *             of dataset ARNs throughout analysis sub-structures.</p>
+   * @public
+   */
+  DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
+
+  /**
+   * <p>An array of sheet definitions for an analysis. Each <code>SheetDefinition</code> provides detailed information about
+   *             a sheet within this analysis.</p>
+   * @public
+   */
+  Sheets?: SheetDefinition[];
+
+  /**
+   * <p>An array of calculated field definitions for the analysis.</p>
+   * @public
+   */
+  CalculatedFields?: CalculatedField[];
+
+  /**
+   * <p>An array of parameter declarations for an analysis.</p>
+   *          <p>Parameters are named variables that can transfer a value for use by an action or an object.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  ParameterDeclarations?: ParameterDeclaration[];
+
+  /**
+   * <p>Filter definitions for an analysis.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  FilterGroups?: FilterGroup[];
+
+  /**
+   * <p>
+   *             An array of analysis-level column configurations. Column configurations can be used to set default
+   *             formatting for a column to be used throughout an analysis.
+   *         </p>
+   * @public
+   */
+  ColumnConfigurations?: ColumnConfiguration[];
+
+  /**
+   * <p>The configuration for default analysis settings.</p>
+   * @public
+   */
+  AnalysisDefaults?: AnalysisDefaults;
+
+  /**
+   * <p>An array of option definitions for an analysis.</p>
+   * @public
+   */
+  Options?: AssetOptions;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisFilterAttribute = {
+  ANALYSIS_NAME: "ANALYSIS_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisFilterAttribute = (typeof AnalysisFilterAttribute)[keyof typeof AnalysisFilterAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  StringEquals: "StringEquals",
+  StringLike: "StringLike",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * <p>A filter that you apply when searching for one or more analyses.</p>
@@ -581,6 +1125,7 @@ export const AssetBundleExportJobDataSourcePropertyToOverride = {
   NAME: "Name",
   PASSWORD: "Password",
   PORT: "Port",
+  PRODUCT_TYPE: "ProductType",
   ROLE_ARN: "RoleArn",
   SECRET_ARN: "SecretArn",
   USERNAME: "Username",
@@ -885,7 +1430,7 @@ export interface AssetBundleExportJobSummary {
 }
 
 /**
- * <p>The option to relax the validation that is required to export each asset. When <code>StrictModeForAllResource</code> is set to true, validation is skipped for specific UI errors.</p>
+ * <p>The option to relax the validation that is required to export each asset. When <code>StrictModeForAllResource</code> is set to <code>false</code>, validation is skipped for specific UI errors.</p>
  * @public
  */
 export interface AssetBundleExportJobValidationStrategy {
@@ -3286,6 +3831,24 @@ export interface AssetBundleImportJobSummary {
    * @public
    */
   FailureAction?: AssetBundleImportFailureAction;
+}
+
+/**
+ * <p>Describes a warning that occurred during an Asset Bundle import job.</p>
+ * @public
+ */
+export interface AssetBundleImportJobWarning {
+  /**
+   * <p>The ARN of the resource that the warning occurred for.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>A description of the warning that occurred during an Asset Bundle import job.</p>
+   * @public
+   */
+  Message?: string;
 }
 
 /**
@@ -8425,360 +8988,53 @@ export interface ThemeConfiguration {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface CreateThemeRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account where you want to store the new theme. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the theme that you want to create. The theme ID is unique per Amazon Web Services Region in
-   * 			each Amazon Web Services account.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>A display name for the theme.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
-   * 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
-   * 				<code>ListThemes</code> or choose <b>Themes</b> from
-   * 			within an analysis. </p>
-   * @public
-   */
-  BaseThemeId: string | undefined;
-
-  /**
-   * <p>A description of the first version of the theme that you're creating. Every time
-   * 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
-   * 			theme has a description of the version in the <code>VersionDescription</code>
-   * 			field.</p>
-   * @public
-   */
-  VersionDescription?: string;
-
-  /**
-   * <p>The theme configuration, which contains the theme display properties.</p>
-   * @public
-   */
-  Configuration: ThemeConfiguration | undefined;
-
-  /**
-   * <p>A valid grouping of resource permissions to apply to the new theme.
-   * 			</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
-   * 			resource.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
+export const WordCloudChartConfigurationFilterSensitiveLog = (obj: WordCloudChartConfiguration): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface CreateThemeResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the theme.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the new theme.</p>
-   * @public
-   */
-  VersionArn?: string;
-
-  /**
-   * <p>The ID of the theme.</p>
-   * @public
-   */
-  ThemeId?: string;
-
-  /**
-   * <p>The theme creation status.</p>
-   * @public
-   */
-  CreationStatus?: ResourceStatus;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
+export const WordCloudVisualFilterSensitiveLog = (obj: WordCloudVisual): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface CreateThemeAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme for the new theme alias.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the theme alias.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The name that you want to give to the theme alias that you are creating. The
-   * 			alias name can't begin with a <code>$</code>. Alias names that start with <code>$</code>
-   * 			are reserved by Amazon QuickSight. </p>
-   * @public
-   */
-  AliasName: string | undefined;
-
-  /**
-   * <p>The version number of the theme.</p>
-   * @public
-   */
-  ThemeVersionNumber: number | undefined;
-}
+export const VisualFilterSensitiveLog = (obj: Visual): any => ({
+  ...obj,
+  ...(obj.KPIVisual && { KPIVisual: KPIVisualFilterSensitiveLog(obj.KPIVisual) }),
+  ...(obj.GaugeChartVisual && { GaugeChartVisual: GaugeChartVisualFilterSensitiveLog(obj.GaugeChartVisual) }),
+  ...(obj.ScatterPlotVisual && { ScatterPlotVisual: ScatterPlotVisualFilterSensitiveLog(obj.ScatterPlotVisual) }),
+  ...(obj.HistogramVisual && { HistogramVisual: HistogramVisualFilterSensitiveLog(obj.HistogramVisual) }),
+  ...(obj.InsightVisual && { InsightVisual: InsightVisualFilterSensitiveLog(obj.InsightVisual) }),
+});
 
 /**
- * <p>An alias for a theme.</p>
- * @public
+ * @internal
  */
-export interface ThemeAlias {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme alias.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The display name of the theme alias.</p>
-   * @public
-   */
-  AliasName?: string;
-
-  /**
-   * <p>The version number of the theme alias.</p>
-   * @public
-   */
-  ThemeVersionNumber?: number;
-}
+export const SheetDefinitionFilterSensitiveLog = (obj: SheetDefinition): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface CreateThemeAliasResponse {
-  /**
-   * <p>Information about the theme alias.</p>
-   * @public
-   */
-  ThemeAlias?: ThemeAlias;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const DefaultAggregation = {
-  AVERAGE: "AVERAGE",
-  COUNT: "COUNT",
-  DISTINCT_COUNT: "DISTINCT_COUNT",
-  MAX: "MAX",
-  MEDIAN: "MEDIAN",
-  MIN: "MIN",
-  STDEV: "STDEV",
-  STDEVP: "STDEVP",
-  SUM: "SUM",
-  VAR: "VAR",
-  VARP: "VARP",
-} as const;
-
-/**
- * @public
- */
-export type DefaultAggregation = (typeof DefaultAggregation)[keyof typeof DefaultAggregation];
-
-/**
- * @public
- * @enum
- */
-export const DisplayFormat = {
-  AUTO: "AUTO",
-  CURRENCY: "CURRENCY",
-  DATE: "DATE",
-  NUMBER: "NUMBER",
-  PERCENT: "PERCENT",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type DisplayFormat = (typeof DisplayFormat)[keyof typeof DisplayFormat];
-
-/**
- * @public
- * @enum
- */
-export const TopicNumericSeparatorSymbol = {
-  COMMA: "COMMA",
-  DOT: "DOT",
-} as const;
-
-/**
- * @public
- */
-export type TopicNumericSeparatorSymbol =
-  (typeof TopicNumericSeparatorSymbol)[keyof typeof TopicNumericSeparatorSymbol];
-
-/**
- * <p>A structure that represents a negative format.</p>
- * @public
- */
-export interface NegativeFormat {
-  /**
-   * <p>The prefix for a negative format.</p>
-   * @public
-   */
-  Prefix?: string;
-
-  /**
-   * <p>The suffix for a negative format.</p>
-   * @public
-   */
-  Suffix?: string;
-}
-
-/**
- * <p>A structure that represents additional options for display formatting.</p>
- * @public
- */
-export interface DisplayFormatOptions {
-  /**
-   * <p>A Boolean value that indicates whether to use blank cell format.</p>
-   * @public
-   */
-  UseBlankCellFormat?: boolean;
-
-  /**
-   * <p>Determines the blank cell format.</p>
-   * @public
-   */
-  BlankCellFormat?: string;
-
-  /**
-   * <p>Determines the <code>DateTime</code> format.</p>
-   * @public
-   */
-  DateFormat?: string;
-
-  /**
-   * <p>Determines the decimal separator.</p>
-   * @public
-   */
-  DecimalSeparator?: TopicNumericSeparatorSymbol;
-
-  /**
-   * <p>Determines the grouping separator.</p>
-   * @public
-   */
-  GroupingSeparator?: string;
-
-  /**
-   * <p>A Boolean value that indicates whether to use grouping.</p>
-   * @public
-   */
-  UseGrouping?: boolean;
-
-  /**
-   * <p>Determines the number of fraction digits.</p>
-   * @public
-   */
-  FractionDigits?: number;
-
-  /**
-   * <p>The prefix value for a display format.</p>
-   * @public
-   */
-  Prefix?: string;
-
-  /**
-   * <p>The suffix value for a display format.</p>
-   * @public
-   */
-  Suffix?: string;
-
-  /**
-   * <p>The unit scaler. Valid values for this structure are: <code>NONE</code>,
-   *             <code>AUTO</code>, <code>THOUSANDS</code>, <code>MILLIONS</code>,
-   *          <code>BILLIONS</code>,
-   *          and <code>TRILLIONS</code>.</p>
-   * @public
-   */
-  UnitScaler?: NumberScale;
-
-  /**
-   * <p>The negative format.</p>
-   * @public
-   */
-  NegativeFormat?: NegativeFormat;
-
-  /**
-   * <p>The currency symbol, such as <code>USD</code>.</p>
-   * @public
-   */
-  CurrencySymbol?: string;
-}
-
-/**
- * <p>A structure that represents a default formatting definition.</p>
- * @public
- */
-export interface DefaultFormatting {
-  /**
-   * <p>The display format. Valid values for this structure are <code>AUTO</code>,
-   *             <code>PERCENT</code>, <code>CURRENCY</code>, <code>NUMBER</code>, <code>DATE</code>, and
-   *             <code>STRING</code>.</p>
-   * @public
-   */
-  DisplayFormat?: DisplayFormat;
-
-  /**
-   * <p>The additional options for display formatting.</p>
-   * @public
-   */
-  DisplayFormatOptions?: DisplayFormatOptions;
-}
+export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): any => ({
+  ...obj,
+  ...(obj.CalculatedFields && {
+    CalculatedFields: obj.CalculatedFields.map((item) => CalculatedFieldFilterSensitiveLog(item)),
+  }),
+  ...(obj.ParameterDeclarations && {
+    ParameterDeclarations: obj.ParameterDeclarations.map((item) => ParameterDeclarationFilterSensitiveLog(item)),
+  }),
+  ...(obj.ColumnConfigurations && {
+    ColumnConfigurations: obj.ColumnConfigurations.map((item) => ColumnConfigurationFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal

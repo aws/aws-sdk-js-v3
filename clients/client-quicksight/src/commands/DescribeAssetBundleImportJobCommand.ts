@@ -425,6 +425,12 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //   OverrideValidationStrategy: { // AssetBundleImportJobOverrideValidationStrategy
  * //     StrictModeForAllResources: true || false,
  * //   },
+ * //   Warnings: [ // AssetBundleImportJobWarningList
+ * //     { // AssetBundleImportJobWarning
+ * //       Arn: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
