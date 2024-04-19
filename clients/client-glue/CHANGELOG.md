@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.559.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.558.0...v3.559.0) (2024-04-19)
+
+
+### Features
+
+* **client-glue:** Adding RowFilter in the response for GetUnfilteredTableMetadata API ([cac0cf1](https://github.com/aws/aws-sdk-js-v3/commit/cac0cf142cd1edbc141fe4e781db9ddf5ac95122))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

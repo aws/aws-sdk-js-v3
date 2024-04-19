@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.559.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.558.0...v3.559.0) (2024-04-19)
+
+
+### Features
+
+* **client-glue:** Adding RowFilter in the response for GetUnfilteredTableMetadata API ([cac0cf1](https://github.com/aws/aws-sdk-js-v3/commit/cac0cf142cd1edbc141fe4e781db9ddf5ac95122))
+* **client-internetmonitor:** This update introduces the GetInternetEvent and ListInternetEvents APIs, which provide access to internet events displayed on the Amazon CloudWatch Internet Weather Map. ([75d990f](https://github.com/aws/aws-sdk-js-v3/commit/75d990fa147ecb2895a3ab28c2a8b31760f4cde3))
+* **client-personalize:** This releases auto training capability while creating a solution and automatically syncing latest solution versions when creating/updating a campaign ([65475aa](https://github.com/aws/aws-sdk-js-v3/commit/65475aac1abd69c56b39547141733e5e52c7b6f5))
+
+
+
+
+
 # [3.558.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.557.0...v3.558.0) (2024-04-18)
 
 
