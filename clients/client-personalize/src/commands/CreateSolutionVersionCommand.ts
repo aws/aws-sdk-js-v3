@@ -103,7 +103,7 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * const input = { // CreateSolutionVersionRequest
  *   name: "STRING_VALUE",
  *   solutionArn: "STRING_VALUE", // required
- *   trainingMode: "FULL" || "UPDATE",
+ *   trainingMode: "FULL" || "UPDATE" || "AUTOTRAIN",
  *   tags: [ // Tags
  *     { // Tag
  *       tagKey: "STRING_VALUE", // required

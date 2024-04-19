@@ -29,8 +29,19 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
 /**
  * <p>
  *       Updates a campaign to deploy a retrained solution version with an existing campaign, change your campaign's <code>minProvisionedTPS</code>,
- *       or modify your campaign's configuration, such as the exploration configuration.
- *     </p>
+ *       or modify your campaign's configuration. For example, you can set <code>enableMetadataWithRecommendations</code> to true for an existing campaign.</p>
+ *          <p>
+ *       To update a campaign to start automatically using the latest solution version, specify the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>For the <code>SolutionVersionArn</code> parameter, specify the Amazon Resource Name (ARN) of your solution in
+ *             <code>SolutionArn/$LATEST</code> format. </p>
+ *             </li>
+ *             <li>
+ *                <p> In the <code>campaignConfig</code>, set <code>syncWithLatestSolutionVersion</code> to <code>true</code>.
+ *         </p>
+ *             </li>
+ *          </ul>
  *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
  *       Check the campaign status using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> operation.</p>
  *          <note>
@@ -55,6 +66,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *       "<keys>": "STRING_VALUE",
  *     },
  *     enableMetadataWithRecommendations: true || false,
+ *     syncWithLatestSolutionVersion: true || false,
  *   },
  * };
  * const command = new UpdateCampaignCommand(input);

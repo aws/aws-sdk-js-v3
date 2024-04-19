@@ -48,6 +48,8 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * //     { // SolutionVersionSummary
  * //       solutionVersionArn: "STRING_VALUE",
  * //       status: "STRING_VALUE",
+ * //       trainingMode: "FULL" || "UPDATE" || "AUTOTRAIN",
+ * //       trainingType: "AUTOMATIC" || "MANUAL",
  * //       creationDateTime: new Date("TIMESTAMP"),
  * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
  * //       failureReason: "STRING_VALUE",

@@ -110,9 +110,12 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * //           ],
  * //         },
  * //       },
+ * //       autoTrainingConfig: { // AutoTrainingConfig
+ * //         schedulingExpression: "STRING_VALUE",
+ * //       },
  * //     },
  * //     trainingHours: Number("double"),
- * //     trainingMode: "FULL" || "UPDATE",
+ * //     trainingMode: "FULL" || "UPDATE" || "AUTOTRAIN",
  * //     tunedHPOParams: { // TunedHPOParams
  * //       algorithmHyperParameters: {
  * //         "<keys>": "STRING_VALUE",
@@ -122,6 +125,7 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * //     failureReason: "STRING_VALUE",
  * //     creationDateTime: new Date("TIMESTAMP"),
  * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     trainingType: "AUTOMATIC" || "MANUAL",
  * //   },
  * // };
  *

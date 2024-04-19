@@ -174,6 +174,7 @@ import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from ".
 import {
   Algorithm,
   AutoMLConfig,
+  AutoTrainingConfig,
   BatchInferenceJob,
   BatchInferenceJobConfig,
   BatchInferenceJobInput,
@@ -2703,6 +2704,8 @@ const de_TooManyTagsExceptionRes = async (
 
 // se_AutoMLConfig omitted.
 
+// se_AutoTrainingConfig omitted.
+
 // se_BatchInferenceJobConfig omitted.
 
 // se_BatchInferenceJobInput omitted.
@@ -2778,6 +2781,7 @@ const se_CreateSolutionRequest = (input: CreateSolutionRequest, context: __Serde
     eventType: [],
     name: [],
     performAutoML: [],
+    performAutoTraining: [],
     performHPO: [],
     recipeArn: [],
     solutionConfig: (_) => se_SolutionConfig(_, context),
@@ -2938,6 +2942,7 @@ const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any 
   return take(input, {
     algorithmHyperParameters: _json,
     autoMLConfig: _json,
+    autoTrainingConfig: _json,
     eventValueThreshold: [],
     featureTransformationParameters: _json,
     hpoConfig: (_) => se_HPOConfig(_, context),
@@ -2999,6 +3004,8 @@ const de_Algorithm = (output: any, context: __SerdeContext): Algorithm => {
 // de_AutoMLConfig omitted.
 
 // de_AutoMLResult omitted.
+
+// de_AutoTrainingConfig omitted.
 
 /**
  * deserializeAws_json1_1BatchInferenceJob
@@ -4178,6 +4185,7 @@ const de_Solution = (output: any, context: __SerdeContext): Solution => {
     latestSolutionVersion: (_: any) => de_SolutionVersionSummary(_, context),
     name: __expectString,
     performAutoML: __expectBoolean,
+    performAutoTraining: __expectBoolean,
     performHPO: __expectBoolean,
     recipeArn: __expectString,
     solutionArn: __expectString,
@@ -4193,6 +4201,7 @@ const de_SolutionConfig = (output: any, context: __SerdeContext): SolutionConfig
   return take(output, {
     algorithmHyperParameters: _json,
     autoMLConfig: _json,
+    autoTrainingConfig: _json,
     eventValueThreshold: __expectString,
     featureTransformationParameters: _json,
     hpoConfig: (_: any) => de_HPOConfig(_, context),
@@ -4247,6 +4256,7 @@ const de_SolutionVersion = (output: any, context: __SerdeContext): SolutionVersi
     status: __expectString,
     trainingHours: __limitedParseDouble,
     trainingMode: __expectString,
+    trainingType: __expectString,
     tunedHPOParams: _json,
   }) as any;
 };
@@ -4273,6 +4283,8 @@ const de_SolutionVersionSummary = (output: any, context: __SerdeContext): Soluti
     lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     solutionVersionArn: __expectString,
     status: __expectString,
+    trainingMode: __expectString,
+    trainingType: __expectString,
   }) as any;
 };
 

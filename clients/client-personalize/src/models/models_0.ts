@@ -279,7 +279,7 @@ export interface BatchInferenceJobOutput {
 
 /**
  * <p>The optional metadata that you apply to resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
- *       For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging Amazon Personalize recources</a>.
+ *       For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging Amazon Personalize resources</a>.
  *     </p>
  * @public
  */
@@ -648,6 +648,19 @@ export interface CampaignConfig {
    * @public
    */
   enableMetadataWithRecommendations?: boolean;
+
+  /**
+   * <p>Whether the campaign automatically updates to use the latest solution version (trained model) of a solution. If you specify <code>True</code>,
+   *       you must specify the ARN of your <i>solution</i> for the <code>SolutionVersionArn</code> parameter. It must be in <code>SolutionArn/$LATEST</code> format.
+   *       The default is <code>False</code> and you must manually update the campaign to deploy the latest solution version.
+   *     </p>
+   *          <p>
+   *       For more information about automatic campaign updates, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-automatic-latest-sv-update">Enabling automatic campaign updates</a>.
+   *     </p>
+   * @public
+   */
+  syncWithLatestSolutionVersion?: boolean;
 }
 
 /**
@@ -661,7 +674,18 @@ export interface CreateCampaignRequest {
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the solution version to deploy.</p>
+   * <p>The Amazon Resource Name (ARN) of the trained model to deploy with the campaign. To specify the latest solution version of your solution,
+   *       specify the ARN of your <i>solution</i> in <code>SolutionArn/$LATEST</code> format.
+   *       You must use this format if you set <code>syncWithLatestSolutionVersion</code> to <code>True</code> in the
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CampaignConfig.html">CampaignConfig</a>.
+   *     </p>
+   *          <p>
+   *       To deploy a model that isn't the latest solution version of your solution, specify the ARN of the solution version.
+   *     </p>
+   *          <p>
+   *       For more information about automatic campaign updates, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-automatic-latest-sv-update">Enabling automatic campaign updates</a>.
+   *     </p>
    * @public
    */
   solutionVersionArn: string | undefined;
@@ -1201,7 +1225,8 @@ export interface CreateMetricAttributionResponse {
 export interface TrainingDataConfig {
   /**
    * <p>Specifies the columns to exclude from training. Each key is a dataset type, and each value is a list of columns.
-   *       Exclude columns to control what data Amazon Personalize uses to generate recommendations.
+   *       Exclude columns to control what data Amazon Personalize uses to generate recommendations.</p>
+   *          <p>
    *       For example, you might have a column that you want to use only to filter recommendations. You can
    *       exclude this column from training and Amazon Personalize considers it only when filtering.
    *     </p>
@@ -1355,6 +1380,22 @@ export interface AutoMLConfig {
    * @public
    */
   recipeList?: string[];
+}
+
+/**
+ * <p>The automatic training configuration to use when <code>performAutoTraining</code> is true.</p>
+ * @public
+ */
+export interface AutoTrainingConfig {
+  /**
+   * <p>Specifies how often to automatically train new solution versions. Specify a rate expression in rate(<i>value</i>
+   *             <i>unit</i>) format.
+   *       For value, specify a number between 1 and 30. For unit, specify <code>day</code> or <code>days</code>.
+   *       For example, to automatically create a new solution version every 5 days, specify <code>rate(5 days)</code>. The default is every 7 days.</p>
+   *          <p>For more information about auto training, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html">Creating and configuring a solution</a>.</p>
+   * @public
+   */
+  schedulingExpression?: string;
 }
 
 /**
@@ -1618,6 +1659,12 @@ export interface SolutionConfig {
    * @public
    */
   trainingDataConfig?: TrainingDataConfig;
+
+  /**
+   * <p>Specifies the automatic training configuration to use.</p>
+   * @public
+   */
+  autoTrainingConfig?: AutoTrainingConfig;
 }
 
 /**
@@ -1656,10 +1703,28 @@ export interface CreateSolutionRequest {
   performAutoML?: boolean;
 
   /**
+   * <p>Whether the solution uses automatic training to create new solution versions (trained models). The default is
+   *         <code>True</code> and the solution automatically creates new solution versions every 7 days. You can change the training
+   *       frequency by specifying a <code>schedulingExpression</code> in the <code>AutoTrainingConfig</code> as part of solution
+   *       configuration. For more information about automatic training,
+   *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring automatic training</a>.</p>
+   *          <p>
+   *       Automatic solution version creation starts one hour after the solution is ACTIVE. If you manually create a solution version within
+   *       the hour, the solution skips the first automatic training.
+   *     </p>
+   *          <p>
+   *       After training starts, you can
+   *       get the solution version's Amazon Resource Name (ARN) with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a> API operation.
+   *       To get its status, use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>.
+   *     </p>
+   * @public
+   */
+  performAutoTraining?: boolean;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the recipe to use for model training. This is required when
    *       <code>performAutoML</code> is false. For information about different Amazon Personalize recipes and their ARNs,
    *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html">Choosing a recipe</a>.
-   *
    *     </p>
    * @public
    */
@@ -1716,6 +1781,7 @@ export interface CreateSolutionResponse {
  * @enum
  */
 export const TrainingMode = {
+  AUTOTRAIN: "AUTOTRAIN",
   FULL: "FULL",
   UPDATE: "UPDATE",
 } as const;
@@ -2243,7 +2309,7 @@ export interface Campaign {
   campaignArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>
+   * <p>The Amazon Resource Name (ARN) of the solution version the campaign uses.</p>
    * @public
    */
   solutionVersionArn?: string;
@@ -3490,6 +3556,20 @@ export interface AutoMLResult {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TrainingType = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type TrainingType = (typeof TrainingType)[keyof typeof TrainingType];
+
+/**
  * <p>Provides a summary of the properties of a solution version. For a complete listing, call the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a> API.</p>
  * @public
@@ -3514,6 +3594,23 @@ export interface SolutionVersionSummary {
   status?: string;
 
   /**
+   * <p>The scope of training to be performed when creating the solution version. A
+   *       <code>FULL</code> training considers all of the data in your dataset group.
+   *       An <code>UPDATE</code> processes only the data that
+   *       has changed since the latest training. Only solution versions created with the User-Personalization
+   *       recipe can use <code>UPDATE</code>.
+   *     </p>
+   * @public
+   */
+  trainingMode?: TrainingMode;
+
+  /**
+   * <p>Whether the solution version was created automatically or manually.</p>
+   * @public
+   */
+  trainingType?: TrainingType;
+
+  /**
    * <p>The date and time (in Unix time) that this version of a solution was created.</p>
    * @public
    */
@@ -3533,8 +3630,15 @@ export interface SolutionVersionSummary {
 }
 
 /**
- * <p>An object that provides information about a solution. A solution is a trained model
- *       that can be deployed as a campaign.</p>
+ * <important>
+ *             <p>After you create a solution, you can’t change its configuration. By default, all new solutions use automatic training. With automatic training, you incur training costs while
+ *            your solution is active. You can't stop automatic training for a solution. To avoid unnecessary costs, make sure to delete the solution when you are finished. For information about training
+ *   costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.</p>
+ *          </important>
+ *          <p>An object that provides information about a solution. A solution includes the custom recipe, customized parameters, and
+ *       trained models (Solution Versions) that Amazon Personalize uses to generate recommendations. </p>
+ *          <p>After you create a solution, you can’t change its configuration. If you need to make changes, you can <a href="https://docs.aws.amazon.com/personalize/latest/dg/cloning-solution.html">clone the solution</a> with the Amazon Personalize console
+ *       or create a new one.</p>
  * @public
  */
 export interface Solution {
@@ -3569,6 +3673,14 @@ export interface Solution {
    * @public
    */
   performAutoML?: boolean;
+
+  /**
+   * <p>Specifies whether the solution automatically creates solution versions. The default is <code>True</code>
+   *       and the solution automatically creates new solution versions every 7 days.</p>
+   *          <p>For more information about auto training, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html">Creating and configuring a solution</a>.</p>
+   * @public
+   */
+  performAutoTraining?: boolean;
 
   /**
    * <p>The ARN of the recipe used to create the solution. This is required when
@@ -3742,19 +3854,12 @@ export interface SolutionVersion {
   trainingHours?: number;
 
   /**
-   * <p>The scope of training to be performed when creating the solution version. The
-   *       <code>FULL</code> option trains the solution version based on the entirety of the input
-   *       solution's training data, while the <code>UPDATE</code> option processes only the data that
-   *       has changed in comparison to the input solution. Choose <code>UPDATE</code> when you want to
-   *       incrementally update your solution version instead of creating an entirely new one.</p>
-   *          <important>
-   *             <p>The <code>UPDATE</code> option can only be used when you already have an active solution
-   *         version created from the input solution using the <code>FULL</code> option and the input
-   *         solution was trained with the
-   *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
-   *         recipe or the
-   *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
-   *          </important>
+   * <p>The scope of training to be performed when creating the solution version. A
+   *       <code>FULL</code> training considers all of the data in your dataset group.
+   *       An <code>UPDATE</code> processes only the data that
+   *       has changed since the latest training. Only solution versions created with the User-Personalization
+   *       recipe can use <code>UPDATE</code>.
+   *     </p>
    * @public
    */
   trainingMode?: TrainingMode;
@@ -3814,6 +3919,12 @@ export interface SolutionVersion {
    * @public
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Whether the solution version was created automatically or manually.</p>
+   * @public
+   */
+  trainingType?: TrainingType;
 }
 
 /**
@@ -5313,7 +5424,7 @@ export interface ListSolutionVersionsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The resource's Amazon Resource Name.</p>
+   * <p>The resource's Amazon Resource Name (ARN).</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -5396,7 +5507,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging Amazon Personalize recources</a>.</p>
+   * <p>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging Amazon Personalize resources</a>.</p>
    * @public
    */
   tags: Tag[] | undefined;
@@ -5438,7 +5549,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Keys to remove from the resource's tags.</p>
+   * <p>The keys of the tags to be removed.</p>
    * @public
    */
   tagKeys: string[] | undefined;
@@ -5460,7 +5571,18 @@ export interface UpdateCampaignRequest {
   campaignArn: string | undefined;
 
   /**
-   * <p>The ARN of a new solution version to deploy.</p>
+   * <p>The Amazon Resource Name (ARN) of a new model to deploy. To specify the latest solution version of your solution,
+   *       specify the ARN of your <i>solution</i> in <code>SolutionArn/$LATEST</code> format.
+   *       You must use this format if you set <code>syncWithLatestSolutionVersion</code> to <code>True</code> in the
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CampaignConfig.html">CampaignConfig</a>.
+   *     </p>
+   *          <p>
+   *       To deploy a model that isn't the latest solution version of your solution, specify the ARN of the solution version.
+   *     </p>
+   *          <p>
+   *       For more information about automatic campaign updates, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-automatic-latest-sv-update">Enabling automatic campaign updates</a>.
+   *     </p>
    * @public
    */
   solutionVersionArn?: string;
