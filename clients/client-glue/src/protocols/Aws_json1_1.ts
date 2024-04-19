@@ -13011,6 +13011,7 @@ const de_GetUnfilteredTableMetadataResponse = (
     Permissions: _json,
     QueryAuthorizationId: __expectString,
     ResourceArn: __expectString,
+    RowFilter: __expectString,
     Table: (_: any) => de_Table(_, context),
   }) as any;
 };

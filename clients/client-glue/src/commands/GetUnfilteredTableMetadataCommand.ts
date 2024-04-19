@@ -200,6 +200,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //   Permissions: [ // PermissionList
  * //     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
  * //   ],
+ * //   RowFilter: "STRING_VALUE",
  * // };
  *
  * ```

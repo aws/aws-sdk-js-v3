@@ -1557,6 +1557,12 @@ export interface GetUnfilteredTableMetadataResponse {
    * @public
    */
   Permissions?: Permission[];
+
+  /**
+   * <p>The filter that applies to the table. For example when applying the filter in SQL, it would go in the <code>WHERE</code> clause and can be evaluated by using an <code>AND</code> operator with any other predicates applied by the user querying the table.</p>
+   * @public
+   */
+  RowFilter?: string;
 }
 
 /**
