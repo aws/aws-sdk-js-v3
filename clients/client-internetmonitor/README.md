@@ -244,6 +244,14 @@ GetHealthEvent
 </details>
 <details>
 <summary>
+GetInternetEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/GetInternetEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetInternetEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetInternetEventCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetMonitor
 </summary>
 
@@ -272,6 +280,14 @@ ListHealthEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/ListHealthEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListHealthEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListHealthEventsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListInternetEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/ListInternetEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListInternetEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListInternetEventsCommandOutput/)
 
 </details>
 <details>

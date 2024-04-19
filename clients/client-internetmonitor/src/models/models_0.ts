@@ -87,6 +87,64 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
+ * <p>The impacted location, such as a city, that Amazon Web Services clients access application resources from.</p>
+ * @public
+ */
+export interface ClientLocation {
+  /**
+   * <p>The name of the internet service provider (ISP) or network (ASN).</p>
+   * @public
+   */
+  ASName: string | undefined;
+
+  /**
+   * <p>The Autonomous System Number (ASN) of the network at an impacted location.</p>
+   * @public
+   */
+  ASNumber: number | undefined;
+
+  /**
+   * <p>The name of the country where the internet event is located.</p>
+   * @public
+   */
+  Country: string | undefined;
+
+  /**
+   * <p>The subdivision location where the health event is located. The subdivision usually maps to states in most countries
+   * 			(including the United States). For United Kingdom, it maps to a country (England, Scotland, Wales) or province (Northern Ireland).</p>
+   * @public
+   */
+  Subdivision?: string;
+
+  /**
+   * <p>The metro area where the health event is located.</p>
+   *          <p>Metro indicates a metropolitan region in the United States, such as the region around New York City. In non-US countries,
+   * 			this is a second-level subdivision. For example, in the United Kingdom, it could be a county, a London borough, a unitary
+   * 			authority, council area, and so on.</p>
+   * @public
+   */
+  Metro?: string;
+
+  /**
+   * <p>The name of the city where the internet event is located.</p>
+   * @public
+   */
+  City: string | undefined;
+
+  /**
+   * <p>The latitude where the internet event is located.</p>
+   * @public
+   */
+  Latitude: number | undefined;
+
+  /**
+   * <p>The longitude where the internet event is located.</p>
+   * @public
+   */
+  Longitude: number | undefined;
+}
+
+/**
  * <p>The requested resource is in use.</p>
  * @public
  */
@@ -526,19 +584,22 @@ export interface GetHealthEventInput {
   EventId: string | undefined;
 
   /**
-   * <p>TBD </p>
+   * <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
+   * 			sharing by using Amazon CloudWatch Observability Access Manager. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+   * 			observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
   LinkedAccountId?: string;
 }
 
 /**
- * <p>An internet service provider (ISP) or network in Amazon CloudWatch Internet Monitor.</p>
+ * <p>An internet service provider (ISP) or network (ASN) in Amazon CloudWatch Internet Monitor.</p>
  * @public
  */
 export interface Network {
   /**
-   * <p>The internet provider name or network name.</p>
+   * <p>The name of the internet service provider (ISP) or network (ASN).</p>
    * @public
    */
   ASName: string | undefined;
@@ -582,7 +643,7 @@ export interface NetworkImpairment {
   AsPath: Network[] | undefined;
 
   /**
-   * <p>Type of network impairment.</p>
+   * <p>The type of network impairment.</p>
    * @public
    */
   NetworkEventType: TriangulationEventType | undefined;
@@ -716,7 +777,7 @@ export type HealthEventStatus = (typeof HealthEventStatus)[keyof typeof HealthEv
  */
 export interface ImpactedLocation {
   /**
-   * <p>The name of the network at an impacted location.</p>
+   * <p>The name of the internet service provider (ISP) or network (ASN).</p>
    * @public
    */
   ASName: string | undefined;
@@ -907,6 +968,92 @@ export interface GetHealthEventOutput {
 /**
  * @public
  */
+export interface GetInternetEventInput {
+  /**
+   * <p>The <code>EventId</code> of the internet event to return information for. </p>
+   * @public
+   */
+  EventId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InternetEventStatus = {
+  ACTIVE: "ACTIVE",
+  RESOLVED: "RESOLVED",
+} as const;
+
+/**
+ * @public
+ */
+export type InternetEventStatus = (typeof InternetEventStatus)[keyof typeof InternetEventStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InternetEventType = {
+  AVAILABILITY: "AVAILABILITY",
+  PERFORMANCE: "PERFORMANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type InternetEventType = (typeof InternetEventType)[keyof typeof InternetEventType];
+
+/**
+ * @public
+ */
+export interface GetInternetEventOutput {
+  /**
+   * <p>The internally-generated identifier of an internet event.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the internet event.</p>
+   * @public
+   */
+  EventArn: string | undefined;
+
+  /**
+   * <p>The time when the internet event started.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The time when the internet event ended. If the event hasn't ended yet, this value is empty.</p>
+   * @public
+   */
+  EndedAt?: Date;
+
+  /**
+   * <p>The impacted location, such as a city, where clients access Amazon Web Services application resources.</p>
+   * @public
+   */
+  ClientLocation: ClientLocation | undefined;
+
+  /**
+   * <p>The type of network impairment.</p>
+   * @public
+   */
+  EventType: InternetEventType | undefined;
+
+  /**
+   * <p>The status of the internet event.</p>
+   * @public
+   */
+  EventStatus: InternetEventStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetMonitorInput {
   /**
    * <p>The name of the monitor.</p>
@@ -915,7 +1062,10 @@ export interface GetMonitorInput {
   MonitorName: string | undefined;
 
   /**
-   * <p>TBD </p>
+   * <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
+   * 			sharing by using Amazon CloudWatch Observability Access Manager. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+   * 				observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
   LinkedAccountId?: string;
@@ -1203,7 +1353,7 @@ export interface HealthEvent {
   ImpactedLocations: ImpactedLocation[] | undefined;
 
   /**
-   * <p>Health event list member.</p>
+   * <p>The status of a health event.</p>
    * @public
    */
   Status: HealthEventStatus | undefined;
@@ -1270,7 +1420,10 @@ export interface ListHealthEventsInput {
   EventStatus?: HealthEventStatus;
 
   /**
-   * <p>TBD </p>
+   * <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
+   * 			sharing by using Amazon CloudWatch Observability Access Manager. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+   * 				observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
   LinkedAccountId?: string;
@@ -1312,6 +1465,116 @@ export class InternalServerErrorException extends __BaseException {
     });
     Object.setPrototypeOf(this, InternalServerErrorException.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface ListInternetEventsInput {
+  /**
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of query results that you want to return with this call.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The start time of the time window that you want to get a list of internet events for.</p>
+   * @public
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The end time of the time window that you want to get a list of internet events for.</p>
+   * @public
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The status of an internet event.</p>
+   * @public
+   */
+  EventStatus?: string;
+
+  /**
+   * <p>The type of network impairment.</p>
+   * @public
+   */
+  EventType?: string;
+}
+
+/**
+ * <p>A summary of information about an internet event in Amazon CloudWatch Internet Monitor. Internet events are issues that cause performance degradation
+ * 			or availability problems for impacted Amazon Web Services client locations. Internet Monitor displays information about
+ * 			recent global health events, called internet events, on a global outages map that is available to all Amazon Web Services
+ * 			customers. </p>
+ * @public
+ */
+export interface InternetEventSummary {
+  /**
+   * <p>The internally-generated identifier of an internet event.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the internet event.</p>
+   * @public
+   */
+  EventArn: string | undefined;
+
+  /**
+   * <p>The time when an internet event started.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The time when an internet event ended. If the event hasn't ended yet, this value
+   * 		is empty.</p>
+   * @public
+   */
+  EndedAt?: Date;
+
+  /**
+   * <p>The impacted location, such as a city, that Amazon Web Services clients access application resources from.</p>
+   * @public
+   */
+  ClientLocation: ClientLocation | undefined;
+
+  /**
+   * <p>The type of network impairment.</p>
+   * @public
+   */
+  EventType: InternetEventType | undefined;
+
+  /**
+   * <p>The status of an internet event.</p>
+   * @public
+   */
+  EventStatus: InternetEventStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInternetEventsOutput {
+  /**
+   * <p>A set of internet events returned for the list operation.</p>
+   * @public
+   */
+  InternetEvents: InternetEventSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   * @public
+   */
+  NextToken?: string;
 }
 
 /**
@@ -1404,7 +1667,11 @@ export interface ListMonitorsInput {
   MonitorStatus?: string;
 
   /**
-   * <p>TBD </p>
+   * <p>A boolean option that you can set to <code>TRUE</code> to include monitors for linked accounts in a list of
+   * 			monitors, when you've set up cross-account sharing in Amazon CloudWatch Internet Monitor. You configure cross-account
+   * 			sharing by using Amazon CloudWatch Observability Access Manager. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+   * 				observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
   IncludeLinkedAccounts?: boolean;
@@ -1532,7 +1799,10 @@ export interface StartQueryInput {
   FilterParameters?: FilterParameter[];
 
   /**
-   * <p>TBD </p>
+   * <p>The account ID for an account that you've set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
+   * 			sharing by using Amazon CloudWatch Observability Access Manager. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+   * 				observability</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
    * @public
    */
   LinkedAccountId?: string;

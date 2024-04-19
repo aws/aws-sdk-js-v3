@@ -56,10 +56,12 @@ import {
 import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "./commands/CreateMonitorCommand";
 import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "./commands/DeleteMonitorCommand";
 import { GetHealthEventCommandInput, GetHealthEventCommandOutput } from "./commands/GetHealthEventCommand";
+import { GetInternetEventCommandInput, GetInternetEventCommandOutput } from "./commands/GetInternetEventCommand";
 import { GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
 import { GetQueryStatusCommandInput, GetQueryStatusCommandOutput } from "./commands/GetQueryStatusCommand";
 import { ListHealthEventsCommandInput, ListHealthEventsCommandOutput } from "./commands/ListHealthEventsCommand";
+import { ListInternetEventsCommandInput, ListInternetEventsCommandOutput } from "./commands/ListInternetEventsCommand";
 import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "./commands/ListMonitorsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -88,10 +90,12 @@ export type ServiceInputTypes =
   | CreateMonitorCommandInput
   | DeleteMonitorCommandInput
   | GetHealthEventCommandInput
+  | GetInternetEventCommandInput
   | GetMonitorCommandInput
   | GetQueryResultsCommandInput
   | GetQueryStatusCommandInput
   | ListHealthEventsCommandInput
+  | ListInternetEventsCommandInput
   | ListMonitorsCommandInput
   | ListTagsForResourceCommandInput
   | StartQueryCommandInput
@@ -107,10 +111,12 @@ export type ServiceOutputTypes =
   | CreateMonitorCommandOutput
   | DeleteMonitorCommandOutput
   | GetHealthEventCommandOutput
+  | GetInternetEventCommandOutput
   | GetMonitorCommandOutput
   | GetQueryResultsCommandOutput
   | GetQueryStatusCommandOutput
   | ListHealthEventsCommandOutput
+  | ListInternetEventsCommandOutput
   | ListMonitorsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartQueryCommandOutput

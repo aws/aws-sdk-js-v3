@@ -17,6 +17,11 @@ import {
   GetHealthEventCommandInput,
   GetHealthEventCommandOutput,
 } from "./commands/GetHealthEventCommand";
+import {
+  GetInternetEventCommand,
+  GetInternetEventCommandInput,
+  GetInternetEventCommandOutput,
+} from "./commands/GetInternetEventCommand";
 import { GetMonitorCommand, GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
 import {
   GetQueryResultsCommand,
@@ -33,6 +38,11 @@ import {
   ListHealthEventsCommandInput,
   ListHealthEventsCommandOutput,
 } from "./commands/ListHealthEventsCommand";
+import {
+  ListInternetEventsCommand,
+  ListInternetEventsCommandInput,
+  ListInternetEventsCommandOutput,
+} from "./commands/ListInternetEventsCommand";
 import {
   ListMonitorsCommand,
   ListMonitorsCommandInput,
@@ -62,10 +72,12 @@ const commands = {
   CreateMonitorCommand,
   DeleteMonitorCommand,
   GetHealthEventCommand,
+  GetInternetEventCommand,
   GetMonitorCommand,
   GetQueryResultsCommand,
   GetQueryStatusCommand,
   ListHealthEventsCommand,
+  ListInternetEventsCommand,
   ListMonitorsCommand,
   ListTagsForResourceCommand,
   StartQueryCommand,
@@ -110,6 +122,23 @@ export interface InternetMonitor {
     args: GetHealthEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetHealthEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInternetEventCommand}
+   */
+  getInternetEvent(
+    args: GetInternetEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInternetEventCommandOutput>;
+  getInternetEvent(
+    args: GetInternetEventCommandInput,
+    cb: (err: any, data?: GetInternetEventCommandOutput) => void
+  ): void;
+  getInternetEvent(
+    args: GetInternetEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInternetEventCommandOutput) => void
   ): void;
 
   /**
@@ -166,6 +195,24 @@ export interface InternetMonitor {
     args: ListHealthEventsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListHealthEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInternetEventsCommand}
+   */
+  listInternetEvents(): Promise<ListInternetEventsCommandOutput>;
+  listInternetEvents(
+    args: ListInternetEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInternetEventsCommandOutput>;
+  listInternetEvents(
+    args: ListInternetEventsCommandInput,
+    cb: (err: any, data?: ListInternetEventsCommandOutput) => void
+  ): void;
+  listInternetEvents(
+    args: ListInternetEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInternetEventsCommandOutput) => void
   ): void;
 
   /**

@@ -27,7 +27,7 @@ export interface GetHealthEventCommandInput extends GetHealthEventInput {}
 export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information the Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations,
+ * <p>Gets information that Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations,
  * 			and all the information related to the event, by location.</p>
  *          <p>The information returned includes the impact on performance, availability, and round-trip time, information about the network providers (ASNs),
  * 			the event type, and so on.</p>

@@ -30,10 +30,12 @@ import { v4 as generateIdempotencyToken } from "uuid";
 import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "../commands/CreateMonitorCommand";
 import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "../commands/DeleteMonitorCommand";
 import { GetHealthEventCommandInput, GetHealthEventCommandOutput } from "../commands/GetHealthEventCommand";
+import { GetInternetEventCommandInput, GetInternetEventCommandOutput } from "../commands/GetInternetEventCommand";
 import { GetMonitorCommandInput, GetMonitorCommandOutput } from "../commands/GetMonitorCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
 import { GetQueryStatusCommandInput, GetQueryStatusCommandOutput } from "../commands/GetQueryStatusCommand";
 import { ListHealthEventsCommandInput, ListHealthEventsCommandOutput } from "../commands/ListHealthEventsCommand";
+import { ListInternetEventsCommandInput, ListInternetEventsCommandOutput } from "../commands/ListInternetEventsCommand";
 import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "../commands/ListMonitorsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -49,6 +51,7 @@ import {
   AccessDeniedException,
   AvailabilityMeasurement,
   BadRequestException,
+  ClientLocation,
   ConflictException,
   FilterParameter,
   HealthEvent,
@@ -56,6 +59,7 @@ import {
   ImpactedLocation,
   InternalServerErrorException,
   InternalServerException,
+  InternetEventSummary,
   InternetHealth,
   InternetMeasurementsLogDelivery,
   LimitExceededException,
@@ -136,6 +140,22 @@ export const se_GetHealthEventCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetInternetEventCommand
+ */
+export const se_GetInternetEventCommand = async (
+  input: GetInternetEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v20210603/InternetEvents/{EventId}");
+  b.p("EventId", () => input.EventId!, "{EventId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetMonitorCommand
  */
 export const se_GetMonitorCommand = async (
@@ -210,6 +230,29 @@ export const se_ListHealthEventsCommand = async (
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_ES]: [, input[_ES]!],
     [_LAI]: [, input[_LAI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListInternetEventsCommand
+ */
+export const se_ListInternetEventsCommand = async (
+  input: ListInternetEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v20210603/InternetEvents");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_IEMR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_ST]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
+    [_ET]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_ES]: [, input[_ES]!],
+    [_ETv]: [, input[_ETv]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -443,6 +486,33 @@ export const de_GetHealthEventCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetInternetEventCommand
+ */
+export const de_GetInternetEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInternetEventCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ClientLocation: (_) => de_ClientLocation(_, context),
+    EndedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EventArn: __expectString,
+    EventId: __expectString,
+    EventStatus: __expectString,
+    EventType: __expectString,
+    StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetMonitorCommand
  */
 export const de_GetMonitorCommand = async (
@@ -535,6 +605,28 @@ export const de_ListHealthEventsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     HealthEvents: (_) => de_HealthEventList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListInternetEventsCommand
+ */
+export const de_ListInternetEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInternetEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InternetEvents: (_) => de_InternetEventsList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -986,6 +1078,22 @@ const de_AvailabilityMeasurement = (output: any, context: __SerdeContext): Avail
 };
 
 /**
+ * deserializeAws_restJson1ClientLocation
+ */
+const de_ClientLocation = (output: any, context: __SerdeContext): ClientLocation => {
+  return take(output, {
+    ASName: __expectString,
+    ASNumber: __expectLong,
+    City: __expectString,
+    Country: __expectString,
+    Latitude: __limitedParseDouble,
+    Longitude: __limitedParseDouble,
+    Metro: __expectString,
+    Subdivision: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1HealthEvent
  */
 const de_HealthEvent = (output: any, context: __SerdeContext): HealthEvent => {
@@ -1061,6 +1169,33 @@ const de_ImpactedLocationsList = (output: any, context: __SerdeContext): Impacte
       return de_ImpactedLocation(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1InternetEventsList
+ */
+const de_InternetEventsList = (output: any, context: __SerdeContext): InternetEventSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InternetEventSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1InternetEventSummary
+ */
+const de_InternetEventSummary = (output: any, context: __SerdeContext): InternetEventSummary => {
+  return take(output, {
+    ClientLocation: (_: any) => de_ClientLocation(_, context),
+    EndedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EventArn: __expectString,
+    EventId: __expectString,
+    EventStatus: __expectString,
+    EventType: __expectString,
+    StartedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 /**
@@ -1156,6 +1291,8 @@ const isSerializableHeaderValue = (value: any): boolean =>
 
 const _ES = "EventStatus";
 const _ET = "EndTime";
+const _ETv = "EventType";
+const _IEMR = "InternetEventMaxResults";
 const _ILA = "IncludeLinkedAccounts";
 const _LAI = "LinkedAccountId";
 const _MR = "MaxResults";
