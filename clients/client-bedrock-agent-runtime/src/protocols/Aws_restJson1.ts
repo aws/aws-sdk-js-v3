@@ -39,15 +39,19 @@ import { RetrieveCommandInput, RetrieveCommandOutput } from "../commands/Retriev
 import { BedrockAgentRuntimeServiceException as __BaseException } from "../models/BedrockAgentRuntimeServiceException";
 import {
   AccessDeniedException,
+  ApiResult,
   Attribution,
   BadGatewayException,
   Citation,
   ConflictException,
+  ContentBody,
   DependencyFailedException,
   FilterAttribute,
+  FunctionResult,
   GenerationConfiguration,
   InferenceConfiguration,
   InternalServerException,
+  InvocationResultMember,
   KnowledgeBaseLookupOutput,
   KnowledgeBaseQuery,
   KnowledgeBaseRetrievalConfiguration,
@@ -68,6 +72,7 @@ import {
   RetrieveAndGenerateInput,
   RetrieveAndGenerateSessionConfiguration,
   RetrievedReference,
+  ReturnControlPayload,
   ServiceQuotaExceededException,
   SessionState,
   ThrottlingException,
@@ -455,6 +460,11 @@ const de_ResponseStream = (
         trace: await de_TracePart_event(event["trace"], context),
       };
     }
+    if (event["returnControl"] != null) {
+      return {
+        returnControl: await de_ReturnControlPayload_event(event["returnControl"], context),
+      };
+    }
     if (event["internalServerException"] != null) {
       return {
         internalServerException: await de_InternalServerException_event(event["internalServerException"], context),
@@ -569,6 +579,12 @@ const de_ResourceNotFoundException_event = async (
   };
   return de_ResourceNotFoundExceptionRes(parsedOutput, context);
 };
+const de_ReturnControlPayload_event = async (output: any, context: __SerdeContext): Promise<ReturnControlPayload> => {
+  const contents: ReturnControlPayload = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
 const de_ServiceQuotaExceededException_event = async (
   output: any,
   context: __SerdeContext
@@ -599,6 +615,10 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
   };
   return de_ValidationExceptionRes(parsedOutput, context);
 };
+// se_ApiResult omitted.
+
+// se_ContentBody omitted.
+
 /**
  * serializeAws_restJson1FilterAttribute
  */
@@ -616,7 +636,11 @@ const se_FilterValue = (input: __DocumentType, context: __SerdeContext): any => 
   return input;
 };
 
+// se_FunctionResult omitted.
+
 // se_GenerationConfiguration omitted.
+
+// se_InvocationResultMember omitted.
 
 // se_KnowledgeBaseQuery omitted.
 
@@ -665,6 +689,8 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 
 // se_PromptTemplate omitted.
 
+// se_ResponseBody omitted.
+
 /**
  * serializeAws_restJson1RetrievalFilter
  */
@@ -710,6 +736,8 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
 
 // se_RetrieveAndGenerateSessionConfiguration omitted.
 
+// se_ReturnControlInvocationResults omitted.
+
 // se_SessionAttributesMap omitted.
 
 // se_SessionState omitted.
@@ -717,6 +745,16 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
 // de_ActionGroupInvocationInput omitted.
 
 // de_ActionGroupInvocationOutput omitted.
+
+// de_ApiContentMap omitted.
+
+// de_ApiInvocationInput omitted.
+
+// de_ApiParameter omitted.
+
+// de_ApiParameters omitted.
+
+// de_ApiRequestBody omitted.
 
 /**
  * deserializeAws_restJson1Attribution
@@ -755,6 +793,12 @@ const de_Citations = (output: any, context: __SerdeContext): Citation[] => {
 
 // de_FinalResponse omitted.
 
+// de_FunctionInvocationInput omitted.
+
+// de_FunctionParameter omitted.
+
+// de_FunctionParameters omitted.
+
 // de_GeneratedResponsePart omitted.
 
 /**
@@ -771,6 +815,10 @@ const de_InferenceConfiguration = (output: any, context: __SerdeContext): Infere
 };
 
 // de_InvocationInput omitted.
+
+// de_InvocationInputMember omitted.
+
+// de_InvocationInputs omitted.
 
 // de_KnowledgeBaseLookupInput omitted.
 
@@ -865,6 +913,8 @@ const de_OrchestrationTrace = (output: any, context: __SerdeContext): Orchestrat
 
 // de_Parameter omitted.
 
+// de_ParameterList omitted.
+
 // de_Parameters omitted.
 
 /**
@@ -918,6 +968,8 @@ const de_PreProcessingTrace = (output: any, context: __SerdeContext): PreProcess
   }
   return { $unknown: Object.entries(output)[0] };
 };
+
+// de_PropertyParameters omitted.
 
 // de_Rationale omitted.
 
@@ -976,6 +1028,8 @@ const de_RetrievedReferences = (output: any, context: __SerdeContext): Retrieved
   return retVal;
 };
 
+// de_ReturnControlPayload omitted.
+
 // de_Span omitted.
 
 // de_StopSequences omitted.
@@ -1016,6 +1070,7 @@ const de_TracePart = (output: any, context: __SerdeContext): TracePart => {
   return take(output, {
     agentAliasId: __expectString,
     agentId: __expectString,
+    agentVersion: __expectString,
     sessionId: __expectString,
     trace: (_: any) => de_Trace(__expectUnion(_), context),
   }) as any;

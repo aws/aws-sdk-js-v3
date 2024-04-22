@@ -26,7 +26,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A parameter in the Lambda input event.</p>
+ * <p>A parameter for the API request or function.</p>
  * @public
  */
 export interface Parameter {
@@ -50,7 +50,7 @@ export interface Parameter {
 }
 
 /**
- * <p>The parameters in the request body for the Lambda input event.</p>
+ * <p>The parameters in the API request body.</p>
  * @public
  */
 export interface RequestBody {
@@ -62,7 +62,7 @@ export interface RequestBody {
 }
 
 /**
- * <p>Contains information about the action group being invoked.</p>
+ * <p>Contains information about the action group being invoked. For more information about the possible structures, see the InvocationInput tab in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-orchestration.html">OrchestrationTrace</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
 export interface ActionGroupInvocationInput {
@@ -95,6 +95,12 @@ export interface ActionGroupInvocationInput {
    * @public
    */
   requestBody?: RequestBody;
+
+  /**
+   * <p>The function in the action group to call.</p>
+   * @public
+   */
+  function?: string;
 }
 
 /**
@@ -204,6 +210,188 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>Contains the body of the API response.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>In the <code>returnControlInvocationResults</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ContentBody {
+  /**
+   * <p>The body of the API response.</p>
+   * @public
+   */
+  body?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResponseState = {
+  FAILURE: "FAILURE",
+  REPROMPT: "REPROMPT",
+} as const;
+
+/**
+ * @public
+ */
+export type ResponseState = (typeof ResponseState)[keyof typeof ResponseState];
+
+/**
+ * <p>Contains information about the API operation that was called from the action group and the response body that was returned.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ApiResult {
+  /**
+   * <p>The action group that the API operation belongs to.</p>
+   * @public
+   */
+  actionGroup: string | undefined;
+
+  /**
+   * <p>The HTTP method for the API operation.</p>
+   * @public
+   */
+  httpMethod?: string;
+
+  /**
+   * <p>The path to the API operation.</p>
+   * @public
+   */
+  apiPath?: string;
+
+  /**
+   * <p>The response body from the API operation. The key of the object is the content type. The response may be returned directly or from the Lambda function.</p>
+   * @public
+   */
+  responseBody?: Record<string, ContentBody>;
+
+  /**
+   * <p>http status code from API execution response (for example: 200, 400, 500).</p>
+   * @public
+   */
+  httpStatusCode?: number;
+
+  /**
+   * <p>Controls the final response state returned to end user when API/Function execution failed. When this state is FAILURE, the request would fail with dependency failure exception. When this state is REPROMPT, the API/function response will be sent to model for re-prompt</p>
+   * @public
+   */
+  responseState?: ResponseState;
+}
+
+/**
+ * <p>Contains information about the function that was called from the action group and the response that was returned.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface FunctionResult {
+  /**
+   * <p>The action group that the function belongs to.</p>
+   * @public
+   */
+  actionGroup: string | undefined;
+
+  /**
+   * <p>The name of the function that was called.</p>
+   * @public
+   */
+  function?: string;
+
+  /**
+   * <p>The response from the function call using the parameters. The response may be returned directly or from the Lambda function.</p>
+   * @public
+   */
+  responseBody?: Record<string, ContentBody>;
+
+  /**
+   * <p>Controls the final response state returned to end user when API/Function execution failed. When this state is FAILURE, the request would fail with dependency failure exception. When this state is REPROMPT, the API/function response will be sent to model for re-prompt</p>
+   * @public
+   */
+  responseState?: ResponseState;
+}
+
+/**
+ * <p>A result from the action group invocation.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export type InvocationResultMember =
+  | InvocationResultMember.ApiResultMember
+  | InvocationResultMember.FunctionResultMember
+  | InvocationResultMember.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvocationResultMember {
+  /**
+   * <p>The result from the API response from the action group invocation.</p>
+   * @public
+   */
+  export interface ApiResultMember {
+    apiResult: ApiResult;
+    functionResult?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The result from the function from the action group invocation.</p>
+   * @public
+   */
+  export interface FunctionResultMember {
+    apiResult?: never;
+    functionResult: FunctionResult;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    apiResult?: never;
+    functionResult?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    apiResult: (value: ApiResult) => T;
+    functionResult: (value: FunctionResult) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvocationResultMember, visitor: Visitor<T>): T => {
+    if (value.apiResult !== undefined) return visitor.apiResult(value.apiResult);
+    if (value.functionResult !== undefined) return visitor.functionResult(value.functionResult);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Contains parameters that specify various attributes that persist across a session or prompt. You can define session state attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request. Use session state attributes to control and provide conversational context for your agent and to help customize your agent's behavior. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
  * @public
  */
@@ -219,6 +407,18 @@ export interface SessionState {
    * @public
    */
   promptSessionAttributes?: Record<string, string>;
+
+  /**
+   * <p>Contains information about the results from the action group invocation.</p>
+   * @public
+   */
+  returnControlInvocationResults?: InvocationResultMember[];
+
+  /**
+   * <p>The identifier of the invocation.</p>
+   * @public
+   */
+  invocationId?: string;
 }
 
 /**
@@ -265,7 +465,7 @@ export interface InvokeAgentRequest {
    * <p>The prompt text to send the agent.</p>
    * @public
    */
-  inputText: string | undefined;
+  inputText?: string;
 }
 
 /**
@@ -545,7 +745,7 @@ export interface PayloadPart {
 }
 
 /**
- * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -562,6 +762,264 @@ export class ResourceNotFoundException extends __BaseException {
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
   }
+}
+
+/**
+ * <p>Information about a parameter to provide to the API request.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ApiParameter {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The data type for the parameter.</p>
+   * @public
+   */
+  type?: string;
+
+  /**
+   * <p>The value of the parameter.</p>
+   * @public
+   */
+  value?: string;
+}
+
+/**
+ * <p>Contains the parameters in the request body.</p>
+ * @public
+ */
+export interface PropertyParameters {
+  /**
+   * <p>A list of parameters in the request body.</p>
+   * @public
+   */
+  properties?: Parameter[];
+}
+
+/**
+ * <p>The request body to provide for the API request, as the agent elicited from the user.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ApiRequestBody {
+  /**
+   * <p>The content of the request body. The key of the object in this field is a media type defining the format of the request body.</p>
+   * @public
+   */
+  content?: Record<string, PropertyParameters>;
+}
+
+/**
+ * <p>Contains information about the API operation that the agent predicts should be called.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ApiInvocationInput {
+  /**
+   * <p>The action group that the API operation belongs to.</p>
+   * @public
+   */
+  actionGroup: string | undefined;
+
+  /**
+   * <p>The HTTP method of the API operation.</p>
+   * @public
+   */
+  httpMethod?: string;
+
+  /**
+   * <p>The path to the API operation.</p>
+   * @public
+   */
+  apiPath?: string;
+
+  /**
+   * <p>The parameters to provide for the API request, as the agent elicited from the user.</p>
+   * @public
+   */
+  parameters?: ApiParameter[];
+
+  /**
+   * <p>The request body to provide for the API request, as the agent elicited from the user.</p>
+   * @public
+   */
+  requestBody?: ApiRequestBody;
+}
+
+/**
+ * <p>Contains information about a parameter of the function.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface FunctionParameter {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The data type of the parameter.</p>
+   * @public
+   */
+  type?: string;
+
+  /**
+   * <p>The value of the parameter.</p>
+   * @public
+   */
+  value?: string;
+}
+
+/**
+ * <p>Contains information about the function that the agent predicts should be called.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface FunctionInvocationInput {
+  /**
+   * <p>The action group that the function belongs to.</p>
+   * @public
+   */
+  actionGroup: string | undefined;
+
+  /**
+   * <p>A list of parameters of the function.</p>
+   * @public
+   */
+  parameters?: FunctionParameter[];
+
+  /**
+   * <p>The name of the function.</p>
+   * @public
+   */
+  function?: string;
+}
+
+/**
+ * <p>Contains details about the API operation or function that the agent predicts should be called.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export type InvocationInputMember =
+  | InvocationInputMember.ApiInvocationInputMember
+  | InvocationInputMember.FunctionInvocationInputMember
+  | InvocationInputMember.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvocationInputMember {
+  /**
+   * <p>Contains information about the API operation that the agent predicts should be called.</p>
+   * @public
+   */
+  export interface ApiInvocationInputMember {
+    apiInvocationInput: ApiInvocationInput;
+    functionInvocationInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about the function that the agent predicts should be called.</p>
+   * @public
+   */
+  export interface FunctionInvocationInputMember {
+    apiInvocationInput?: never;
+    functionInvocationInput: FunctionInvocationInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    apiInvocationInput?: never;
+    functionInvocationInput?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    apiInvocationInput: (value: ApiInvocationInput) => T;
+    functionInvocationInput: (value: FunctionInvocationInput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvocationInputMember, visitor: Visitor<T>): T => {
+    if (value.apiInvocationInput !== undefined) return visitor.apiInvocationInput(value.apiInvocationInput);
+    if (value.functionInvocationInput !== undefined)
+      return visitor.functionInvocationInput(value.functionInvocationInput);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains information to return from the action group that the agent has predicted to invoke.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ReturnControlPayload {
+  /**
+   * <p>A list of objects that contain information about the parameters and inputs that need to be sent into the API operation or function, based on what the agent determines from its session with the user.</p>
+   * @public
+   */
+  invocationInputs?: InvocationInputMember[];
+
+  /**
+   * <p>The identifier of the action group invocation.</p>
+   * @public
+   */
+  invocationId?: string;
 }
 
 /**
@@ -1381,6 +1839,12 @@ export interface TracePart {
   sessionId?: string;
 
   /**
+   * <p>The version of the agent.</p>
+   * @public
+   */
+  agentVersion?: string;
+
+  /**
    * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
    * @public
    */
@@ -1419,6 +1883,7 @@ export type ResponseStream =
   | ResponseStream.DependencyFailedExceptionMember
   | ResponseStream.InternalServerExceptionMember
   | ResponseStream.ResourceNotFoundExceptionMember
+  | ResponseStream.ReturnControlMember
   | ResponseStream.ServiceQuotaExceededExceptionMember
   | ResponseStream.ThrottlingExceptionMember
   | ResponseStream.TraceMember
@@ -1436,6 +1901,7 @@ export namespace ResponseStream {
   export interface ChunkMember {
     chunk: PayloadPart;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1449,12 +1915,33 @@ export namespace ResponseStream {
   }
 
   /**
-   * <p>Contains information about the agent and session, alongside the agent's reasoning process and results from calling API actions and querying knowledge bases and metadata about the trace. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Trace events</a>.</p>
+   * <p>Contains information about the agent and session, alongside the agent's reasoning process and results from calling actions and querying knowledge bases and metadata about the trace. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Trace events</a>.</p>
    * @public
    */
   export interface TraceMember {
     chunk?: never;
     trace: TracePart;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains the parameters and information that the agent elicited from the customer to carry out an action. This information is returned to the system and can be used in your own setup for fulfilling the action.</p>
+   * @public
+   */
+  export interface ReturnControlMember {
+    chunk?: never;
+    trace?: never;
+    returnControl: ReturnControlPayload;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1474,6 +1961,7 @@ export namespace ResponseStream {
   export interface InternalServerExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException: InternalServerException;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1493,6 +1981,7 @@ export namespace ResponseStream {
   export interface ValidationExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException: ValidationException;
     resourceNotFoundException?: never;
@@ -1506,12 +1995,13 @@ export namespace ResponseStream {
   }
 
   /**
-   * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+   * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
    * @public
    */
   export interface ResourceNotFoundExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException: ResourceNotFoundException;
@@ -1531,6 +2021,7 @@ export namespace ResponseStream {
   export interface ServiceQuotaExceededExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1550,6 +2041,7 @@ export namespace ResponseStream {
   export interface ThrottlingExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1569,6 +2061,7 @@ export namespace ResponseStream {
   export interface AccessDeniedExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1588,6 +2081,7 @@ export namespace ResponseStream {
   export interface ConflictExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1607,6 +2101,7 @@ export namespace ResponseStream {
   export interface DependencyFailedExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1626,6 +2121,7 @@ export namespace ResponseStream {
   export interface BadGatewayExceptionMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1644,6 +2140,7 @@ export namespace ResponseStream {
   export interface $UnknownMember {
     chunk?: never;
     trace?: never;
+    returnControl?: never;
     internalServerException?: never;
     validationException?: never;
     resourceNotFoundException?: never;
@@ -1659,6 +2156,7 @@ export namespace ResponseStream {
   export interface Visitor<T> {
     chunk: (value: PayloadPart) => T;
     trace: (value: TracePart) => T;
+    returnControl: (value: ReturnControlPayload) => T;
     internalServerException: (value: InternalServerException) => T;
     validationException: (value: ValidationException) => T;
     resourceNotFoundException: (value: ResourceNotFoundException) => T;
@@ -1674,6 +2172,7 @@ export namespace ResponseStream {
   export const visit = <T>(value: ResponseStream, visitor: Visitor<T>): T => {
     if (value.chunk !== undefined) return visitor.chunk(value.chunk);
     if (value.trace !== undefined) return visitor.trace(value.trace);
+    if (value.returnControl !== undefined) return visitor.returnControl(value.returnControl);
     if (value.internalServerException !== undefined)
       return visitor.internalServerException(value.internalServerException);
     if (value.validationException !== undefined) return visitor.validationException(value.validationException);
@@ -2453,6 +2952,7 @@ export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInv
   ...(obj.actionGroupName && { actionGroupName: SENSITIVE_STRING }),
   ...(obj.verb && { verb: SENSITIVE_STRING }),
   ...(obj.apiPath && { apiPath: SENSITIVE_STRING }),
+  ...(obj.function && { function: SENSITIVE_STRING }),
 });
 
 /**
@@ -2466,8 +2966,38 @@ export const ActionGroupInvocationOutputFilterSensitiveLog = (obj: ActionGroupIn
 /**
  * @internal
  */
+export const ApiResultFilterSensitiveLog = (obj: ApiResult): any => ({
+  ...obj,
+  ...(obj.apiPath && { apiPath: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvocationResultMemberFilterSensitiveLog = (obj: InvocationResultMember): any => {
+  if (obj.apiResult !== undefined) return { apiResult: ApiResultFilterSensitiveLog(obj.apiResult) };
+  if (obj.functionResult !== undefined) return { functionResult: obj.functionResult };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SessionStateFilterSensitiveLog = (obj: SessionState): any => ({
+  ...obj,
+  ...(obj.returnControlInvocationResults && {
+    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
+      InvocationResultMemberFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const InvokeAgentRequestFilterSensitiveLog = (obj: InvokeAgentRequest): any => ({
   ...obj,
+  ...(obj.sessionState && { sessionState: SessionStateFilterSensitiveLog(obj.sessionState) }),
   ...(obj.inputText && { inputText: SENSITIVE_STRING }),
 });
 
@@ -2538,6 +3068,34 @@ export const PayloadPartFilterSensitiveLog = (obj: PayloadPart): any => ({
   ...obj,
   ...(obj.bytes && { bytes: SENSITIVE_STRING }),
   ...(obj.attribution && { attribution: AttributionFilterSensitiveLog(obj.attribution) }),
+});
+
+/**
+ * @internal
+ */
+export const ApiInvocationInputFilterSensitiveLog = (obj: ApiInvocationInput): any => ({
+  ...obj,
+  ...(obj.apiPath && { apiPath: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvocationInputMemberFilterSensitiveLog = (obj: InvocationInputMember): any => {
+  if (obj.apiInvocationInput !== undefined)
+    return { apiInvocationInput: ApiInvocationInputFilterSensitiveLog(obj.apiInvocationInput) };
+  if (obj.functionInvocationInput !== undefined) return { functionInvocationInput: obj.functionInvocationInput };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ReturnControlPayloadFilterSensitiveLog = (obj: ReturnControlPayload): any => ({
+  ...obj,
+  ...(obj.invocationInputs && {
+    invocationInputs: obj.invocationInputs.map((item) => InvocationInputMemberFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2715,6 +3273,7 @@ export const TracePartFilterSensitiveLog = (obj: TracePart): any => ({
 export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
   if (obj.chunk !== undefined) return { chunk: SENSITIVE_STRING };
   if (obj.trace !== undefined) return { trace: SENSITIVE_STRING };
+  if (obj.returnControl !== undefined) return { returnControl: SENSITIVE_STRING };
   if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
   if (obj.validationException !== undefined) return { validationException: obj.validationException };
   if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };

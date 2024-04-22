@@ -36,7 +36,7 @@ export interface InvokeAgentCommandInput extends InvokeAgentRequest {}
 export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Sends a prompt for the agent to process and respond to.</p>
+ * <p>Sends a prompt for the agent to process and respond to. Use return control event type for function calling.</p>
  *          <note>
  *             <p>The CLI doesn't support <code>InvokeAgent</code>.</p>
  *          </note>
@@ -51,7 +51,10 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *                <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p>
  *             </li>
  *             <li>
- *                <p>Include attributes for the session or prompt in the <code>sessionState</code> object.</p>
+ *                <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or parameters returned from the action group.</p>
+ *             </li>
+ *             <li>
+ *                <p>Use return control event type for function calling.</p>
  *             </li>
  *          </ul>
  *          <p>The response is returned in the <code>bytes</code> field of the <code>chunk</code> object.</p>
@@ -80,13 +83,40 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *     promptSessionAttributes: { // PromptSessionAttributesMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     returnControlInvocationResults: [ // ReturnControlInvocationResults
+ *       { // InvocationResultMember Union: only one key present
+ *         apiResult: { // ApiResult
+ *           actionGroup: "STRING_VALUE", // required
+ *           httpMethod: "STRING_VALUE",
+ *           apiPath: "STRING_VALUE",
+ *           responseBody: { // ResponseBody
+ *             "<keys>": { // ContentBody
+ *               body: "STRING_VALUE",
+ *             },
+ *           },
+ *           httpStatusCode: Number("int"),
+ *           responseState: "FAILURE" || "REPROMPT",
+ *         },
+ *         functionResult: { // FunctionResult
+ *           actionGroup: "STRING_VALUE", // required
+ *           function: "STRING_VALUE",
+ *           responseBody: {
+ *             "<keys>": {
+ *               body: "STRING_VALUE",
+ *             },
+ *           },
+ *           responseState: "FAILURE" || "REPROMPT",
+ *         },
+ *       },
+ *     ],
+ *     invocationId: "STRING_VALUE",
  *   },
  *   agentId: "STRING_VALUE", // required
  *   agentAliasId: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
  *   endSession: true || false,
  *   enableTrace: true || false,
- *   inputText: "STRING_VALUE", // required
+ *   inputText: "STRING_VALUE",
  * };
  * const command = new InvokeAgentCommand(input);
  * const response = await client.send(command);
@@ -130,6 +160,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //       agentId: "STRING_VALUE",
  * //       agentAliasId: "STRING_VALUE",
  * //       sessionId: "STRING_VALUE",
+ * //       agentVersion: "STRING_VALUE",
  * //       trace: { // Trace Union: only one key present
  * //         preProcessingTrace: { // PreProcessingTrace Union: only one key present
  * //           modelInvocationInput: { // ModelInvocationInput
@@ -187,6 +218,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                   ],
  * //                 },
  * //               },
+ * //               function: "STRING_VALUE",
  * //             },
  * //             knowledgeBaseLookupInput: { // KnowledgeBaseLookupInput
  * //               text: "STRING_VALUE",
@@ -274,6 +306,49 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //         },
  * //       },
  * //     },
+ * //     returnControl: { // ReturnControlPayload
+ * //       invocationInputs: [ // InvocationInputs
+ * //         { // InvocationInputMember Union: only one key present
+ * //           apiInvocationInput: { // ApiInvocationInput
+ * //             actionGroup: "STRING_VALUE", // required
+ * //             httpMethod: "STRING_VALUE",
+ * //             apiPath: "STRING_VALUE",
+ * //             parameters: [ // ApiParameters
+ * //               { // ApiParameter
+ * //                 name: "STRING_VALUE",
+ * //                 type: "STRING_VALUE",
+ * //                 value: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             requestBody: { // ApiRequestBody
+ * //               content: { // ApiContentMap
+ * //                 "<keys>": { // PropertyParameters
+ * //                   properties: [ // ParameterList
+ * //                     {
+ * //                       name: "STRING_VALUE",
+ * //                       type: "STRING_VALUE",
+ * //                       value: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //           functionInvocationInput: { // FunctionInvocationInput
+ * //             actionGroup: "STRING_VALUE", // required
+ * //             parameters: [ // FunctionParameters
+ * //               { // FunctionParameter
+ * //                 name: "STRING_VALUE",
+ * //                 type: "STRING_VALUE",
+ * //                 value: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             function: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       invocationId: "STRING_VALUE",
+ * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",
  * //     },
@@ -332,7 +407,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
