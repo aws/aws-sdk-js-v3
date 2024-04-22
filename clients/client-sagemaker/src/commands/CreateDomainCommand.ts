@@ -302,6 +302,34 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       ],
  *       LifecycleConfigArns: "<LifecycleConfigArns>",
  *     },
+ *     JupyterLabAppSettings: {
+ *       DefaultResourceSpec: "<ResourceSpec>",
+ *       CustomImages: "<CustomImages>",
+ *       LifecycleConfigArns: "<LifecycleConfigArns>",
+ *       CodeRepositories: [
+ *         {
+ *           RepositoryUrl: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     SpaceStorageSettings: {
+ *       DefaultEbsStorageSettings: {
+ *         DefaultEbsVolumeSizeInGb: Number("int"), // required
+ *         MaximumEbsVolumeSizeInGb: Number("int"), // required
+ *       },
+ *     },
+ *     CustomPosixUserConfig: {
+ *       Uid: Number("long"), // required
+ *       Gid: Number("long"), // required
+ *     },
+ *     CustomFileSystemConfigs: [
+ *       {//  Union: only one key present
+ *         EFSFileSystemConfig: {
+ *           FileSystemId: "STRING_VALUE", // required
+ *           FileSystemPath: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
  *   },
  * };
  * const command = new CreateDomainCommand(input);

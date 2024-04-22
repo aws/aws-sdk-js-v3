@@ -1261,7 +1261,7 @@ export interface ListSpacesRequest {
  */
 export interface OwnershipSettingsSummary {
   /**
-   * <p>The user profile who is the owner of the private space.</p>
+   * <p>The user profile who is the owner of the space.</p>
    * @public
    */
   OwnerUserProfileName?: string;
@@ -1279,7 +1279,7 @@ export interface SpaceSettingsSummary {
   AppType?: AppType;
 
   /**
-   * <p>The storage settings for a private space.</p>
+   * <p>The storage settings for a space.</p>
    * @public
    */
   SpaceStorageSettings?: SpaceStorageSettings;
