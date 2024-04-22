@@ -27,8 +27,7 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists summary information about the instances that you registered by using a specified
- *    service.</p>
+ * <p>Lists summary information about the instances that you registered by using a specified service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,9 +62,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value
+ *    might be outside the allowed range, or a string value might exceed length constraints.</p>
  *
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
