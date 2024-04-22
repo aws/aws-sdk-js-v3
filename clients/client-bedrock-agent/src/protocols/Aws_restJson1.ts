@@ -136,6 +136,8 @@ import {
   DataSourceConfiguration,
   DataSourceSummary,
   FixedSizeChunkingConfiguration,
+  Function,
+  FunctionSchema,
   InferenceConfiguration,
   IngestionJob,
   IngestionJobFilter,
@@ -147,6 +149,7 @@ import {
   KnowledgeBaseSummary,
   OpenSearchServerlessConfiguration,
   OpenSearchServerlessFieldMapping,
+  ParameterDetail,
   PineconeConfiguration,
   PineconeFieldMapping,
   PromptConfiguration,
@@ -247,6 +250,7 @@ export const se_CreateAgentActionGroupCommand = async (
       apiSchema: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+      functionSchema: (_) => _json(_),
       parentActionGroupSignature: [],
     })
   );
@@ -952,6 +956,7 @@ export const se_UpdateAgentActionGroupCommand = async (
       actionGroupState: [],
       apiSchema: (_) => _json(_),
       description: [],
+      functionSchema: (_) => _json(_),
       parentActionGroupSignature: [],
     })
   );
@@ -2097,6 +2102,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_FixedSizeChunkingConfiguration omitted.
 
+// se_Function omitted.
+
+// se_Functions omitted.
+
+// se_FunctionSchema omitted.
+
 /**
  * serializeAws_restJson1InferenceConfiguration
  */
@@ -2123,6 +2134,10 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 // se_OpenSearchServerlessConfiguration omitted.
 
 // se_OpenSearchServerlessFieldMapping omitted.
+
+// se_ParameterDetail omitted.
+
+// se_ParameterMap omitted.
 
 // se_PineconeConfiguration omitted.
 
@@ -2257,6 +2272,7 @@ const de_AgentActionGroup = (output: any, context: __SerdeContext): AgentActionG
     clientToken: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    functionSchema: (_: any) => _json(__expectUnion(_)),
     parentActionSignature: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
@@ -2504,6 +2520,12 @@ const de_DataSourceSummary = (output: any, context: __SerdeContext): DataSourceS
 
 // de_FixedSizeChunkingConfiguration omitted.
 
+// de_Function omitted.
+
+// de_Functions omitted.
+
+// de_FunctionSchema omitted.
+
 /**
  * deserializeAws_restJson1InferenceConfiguration
  */
@@ -2613,6 +2635,10 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
 // de_OpenSearchServerlessConfiguration omitted.
 
 // de_OpenSearchServerlessFieldMapping omitted.
+
+// de_ParameterDetail omitted.
+
+// de_ParameterMap omitted.
 
 // de_PineconeConfiguration omitted.
 

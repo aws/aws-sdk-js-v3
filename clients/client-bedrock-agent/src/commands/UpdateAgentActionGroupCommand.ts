@@ -48,6 +48,7 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  *   parentActionGroupSignature: "AMAZON.UserInput",
  *   actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
  *     lambda: "STRING_VALUE",
+ *     customControl: "RETURN_CONTROL",
  *   },
  *   actionGroupState: "ENABLED" || "DISABLED",
  *   apiSchema: { // APISchema Union: only one key present
@@ -56,6 +57,21 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  *       s3ObjectKey: "STRING_VALUE",
  *     },
  *     payload: "STRING_VALUE",
+ *   },
+ *   functionSchema: { // FunctionSchema Union: only one key present
+ *     functions: [ // Functions
+ *       { // Function
+ *         name: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         parameters: { // ParameterMap
+ *           "<keys>": { // ParameterDetail
+ *             description: "STRING_VALUE",
+ *             type: "string" || "number" || "integer" || "boolean" || "array", // required
+ *             required: true || false,
+ *           },
+ *         },
+ *       },
+ *     ],
  *   },
  * };
  * const command = new UpdateAgentActionGroupCommand(input);
@@ -73,6 +89,7 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  * //     parentActionSignature: "AMAZON.UserInput",
  * //     actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
  * //       lambda: "STRING_VALUE",
+ * //       customControl: "RETURN_CONTROL",
  * //     },
  * //     apiSchema: { // APISchema Union: only one key present
  * //       s3: { // S3Identifier
@@ -80,6 +97,21 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  * //         s3ObjectKey: "STRING_VALUE",
  * //       },
  * //       payload: "STRING_VALUE",
+ * //     },
+ * //     functionSchema: { // FunctionSchema Union: only one key present
+ * //       functions: [ // Functions
+ * //         { // Function
+ * //           name: "STRING_VALUE", // required
+ * //           description: "STRING_VALUE",
+ * //           parameters: { // ParameterMap
+ * //             "<keys>": { // ParameterDetail
+ * //               description: "STRING_VALUE",
+ * //               type: "string" || "number" || "integer" || "boolean" || "array", // required
+ * //               required: true || false,
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //     actionGroupState: "ENABLED" || "DISABLED", // required
  * //   },

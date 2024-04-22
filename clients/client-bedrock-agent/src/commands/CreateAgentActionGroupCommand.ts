@@ -49,6 +49,7 @@ export interface CreateAgentActionGroupCommandOutput extends CreateAgentActionGr
  *   parentActionGroupSignature: "AMAZON.UserInput",
  *   actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
  *     lambda: "STRING_VALUE",
+ *     customControl: "RETURN_CONTROL",
  *   },
  *   apiSchema: { // APISchema Union: only one key present
  *     s3: { // S3Identifier
@@ -58,6 +59,21 @@ export interface CreateAgentActionGroupCommandOutput extends CreateAgentActionGr
  *     payload: "STRING_VALUE",
  *   },
  *   actionGroupState: "ENABLED" || "DISABLED",
+ *   functionSchema: { // FunctionSchema Union: only one key present
+ *     functions: [ // Functions
+ *       { // Function
+ *         name: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         parameters: { // ParameterMap
+ *           "<keys>": { // ParameterDetail
+ *             description: "STRING_VALUE",
+ *             type: "string" || "number" || "integer" || "boolean" || "array", // required
+ *             required: true || false,
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateAgentActionGroupCommand(input);
  * const response = await client.send(command);
@@ -74,6 +90,7 @@ export interface CreateAgentActionGroupCommandOutput extends CreateAgentActionGr
  * //     parentActionSignature: "AMAZON.UserInput",
  * //     actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
  * //       lambda: "STRING_VALUE",
+ * //       customControl: "RETURN_CONTROL",
  * //     },
  * //     apiSchema: { // APISchema Union: only one key present
  * //       s3: { // S3Identifier
@@ -81,6 +98,21 @@ export interface CreateAgentActionGroupCommandOutput extends CreateAgentActionGr
  * //         s3ObjectKey: "STRING_VALUE",
  * //       },
  * //       payload: "STRING_VALUE",
+ * //     },
+ * //     functionSchema: { // FunctionSchema Union: only one key present
+ * //       functions: [ // Functions
+ * //         { // Function
+ * //           name: "STRING_VALUE", // required
+ * //           description: "STRING_VALUE",
+ * //           parameters: { // ParameterMap
+ * //             "<keys>": { // ParameterDetail
+ * //               description: "STRING_VALUE",
+ * //               type: "string" || "number" || "integer" || "boolean" || "array", // required
+ * //               required: true || false,
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //     actionGroupState: "ENABLED" || "DISABLED", // required
  * //   },

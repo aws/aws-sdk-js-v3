@@ -24,10 +24,26 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CustomControlMethod = {
+  RETURN_CONTROL: "RETURN_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomControlMethod = (typeof CustomControlMethod)[keyof typeof CustomControlMethod];
+
+/**
  * <p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action.</p>
  * @public
  */
-export type ActionGroupExecutor = ActionGroupExecutor.LambdaMember | ActionGroupExecutor.$UnknownMember;
+export type ActionGroupExecutor =
+  | ActionGroupExecutor.CustomControlMember
+  | ActionGroupExecutor.LambdaMember
+  | ActionGroupExecutor.$UnknownMember;
 
 /**
  * @public
@@ -39,6 +55,17 @@ export namespace ActionGroupExecutor {
    */
   export interface LambdaMember {
     lambda: string;
+    customControl?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>To return the action group invocation results directly in the <code>InvokeAgent</code> response, specify <code>RETURN_CONTROL</code>.</p>
+   * @public
+   */
+  export interface CustomControlMember {
+    lambda?: never;
+    customControl: CustomControlMethod;
     $unknown?: never;
   }
 
@@ -47,16 +74,19 @@ export namespace ActionGroupExecutor {
    */
   export interface $UnknownMember {
     lambda?: never;
+    customControl?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     lambda: (value: string) => T;
+    customControl: (value: CustomControlMethod) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ActionGroupExecutor, visitor: Visitor<T>): T => {
     if (value.lambda !== undefined) return visitor.lambda(value.lambda);
+    if (value.customControl !== undefined) return visitor.customControl(value.customControl);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -169,6 +199,193 @@ export namespace APISchema {
  * @public
  * @enum
  */
+export const Type = {
+  ARRAY: "array",
+  BOOLEAN: "boolean",
+  INTEGER: "integer",
+  NUMBER: "number",
+  STRING: "string",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * <p>Contains details about a parameter in a function for an action group.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ParameterDetail {
+  /**
+   * <p>A description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The data type of the parameter.</p>
+   * @public
+   */
+  type: Type | undefined;
+
+  /**
+   * <p>Whether the parameter is required for the agent to complete the function for action group invocation.</p>
+   * @public
+   */
+  required?: boolean;
+}
+
+/**
+ * <p>Defines parameters that the agent needs to invoke from the user to complete the function. Corresponds to an action in an action group.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface Function {
+  /**
+   * <p>A name for the function.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the function and its purpose.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The parameters that the agent elicits from the user to fulfill the function.</p>
+   * @public
+   */
+  parameters?: Record<string, ParameterDetail>;
+}
+
+/**
+ * <p>Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export type FunctionSchema = FunctionSchema.FunctionsMember | FunctionSchema.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FunctionSchema {
+  /**
+   * <p>A list of functions that each define an action in the action group.</p>
+   * @public
+   */
+  export interface FunctionsMember {
+    functions: Function[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    functions?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    functions: (value: Function[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FunctionSchema, visitor: Visitor<T>): T => {
+    if (value.functions !== undefined) return visitor.functions(value.functions);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ActionGroupSignature = {
   AMAZON_USERINPUT: "AMAZON.UserInput",
 } as const;
@@ -237,6 +454,12 @@ export interface CreateAgentActionGroupRequest {
    * @public
    */
   actionGroupState?: ActionGroupState;
+
+  /**
+   * <p>Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.</p>
+   * @public
+   */
+  functionSchema?: FunctionSchema;
 }
 
 /**
@@ -311,6 +534,12 @@ export interface AgentActionGroup {
    * @public
    */
   apiSchema?: APISchema;
+
+  /**
+   * <p>Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.</p>
+   * @public
+   */
+  functionSchema?: FunctionSchema;
 
   /**
    * <p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
@@ -665,6 +894,12 @@ export interface UpdateAgentActionGroupRequest {
    * @public
    */
   apiSchema?: APISchema;
+
+  /**
+   * <p>Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.</p>
+   * @public
+   */
+  functionSchema?: FunctionSchema;
 }
 
 /**
@@ -2546,7 +2781,7 @@ export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof Ingest
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJob.html#API_agent_ListIngestionJob_ResponseSyntax">ListIngestionJob response</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJobs.html#API_agent_ListIngestionJobs_ResponseSyntax">ListIngestionJob response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -3914,6 +4149,7 @@ export const CreateAgentActionGroupRequestFilterSensitiveLog = (obj: CreateAgent
   ...obj,
   ...(obj.actionGroupExecutor && { actionGroupExecutor: obj.actionGroupExecutor }),
   ...(obj.apiSchema && { apiSchema: APISchemaFilterSensitiveLog(obj.apiSchema) }),
+  ...(obj.functionSchema && { functionSchema: obj.functionSchema }),
 });
 
 /**
@@ -3923,6 +4159,7 @@ export const AgentActionGroupFilterSensitiveLog = (obj: AgentActionGroup): any =
   ...obj,
   ...(obj.actionGroupExecutor && { actionGroupExecutor: obj.actionGroupExecutor }),
   ...(obj.apiSchema && { apiSchema: APISchemaFilterSensitiveLog(obj.apiSchema) }),
+  ...(obj.functionSchema && { functionSchema: obj.functionSchema }),
 });
 
 /**
@@ -3948,6 +4185,7 @@ export const UpdateAgentActionGroupRequestFilterSensitiveLog = (obj: UpdateAgent
   ...obj,
   ...(obj.actionGroupExecutor && { actionGroupExecutor: obj.actionGroupExecutor }),
   ...(obj.apiSchema && { apiSchema: APISchemaFilterSensitiveLog(obj.apiSchema) }),
+  ...(obj.functionSchema && { functionSchema: obj.functionSchema }),
 });
 
 /**
