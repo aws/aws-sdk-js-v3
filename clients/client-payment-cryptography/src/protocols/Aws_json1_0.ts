@@ -85,6 +85,7 @@ import {
   InternalServerException,
   Key,
   KeyAttributes,
+  KeyBlockHeaders,
   KeyModesOfUse,
   ListAliasesInput,
   ListKeysInput,
@@ -973,6 +974,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_KeyAttributes omitted.
 
+// se_KeyBlockHeaders omitted.
+
 // se_KeyModesOfUse omitted.
 
 // se_ListAliasesInput omitted.
@@ -980,6 +983,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ListKeysInput omitted.
 
 // se_ListTagsForResourceInput omitted.
+
+// se_OptionalBlocks omitted.
 
 // se_RestoreKeyInput omitted.
 

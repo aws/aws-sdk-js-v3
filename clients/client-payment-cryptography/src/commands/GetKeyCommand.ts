@@ -40,17 +40,17 @@ export interface GetKeyCommandOutput extends GetKeyOutput, __MetadataBearer {}
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateKey</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteKey</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListKeys</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListKeys.html">ListKeys</a>
  *                </p>
  *             </li>
  *          </ul>

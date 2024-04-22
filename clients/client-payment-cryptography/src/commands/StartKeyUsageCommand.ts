@@ -40,7 +40,7 @@ export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __Metad
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>StopKeyUsage</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a>
  *                </p>
  *             </li>
  *          </ul>

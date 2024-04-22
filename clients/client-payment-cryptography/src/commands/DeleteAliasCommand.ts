@@ -32,7 +32,7 @@ export interface DeleteAliasCommandOutput extends DeleteAliasOutput, __MetadataB
 
 /**
  * <p>Deletes the alias, but doesn't affect the underlying key.</p>
- *          <p>Each key can have multiple aliases. To get the aliases of all keys, use the <a>ListAliases</a> operation. To change the alias of a key, first use <a>DeleteAlias</a> to delete the current alias and then use <a>CreateAlias</a> to create a new alias. To associate an existing alias with a different key, call <a>UpdateAlias</a>.</p>
+ *          <p>Each key can have multiple aliases. To get the aliases of all keys, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html">UpdateAlias</a> operation. To change the alias of a key, first use <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html">DeleteAlias</a> to delete the current alias and then use <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html">CreateAlias</a> to create a new alias. To associate an existing alias with a different key, call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html">UpdateAlias</a>.</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
  *          <p>
@@ -41,22 +41,22 @@ export interface DeleteAliasCommandOutput extends DeleteAliasOutput, __MetadataB
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateAlias</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html">CreateAlias</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetAlias</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html">GetAlias</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListAliases</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html">ListAliases</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UpdateAlias</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html">UpdateAlias</a>
  *                </p>
  *             </li>
  *          </ul>

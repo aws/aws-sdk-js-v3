@@ -36,7 +36,7 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
 
 /**
  * <p>Gets the import token and the wrapping key certificate in PEM format (base64 encoded) to initiate a TR-34 WrappedKeyBlock or a RSA WrappedKeyCryptogram import into Amazon Web Services Payment Cryptography.</p>
- *          <p>The wrapping key certificate wraps the key under import. The import token and wrapping key certificate must be in place and operational before calling <a>ImportKey</a>. The import token expires in 7 days. You can use the same import token to import multiple keys into your service account.</p>
+ *          <p>The wrapping key certificate wraps the key under import. The import token and wrapping key certificate must be in place and operational before calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>. The import token expires in 7 days. You can use the same import token to import multiple keys into your service account.</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
  *          <p>
@@ -45,12 +45,12 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>GetParametersForExport</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ImportKey</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>
  *                </p>
  *             </li>
  *          </ul>

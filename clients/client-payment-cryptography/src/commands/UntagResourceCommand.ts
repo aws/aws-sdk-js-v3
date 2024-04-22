@@ -43,12 +43,12 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListTagsForResource</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>TagResource</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a>
  *                </p>
  *             </li>
  *          </ul>

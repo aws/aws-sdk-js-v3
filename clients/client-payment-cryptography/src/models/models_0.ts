@@ -560,7 +560,7 @@ export interface CreateKeyInput {
   Enabled?: boolean;
 
   /**
-   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a>TagResource</a> operation.</p>
+   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is created. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
    *          <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p>
    *          <important>
    *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
@@ -798,6 +798,53 @@ export interface ExportKeyCryptogram {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const KeyExportability = {
+  EXPORTABLE: "EXPORTABLE",
+  NON_EXPORTABLE: "NON_EXPORTABLE",
+  SENSITIVE: "SENSITIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyExportability = (typeof KeyExportability)[keyof typeof KeyExportability];
+
+/**
+ * <p>Optional metadata for export associated with the key material. This data is signed but transmitted in clear text.</p>
+ * @public
+ */
+export interface KeyBlockHeaders {
+  /**
+   * <p>The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.</p>
+   * @public
+   */
+  KeyModesOfUse?: KeyModesOfUse;
+
+  /**
+   * <p>Specifies subsequent exportability of the key within the key block after it is received by the receiving party. It can be used to further restrict exportability of the key after export from Amazon Web Services Payment Cryptography.</p>
+   *          <p>When set to <code>EXPORTABLE</code>, the key can be subsequently exported by the receiver under a KEK using TR-31 or TR-34 key block export only. When set to <code>NON_EXPORTABLE</code>, the key cannot be subsequently exported by the receiver. When set to <code>SENSITIVE</code>, the key can be exported by the receiver under a KEK using TR-31, TR-34, RSA wrap and unwrap cryptogram or using a symmetric cryptogram key export method. For further information refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a>.</p>
+   * @public
+   */
+  KeyExportability?: KeyExportability;
+
+  /**
+   * <p>Parameter used to indicate the version of the key carried in the key block or indicate the value carried in the key block is a component of a key.</p>
+   * @public
+   */
+  KeyVersion?: string;
+
+  /**
+   * <p>Parameter used to indicate the type of optional data in key block headers. Refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a> for information on allowed data type for optional blocks.</p>
+   *          <p>Optional block character limit is 112 characters. For each optional block, 2 characters are reserved for optional block ID and 2 characters reserved for optional block length. More than one optional blocks can be included as long as the combined length does not increase 112 characters.</p>
+   * @public
+   */
+  OptionalBlocks?: Record<string, string>;
+}
+
+/**
  * <p>Parameter information for key material export using symmetric TR-31 key exchange method.</p>
  * @public
  */
@@ -807,6 +854,12 @@ export interface ExportTr31KeyBlock {
    * @public
    */
   WrappingKeyIdentifier: string | undefined;
+
+  /**
+   * <p>Optional metadata for export associated with the key material. This data is signed but transmitted in clear text.</p>
+   * @public
+   */
+  KeyBlockHeaders?: KeyBlockHeaders;
 }
 
 /**
@@ -840,7 +893,7 @@ export interface ExportTr34KeyBlock {
   WrappingKeyCertificate: string | undefined;
 
   /**
-   * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. It also contains the signing key certificate that will sign the wrapped key during TR-34 key block generation. Call <a>GetParametersForExport</a> to receive an export token. It expires after 7 days. You can use the same export token to export multiple keys from the same service account.</p>
+   * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. It also contains the signing key certificate that will sign the wrapped key during TR-34 key block generation. Call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a> to receive an export token. It expires after 7 days. You can use the same export token to export multiple keys from the same service account.</p>
    * @public
    */
   ExportToken: string | undefined;
@@ -856,6 +909,12 @@ export interface ExportTr34KeyBlock {
    * @public
    */
   RandomNonce?: string;
+
+  /**
+   * <p>Optional metadata for export associated with the key material. This data is signed but transmitted in clear text.</p>
+   * @public
+   */
+  KeyBlockHeaders?: KeyBlockHeaders;
 }
 
 /**
@@ -1465,7 +1524,7 @@ export interface ImportKeyInput {
   Enabled?: boolean;
 
   /**
-   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is imported. To tag an existing Amazon Web Services Payment Cryptography key, use the <a>TagResource</a> operation.</p>
+   * <p>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use this parameter to tag a key when it is imported. To tag an existing Amazon Web Services Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> operation.</p>
    *          <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. If you specify an existing tag key with a different tag value, Amazon Web Services Payment Cryptography replaces the current tag value with the specified one.</p>
    *          <important>
    *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
@@ -1694,7 +1753,7 @@ export interface TagResourceInput {
    *          <important>
    *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
    *          </important>
-   *          <p>To use this parameter, you must have <a>TagResource</a> permission in an IAM policy.</p>
+   *          <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a> permission in an IAM policy.</p>
    *          <important>
    *             <p>Don't include personal, confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
    *          </important>
@@ -1720,7 +1779,7 @@ export interface UntagResourceInput {
 
   /**
    * <p>One or more tag keys. Don't include the tag values.</p>
-   *          <p>If the Amazon Web Services Payment Cryptography key doesn't have the specified tag key, Amazon Web Services Payment Cryptography doesn't throw an exception or return a response. To confirm that the operation succeeded, use the <a>ListTagsForResource</a> operation.</p>
+   *          <p>If the Amazon Web Services Payment Cryptography key doesn't have the specified tag key, Amazon Web Services Payment Cryptography doesn't throw an exception or return a response. To confirm that the operation succeeded, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> operation.</p>
    * @public
    */
   TagKeys: string[] | undefined;
@@ -1742,16 +1801,33 @@ export const ExportKeyCryptogramFilterSensitiveLog = (obj: ExportKeyCryptogram):
 /**
  * @internal
  */
+export const KeyBlockHeadersFilterSensitiveLog = (obj: KeyBlockHeaders): any => ({
+  ...obj,
+  ...(obj.OptionalBlocks && { OptionalBlocks: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExportTr31KeyBlockFilterSensitiveLog = (obj: ExportTr31KeyBlock): any => ({
+  ...obj,
+  ...(obj.KeyBlockHeaders && { KeyBlockHeaders: KeyBlockHeadersFilterSensitiveLog(obj.KeyBlockHeaders) }),
+});
+
+/**
+ * @internal
+ */
 export const ExportTr34KeyBlockFilterSensitiveLog = (obj: ExportTr34KeyBlock): any => ({
   ...obj,
   ...(obj.WrappingKeyCertificate && { WrappingKeyCertificate: SENSITIVE_STRING }),
+  ...(obj.KeyBlockHeaders && { KeyBlockHeaders: KeyBlockHeadersFilterSensitiveLog(obj.KeyBlockHeaders) }),
 });
 
 /**
  * @internal
  */
 export const ExportKeyMaterialFilterSensitiveLog = (obj: ExportKeyMaterial): any => {
-  if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: obj.Tr31KeyBlock };
+  if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: ExportTr31KeyBlockFilterSensitiveLog(obj.Tr31KeyBlock) };
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ExportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
   if (obj.KeyCryptogram !== undefined)
     return { KeyCryptogram: ExportKeyCryptogramFilterSensitiveLog(obj.KeyCryptogram) };

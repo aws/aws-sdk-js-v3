@@ -43,17 +43,17 @@ export interface ListKeysCommandOutput extends ListKeysOutput, __MetadataBearer 
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateKey</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteKey</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetKey</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetKey.html">GetKey</a>
  *                </p>
  *             </li>
  *          </ul>

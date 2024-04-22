@@ -43,12 +43,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>TagResource</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UntagResource</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UntagResource.html">UntagResource</a>
  *                </p>
  *             </li>
  *          </ul>

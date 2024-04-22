@@ -40,22 +40,22 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateAlias</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html">CreateAlias</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteAlias</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html">DeleteAlias</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetAlias</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html">GetAlias</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListAliases</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html">ListAliases</a>
  *                </p>
  *             </li>
  *          </ul>

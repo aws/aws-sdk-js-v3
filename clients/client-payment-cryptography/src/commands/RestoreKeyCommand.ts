@@ -42,17 +42,17 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>DeleteKey</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>StartKeyUsage</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>StopKeyUsage</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a>
  *                </p>
  *             </li>
  *          </ul>

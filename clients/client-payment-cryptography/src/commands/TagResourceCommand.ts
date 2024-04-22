@@ -35,7 +35,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *          <note>
  *             <p>Tagging or untagging an Amazon Web Services Payment Cryptography key can allow or deny permission to the key.</p>
  *          </note>
- *          <p>Each tag consists of a tag key and a tag value, both of which are case-sensitive strings. The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value. You can also add tags to an Amazon Web Services Payment Cryptography key when you create it with <a>CreateKey</a>.</p>
+ *          <p>Each tag consists of a tag key and a tag value, both of which are case-sensitive strings. The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value. You can also add tags to an Amazon Web Services Payment Cryptography key when you create it with <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
  *          <p>
@@ -44,12 +44,12 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListTagsForResource</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UntagResource</a>
+ *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UntagResource.html">UntagResource</a>
  *                </p>
  *             </li>
  *          </ul>
