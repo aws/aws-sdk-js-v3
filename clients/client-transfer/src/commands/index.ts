@@ -43,6 +43,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./ListUsersCommand";
 export * from "./ListWorkflowsCommand";
 export * from "./SendWorkflowStepStateCommand";
+export * from "./StartDirectoryListingCommand";
 export * from "./StartFileTransferCommand";
 export * from "./StartServerCommand";
 export * from "./StopServerCommand";

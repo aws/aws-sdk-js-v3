@@ -112,6 +112,10 @@ import {
   SendWorkflowStepStateCommandInput,
   SendWorkflowStepStateCommandOutput,
 } from "./commands/SendWorkflowStepStateCommand";
+import {
+  StartDirectoryListingCommandInput,
+  StartDirectoryListingCommandOutput,
+} from "./commands/StartDirectoryListingCommand";
 import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from "./commands/StartFileTransferCommand";
 import { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
@@ -189,6 +193,7 @@ export type ServiceInputTypes =
   | ListUsersCommandInput
   | ListWorkflowsCommandInput
   | SendWorkflowStepStateCommandInput
+  | StartDirectoryListingCommandInput
   | StartFileTransferCommandInput
   | StartServerCommandInput
   | StopServerCommandInput
@@ -253,6 +258,7 @@ export type ServiceOutputTypes =
   | ListUsersCommandOutput
   | ListWorkflowsCommandOutput
   | SendWorkflowStepStateCommandOutput
+  | StartDirectoryListingCommandOutput
   | StartFileTransferCommandOutput
   | StartServerCommandOutput
   | StopServerCommandOutput

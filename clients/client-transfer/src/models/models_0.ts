@@ -2939,21 +2939,7 @@ export interface DescribedCertificate {
   CertificateId?: string;
 
   /**
-   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SIGNING</code>: For signing AS2 messages</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies whether this certificate is used for signing or encryption.</p>
    * @public
    */
   Usage?: CertificateUsageType;
@@ -4383,21 +4369,7 @@ export interface DescribeWorkflowResponse {
  */
 export interface ImportCertificateRequest {
   /**
-   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SIGNING</code>: For signing AS2 messages</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies whether this certificate is used for signing or encryption.</p>
    * @public
    */
   Usage: CertificateUsageType | undefined;
@@ -4834,21 +4806,7 @@ export interface ListedCertificate {
   CertificateId?: string;
 
   /**
-   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SIGNING</code>: For signing AS2 messages</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies whether this certificate is used for signing or encryption.</p>
    * @public
    */
   Usage?: CertificateUsageType;
@@ -5698,6 +5656,53 @@ export interface SendWorkflowStepStateRequest {
  * @public
  */
 export interface SendWorkflowStepStateResponse {}
+
+/**
+ * @public
+ */
+export interface StartDirectoryListingRequest {
+  /**
+   * <p>The unique identifier for the connector.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>Specifies the directory on the remote SFTP server for which you want to list its contents.</p>
+   * @public
+   */
+  RemoteDirectoryPath: string | undefined;
+
+  /**
+   * <p>An optional parameter where you can specify the maximum number of file/directory names to
+   *       retrieve. The default value is 1,000.</p>
+   * @public
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>Specifies the path (bucket and prefix) in Amazon S3 storage to store the results of the directory listing.</p>
+   * @public
+   */
+  OutputDirectoryPath: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDirectoryListingResponse {
+  /**
+   * <p>Returns a unique identifier for the directory listing call.</p>
+   * @public
+   */
+  ListingId: string | undefined;
+
+  /**
+   * <p>Returns the file name where the results are stored. This is a combination of the connector ID and the listing ID: <code>&lt;connector-id&gt;-&lt;listing-id&gt;.json</code>.</p>
+   * @public
+   */
+  OutputFileName: string | undefined;
+}
 
 /**
  * @public

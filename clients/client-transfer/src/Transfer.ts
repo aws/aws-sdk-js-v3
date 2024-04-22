@@ -207,6 +207,11 @@ import {
   SendWorkflowStepStateCommandOutput,
 } from "./commands/SendWorkflowStepStateCommand";
 import {
+  StartDirectoryListingCommand,
+  StartDirectoryListingCommandInput,
+  StartDirectoryListingCommandOutput,
+} from "./commands/StartDirectoryListingCommand";
+import {
   StartFileTransferCommand,
   StartFileTransferCommandInput,
   StartFileTransferCommandOutput,
@@ -312,6 +317,7 @@ const commands = {
   ListUsersCommand,
   ListWorkflowsCommand,
   SendWorkflowStepStateCommand,
+  StartDirectoryListingCommand,
   StartFileTransferCommand,
   StartServerCommand,
   StopServerCommand,
@@ -942,6 +948,23 @@ export interface Transfer {
     args: SendWorkflowStepStateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendWorkflowStepStateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDirectoryListingCommand}
+   */
+  startDirectoryListing(
+    args: StartDirectoryListingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDirectoryListingCommandOutput>;
+  startDirectoryListing(
+    args: StartDirectoryListingCommandInput,
+    cb: (err: any, data?: StartDirectoryListingCommandOutput) => void
+  ): void;
+  startDirectoryListing(
+    args: StartDirectoryListingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDirectoryListingCommandOutput) => void
   ): void;
 
   /**

@@ -566,6 +566,14 @@ SendWorkflowStepState
 </details>
 <details>
 <summary>
+StartDirectoryListing
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transfer/command/StartDirectoryListingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartDirectoryListingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transfer/Interface/StartDirectoryListingCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartFileTransfer
 </summary>
 

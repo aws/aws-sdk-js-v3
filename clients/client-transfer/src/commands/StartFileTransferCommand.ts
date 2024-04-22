@@ -40,7 +40,7 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  *                <ul>
  *                   <li>
  *                      <p>If you are transferring file from a partner's SFTP server to Amazon Web Services
- *               storage, you specify one or more <code>RetreiveFilePaths</code> to identify the files
+ *               storage, you specify one or more <code>RetrieveFilePaths</code> to identify the files
  *               you want to transfer, and a <code>LocalDirectoryPath</code> to specify the destination
  *               folder.</p>
  *                   </li>

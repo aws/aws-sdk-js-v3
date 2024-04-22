@@ -78,6 +78,10 @@ import {
   SendWorkflowStepStateCommandInput,
   SendWorkflowStepStateCommandOutput,
 } from "../commands/SendWorkflowStepStateCommand";
+import {
+  StartDirectoryListingCommandInput,
+  StartDirectoryListingCommandOutput,
+} from "../commands/StartDirectoryListingCommand";
 import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from "../commands/StartFileTransferCommand";
 import { StartServerCommandInput, StartServerCommandOutput } from "../commands/StartServerCommand";
 import { StopServerCommandInput, StopServerCommandOutput } from "../commands/StopServerCommand";
@@ -178,6 +182,7 @@ import {
   ServiceUnavailableException,
   SftpConnectorConfig,
   SshPublicKey,
+  StartDirectoryListingRequest,
   StartFileTransferRequest,
   StartServerRequest,
   StopServerRequest,
@@ -769,6 +774,19 @@ export const se_SendWorkflowStepStateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SendWorkflowStepState");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartDirectoryListingCommand
+ */
+export const se_StartDirectoryListingCommand = async (
+  input: StartDirectoryListingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartDirectoryListing");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1820,6 +1838,26 @@ export const de_SendWorkflowStepStateCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartDirectoryListingCommand
+ */
+export const de_StartDirectoryListingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDirectoryListingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartDirectoryListingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StartFileTransferCommand
  */
 export const de_StartFileTransferCommand = async (
@@ -2450,6 +2488,8 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 
 // se_SftpConnectorTrustedHostKeyList omitted.
 
+// se_StartDirectoryListingRequest omitted.
+
 // se_StartFileTransferRequest omitted.
 
 // se_StartServerRequest omitted.
@@ -2890,6 +2930,8 @@ const de_SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] 
     });
   return retVal;
 };
+
+// de_StartDirectoryListingResponse omitted.
 
 // de_StartFileTransferResponse omitted.
 
