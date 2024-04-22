@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.560.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.559.0...v3.560.0) (2024-04-22)
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for Real-Time Collaboration and Shared Space for JupyterLab App on SageMaker Studio. ([bd00d59](https://github.com/aws/aws-sdk-js-v3/commit/bd00d590cfaf5e24b72cf6bbe50ab03250b7c9a9))
+
+
+
+
+
 # [3.558.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.557.0...v3.558.0) (2024-04-18)
 
 

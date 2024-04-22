@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.560.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.559.0...v3.560.0) (2024-04-22)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Releasing the support for simplified configuration and return of control ([3f2527c](https://github.com/aws/aws-sdk-js-v3/commit/3f2527c8376060b257f7ba78bfb2e2a3fb260c3e))
+* **client-bedrock-agent:** Releasing the support for simplified configuration and return of control ([6b9a783](https://github.com/aws/aws-sdk-js-v3/commit/6b9a783c55891efe55a9288cad172b6c844566ff))
+* **client-payment-cryptography:** Adding support to TR-31/TR-34 exports for optional headers, allowing customers to add additional metadata (such as key version and KSN) when exporting keys from the service. ([d6fd1a4](https://github.com/aws/aws-sdk-js-v3/commit/d6fd1a4bc3a8d2a5c4e11afd57718d2ec6157cf3))
+* **client-route53profiles:** Route 53 Profiles allows you to apply a central DNS configuration across many VPCs regardless of account. ([c264ecc](https://github.com/aws/aws-sdk-js-v3/commit/c264ecca9f8d38186d2a44967d8d544cbaa446a5))
+* **client-sagemaker:** This release adds support for Real-Time Collaboration and Shared Space for JupyterLab App on SageMaker Studio. ([bd00d59](https://github.com/aws/aws-sdk-js-v3/commit/bd00d590cfaf5e24b72cf6bbe50ab03250b7c9a9))
+* **client-transfer:** Adding new API to support remote directory listing using SFTP connector ([0ab635e](https://github.com/aws/aws-sdk-js-v3/commit/0ab635e50b09eb48c769f920072b6a6f40d745a2))
+
+
+
+
+
 # [3.559.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.558.0...v3.559.0) (2024-04-19)
 
 

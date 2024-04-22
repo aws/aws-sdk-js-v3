@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.560.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.559.0...v3.560.0) (2024-04-22)
+
+
+### Features
+
+* **client-transfer:** Adding new API to support remote directory listing using SFTP connector ([0ab635e](https://github.com/aws/aws-sdk-js-v3/commit/0ab635e50b09eb48c769f920072b6a6f40d745a2))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer
