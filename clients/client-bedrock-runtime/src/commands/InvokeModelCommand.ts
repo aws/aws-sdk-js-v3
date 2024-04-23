@@ -47,10 +47,11 @@ export type InvokeModelCommandOutputType = Omit<InvokeModelResponse, "body"> & {
 export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Invokes the specified Bedrock model to run inference using the input provided in the request body.
- *          You use InvokeModel to run inference for text models, image models, and embedding models.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
- *          <p>For example requests, see Examples (after the Errors section).</p>
+ * <p>Invokes the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body.
+ *          You use model inference to generate text, images, and embeddings.</p>
+ *          <p>For example code, see <i>Invoke model code examples</i> in the <i>Amazon Bedrock User Guide</i>.
+ *       </p>
+ *          <p>This operation requires permission for the <code>bedrock:InvokeModel</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +63,9 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  *   contentType: "STRING_VALUE",
  *   accept: "STRING_VALUE",
  *   modelId: "STRING_VALUE", // required
+ *   trace: "ENABLED" || "DISABLED",
+ *   guardrailIdentifier: "STRING_VALUE",
+ *   guardrailVersion: "STRING_VALUE",
  * };
  * const command = new InvokeModelCommand(input);
  * const response = await client.send(command);

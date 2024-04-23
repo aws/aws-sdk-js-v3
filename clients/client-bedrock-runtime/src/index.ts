@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Describes the API operations for running inference using Bedrock models.</p>
+ * <p>Describes the API operations for running inference using Amazon Bedrock models.</p>
  *
  * @packageDocumentation
  */

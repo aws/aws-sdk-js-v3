@@ -46,7 +46,7 @@ export interface BedrockRuntime {
 }
 
 /**
- * <p>Describes the API operations for running inference using Bedrock models.</p>
+ * <p>Describes the API operations for running inference using Amazon Bedrock models.</p>
  * @public
  */
 export class BedrockRuntime extends BedrockRuntimeClient implements BedrockRuntime {}

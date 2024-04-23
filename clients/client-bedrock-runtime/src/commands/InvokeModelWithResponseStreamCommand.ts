@@ -44,10 +44,16 @@ export interface InvokeModelWithResponseStreamCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Invoke the specified Bedrock model to run inference using the input provided.
- *       Return the response in a stream.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
- *          <p>For an example request and response, see Examples (after the Errors section).</p>
+ * <p>Invoke the specified Amazon Bedrock model to run inference using the prompt and inference parameters provided in the request body. The response is returned in a stream.</p>
+ *          <p>To see if a model supports streaming, call <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html">GetFoundationModel</a>
+ *          and check the <code>responseStreamingSupported</code> field in the response.</p>
+ *          <note>
+ *             <p>The CLI doesn't support <code>InvokeModelWithResponseStream</code>.</p>
+ *          </note>
+ *          <p>For example code, see <i>Invoke model with streaming code
+ *          example</i> in the <i>Amazon Bedrock User Guide</i>.
+ *       </p>
+ *          <p>This operation requires permissions to perform the <code>bedrock:InvokeModelWithResponseStream</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +65,9 @@ export interface InvokeModelWithResponseStreamCommandOutput
  *   contentType: "STRING_VALUE",
  *   accept: "STRING_VALUE",
  *   modelId: "STRING_VALUE", // required
+ *   trace: "ENABLED" || "DISABLED",
+ *   guardrailIdentifier: "STRING_VALUE",
+ *   guardrailVersion: "STRING_VALUE",
  * };
  * const command = new InvokeModelWithResponseStreamCommand(input);
  * const response = await client.send(command);
@@ -109,7 +118,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  *  <p>The model specified in the request is not ready to serve inference requests.</p>
  *
  * @throws {@link ModelStreamErrorException} (client fault)
- *  <p>An error occurred while streaming the response.</p>
+ *  <p>An error occurred while streaming the response. Retry your request.</p>
  *
  * @throws {@link ModelTimeoutException} (client fault)
  *  <p>The request took too long to process. Processing time exceeded the model timeout length.</p>

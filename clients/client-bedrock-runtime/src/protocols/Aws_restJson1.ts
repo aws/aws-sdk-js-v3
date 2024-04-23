@@ -52,6 +52,9 @@ export const se_InvokeModelCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_ct]: input[_cT]! || "application/octet-stream",
     [_a]: input[_a]!,
+    [_xabt]: input[_t]!,
+    [_xabg]: input[_gI]!,
+    [_xabg_]: input[_gV]!,
   });
   b.bp("/model/{modelId}/invoke");
   b.p("modelId", () => input.modelId!, "{modelId}", false);
@@ -74,6 +77,9 @@ export const se_InvokeModelWithResponseStreamCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_ct]: input[_cT]! || "application/octet-stream",
     [_xaba]: input[_a]!,
+    [_xabt]: input[_t]!,
+    [_xabg]: input[_gI]!,
+    [_xabg_]: input[_gV]!,
   });
   b.bp("/model/{modelId}/invoke-with-response-stream");
   b.p("modelId", () => input.modelId!, "{modelId}", false);
@@ -491,5 +497,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
 const _a = "accept";
 const _cT = "contentType";
 const _ct = "content-type";
+const _gI = "guardrailIdentifier";
+const _gV = "guardrailVersion";
+const _t = "trace";
 const _xaba = "x-amzn-bedrock-accept";
 const _xabct = "x-amzn-bedrock-content-type";
+const _xabg = "x-amzn-bedrock-guardrailidentifier";
+const _xabg_ = "x-amzn-bedrock-guardrailversion";
+const _xabt = "x-amzn-bedrock-trace";

@@ -45,10 +45,24 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const Trace = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type Trace = (typeof Trace)[keyof typeof Trace];
+
+/**
+ * @public
  */
 export interface InvokeModelRequest {
   /**
-   * <p>Input data in the format specified in the content-type request header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+   * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
    * @public
    */
   body: Uint8Array | undefined;
@@ -61,17 +75,59 @@ export interface InvokeModelRequest {
   contentType?: string;
 
   /**
-   * <p>The desired MIME type of the inference body in the response. The default value is
-   *             <code>application/json</code>.</p>
+   * <p>The desired MIME type of the inference body in the response. The default value is <code>application/json</code>.</p>
    * @public
    */
   accept?: string;
 
   /**
-   * <p>Identifier of the model. </p>
+   * <p>The unique identifier of the model to invoke to run inference.</p>
+   *          <p>The <code>modelId</code> to provide depends on the type of model that you use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   modelId: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
+   * @public
+   */
+  trace?: Trace;
+
+  /**
+   * <p>The unique identifier of the guardrail that you want to use. If you don't provide a value, no guardrail is applied
+   *             to the invocation.</p>
+   *          <p>An error will be thrown in the following situations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>You don't provide a guardrail identifier but you specify the <code>amazon-bedrock-guardrailConfig</code> field in the request body.</p>
+   *             </li>
+   *             <li>
+   *                <p>You enable the guardrail but the <code>contentType</code> isn't <code>application/json</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>You provide a guardrail identifier, but <code>guardrailVersion</code> isn't specified.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  guardrailIdentifier?: string;
+
+  /**
+   * <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
+   * @public
+   */
+  guardrailVersion?: string;
 }
 
 /**
@@ -79,7 +135,7 @@ export interface InvokeModelRequest {
  */
 export interface InvokeModelResponse {
   /**
-   * <p>Inference response from the model in the format specified in the content-type header field. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+   * <p>Inference response from the model in the format specified in the <code>contentType</code> header. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
    * @public
    */
   body: Uint8Array | undefined;
@@ -250,8 +306,7 @@ export class ValidationException extends __BaseException {
  */
 export interface InvokeModelWithResponseStreamRequest {
   /**
-   * <p>Inference input in the format specified by the
-   *          content-type. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+   * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
    * @public
    */
   body: Uint8Array | undefined;
@@ -271,10 +326,53 @@ export interface InvokeModelWithResponseStreamRequest {
   accept?: string;
 
   /**
-   * <p>Id of the model to invoke using the streaming request.</p>
+   * <p>The unique identifier of the model to invoke to run inference.</p>
+   *          <p>The <code>modelId</code> to provide depends on the type of model that you use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you use a custom model, first purchase Provisioned Throughput for it. Then specify the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   modelId: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.</p>
+   * @public
+   */
+  trace?: Trace;
+
+  /**
+   * <p>The unique identifier of the guardrail that you want to use. If you don't provide a value, no guardrail is applied
+   *             to the invocation.</p>
+   *          <p>An error is thrown in the following situations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>You don't provide a guardrail identifier but you specify the <code>amazon-bedrock-guardrailConfig</code> field in the request body.</p>
+   *             </li>
+   *             <li>
+   *                <p>You enable the guardrail but the <code>contentType</code> isn't <code>application/json</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>You provide a guardrail identifier, but <code>guardrailVersion</code> isn't specified.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  guardrailIdentifier?: string;
+
+  /**
+   * <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
+   * @public
+   */
+  guardrailVersion?: string;
 }
 
 /**
@@ -290,7 +388,7 @@ export interface PayloadPart {
 }
 
 /**
- * <p>An error occurred while streaming the response.</p>
+ * <p>An error occurred while streaming the response. Retry your request.</p>
  * @public
  */
 export class ModelStreamErrorException extends __BaseException {
@@ -369,7 +467,7 @@ export namespace ResponseStream {
   }
 
   /**
-   * <p>An error occurred while streaming the response.</p>
+   * <p>An error occurred while streaming the response. Retry your request.</p>
    * @public
    */
   export interface ModelStreamErrorExceptionMember {
@@ -397,7 +495,7 @@ export namespace ResponseStream {
   }
 
   /**
-   * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+   * <p>The number or frequency of requests exceeds the limit. Resubmit your request later.</p>
    * @public
    */
   export interface ThrottlingExceptionMember {
@@ -465,7 +563,7 @@ export namespace ResponseStream {
  */
 export interface InvokeModelWithResponseStreamResponse {
   /**
-   * <p>Inference response from the model in the format specified by Content-Type. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+   * <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
    * @public
    */
   body: AsyncIterable<ResponseStream> | undefined;
