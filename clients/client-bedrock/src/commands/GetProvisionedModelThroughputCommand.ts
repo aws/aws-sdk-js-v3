@@ -32,7 +32,7 @@ export interface GetProvisionedModelThroughputCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Get details for a provisioned throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned throughput</a> in the Bedrock User Guide.</p>
+ * <p>Returns details for a Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +75,7 @@ export interface GetProvisionedModelThroughputCommandOutput
  *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>

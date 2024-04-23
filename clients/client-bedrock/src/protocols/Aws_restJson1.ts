@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -26,6 +31,15 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  CreateEvaluationJobCommandInput,
+  CreateEvaluationJobCommandOutput,
+} from "../commands/CreateEvaluationJobCommand";
+import { CreateGuardrailCommandInput, CreateGuardrailCommandOutput } from "../commands/CreateGuardrailCommand";
+import {
+  CreateGuardrailVersionCommandInput,
+  CreateGuardrailVersionCommandOutput,
+} from "../commands/CreateGuardrailVersionCommand";
+import {
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
 } from "../commands/CreateModelCustomizationJobCommand";
@@ -34,6 +48,7 @@ import {
   CreateProvisionedModelThroughputCommandOutput,
 } from "../commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "../commands/DeleteCustomModelCommand";
+import { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "../commands/DeleteGuardrailCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
@@ -43,7 +58,9 @@ import {
   DeleteProvisionedModelThroughputCommandOutput,
 } from "../commands/DeleteProvisionedModelThroughputCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "../commands/GetCustomModelCommand";
+import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "../commands/GetEvaluationJobCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "../commands/GetFoundationModelCommand";
+import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "../commands/GetGuardrailCommand";
 import {
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
@@ -57,10 +74,12 @@ import {
   GetProvisionedModelThroughputCommandOutput,
 } from "../commands/GetProvisionedModelThroughputCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "../commands/ListCustomModelsCommand";
+import { ListEvaluationJobsCommandInput, ListEvaluationJobsCommandOutput } from "../commands/ListEvaluationJobsCommand";
 import {
   ListFoundationModelsCommandInput,
   ListFoundationModelsCommandOutput,
 } from "../commands/ListFoundationModelsCommand";
+import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "../commands/ListGuardrailsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
@@ -77,12 +96,14 @@ import {
   PutModelInvocationLoggingConfigurationCommandInput,
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/PutModelInvocationLoggingConfigurationCommand";
+import { StopEvaluationJobCommandInput, StopEvaluationJobCommandOutput } from "../commands/StopEvaluationJobCommand";
 import {
   StopModelCustomizationJobCommandInput,
   StopModelCustomizationJobCommandOutput,
 } from "../commands/StopModelCustomizationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "../commands/UpdateGuardrailCommand";
 import {
   UpdateProvisionedModelThroughputCommandInput,
   UpdateProvisionedModelThroughputCommandOutput,
@@ -90,9 +111,33 @@ import {
 import { BedrockServiceException as __BaseException } from "../models/BedrockServiceException";
 import {
   AccessDeniedException,
+  AutomatedEvaluationConfig,
   CloudWatchConfig,
   ConflictException,
   CustomModelSummary,
+  EvaluationBedrockModel,
+  EvaluationConfig,
+  EvaluationDataset,
+  EvaluationDatasetLocation,
+  EvaluationDatasetMetricConfig,
+  EvaluationInferenceConfig,
+  EvaluationModelConfig,
+  EvaluationOutputDataConfig,
+  EvaluationSummary,
+  GuardrailContentFilterConfig,
+  GuardrailContentPolicyConfig,
+  GuardrailManagedWordsConfig,
+  GuardrailPiiEntityConfig,
+  GuardrailRegexConfig,
+  GuardrailSensitiveInformationPolicyConfig,
+  GuardrailSummary,
+  GuardrailTopicConfig,
+  GuardrailTopicPolicyConfig,
+  GuardrailWordConfig,
+  GuardrailWordPolicyConfig,
+  HumanEvaluationConfig,
+  HumanEvaluationCustomMetric,
+  HumanWorkflowConfig,
   InternalServerException,
   LoggingConfig,
   ModelCustomizationJobSummary,
@@ -112,6 +157,92 @@ import {
   ValidatorMetric,
   VpcConfig,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CreateEvaluationJobCommand
+ */
+export const se_CreateEvaluationJobCommand = async (
+  input: CreateEvaluationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/evaluation-jobs");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      customerEncryptionKeyId: [],
+      evaluationConfig: (_) => _json(_),
+      inferenceConfig: (_) => _json(_),
+      jobDescription: [],
+      jobName: [],
+      jobTags: (_) => _json(_),
+      outputDataConfig: (_) => _json(_),
+      roleArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateGuardrailCommand
+ */
+export const se_CreateGuardrailCommand = async (
+  input: CreateGuardrailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/guardrails");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      blockedInputMessaging: [],
+      blockedOutputsMessaging: [],
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      contentPolicyConfig: (_) => _json(_),
+      description: [],
+      kmsKeyId: [],
+      name: [],
+      sensitiveInformationPolicyConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+      topicPolicyConfig: (_) => _json(_),
+      wordPolicyConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateGuardrailVersionCommand
+ */
+export const se_CreateGuardrailVersionCommand = async (
+  input: CreateGuardrailVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/guardrails/{guardrailIdentifier}");
+  b.p("guardrailIdentifier", () => input.guardrailIdentifier!, "{guardrailIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateModelCustomizationJobCommand
@@ -192,6 +323,25 @@ export const se_DeleteCustomModelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteGuardrailCommand
+ */
+export const se_DeleteGuardrailCommand = async (
+  input: DeleteGuardrailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/guardrails/{guardrailIdentifier}");
+  b.p("guardrailIdentifier", () => input.guardrailIdentifier!, "{guardrailIdentifier}", false);
+  const query: any = map({
+    [_gV]: [, input[_gV]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteModelInvocationLoggingConfigurationCommand
  */
 export const se_DeleteModelInvocationLoggingConfigurationCommand = async (
@@ -242,6 +392,22 @@ export const se_GetCustomModelCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetEvaluationJobCommand
+ */
+export const se_GetEvaluationJobCommand = async (
+  input: GetEvaluationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/evaluation-jobs/{jobIdentifier}");
+  b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetFoundationModelCommand
  */
 export const se_GetFoundationModelCommand = async (
@@ -254,6 +420,25 @@ export const se_GetFoundationModelCommand = async (
   b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetGuardrailCommand
+ */
+export const se_GetGuardrailCommand = async (
+  input: GetGuardrailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/guardrails/{guardrailIdentifier}");
+  b.p("guardrailIdentifier", () => input.guardrailIdentifier!, "{guardrailIdentifier}", false);
+  const query: any = map({
+    [_gV]: [, input[_gV]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -340,6 +525,37 @@ export const se_ListCustomModelsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListEvaluationJobsCommand
+ */
+export const se_ListEvaluationJobsCommand = async (
+  input: ListEvaluationJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/evaluation-jobs");
+  const query: any = map({
+    [_cTA]: [
+      () => input.creationTimeAfter !== void 0,
+      () => (input[_cTA]!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    [_cTB]: [
+      () => input.creationTimeBefore !== void 0,
+      () => (input[_cTB]!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    [_sE]: [, input[_sE]!],
+    [_nC]: [, input[_nC]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListFoundationModelsCommand
  */
 export const se_ListFoundationModelsCommand = async (
@@ -354,6 +570,26 @@ export const se_ListFoundationModelsCommand = async (
     [_bCT]: [, input[_bCT]!],
     [_bOM]: [, input[_bOM]!],
     [_bIT]: [, input[_bIT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListGuardrailsCommand
+ */
+export const se_ListGuardrailsCommand = async (
+  input: ListGuardrailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/guardrails");
+  const query: any = map({
+    [_gI]: [, input[_gI]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -468,6 +704,22 @@ export const se_PutModelInvocationLoggingConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StopEvaluationJobCommand
+ */
+export const se_StopEvaluationJobCommand = async (
+  input: StopEvaluationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/evaluation-job/{jobIdentifier}/stop");
+  b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StopModelCustomizationJobCommand
  */
 export const se_StopModelCustomizationJobCommand = async (
@@ -530,6 +782,37 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateGuardrailCommand
+ */
+export const se_UpdateGuardrailCommand = async (
+  input: UpdateGuardrailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/guardrails/{guardrailIdentifier}");
+  b.p("guardrailIdentifier", () => input.guardrailIdentifier!, "{guardrailIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      blockedInputMessaging: [],
+      blockedOutputsMessaging: [],
+      contentPolicyConfig: (_) => _json(_),
+      description: [],
+      kmsKeyId: [],
+      name: [],
+      sensitiveInformationPolicyConfig: (_) => _json(_),
+      topicPolicyConfig: (_) => _json(_),
+      wordPolicyConfig: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateProvisionedModelThroughputCommand
  */
 export const se_UpdateProvisionedModelThroughputCommand = async (
@@ -551,6 +834,73 @@ export const se_UpdateProvisionedModelThroughputCommand = async (
   );
   b.m("PATCH").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CreateEvaluationJobCommand
+ */
+export const de_CreateEvaluationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEvaluationJobCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateGuardrailCommand
+ */
+export const de_CreateGuardrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGuardrailCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    guardrailArn: __expectString,
+    guardrailId: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateGuardrailVersionCommand
+ */
+export const de_CreateGuardrailVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGuardrailVersionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    guardrailId: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -603,6 +953,23 @@ export const de_DeleteCustomModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteGuardrailCommand
+ */
+export const de_DeleteGuardrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGuardrailCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -681,6 +1048,39 @@ export const de_GetCustomModelCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetEvaluationJobCommand
+ */
+export const de_GetEvaluationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEvaluationJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customerEncryptionKeyId: __expectString,
+    evaluationConfig: (_) => _json(__expectUnion(_)),
+    failureMessages: _json,
+    inferenceConfig: (_) => _json(__expectUnion(_)),
+    jobArn: __expectString,
+    jobDescription: __expectString,
+    jobName: __expectString,
+    jobType: __expectString,
+    lastModifiedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    outputDataConfig: _json,
+    roleArn: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetFoundationModelCommand
  */
 export const de_GetFoundationModelCommand = async (
@@ -696,6 +1096,43 @@ export const de_GetFoundationModelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     modelDetails: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetGuardrailCommand
+ */
+export const de_GetGuardrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGuardrailCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    blockedInputMessaging: __expectString,
+    blockedOutputsMessaging: __expectString,
+    contentPolicy: _json,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    failureRecommendations: _json,
+    guardrailArn: __expectString,
+    guardrailId: __expectString,
+    kmsKeyArn: __expectString,
+    name: __expectString,
+    sensitiveInformationPolicy: _json,
+    status: __expectString,
+    statusReasons: _json,
+    topicPolicy: _json,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    version: __expectString,
+    wordPolicy: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -819,6 +1256,28 @@ export const de_ListCustomModelsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListEvaluationJobsCommand
+ */
+export const de_ListEvaluationJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEvaluationJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobSummaries: (_) => de_EvaluationSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListFoundationModelsCommand
  */
 export const de_ListFoundationModelsCommand = async (
@@ -834,6 +1293,28 @@ export const de_ListFoundationModelsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     modelSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListGuardrailsCommand
+ */
+export const de_ListGuardrailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGuardrailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    guardrails: (_) => de_GuardrailSummaries(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -922,6 +1403,23 @@ export const de_PutModelInvocationLoggingConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StopEvaluationJobCommand
+ */
+export const de_StopEvaluationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopEvaluationJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StopModelCustomizationJobCommand
  */
 export const de_StopModelCustomizationJobCommand = async (
@@ -973,6 +1471,30 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateGuardrailCommand
+ */
+export const de_UpdateGuardrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGuardrailCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    guardrailArn: __expectString,
+    guardrailId: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateProvisionedModelThroughputCommand
  */
 export const de_UpdateProvisionedModelThroughputCommand = async (
@@ -1017,12 +1539,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ThrottlingException":
     case "com.amazonaws.bedrock#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.bedrock#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.bedrock#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.bedrock#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1186,7 +1708,73 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AutomatedEvaluationConfig omitted.
+
 // se_CloudWatchConfig omitted.
+
+// se_EvaluationBedrockModel omitted.
+
+// se_EvaluationConfig omitted.
+
+// se_EvaluationDataset omitted.
+
+// se_EvaluationDatasetLocation omitted.
+
+// se_EvaluationDatasetMetricConfig omitted.
+
+// se_EvaluationDatasetMetricConfigs omitted.
+
+// se_EvaluationInferenceConfig omitted.
+
+// se_EvaluationMetricNames omitted.
+
+// se_EvaluationModelConfig omitted.
+
+// se_EvaluationModelConfigs omitted.
+
+// se_EvaluationOutputDataConfig omitted.
+
+// se_GuardrailContentFilterConfig omitted.
+
+// se_GuardrailContentFiltersConfig omitted.
+
+// se_GuardrailContentPolicyConfig omitted.
+
+// se_GuardrailManagedWordListsConfig omitted.
+
+// se_GuardrailManagedWordsConfig omitted.
+
+// se_GuardrailPiiEntitiesConfig omitted.
+
+// se_GuardrailPiiEntityConfig omitted.
+
+// se_GuardrailRegexConfig omitted.
+
+// se_GuardrailRegexesConfig omitted.
+
+// se_GuardrailSensitiveInformationPolicyConfig omitted.
+
+// se_GuardrailTopicConfig omitted.
+
+// se_GuardrailTopicExamples omitted.
+
+// se_GuardrailTopicPolicyConfig omitted.
+
+// se_GuardrailTopicsConfig omitted.
+
+// se_GuardrailWordConfig omitted.
+
+// se_GuardrailWordPolicyConfig omitted.
+
+// se_GuardrailWordsConfig omitted.
+
+// se_HumanEvaluationConfig omitted.
+
+// se_HumanEvaluationCustomMetric omitted.
+
+// se_HumanEvaluationCustomMetrics omitted.
+
+// se_HumanWorkflowConfig omitted.
 
 // se_LoggingConfig omitted.
 
@@ -1216,6 +1804,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_VpcConfig omitted.
 
+// de_AutomatedEvaluationConfig omitted.
+
 // de_CloudWatchConfig omitted.
 
 /**
@@ -1244,6 +1834,61 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
   return retVal;
 };
 
+// de_ErrorMessages omitted.
+
+// de_EvaluationBedrockModel omitted.
+
+// de_EvaluationConfig omitted.
+
+// de_EvaluationDataset omitted.
+
+// de_EvaluationDatasetLocation omitted.
+
+// de_EvaluationDatasetMetricConfig omitted.
+
+// de_EvaluationDatasetMetricConfigs omitted.
+
+// de_EvaluationInferenceConfig omitted.
+
+// de_EvaluationMetricNames omitted.
+
+// de_EvaluationModelConfig omitted.
+
+// de_EvaluationModelConfigs omitted.
+
+// de_EvaluationModelIdentifiers omitted.
+
+// de_EvaluationOutputDataConfig omitted.
+
+/**
+ * deserializeAws_restJson1EvaluationSummaries
+ */
+const de_EvaluationSummaries = (output: any, context: __SerdeContext): EvaluationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationSummary
+ */
+const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationSummary => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    evaluationTaskTypes: _json,
+    jobArn: __expectString,
+    jobName: __expectString,
+    jobType: __expectString,
+    modelIdentifiers: _json,
+    status: __expectString,
+  }) as any;
+};
+
+// de_EvaluationTaskTypes omitted.
+
 // de_FoundationModelDetails omitted.
 
 // de_FoundationModelLifecycle omitted.
@@ -1251,6 +1896,80 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
 // de_FoundationModelSummary omitted.
 
 // de_FoundationModelSummaryList omitted.
+
+// de_GuardrailContentFilter omitted.
+
+// de_GuardrailContentFilters omitted.
+
+// de_GuardrailContentPolicy omitted.
+
+// de_GuardrailFailureRecommendations omitted.
+
+// de_GuardrailManagedWordLists omitted.
+
+// de_GuardrailManagedWords omitted.
+
+// de_GuardrailPiiEntities omitted.
+
+// de_GuardrailPiiEntity omitted.
+
+// de_GuardrailRegex omitted.
+
+// de_GuardrailRegexes omitted.
+
+// de_GuardrailSensitiveInformationPolicy omitted.
+
+// de_GuardrailStatusReasons omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailSummaries
+ */
+const de_GuardrailSummaries = (output: any, context: __SerdeContext): GuardrailSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GuardrailSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailSummary
+ */
+const de_GuardrailSummary = (output: any, context: __SerdeContext): GuardrailSummary => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    version: __expectString,
+  }) as any;
+};
+
+// de_GuardrailTopic omitted.
+
+// de_GuardrailTopicExamples omitted.
+
+// de_GuardrailTopicPolicy omitted.
+
+// de_GuardrailTopics omitted.
+
+// de_GuardrailWord omitted.
+
+// de_GuardrailWordPolicy omitted.
+
+// de_GuardrailWords omitted.
+
+// de_HumanEvaluationConfig omitted.
+
+// de_HumanEvaluationCustomMetric omitted.
+
+// de_HumanEvaluationCustomMetrics omitted.
+
+// de_HumanWorkflowConfig omitted.
 
 // de_InferenceTypeList omitted.
 
@@ -1403,6 +2122,8 @@ const _bP = "byProvider";
 const _cTA = "creationTimeAfter";
 const _cTB = "creationTimeBefore";
 const _fMAE = "foundationModelArnEquals";
+const _gI = "guardrailIdentifier";
+const _gV = "guardrailVersion";
 const _mAE = "modelArnEquals";
 const _mR = "maxResults";
 const _nC = "nameContains";

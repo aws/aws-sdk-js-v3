@@ -34,15 +34,13 @@ export interface CreateModelCustomizationJobCommandOutput
 /**
  * <p>Creates a fine-tuning job to customize a base model.</p>
  *          <p>You specify the base foundation model and the location of the training data.
- *          After the  model-customization job completes successfully, your custom model resource will be ready to use. Training data
- *          contains input and output text for each record in a JSONL format. Optionally, you can specify validation data
- *          in the same format as the training data. Amazon Bedrock returns validation loss metrics and output generations
- *          after the job completes.
+ *          After the  model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes.
  *       </p>
+ *          <p>For information on the format of training and validation data, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html">Prepare the datasets</a>.</p>
  *          <p>
- *        Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
- *        To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
+ *          Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
+ *          To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,7 +116,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>

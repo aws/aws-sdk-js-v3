@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript Bedrock Client for Node.js, Browser and React Native.
 
-<p>Describes the API operations for creating and managing Amazon Bedrock models.</p>
+<p>Describes the API operations for creating, managing, fine-turning, and evaluating Amazon Bedrock models.</p>
 
 ## Installing
 
@@ -205,6 +205,30 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateEvaluationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/CreateEvaluationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateEvaluationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateEvaluationJobCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateGuardrail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/CreateGuardrailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateGuardrailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateGuardrailCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateGuardrailVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/CreateGuardrailVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateGuardrailVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/CreateGuardrailVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateModelCustomizationJob
 </summary>
 
@@ -225,6 +249,14 @@ DeleteCustomModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/DeleteCustomModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/DeleteCustomModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/DeleteCustomModelCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteGuardrail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/DeleteGuardrailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/DeleteGuardrailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/DeleteGuardrailCommandOutput/)
 
 </details>
 <details>
@@ -253,10 +285,26 @@ GetCustomModel
 </details>
 <details>
 <summary>
+GetEvaluationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetEvaluationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetEvaluationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetEvaluationJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFoundationModel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetFoundationModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetFoundationModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetFoundationModelCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetGuardrail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetGuardrailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetGuardrailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/GetGuardrailCommandOutput/)
 
 </details>
 <details>
@@ -293,10 +341,26 @@ ListCustomModels
 </details>
 <details>
 <summary>
+ListEvaluationJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListEvaluationJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListEvaluationJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListEvaluationJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListFoundationModels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListFoundationModelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListFoundationModelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListFoundationModelsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListGuardrails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListGuardrailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListGuardrailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/ListGuardrailsCommandOutput/)
 
 </details>
 <details>
@@ -333,6 +397,14 @@ PutModelInvocationLoggingConfiguration
 </details>
 <details>
 <summary>
+StopEvaluationJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/StopEvaluationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/StopEvaluationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/StopEvaluationJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopModelCustomizationJob
 </summary>
 
@@ -353,6 +425,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateGuardrail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/UpdateGuardrailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/UpdateGuardrailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock/Interface/UpdateGuardrailCommandOutput/)
 
 </details>
 <details>

@@ -54,6 +54,15 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  CreateEvaluationJobCommandInput,
+  CreateEvaluationJobCommandOutput,
+} from "./commands/CreateEvaluationJobCommand";
+import { CreateGuardrailCommandInput, CreateGuardrailCommandOutput } from "./commands/CreateGuardrailCommand";
+import {
+  CreateGuardrailVersionCommandInput,
+  CreateGuardrailVersionCommandOutput,
+} from "./commands/CreateGuardrailVersionCommand";
+import {
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
@@ -62,6 +71,7 @@ import {
   CreateProvisionedModelThroughputCommandOutput,
 } from "./commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "./commands/DeleteCustomModelCommand";
+import { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "./commands/DeleteGuardrailCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
@@ -71,7 +81,9 @@ import {
   DeleteProvisionedModelThroughputCommandOutput,
 } from "./commands/DeleteProvisionedModelThroughputCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "./commands/GetCustomModelCommand";
+import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "./commands/GetEvaluationJobCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "./commands/GetFoundationModelCommand";
+import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "./commands/GetGuardrailCommand";
 import {
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
@@ -85,10 +97,12 @@ import {
   GetProvisionedModelThroughputCommandOutput,
 } from "./commands/GetProvisionedModelThroughputCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "./commands/ListCustomModelsCommand";
+import { ListEvaluationJobsCommandInput, ListEvaluationJobsCommandOutput } from "./commands/ListEvaluationJobsCommand";
 import {
   ListFoundationModelsCommandInput,
   ListFoundationModelsCommandOutput,
 } from "./commands/ListFoundationModelsCommand";
+import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "./commands/ListGuardrailsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
@@ -105,12 +119,14 @@ import {
   PutModelInvocationLoggingConfigurationCommandInput,
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
+import { StopEvaluationJobCommandInput, StopEvaluationJobCommandOutput } from "./commands/StopEvaluationJobCommand";
 import {
   StopModelCustomizationJobCommandInput,
   StopModelCustomizationJobCommandOutput,
 } from "./commands/StopModelCustomizationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "./commands/UpdateGuardrailCommand";
 import {
   UpdateProvisionedModelThroughputCommandInput,
   UpdateProvisionedModelThroughputCommandOutput,
@@ -130,50 +146,70 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateEvaluationJobCommandInput
+  | CreateGuardrailCommandInput
+  | CreateGuardrailVersionCommandInput
   | CreateModelCustomizationJobCommandInput
   | CreateProvisionedModelThroughputCommandInput
   | DeleteCustomModelCommandInput
+  | DeleteGuardrailCommandInput
   | DeleteModelInvocationLoggingConfigurationCommandInput
   | DeleteProvisionedModelThroughputCommandInput
   | GetCustomModelCommandInput
+  | GetEvaluationJobCommandInput
   | GetFoundationModelCommandInput
+  | GetGuardrailCommandInput
   | GetModelCustomizationJobCommandInput
   | GetModelInvocationLoggingConfigurationCommandInput
   | GetProvisionedModelThroughputCommandInput
   | ListCustomModelsCommandInput
+  | ListEvaluationJobsCommandInput
   | ListFoundationModelsCommandInput
+  | ListGuardrailsCommandInput
   | ListModelCustomizationJobsCommandInput
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
+  | StopEvaluationJobCommandInput
   | StopModelCustomizationJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateGuardrailCommandInput
   | UpdateProvisionedModelThroughputCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateEvaluationJobCommandOutput
+  | CreateGuardrailCommandOutput
+  | CreateGuardrailVersionCommandOutput
   | CreateModelCustomizationJobCommandOutput
   | CreateProvisionedModelThroughputCommandOutput
   | DeleteCustomModelCommandOutput
+  | DeleteGuardrailCommandOutput
   | DeleteModelInvocationLoggingConfigurationCommandOutput
   | DeleteProvisionedModelThroughputCommandOutput
   | GetCustomModelCommandOutput
+  | GetEvaluationJobCommandOutput
   | GetFoundationModelCommandOutput
+  | GetGuardrailCommandOutput
   | GetModelCustomizationJobCommandOutput
   | GetModelInvocationLoggingConfigurationCommandOutput
   | GetProvisionedModelThroughputCommandOutput
   | ListCustomModelsCommandOutput
+  | ListEvaluationJobsCommandOutput
   | ListFoundationModelsCommandOutput
+  | ListGuardrailsCommandOutput
   | ListModelCustomizationJobsCommandOutput
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
+  | StopEvaluationJobCommandOutput
   | StopModelCustomizationJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateGuardrailCommandOutput
   | UpdateProvisionedModelThroughputCommandOutput;
 
 /**
@@ -348,7 +384,7 @@ export type BedrockClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface BedrockClientResolvedConfig extends BedrockClientResolvedConfigType {}
 
 /**
- * <p>Describes the API operations for creating and managing Amazon Bedrock models.</p>
+ * <p>Describes the API operations for creating, managing, fine-turning, and evaluating Amazon Bedrock models.</p>
  * @public
  */
 export class BedrockClient extends __Client<

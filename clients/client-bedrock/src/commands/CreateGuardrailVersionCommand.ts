@@ -6,11 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteProvisionedModelThroughputRequest, DeleteProvisionedModelThroughputResponse } from "../models/models_0";
 import {
-  de_DeleteProvisionedModelThroughputCommand,
-  se_DeleteProvisionedModelThroughputCommand,
-} from "../protocols/Aws_restJson1";
+  CreateGuardrailVersionRequest,
+  CreateGuardrailVersionRequestFilterSensitiveLog,
+  CreateGuardrailVersionResponse,
+} from "../models/models_0";
+import { de_CreateGuardrailVersionCommand, se_CreateGuardrailVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -19,39 +20,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteProvisionedModelThroughputCommand}.
+ * The input for {@link CreateGuardrailVersionCommand}.
  */
-export interface DeleteProvisionedModelThroughputCommandInput extends DeleteProvisionedModelThroughputRequest {}
+export interface CreateGuardrailVersionCommandInput extends CreateGuardrailVersionRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteProvisionedModelThroughputCommand}.
+ * The output of {@link CreateGuardrailVersionCommand}.
  */
-export interface DeleteProvisionedModelThroughputCommandOutput
-  extends DeleteProvisionedModelThroughputResponse,
-    __MetadataBearer {}
+export interface CreateGuardrailVersionCommandOutput extends CreateGuardrailVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Provisioned Throughput. You can't delete a Provisioned Throughput before the commitment term is over. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Creates a version of the guardrail. Use this API to create a snapshot of the
+ *       guardrail when you are satisfied with a configuration, or to compare the configuration with another version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, DeleteProvisionedModelThroughputCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, DeleteProvisionedModelThroughputCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, CreateGuardrailVersionCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, CreateGuardrailVersionCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // DeleteProvisionedModelThroughputRequest
- *   provisionedModelId: "STRING_VALUE", // required
+ * const input = { // CreateGuardrailVersionRequest
+ *   guardrailIdentifier: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   clientRequestToken: "STRING_VALUE",
  * };
- * const command = new DeleteProvisionedModelThroughputCommand(input);
+ * const command = new CreateGuardrailVersionCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateGuardrailVersionResponse
+ * //   guardrailId: "STRING_VALUE", // required
+ * //   version: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param DeleteProvisionedModelThroughputCommandInput - {@link DeleteProvisionedModelThroughputCommandInput}
- * @returns {@link DeleteProvisionedModelThroughputCommandOutput}
- * @see {@link DeleteProvisionedModelThroughputCommandInput} for command's `input` shape.
- * @see {@link DeleteProvisionedModelThroughputCommandOutput} for command's `response` shape.
+ * @param CreateGuardrailVersionCommandInput - {@link CreateGuardrailVersionCommandInput}
+ * @returns {@link CreateGuardrailVersionCommandOutput}
+ * @see {@link CreateGuardrailVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateGuardrailVersionCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -66,6 +71,9 @@ export interface DeleteProvisionedModelThroughputCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
@@ -77,10 +85,10 @@ export interface DeleteProvisionedModelThroughputCommandOutput
  *
  * @public
  */
-export class DeleteProvisionedModelThroughputCommand extends $Command
+export class CreateGuardrailVersionCommand extends $Command
   .classBuilder<
-    DeleteProvisionedModelThroughputCommandInput,
-    DeleteProvisionedModelThroughputCommandOutput,
+    CreateGuardrailVersionCommandInput,
+    CreateGuardrailVersionCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,9 +102,9 @@ export class DeleteProvisionedModelThroughputCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "DeleteProvisionedModelThroughput", {})
-  .n("BedrockClient", "DeleteProvisionedModelThroughputCommand")
-  .f(void 0, void 0)
-  .ser(se_DeleteProvisionedModelThroughputCommand)
-  .de(de_DeleteProvisionedModelThroughputCommand)
+  .s("AmazonBedrockControlPlaneService", "CreateGuardrailVersion", {})
+  .n("BedrockClient", "CreateGuardrailVersionCommand")
+  .f(CreateGuardrailVersionRequestFilterSensitiveLog, void 0)
+  .ser(se_CreateGuardrailVersionCommand)
+  .de(de_CreateGuardrailVersionCommand)
   .build() {}

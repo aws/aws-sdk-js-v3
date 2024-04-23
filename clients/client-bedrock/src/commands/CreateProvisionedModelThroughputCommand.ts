@@ -32,8 +32,7 @@ export interface CreateProvisionedModelThroughputCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a provisioned throughput with dedicated capacity for a foundation model or a fine-tuned model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned throughput</a> in the Bedrock User Guide.</p>
+ * <p>Creates dedicated throughput for a base or custom model with the model units and for the duration that you specify. For pricing details, see <a href="http://aws.amazon.com/bedrock/pricing/">Amazon Bedrock Pricing</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,7 +73,7 @@ export interface CreateProvisionedModelThroughputCommandOutput
  *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Describes the API operations for creating and managing Amazon Bedrock models.</p>
+ * <p>Describes the API operations for creating, managing, fine-turning, and evaluating Amazon Bedrock models.</p>
  *
  * @packageDocumentation
  */

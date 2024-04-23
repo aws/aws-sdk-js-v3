@@ -4,6 +4,21 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BedrockClient, BedrockClientConfig } from "./BedrockClient";
 import {
+  CreateEvaluationJobCommand,
+  CreateEvaluationJobCommandInput,
+  CreateEvaluationJobCommandOutput,
+} from "./commands/CreateEvaluationJobCommand";
+import {
+  CreateGuardrailCommand,
+  CreateGuardrailCommandInput,
+  CreateGuardrailCommandOutput,
+} from "./commands/CreateGuardrailCommand";
+import {
+  CreateGuardrailVersionCommand,
+  CreateGuardrailVersionCommandInput,
+  CreateGuardrailVersionCommandOutput,
+} from "./commands/CreateGuardrailVersionCommand";
+import {
   CreateModelCustomizationJobCommand,
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
@@ -18,6 +33,11 @@ import {
   DeleteCustomModelCommandInput,
   DeleteCustomModelCommandOutput,
 } from "./commands/DeleteCustomModelCommand";
+import {
+  DeleteGuardrailCommand,
+  DeleteGuardrailCommandInput,
+  DeleteGuardrailCommandOutput,
+} from "./commands/DeleteGuardrailCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommand,
   DeleteModelInvocationLoggingConfigurationCommandInput,
@@ -34,10 +54,20 @@ import {
   GetCustomModelCommandOutput,
 } from "./commands/GetCustomModelCommand";
 import {
+  GetEvaluationJobCommand,
+  GetEvaluationJobCommandInput,
+  GetEvaluationJobCommandOutput,
+} from "./commands/GetEvaluationJobCommand";
+import {
   GetFoundationModelCommand,
   GetFoundationModelCommandInput,
   GetFoundationModelCommandOutput,
 } from "./commands/GetFoundationModelCommand";
+import {
+  GetGuardrailCommand,
+  GetGuardrailCommandInput,
+  GetGuardrailCommandOutput,
+} from "./commands/GetGuardrailCommand";
 import {
   GetModelCustomizationJobCommand,
   GetModelCustomizationJobCommandInput,
@@ -59,10 +89,20 @@ import {
   ListCustomModelsCommandOutput,
 } from "./commands/ListCustomModelsCommand";
 import {
+  ListEvaluationJobsCommand,
+  ListEvaluationJobsCommandInput,
+  ListEvaluationJobsCommandOutput,
+} from "./commands/ListEvaluationJobsCommand";
+import {
   ListFoundationModelsCommand,
   ListFoundationModelsCommandInput,
   ListFoundationModelsCommandOutput,
 } from "./commands/ListFoundationModelsCommand";
+import {
+  ListGuardrailsCommand,
+  ListGuardrailsCommandInput,
+  ListGuardrailsCommandOutput,
+} from "./commands/ListGuardrailsCommand";
 import {
   ListModelCustomizationJobsCommand,
   ListModelCustomizationJobsCommandInput,
@@ -84,6 +124,11 @@ import {
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
 import {
+  StopEvaluationJobCommand,
+  StopEvaluationJobCommandInput,
+  StopEvaluationJobCommandOutput,
+} from "./commands/StopEvaluationJobCommand";
+import {
   StopModelCustomizationJobCommand,
   StopModelCustomizationJobCommandInput,
   StopModelCustomizationJobCommandOutput,
@@ -95,35 +140,98 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateGuardrailCommand,
+  UpdateGuardrailCommandInput,
+  UpdateGuardrailCommandOutput,
+} from "./commands/UpdateGuardrailCommand";
+import {
   UpdateProvisionedModelThroughputCommand,
   UpdateProvisionedModelThroughputCommandInput,
   UpdateProvisionedModelThroughputCommandOutput,
 } from "./commands/UpdateProvisionedModelThroughputCommand";
 
 const commands = {
+  CreateEvaluationJobCommand,
+  CreateGuardrailCommand,
+  CreateGuardrailVersionCommand,
   CreateModelCustomizationJobCommand,
   CreateProvisionedModelThroughputCommand,
   DeleteCustomModelCommand,
+  DeleteGuardrailCommand,
   DeleteModelInvocationLoggingConfigurationCommand,
   DeleteProvisionedModelThroughputCommand,
   GetCustomModelCommand,
+  GetEvaluationJobCommand,
   GetFoundationModelCommand,
+  GetGuardrailCommand,
   GetModelCustomizationJobCommand,
   GetModelInvocationLoggingConfigurationCommand,
   GetProvisionedModelThroughputCommand,
   ListCustomModelsCommand,
+  ListEvaluationJobsCommand,
   ListFoundationModelsCommand,
+  ListGuardrailsCommand,
   ListModelCustomizationJobsCommand,
   ListProvisionedModelThroughputsCommand,
   ListTagsForResourceCommand,
   PutModelInvocationLoggingConfigurationCommand,
+  StopEvaluationJobCommand,
   StopModelCustomizationJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateGuardrailCommand,
   UpdateProvisionedModelThroughputCommand,
 };
 
 export interface Bedrock {
+  /**
+   * @see {@link CreateEvaluationJobCommand}
+   */
+  createEvaluationJob(
+    args: CreateEvaluationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEvaluationJobCommandOutput>;
+  createEvaluationJob(
+    args: CreateEvaluationJobCommandInput,
+    cb: (err: any, data?: CreateEvaluationJobCommandOutput) => void
+  ): void;
+  createEvaluationJob(
+    args: CreateEvaluationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEvaluationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGuardrailCommand}
+   */
+  createGuardrail(
+    args: CreateGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGuardrailCommandOutput>;
+  createGuardrail(args: CreateGuardrailCommandInput, cb: (err: any, data?: CreateGuardrailCommandOutput) => void): void;
+  createGuardrail(
+    args: CreateGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGuardrailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGuardrailVersionCommand}
+   */
+  createGuardrailVersion(
+    args: CreateGuardrailVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGuardrailVersionCommandOutput>;
+  createGuardrailVersion(
+    args: CreateGuardrailVersionCommandInput,
+    cb: (err: any, data?: CreateGuardrailVersionCommandOutput) => void
+  ): void;
+  createGuardrailVersion(
+    args: CreateGuardrailVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGuardrailVersionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateModelCustomizationJobCommand}
    */
@@ -176,6 +284,20 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link DeleteGuardrailCommand}
+   */
+  deleteGuardrail(
+    args: DeleteGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGuardrailCommandOutput>;
+  deleteGuardrail(args: DeleteGuardrailCommandInput, cb: (err: any, data?: DeleteGuardrailCommandOutput) => void): void;
+  deleteGuardrail(
+    args: DeleteGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGuardrailCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteModelInvocationLoggingConfigurationCommand}
    */
   deleteModelInvocationLoggingConfiguration(): Promise<DeleteModelInvocationLoggingConfigurationCommandOutput>;
@@ -225,6 +347,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetEvaluationJobCommand}
+   */
+  getEvaluationJob(
+    args: GetEvaluationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEvaluationJobCommandOutput>;
+  getEvaluationJob(
+    args: GetEvaluationJobCommandInput,
+    cb: (err: any, data?: GetEvaluationJobCommandOutput) => void
+  ): void;
+  getEvaluationJob(
+    args: GetEvaluationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEvaluationJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFoundationModelCommand}
    */
   getFoundationModel(
@@ -239,6 +378,17 @@ export interface Bedrock {
     args: GetFoundationModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFoundationModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGuardrailCommand}
+   */
+  getGuardrail(args: GetGuardrailCommandInput, options?: __HttpHandlerOptions): Promise<GetGuardrailCommandOutput>;
+  getGuardrail(args: GetGuardrailCommandInput, cb: (err: any, data?: GetGuardrailCommandOutput) => void): void;
+  getGuardrail(
+    args: GetGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGuardrailCommandOutput) => void
   ): void;
 
   /**
@@ -312,6 +462,24 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link ListEvaluationJobsCommand}
+   */
+  listEvaluationJobs(): Promise<ListEvaluationJobsCommandOutput>;
+  listEvaluationJobs(
+    args: ListEvaluationJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEvaluationJobsCommandOutput>;
+  listEvaluationJobs(
+    args: ListEvaluationJobsCommandInput,
+    cb: (err: any, data?: ListEvaluationJobsCommandOutput) => void
+  ): void;
+  listEvaluationJobs(
+    args: ListEvaluationJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEvaluationJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListFoundationModelsCommand}
    */
   listFoundationModels(): Promise<ListFoundationModelsCommandOutput>;
@@ -327,6 +495,21 @@ export interface Bedrock {
     args: ListFoundationModelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFoundationModelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGuardrailsCommand}
+   */
+  listGuardrails(): Promise<ListGuardrailsCommandOutput>;
+  listGuardrails(
+    args: ListGuardrailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGuardrailsCommandOutput>;
+  listGuardrails(args: ListGuardrailsCommandInput, cb: (err: any, data?: ListGuardrailsCommandOutput) => void): void;
+  listGuardrails(
+    args: ListGuardrailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGuardrailsCommandOutput) => void
   ): void;
 
   /**
@@ -400,6 +583,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link StopEvaluationJobCommand}
+   */
+  stopEvaluationJob(
+    args: StopEvaluationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopEvaluationJobCommandOutput>;
+  stopEvaluationJob(
+    args: StopEvaluationJobCommandInput,
+    cb: (err: any, data?: StopEvaluationJobCommandOutput) => void
+  ): void;
+  stopEvaluationJob(
+    args: StopEvaluationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopEvaluationJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopModelCustomizationJobCommand}
    */
   stopModelCustomizationJob(
@@ -439,6 +639,20 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link UpdateGuardrailCommand}
+   */
+  updateGuardrail(
+    args: UpdateGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGuardrailCommandOutput>;
+  updateGuardrail(args: UpdateGuardrailCommandInput, cb: (err: any, data?: UpdateGuardrailCommandOutput) => void): void;
+  updateGuardrail(
+    args: UpdateGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGuardrailCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateProvisionedModelThroughputCommand}
    */
   updateProvisionedModelThroughput(
@@ -457,7 +671,7 @@ export interface Bedrock {
 }
 
 /**
- * <p>Describes the API operations for creating and managing Amazon Bedrock models.</p>
+ * <p>Describes the API operations for creating, managing, fine-turning, and evaluating Amazon Bedrock models.</p>
  * @public
  */
 export class Bedrock extends BedrockClient implements Bedrock {}

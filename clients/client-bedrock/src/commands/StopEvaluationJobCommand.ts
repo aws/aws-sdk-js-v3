@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import {
+  StopEvaluationJobRequest,
+  StopEvaluationJobRequestFilterSensitiveLog,
+  StopEvaluationJobResponse,
+} from "../models/models_0";
+import { de_StopEvaluationJobCommand, se_StopEvaluationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,49 +20,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link StopEvaluationJobCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface StopEvaluationJobCommandInput extends StopEvaluationJobRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link StopEvaluationJobCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface StopEvaluationJobCommandOutput extends StopEvaluationJobResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags associated with the specified resource.</p>
- *          <p>For more information, see  <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Stops an in progress model evaluation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, ListTagsForResourceCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, ListTagsForResourceCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, StopEvaluationJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, StopEvaluationJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceARN: "STRING_VALUE", // required
+ * const input = { // StopEvaluationJobRequest
+ *   jobIdentifier: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new StopEvaluationJobCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: [ // TagList
- * //     { // Tag
- * //       key: "STRING_VALUE", // required
- * //       value: "STRING_VALUE", // required
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param StopEvaluationJobCommandInput - {@link StopEvaluationJobCommandInput}
+ * @returns {@link StopEvaluationJobCommandOutput}
+ * @see {@link StopEvaluationJobCommandInput} for command's `input` shape.
+ * @see {@link StopEvaluationJobCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Error occurred because of a conflict while performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
@@ -77,10 +76,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class StopEvaluationJobCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    StopEvaluationJobCommandInput,
+    StopEvaluationJobCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,9 +93,9 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "ListTagsForResource", {})
-  .n("BedrockClient", "ListTagsForResourceCommand")
-  .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .s("AmazonBedrockControlPlaneService", "StopEvaluationJob", {})
+  .n("BedrockClient", "StopEvaluationJobCommand")
+  .f(StopEvaluationJobRequestFilterSensitiveLog, void 0)
+  .ser(se_StopEvaluationJobCommand)
+  .de(de_StopEvaluationJobCommand)
   .build() {}

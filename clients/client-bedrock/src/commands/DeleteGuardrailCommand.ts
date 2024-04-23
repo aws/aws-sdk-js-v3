@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { DeleteGuardrailRequest, DeleteGuardrailResponse } from "../models/models_0";
+import { de_DeleteGuardrailCommand, se_DeleteGuardrailCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,49 +16,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link DeleteGuardrailCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface DeleteGuardrailCommandInput extends DeleteGuardrailRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link DeleteGuardrailCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface DeleteGuardrailCommandOutput extends DeleteGuardrailResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags associated with the specified resource.</p>
- *          <p>For more information, see  <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Deletes a guardrail.</p>
+ *          <ul>
+ *             <li>
+ *                <p>To delete a guardrail, only specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field. If you delete a guardrail, all of its versions will be deleted.</p>
+ *             </li>
+ *             <li>
+ *                <p>To delete a version of a guardrail, specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field and the version in the <code>guardrailVersion</code> field.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, ListTagsForResourceCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, ListTagsForResourceCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, DeleteGuardrailCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, DeleteGuardrailCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceARN: "STRING_VALUE", // required
+ * const input = { // DeleteGuardrailRequest
+ *   guardrailIdentifier: "STRING_VALUE", // required
+ *   guardrailVersion: "STRING_VALUE",
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new DeleteGuardrailCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: [ // TagList
- * //     { // Tag
- * //       key: "STRING_VALUE", // required
- * //       value: "STRING_VALUE", // required
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param DeleteGuardrailCommandInput - {@link DeleteGuardrailCommandInput}
+ * @returns {@link DeleteGuardrailCommandOutput}
+ * @see {@link DeleteGuardrailCommandInput} for command's `input` shape.
+ * @see {@link DeleteGuardrailCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Error occurred because of a conflict while performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
@@ -77,10 +81,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class DeleteGuardrailCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    DeleteGuardrailCommandInput,
+    DeleteGuardrailCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,9 +98,9 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "ListTagsForResource", {})
-  .n("BedrockClient", "ListTagsForResourceCommand")
+  .s("AmazonBedrockControlPlaneService", "DeleteGuardrail", {})
+  .n("BedrockClient", "DeleteGuardrailCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_DeleteGuardrailCommand)
+  .de(de_DeleteGuardrailCommand)
   .build() {}
