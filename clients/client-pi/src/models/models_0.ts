@@ -1244,8 +1244,11 @@ export interface GetResourceMetadataResponse {
 }
 
 /**
- * <p>A single query to be processed. You must provide the metric to query. If no other
- *       parameters are specified, Performance Insights returns all data points for the specified metric. Optionally, you can
+ * <p>A single query to be processed. You must provide the metric to query and append an aggregate function to the metric.
+ *             For example, to find the average for the metric <code>db.load</code>
+ *             you must use <code>db.load.avg</code>. Valid values for aggregate functions include <code>.avg</code>, <code>.min</code>,
+ *             <code>.max</code>, and <code>.sum</code>.
+ *             If no other parameters are specified, Performance Insights returns all data points for the specified metric. Optionally, you can
  *       request that the data points be aggregated by dimension group (<code>GroupBy</code>), and return only
  *           those data points that match your criteria (<code>Filter</code>).</p>
  * @public
@@ -1267,6 +1270,10 @@ export interface MetricQuery {
    *             <li>
    *                <p>The counter metrics listed in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS">Performance Insights
    *                         operating system counters</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The counter metrics listed in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS">Performance Insights
+   *                     operating system counters</a> in the <i>Amazon RDS User Guide</i>.</p>
    *             </li>
    *          </ul>
    *          <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and <code>db.sampledload.avg</code> are the same
@@ -1348,8 +1355,10 @@ export interface GetResourceMetricsRequest {
   Identifier: string | undefined;
 
   /**
-   * <p>An array of one or more queries to perform. Each query must specify a Performance Insights metric, and can optionally specify aggregation and filtering
-   *             criteria.</p>
+   * <p>An array of one or more queries to perform. Each query must specify a Performance Insights metric and specify an aggregate function, and you can provide filtering
+   *             criteria. You must append the aggregate function to the metric. For example, to find the average for the metric <code>db.load</code>
+   *             you must use <code>db.load.avg</code>. Valid values for aggregate functions include <code>.avg</code>, <code>.min</code>,
+   *             <code>.max</code>, and <code>.sum</code>.</p>
    * @public
    */
   MetricQueries: MetricQuery[] | undefined;
@@ -1446,6 +1455,10 @@ export interface ResponseResourceMetricKey {
    *             <li>
    *                <p>The counter metrics listed in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS">Performance Insights
    *                         operating system counters</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The counter metrics listed in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS">Performance Insights
+   *                     operating system counters</a> in the <i>Amazon RDS User Guide</i>.</p>
    *             </li>
    *          </ul>
    *          <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and
