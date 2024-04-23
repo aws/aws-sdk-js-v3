@@ -145,6 +145,7 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * //   Metadata: { // ReservationPurchaseRecommendationMetadata
  * //     RecommendationId: "STRING_VALUE",
  * //     GenerationTimestamp: "STRING_VALUE",
+ * //     AdditionalMetadata: "STRING_VALUE",
  * //   },
  * //   Recommendations: [ // ReservationPurchaseRecommendations
  * //     { // ReservationPurchaseRecommendation

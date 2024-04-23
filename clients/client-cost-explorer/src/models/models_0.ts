@@ -2053,21 +2053,28 @@ export const TermInYears = {
 export type TermInYears = (typeof TermInYears)[keyof typeof TermInYears];
 
 /**
- * <p>Information about this specific recommendation, such as the timestamp for when Amazon Web Services made a specific recommendation.</p>
+ * <p>Information about a recommendation, such as the timestamp for when Amazon Web Services
+ *             made a specific recommendation.</p>
  * @public
  */
 export interface ReservationPurchaseRecommendationMetadata {
   /**
-   * <p>The ID for this specific recommendation.</p>
+   * <p>The ID for the recommendation.</p>
    * @public
    */
   RecommendationId?: string;
 
   /**
-   * <p>The timestamp for when Amazon Web Services made this recommendation.</p>
+   * <p>The timestamp for when Amazon Web Services made the recommendation.</p>
    * @public
    */
   GenerationTimestamp?: string;
+
+  /**
+   * <p>Additional metadata that might be applicable to the recommendation.</p>
+   * @public
+   */
+  AdditionalMetadata?: string;
 }
 
 /**
@@ -2874,25 +2881,25 @@ export interface RightsizingRecommendationConfiguration {
 }
 
 /**
- * <p>Metadata for this recommendation set.</p>
+ * <p>Metadata for a recommendation set.</p>
  * @public
  */
 export interface RightsizingRecommendationMetadata {
   /**
-   * <p>The ID for this specific recommendation.</p>
+   * <p>The ID for the recommendation.</p>
    * @public
    */
   RecommendationId?: string;
 
   /**
-   * <p>The timestamp for when Amazon Web Services made this recommendation.</p>
+   * <p>The timestamp for when Amazon Web Services made the recommendation.</p>
    * @public
    */
   GenerationTimestamp?: string;
 
   /**
-   * <p>The number of days of previous usage that Amazon Web Services considers when making
-   *             this recommendation.</p>
+   * <p>The number of days of previous usage that Amazon Web Services considers when making the
+   *             recommendation.</p>
    * @public
    */
   LookbackPeriodInDays?: LookbackPeriodInDays;
